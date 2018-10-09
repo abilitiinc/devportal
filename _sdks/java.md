@@ -1,5 +1,5 @@
 ---
-title: Javascript SDK
+title: Java SDK
 position: 1
 exclude: true
 ---
