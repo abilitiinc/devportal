@@ -77,7 +77,6 @@
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.get_witness_schedule", "id":1}'
   - api_method: database_api.list_account_recovery_requests
-    since: HF11
     purpose: Returns a list of account recovery requests.
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"requests":[]}'
@@ -86,12 +85,10 @@
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"accounts":[]}'
   - api_method: database_api.list_change_recovery_account_requests
-    since: HF11
     purpose: Returns a list of recovery account change requests.
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"requests":[]}'
   - api_method: database_api.list_escrows
-    since: HF14
     purpose: Returns a list of escrows.
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"escrows":[]}'
@@ -113,7 +110,7 @@
     parameter_json: '{"account":"","signers":[]}'
     expected_response_json: '{"valid":false}'
     curl_examples:
-    - '{"jsonrpc":"2.0", "method":"database_api.verify_account_authority", "params":{"account":"steemit","signers":["STM7Q2rLBqzPzFeteQZewv9Lu3NLE69fZoLeL6YK59t7UmssCBNTU"]},
+    - '{"jsonrpc":"2.0", "method":"database_api.verify_account_authority", "params":{"account":"initminer","signers":["STM7Q2rLBqzPzFeteQZewv9Lu3NLE69fZoLeL6YK59t7UmssCBNTU"]},
       "id":1}'
     expected_curl_responses:
     - Missing Active Authority steemit
@@ -146,7 +143,6 @@
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"applications":[]}'
   - api_method: database_api.find_account_recovery_requests
-    since: HF11
     purpose: Returns a list of account recovery requests.
     parameter_json: '{"accounts":[]}'
     expected_response_json: '{"requests":[]}'

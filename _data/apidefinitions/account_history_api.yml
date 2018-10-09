@@ -10,9 +10,9 @@
     parameter_json: '{"account":"","start":-1,"limit":1000,"reverse_order":false}'
     expected_response_json: '{"history":[]}'
     curl_examples:
-    - '{"jsonrpc":"2.0", "method":"account_history_api.get_account_history", "params":{"account":"steemit",
+    - '{"jsonrpc":"2.0", "method":"account_history_api.get_account_history", "params":{"account":"initminer",
       "start":1000, "limit":1000}, "id":1}'
-    - '{"jsonrpc":"2.0", "method":"account_history_api.get_account_history", "params":{"account":"steemit",
+    - '{"jsonrpc":"2.0", "method":"account_history_api.get_account_history", "params":{"account":"initminer",
       "start":-1, "limit":10000}, "id":1}'
     expected_curl_responses:
     - Could not find API account_history_api
