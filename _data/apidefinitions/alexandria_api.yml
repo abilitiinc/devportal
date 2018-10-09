@@ -14,8 +14,8 @@
     expected_response_json: '{"account_exist":false}'
   - api_method: alexandria_api.add_fee
     purpose: 
-    parameter_json: '{"op":["transfer",{"fee":"0.000000 SPHTX","from":"","to":"","amount":"0.000000
-      SPHTX","memo":""}],"fee":"0.000000 SPHTX"}'
+    parameter_json: '{"op": ["transfer", {"fee": "0.000000 SPHTX", "from": "", "to": "", "amount": "0.000000
+      SPHTX", "memo": ""}], "fee": "0.000000 SPHTX"}'
     expected_response_json: '{"op":["transfer",{"fee":"0.000000 SPHTX","from":"","to":"","amount":"0.000000
       SPHTX","memo":""}]}'
   - api_method: alexandria_api.add_signature
