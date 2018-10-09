@@ -1,0 +1,35 @@
+toc:
+  - title: "Introduction"
+    collection: "introduction"
+    url: "/"
+    position: 1
+  - title: "Quickstart"
+    collection: "quickstart"
+    url: "/quickstart/"
+    position: 2
+    exclude: true
+  - title: "Tutorials"
+    collection: "tutorials"
+    url: "/tutorials/"
+    position: 3
+    exclude: true
+  - title: "SDK'S"
+    collection: "sdks"
+    url: "/sdks/"
+    position: 4
+    exclude: true
+  - title: "Appbase API"
+    collection: apidefinitions    
+    url: "/apidefinitions/"
+    exclude: true
+    position: 5
+  - title: "Community"
+    collection: "community"
+    url: "/community/"
+    exclude: true
+    position: 6
+  - title: "Glossary"
+    collection: "glossary"
+    url: "/glossary/"
+    position: 7
+    exclude: true

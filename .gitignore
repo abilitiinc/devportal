@@ -1,0 +1,7 @@
+/docs/
+_site/
+.sass-cache/
+.idea
+vendor
+node_modules/
+.DS_Store

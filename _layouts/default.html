@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cousine|Inconsolata" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/css/fontawesome-all.min.css">
+    <script src="/js/main.js"></script>
+
+    {% seo %}
+</head>
+<body>
+<header>
+    <h1>
+        <button type="button" class="open-nav" id="open-nav"></button>
+        <a href="/"  class="logo-link"><img src="/images/logo.svg" height="40" alt="{{ site.title }} logo"></a>
+    </h1>
+
+    <form action="/search/" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search">
+        <input type="submit" value="Search" style="display: none;">
+    </form>
+
+    {% include sidebar.html %}
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+</header>
+<div class="main" id="top">
+    <div class="hero">
+        <h1 class="hero__h1">SophiaTX Developer Portal {% if page.section %} - {{ page.section }}{% endif %}</h1>
+        <!--<img class="hero__img" src="/images/hero.png">-->
+    </div>
+    {{ content }}
+</div>
+<div class="footer">
+    <a href="#">Back to top</a>
+</div>
+<script>
+    document.getElementById("open-nav").addEventListener("click", function () {
+        document.body.classList.toggle("nav-open");
+    });
+</script>
+</body>
+</html>
+
+<script src="/js/adjust.js"></script>

@@ -1,0 +1,72 @@
+# ----
+# Site
+
+title: SophiaTX Developer
+description: SpphiaTX Developer Documentation.
+url: https://developers.sophiatx.com
+google_analytics_key:
+permalink: /:categories/:title.html
+
+collections:
+  introduction:
+    title: Introduction
+    id: introduction
+    position: 1
+    output: true
+  quickstart:
+    title: Quickstart
+    id: quickstart
+    position: 3
+    output: true
+  tutorials:
+    title: Tutorials
+    id: tutorials
+    position: 5
+    output: true
+  sdks:
+    title: SDKS
+    id: sdks
+    position: 6
+    output: true
+  community:
+    title: Community
+    id: community
+    position: 7
+    output: true
+  glossary:
+    title: Glossary
+    id: glossary
+    position: 8
+    output: true
+  apidefinitions:
+    title: API Definitions
+    id: apidefinitions
+    position: 12
+    output: true
+
+
+gems:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - readme.md
+  - LICENCE
+  - vendor
+  - Makefile
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
+
+types:
+  - get
+  - put
+  - delete
+  - post
+
+kramdown:
+  auto_ids: true

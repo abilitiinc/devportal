@@ -1,0 +1,81 @@
+- name: Chain Basics
+  id: glossary-chain-basics
+  items:
+    - term: Blockchain
+      def: Decentralized ledger and consensus protocol
+    - term: SophiaTX
+      def: Name of the blockchain and platform
+    - term: Bandwidth
+      def: is the limit of data each account can send/use
+    - term: SPHTX
+      def: Currency of the blockchain=
+    - term: Transaction
+      def: Operations/Activity/Write requests to the blockchain
+    - term: Block
+      def: Bundle of transactions to be included in blockchain
+    - term: Block Header
+      def: Information about block, root and witness who signed, etc.
+    - term: Price feed 
+      def: Feed that is maintained by witnesses to ensure USD/SPHTX price stability
+    - term: Account 
+      def: User account on SophiaTX blockchain
+    - term: Authority
+      def: Each Account has multiple authority and keys to manager different permissions on the platform
+    - term: Owner
+      def: Owner authority/permission of account
+    - term: Public Key
+      def: Public key of account's certain authority
+    - term: Private Key
+      def: Private key to sign a transaction with account's authority, should be kept secret because it grants access to account
+    - term: Wif
+      def: Wallet Import Format/Private key, should be kept secret because it grants access to account
+    - term: Active key
+      def: The active key is used to make transfers and place orders in the internal market
+    - term: Posting key
+      def: The posting key is used for posting and voting
+    - term: Owner key
+      def: The owner key is the master key for the account and is required to change the other keys
+    - term: Vote
+      def: Voting a content
+    - term: Reputation
+      def: Account's reputation on platform
+    - term: Markdown language
+      def: Easy to read and write, plain text format language
+    - term: Permlink
+      def: Unique identifier of every comment or post of an author, within the context of that author. ('@author/permlink' combos are globally unique)
+    - term: Mainnet
+      def: The 'production' SophiaTX blockchain network wherein real SPHTX is held and actual transactions take place.
+    - term: Delegation
+      def: The assignment of a portion your SPHTX for use to another account (cannot be spent, can be reclaimed)
+      
+- name: Governance
+  id: glossary-governance
+  items:
+    - term: DPOS
+      def: Delegated Proof of Stake
+    - term: Node
+      def: Servers running blockchain software
+    - term: Witness
+      def: Witness is a position/role for the people who are chosen by community (delegate trust) to support platform and run consensus protocol to ensure security and validity of transactions/blocks on the blockchain
+    - term: Hardfork
+      def: Process to release protocol/blockchain consensus upgrades
+    - term: Softfork
+      def: Process to release protocol/blockchain software improvements
+    - term: Witness Vote
+      def: Voting/electing witnesses with account's stake
+
+- name: Transactions
+  id: glossary-transactions
+  items:
+    - term: Transaction
+      def: Operations submitted to the blockchain
+    - term: Pending Transaction
+      def: Transaction that is pending and to be included to the blockchain
+    - term: Transaction Hex
+      def: Hash of the transaction
+    - term: Signatures
+      def: Transaction signature signed by account with private key
+    - term: Broadcast Transaction
+      def: Event where signed transaction is broadcasted to the network, so that witnesses could validate and include in block
+    - term: Virtual operation
+      def: Operations that are derived from blockchain activity, but aren't actually stored as operations themselves (ex. curation and author rewards). They happen based on consensus from the blockchain based on other normal operations
