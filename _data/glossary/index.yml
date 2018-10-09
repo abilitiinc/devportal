@@ -31,22 +31,12 @@
       def: Wallet Import Format/Private key, should be kept secret because it grants access to account
     - term: Active key
       def: The active key is used to make transfers and place orders in the internal market
-    - term: Posting key
-      def: The posting key is used for posting and voting
     - term: Owner key
       def: The owner key is the master key for the account and is required to change the other keys
     - term: Vote
       def: Voting a content
-    - term: Reputation
-      def: Account's reputation on platform
-    - term: Markdown language
-      def: Easy to read and write, plain text format language
-    - term: Permlink
-      def: Unique identifier of every comment or post of an author, within the context of that author. ('@author/permlink' combos are globally unique)
     - term: Mainnet
       def: The 'production' SophiaTX blockchain network wherein real SPHTX is held and actual transactions take place.
-    - term: Delegation
-      def: The assignment of a portion your SPHTX for use to another account (cannot be spent, can be reclaimed)
       
 - name: Governance
   id: glossary-governance
