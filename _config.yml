@@ -70,3 +70,5 @@ types:
 
 kramdown:
   auto_ids: true
+  
+plugins_dir: ./_plugins
