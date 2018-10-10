@@ -63,6 +63,8 @@
       def: Transaction that is pending and to be included to the blockchain
     - term: Transaction Hex
       def: Hash of the transaction
+    - term: Digest
+      def: Hash (sha256) of the transaction used for signing
     - term: Signatures
       def: Transaction signature signed by account with private key
     - term: Broadcast Transaction
