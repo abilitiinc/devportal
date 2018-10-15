@@ -1,9 +1,9 @@
----
-layout: null
-sitemap: false
----
+--- 
+layout: null 
+sitemap: false 
+--- 
 
-$brand-colour: #4BA2F2;
+$brand-colour: #00A690;
 
 $nav-header-height: 100px;
 $nav-background-color: #f5f5f5;
@@ -17,10 +17,22 @@ $mobile-break: 700px;
 @import "main";
 @import "borland";
 @import "monaki";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Barlow:300,400');
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+h3 {
+  font-family: Barlow, sans-serif;
+}
+
+
 
 .highlight {
   padding: 5px;
-  background: #23323E;
+  background: #111923;
 }
 
 pre {
@@ -30,8 +42,13 @@ pre {
 .row {
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 24px 50px;
+}
+
+@media (max-width: 700px) {
+  .row {
+    padding: 24px 24px;
+  }
 }
 
 .right-code {
@@ -40,6 +57,7 @@ pre {
 
 .left-docs {
   border-top: 1px solid #eeeeee;
+
   h3:first-child {
     padding-top: 40px;
   }
@@ -49,13 +67,14 @@ pre {
   max-width: 100%;
 }
 
-section.doc-content.introductionwelcome > .left-docs {
-  border-top: none!important;
+section.doc-content.introductionwelcome>.left-docs {
+  border-top: none !important;
 }
 
 
 
-.main:focus, .doc-content:focus {
+.main:focus,
+.doc-content:focus {
   outline: none;
 }
 
@@ -84,12 +103,15 @@ header h1 {
 .hero {
   padding: 50px 24px 40px;
   border-bottom: 1px solid #eee;
+
   &__img {
     display: block;
     max-width: 100%;
   }
+
   &__h1 {
     font-size: 2em;
+    font-family: Barlow, sans-serif;
   }
 }
 
@@ -100,9 +122,11 @@ header h1 {
     height: 63px;
     display: flex;
     align-items: center;
+
     &__img {
       display: none;
     }
+
     &__h1 {
       margin-bottom: 0;
     }
@@ -120,28 +144,33 @@ header h1 {
     position: relative;
 
     justify-content: space-between;
+
     &__img {
       display: block;
       max-width: 100%;
     }
   }
+
   header h1 {
     height: 107px;
   }
 
 }
+
 .footer {
-  background-color:#3E4956;
+  background-color: transparent;
   border-top: 1px solid #eeeeee;
-  display:flex;
+  display: flex;
   justify-content: center;
-  padding:10px;
+  padding: 10px;
+
   a:hover,
   a:visited {
-    color: #4BA2F2;
+    color: #007663;
   }
 
 }
+
 .main-nav-section {
   .title {
     cursor: pointer;
@@ -165,12 +194,14 @@ header h1 {
 }
 
 
-.active, .accordion:hover {
-  /*background-color: #ccc;*/
-}
+// .active,
+// .accordion:hover {
+//   /*background-color: #ccc;*/
+// }
 
 .top-of-tutorial-repo-link {
   text-transform: lowercase;
+
   .first-word {
     text-transform: capitalize;
   }
@@ -180,9 +211,13 @@ header h1 {
   background: #FD0;
   font-weight: bold;
   font-size: small;
-  display:inline-block;
-  margin-left:5px;
-  padding:5px;
+  display: inline-block;
+  margin-left: 5px;
+  padding: 5px;
   position: relative;
-  top:-3px;
+  top: -3px;
+}
+
+header h1 img {
+  height: 48px;
 }

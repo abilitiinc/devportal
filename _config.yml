@@ -1,8 +1,8 @@
 # ----
 # Site
 
-title: SophiaTX Developer
-description: SpphiaTX Developer Documentation.
+title: SophiaTX Developers
+description: SophiaTX Developers Documentation
 url: https://developers.sophiatx.com
 google_analytics_key:
 permalink: /:categories/:title.html
