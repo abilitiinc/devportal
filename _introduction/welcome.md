@@ -3,7 +3,7 @@ title: Welcome to SophiaTX
 position: 1
 ---
 
-#### Welcome to the SophiaTX Developer Portal! 
+#### Welcome to the SophiaTX Developer Portal
 
 This site is designed to aid those interested in developing applications on the  **[SophiaTX](https://www.sophiatx.com/){:target="_blank"}** blockchain. 
 
@@ -12,6 +12,7 @@ If you don't know about SophiaTX yet, visit [sophiatx.com](https://www.sophiatx.
 The code for this site is on [github](https://github.com/SophiaTX/SophiaTX.github.io). If you'd like to see a specific improvement 
 you can either submit a pull request or file an issue. Please follow our 
 [contribution guidelines](https://github.com/steemit/devportal/blob/master/CONTRIBUTING.md)
+
 
 
 

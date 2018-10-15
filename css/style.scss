@@ -28,6 +28,9 @@ h3 {
   font-family: Barlow, sans-serif;
 }
 
+header {
+  border-top: 3px solid #00A690;
+}
 
 
 .highlight {
@@ -152,7 +155,7 @@ header h1 {
   }
 
   header h1 {
-    height: 107px;
+    height: 108px;
   }
 
 }
@@ -169,6 +172,10 @@ header h1 {
     color: #007663;
   }
 
+}
+
+a:hover, a:focus {
+  color: #007663;
 }
 
 .main-nav-section {
@@ -208,7 +215,7 @@ header h1 {
 }
 
 .warn.deprecated {
-  background: #FD0;
+  background: #FFC843;
   font-weight: bold;
   font-size: small;
   display: inline-block;
@@ -220,4 +227,8 @@ header h1 {
 
 header h1 img {
   height: 48px;
+}
+
+#search-input {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
