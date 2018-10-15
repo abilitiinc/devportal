@@ -5,8 +5,8 @@
     <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cousine|Inconsolata" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:300,400" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" href="/css/style.css">
@@ -29,17 +29,17 @@
 
     {% include sidebar.html %}
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 </header>
 <div class="main" id="top">
     <div class="hero">
-        <h1 class="hero__h1">SophiaTX Developer Portal {% if page.section %} - {{ page.section }}{% endif %}</h1>
+        <h1 class="hero__h1">{% if page.section %} {{ page.section }}{% endif %}</h1>
         <!--<img class="hero__img" src="/images/hero.png">-->
     </div>
     {{ content }}
 </div>
 <div class="footer">
-    <a href="#">Back to top</a>
+    <a href="#">↑ Back to top</a>
 </div>
 <script>
     document.getElementById("open-nav").addEventListener("click", function () {

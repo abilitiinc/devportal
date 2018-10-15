@@ -201,12 +201,12 @@ dl dd:after {
 		transition: 0.3s color ease-in-out;
 
 		&.active {
-			color: #2196F3;
+			color: #00A690;
 			text-decoration: none;
 		}
 	}
 	a:hover, a:focus  {
-		color: #2196F3;
+		color: #00A690;
 	}
 }
 
@@ -357,7 +357,7 @@ hr {
 
 	pre {
 		background: white;
-		background: #3E4956;
+		background: #111923;
 		padding: 10px;
 		border-radius: 5px;
 	}
@@ -464,12 +464,12 @@ header {
 	overflow-x: hidden;
 	z-index: 1;
 	background-color: $nav-background-color;
-	border-top: 4px solid #2196F3;
+	border-top: 4px solid #00A690;
 
 	h1 {
 		height: 107px;
 		box-sizing: border-box;
-		background-color: #3E4956;
+		background-color: #111923;
 		margin: 0;
 		font-size: 1.7rem;
 		line-height: 0.8;
@@ -591,8 +591,8 @@ header {
 		top: 0px;
 	}
 
-	dd {
-	}	
+	// dd {
+	// }	
 }
 
 blockquote {
