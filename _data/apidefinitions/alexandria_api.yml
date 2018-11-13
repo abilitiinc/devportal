@@ -8,6 +8,15 @@
     purpose: 
     parameter_json: "{}"
     expected_response_json: '{"about":{}}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.about", "params": {}, "id": 1}'
+  - api_method: alexandria_api.get_version
+    purpose:
+      Retrieves blockchain_version, sophiatx_revision, fc_revision and chain_id
+    parameter_json: "{}"
+    expected_response_json: '{"version_info":{"blockchain_version":"1.0.0","sophiatx_revision":"...","fc_revision":"...","chain_id":"..."}}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_version", "params": {}, "id": 1}'
   - api_method: alexandria_api.account_exist
     purpose: 
     parameter_json: '{"account_name":""}'
