@@ -45,6 +45,7 @@ pre {
 .row {
   position: relative;
   min-height: 1px;
+  max-width: 960px;
   padding: 24px 50px;
 }
 
@@ -212,6 +213,10 @@ a:hover, a:focus {
   .first-word {
     text-transform: capitalize;
   }
+}
+
+.error, .warning, .info, .success {
+  border-radius: 0px;
 }
 
 .warn.deprecated {
