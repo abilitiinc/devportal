@@ -13,6 +13,8 @@ The code for this site is on [github](https://github.com/SophiaTX/SophiaTX.githu
 you can either submit a pull request or file an issue. Please follow our 
 [contribution guidelines](https://github.com/steemit/devportal/blob/master/CONTRIBUTING.md)
 
+<br>
+
 
 
 
