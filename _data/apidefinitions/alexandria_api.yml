@@ -4,19 +4,36 @@
 - name: :alexandria_api
   description: 
   methods:
-  - api_method: alexandria_api.about
-    purpose: 
+  - api_method: alexandria_api.info
+    purpose: "Returns info about the current state of the blockchain"
     parameter_json: "{}"
-    expected_response_json: '{"about":{}}'
+    expected_response_json: '{"info":{"head_block_number":175238,"head_block_id":"0002ac86e5ffc83ed0d1a3a8823dfd40c5a10171","time":"2018-11-13T13:19:18","current_witness":"initminer","current_supply":"350076100.030352 SPHTX","total_vesting_shares":"20895.823972 VESTS","witness_required_vesting":"250000.000000 VESTS","maximum_block_size":262144,"current_aslot":3429986,"recent_slots_filled":"340282366920938463463374607431768211455","participation_count":128,"last_irreversible_block_num":175187,"average_block_size":25,"witness_majority_version":"0.0.0","hardfork_version":"1.0.0","head_block_age":"2 seconds old","participation":"100.00000000000000000","median_sbd1_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd2_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd3_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd4_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd5_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"account_creation_fee":"0.000000 SPHTX"}}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.info", "params": {}, "id": 1}'
+  - api_method: alexandria_api.about
+    purpose: "Returns info such as client version, git version of graphene/fc, version of boost, openssl."
+    parameter_json: "{}"
+    expected_response_json: '{"about":{"blockchain_version":"1.0.0","client_version":"1.0.0-260-gd3032b2","sophiatx_revision":"d3032b2840d0c5838df512532f98b28a2ce491e6","sophiatx_revision_age":"11 days ago","fc_revision":"b2b6ed37e8172eeddd3e167cba13a3aac83f409c","fc_revision_age":"14 days ago","compile_date":"compiled on Nov 12 2018 at 16:25:29","boost_version":"1.67","openssl_version":"OpenSSL 1.1.1  11 Sep 2018","build":"linux 64-bit","server_blockchain_version":"1.0.0","server_sophiatx_revision":"d3032b2840d0c5838df512532f98b28a2ce491e6","server_fc_revision":"b2b6ed37e8172eeddd3e167cba13a3aac83f409c","chain_id":"f8174877749eb3b8ba9202be14c2179c265e72de93f7c9dcd1d943dd03664352"}}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.about", "params": {}, "id": 1}'
   - api_method: alexandria_api.get_version
-    purpose:
-      Retrieves blockchain_version, sophiatx_revision, fc_revision and chain_id
+    purpose: "Returns blockchain_version, sophiatx_revision, fc_revision and chain_id"
     parameter_json: "{}"
-    expected_response_json: '{"version_info":{"blockchain_version":"1.0.0","sophiatx_revision":"...","fc_revision":"...","chain_id":"..."}}'
+    expected_response_json: '{"version_info":{"blockchain_version":"1.0.0","sophiatx_revision":"d3032b2840d0c5838df512532f98b28a2ce491e6","fc_revision":"b2b6ed37e8172eeddd3e167cba13a3aac83f409c","chain_id":"f8174877749eb3b8ba9202be14c2179c265e72de93f7c9dcd1d943dd03664352"}}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.get_version", "params": {}, "id": 1}'
+  - api_method: alexandria_api.get_dynamic_global_properties
+    purpose: "Returns current dynamic global properties as head_block_id, last_irreversible_block_num, etc..."
+    parameter_json: "{}"
+    expected_response_json: '{"properties":{"head_block_number":175285,"head_block_id":"0002acb589cb78dd7df99ec280409c90d4c81c88","time":"2018-11-13T13:21:39","current_witness":"initminer","current_supply":"350076108.008910 SPHTX","total_vesting_shares":"20902.530590 VESTS","witness_required_vesting":"250000.000000 VESTS","maximum_block_size":262144,"current_aslot":3430033,"recent_slots_filled":"340282366920938463463374607431768211455","participation_count":128,"last_irreversible_block_num":175234,"average_block_size":25}}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_dynamic_global_properties", "params": {}, "id": 1}'
+  - api_method: alexandria_api.get_key_references
+    purpose: "Returns account names paired with provided public keys"
+    parameter_json: '{"keys":["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk"]}'
+    expected_response_json: '{"accounts":[["dsgrjxA6FHQA2CV4W-vezsaYrQQ"]]}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_key_references", "params": {"keys":["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk"]}, "id": 1}'
   - api_method: alexandria_api.account_exist
     purpose: 
     parameter_json: '{"account_name":""}'
@@ -118,9 +135,17 @@
     parameter_json: '{"brain_key":""}'
     expected_response_json: '{"key_pair":{"pub_key":"SPH1111111111111111111111111111111114T1Anm","wif_priv_key":""}}'
   - api_method: alexandria_api.get_account
-    purpose: 
-    parameter_json: '{"account_name":""}'
-    expected_response_json: '{"account":[]}'
+    purpose: "Returns account info specified by name"
+    parameter_json: '{"account_name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ"}'
+    expected_response_json: '{"account":[{"id":44,"name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5exSMJE8QyFbHjtigobia2pGZj88eRG3nj3Te7XFWVLfB6JewS",1]]},"memo_key":"SPH8eAn9t5ryjarx88uvXvFoysBYqaRLNhpTNFgqdBWjSHLoonypi","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":""}]}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_account", "params": {"account_name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ"}, "id": 1}'
+  - api_method: alexandria_api.get_accounts
+    purpose: "Returns accounts info specified by names"
+    parameter_json: '{"account_names":["dsgrjxA6FHQA2CV4W-vezsaYrQQ", "ayp1dsJTvH13b8k_4aXTZC5rp5g"]}'
+    expected_response_json: '{"accounts":[{"id":44,"name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5exSMJE8QyFbHjtigobia2pGZj88eRG3nj3Te7XFWVLfB6JewS",1]]},"memo_key":"SPH8eAn9t5ryjarx88uvXvFoysBYqaRLNhpTNFgqdBWjSHLoonypi","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]},{"id":45,"name":"ayp1dsJTvH13b8k_4aXTZC5rp5g","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5enokWABeJzdtyTKJ7psxv3ex85PcschmGugNX38ioUSiJy9nk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH4ycHC92BWtYWQyDKc5v2331z4HQ1VTQcVMic76ZE2CrwCG7h1X",1]]},"memo_key":"SPH7s5uMfDoKwPXiczxp23j7SaAvWBDvZNak3aNegLaB6SPEp1S3u","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]}]}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_accounts", "params": {"account_names":["dsgrjxA6FHQA2CV4W-vezsaYrQQ", "ayp1dsJTvH13b8k_4aXTZC5rp5g"]}, "id": 1}'
   - api_method: alexandria_api.get_account_balance
     purpose: 
     parameter_json: '{"account_name":""}'
@@ -210,10 +235,6 @@
     purpose: 
     parameter_json: '{"owner_account":""}'
     expected_response_json: "{}"
-  - api_method: alexandria_api.info
-    purpose: 
-    parameter_json: "{}"
-    expected_response_json: '{"info":null}'
   - api_method: alexandria_api.list_witnesses
     purpose: 
     parameter_json: '{"start":"","limit":0}'
