@@ -4,10 +4,6 @@
 - name: :alexandria_api
   description: 
   methods:
-  - api_method: alexandria_api.test_method
-    purpose: "test method"
-    parameter_json: "{}"
-    expected_response_json: '{}'
   - api_method: alexandria_api.info
     purpose: "Returns info about the current state of the blockchain"
     parameter_json: "{}"
