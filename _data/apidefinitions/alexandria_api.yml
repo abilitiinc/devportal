@@ -4,7 +4,7 @@
 - name: :alexandria_api
   description: 
   methods:
-  - api_method: alexandria_api.info_test
+  - api_method: alexandria_api.info
     purpose: "Returns info about the current state of the blockchain"
     parameter_json: "{}"
     expected_response_json: '{"info":{"head_block_number":175238,"head_block_id":"0002ac86e5ffc83ed0d1a3a8823dfd40c5a10171","time":"2018-11-13T13:19:18","current_witness":"initminer","current_supply":"350076100.030352 SPHTX","total_vesting_shares":"20895.823972 VESTS","witness_required_vesting":"250000.000000 VESTS","maximum_block_size":262144,"current_aslot":3429986,"recent_slots_filled":"340282366920938463463374607431768211455","participation_count":128,"last_irreversible_block_num":175187,"average_block_size":25,"witness_majority_version":"0.0.0","hardfork_version":"1.0.0","head_block_age":"2 seconds old","participation":"100.00000000000000000","median_sbd1_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd2_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd3_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd4_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd5_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"account_creation_fee":"0.000000 SPHTX"}}'
