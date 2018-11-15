@@ -33,6 +33,16 @@ $ bundle exec jekyll serve --host x.x.x.x
 http://x.x.x.x:4000
 ~~~
 
+### Production Deploy
+
+When you are ready to deploy final site to the production, run following command:
+~~~bash
+$ bundle exec jekyll build --destination docs
+~~~
+and commit changes to the github repo. Site is then served from static files generated in docs folder.
+
+
+<!--
 ## Rake Tasks
 
 This application uses `rake` (Ruby's make command) to execute maintenance tasks.  You can see the complete list of tasks by typing:
@@ -91,12 +101,6 @@ If you're interested in running the scrape against a different server, run the c
 $ TEST_NODE=<some server url> bundle exec rake scrape:api_defs
 ```
 
-An example pointing at the SophiaTX testnet:
-
-```bash
-$ TEST_NODE=http://....sophiatx.com bundle exec rake scrape:api_defs
-```
-
 ### Tests
 
 To test all `curl` examples, use the following `rake` task:
@@ -116,9 +120,4 @@ If you're interested in running this test against a different server, run the co
 ```bash
 $ TEST_NODE=<some server url> bundle exec rake test:curl
 ```
-
-An example pointing at the SophiaTX testnet
-
-```bash
-$ TEST_NODE=http://....sophiatx.com:9193 bundle exec rake test:curl
-```
+-->
