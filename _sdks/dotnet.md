@@ -10,20 +10,21 @@ Alexandria.NET library for SophiaTX blockchain
 Table of Contents
 =================
 
-- [Install](#install)
-- [Create Connection](#create-connection)
-- [Library Functions](#library-functions)
-    - [Details](#details)
-    - [Keys](#keys)
-    - [Cryptography](#cryptography)
-    - [Accounts](#accounts)
-    - [Transactions](#transactions)
-    - [Witnesses](#witnesses)
-    - [Votes](#votes)
-    - [Applications](#applications)
+- [Install](#install-dotnetapi)
+- [Create Connection](#create-connection-dotvetapi)
+- [Library Functions](#library-functions-dotnetapi)
+    - [Details](#details-dotnetapi)
+    - [Keys](#keys-dotnetapi)
+    - [Cryptography](#cryptography-dotnetapi)
+    - [Accounts](#accounts-dotnetapi)
+    - [Transactions](#transactions-dotnetapi)
+    - [Witnesses](#witnesses-dotnetapi)
+    - [Votes](#votes-dotnetapi)
+    - [Applications](#applications-dotnetapi)
+    - [Daemon Methods](#daemon-methods-dotnetapi)
 
 
-Install
+Install-DotNetApi
 =================
 - As a prerequisite for the nuget package to work, please have openssl installed on your machine
 (download openssl and install on Windows environment using https://slproweb.com/products/Win32OpenSSL.html)
@@ -38,18 +39,18 @@ Install
 - Rebuild the project and use the below mentioned functions to get connected with SophiaTX Blockchain
 
 
-Create Connection
+Create Connection-DotNetApi
 =================
 
 ```c#
  protected readonly SophiaClient _client = new SophiaClient(IpAddress, DemonPort, WalletPort); 
 ```
 
-Library Functions
+Library Functions-DotNetApi
 =================
 
 
-Details
+Details-DotNetApi
 ==================
 Get Feed History
 ```c#
@@ -81,7 +82,7 @@ Get Transaction details
 var trx=_client.Transaction.GetTransaction(transactionId);
 ```     
        
-Keys
+Keys-DotNetApi
 =================
 Generate Private Key and Public Key pair
 ```c#
@@ -92,7 +93,7 @@ Get public key using private key
 _client.Key.GetPublicKey(privateKey, new byte[53]);
 ```
 
-Cryptography
+Cryptography-DotNetApi
 ====================
 Encrypt Memo with private key and receiver's public key for sending secure data across the blockchain
 ```c#
@@ -163,7 +164,7 @@ List recieved documents, sorted depending on the search type, start(ISOTimeStamp
 _client.Data.Receive(AppID, accountName, SearchType, start, numberOfEntries);
 ```
 
-Accounts
+Accounts-DotNetApi
 ====================
 Create account using private key. Same public key can be used for all three keys required to create accoun. 
 
@@ -236,7 +237,7 @@ var pubkeys = new List<string> {publicKey1, publicKey2};
 _client.Account.CreateSimpleMultiManagedAuthority(pubkeys, requiredSignatures);
 ```
 
-Transactions
+Transactions-DotNetApi
 ==================
 Transfer amount (argument in the format "250000.00 SPHTX") from one to other account 
 ```c#
@@ -250,7 +251,8 @@ Transfer amount to vesting account
 ```c#
 _client.Asset.TransferToVesting(accountName, beneficiaryAccountName, amount, privateKey);
 ```
-Witnesses
+
+Witnesses-DotNetApi
 =================
 
 Get Active Witnesses  
@@ -293,7 +295,7 @@ var pricefeed=new List<List<PrizeFeedQuoteMessage>>{feed1,feed2};
 _client.Witness.UpdateWitness(accountName, url, blockSigningKey, accountCreationFee, minimumBlockSize, pricefeed, privateKey);
 ```
 
-Votes
+Votes-DotNetApi
 ====================
 Set voting proxy
 ```c#
@@ -304,7 +306,7 @@ Vote for a witness
 _client.Witness.VoteForWitness(accountName, witnessName, voteType, privateKey);
 ``` 
 
-Applications
+Applications-DotNetApi
 ==================
 Create application (the price parameter that specifies billing for the app (1 or 0))
 ```c#
@@ -336,7 +338,7 @@ var names = new List<string>{applicationName1, applicationName2};
 _client.Application.GetApplications(names);
 ```      
 
-Daemon Methods
+Daemon Methods-DotNetApi
 ===================
 Call methods from different Api. 
 ```c#

@@ -22,12 +22,12 @@
 <meta property="og:url" content="https://developers.sophiatx.com/sdks/dotnet" />
 <meta property="og:site_name" content="SophiaTX Developers" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-12-06T10:34:12+01:00" />
+<meta property="article:published_time" content="2018-12-06T11:39:12+01:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "C# SDK",
-"datePublished": "2018-12-06T10:34:12+01:00",
+"datePublished": "2018-12-06T11:39:12+01:00",
 "description": "Alexandria Alexandria.NET library for SophiaTX blockchain",
 "url": "https://developers.sophiatx.com/sdks/dotnet"}</script>
 <!-- End Jekyll SEO tag -->
@@ -242,23 +242,24 @@
 <h1 id="table-of-contents">Table of Contents</h1>
 
 <ul>
-  <li><a href="#install">Install</a></li>
-  <li><a href="#create-connection">Create Connection</a></li>
-  <li><a href="#library-functions">Library Functions</a>
+  <li><a href="#install-dotnetapi">Install</a></li>
+  <li><a href="#create-connection-dotvetapi">Create Connection</a></li>
+  <li><a href="#library-functions-dotnetapi">Library Functions</a>
     <ul>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#keys">Keys</a></li>
-      <li><a href="#cryptography">Cryptography</a></li>
-      <li><a href="#accounts">Accounts</a></li>
-      <li><a href="#transactions">Transactions</a></li>
-      <li><a href="#witnesses">Witnesses</a></li>
-      <li><a href="#votes">Votes</a></li>
-      <li><a href="#applications">Applications</a></li>
+      <li><a href="#details-dotnetapi">Details</a></li>
+      <li><a href="#keys-dotnetapi">Keys</a></li>
+      <li><a href="#cryptography-dotnetapi">Cryptography</a></li>
+      <li><a href="#accounts-dotnetapi">Accounts</a></li>
+      <li><a href="#transactions-dotnetapi">Transactions</a></li>
+      <li><a href="#witnesses-dotnetapi">Witnesses</a></li>
+      <li><a href="#votes-dotnetapi">Votes</a></li>
+      <li><a href="#applications-dotnetapi">Applications</a></li>
+      <li><a href="#daemon-methods-dotnetapi">Daemon Methods</a></li>
     </ul>
   </li>
 </ul>
 
-<h1 id="install">Install</h1>
+<h1 id="install-dotnetapi">Install-DotNetApi</h1>
 <ul>
   <li>
     <p>As a prerequisite for the nuget package to work, please have openssl installed on your machine
@@ -279,15 +280,15 @@
   </li>
 </ul>
 
-<h1 id="create-connection">Create Connection</h1>
+<h1 id="create-connection-dotnetapi">Create Connection-DotNetApi</h1>
 
 <div class="language-c# highlighter-rouge"><pre class="highlight"><code> <span class="k">protected</span> <span class="k">readonly</span> <span class="n">SophiaClient</span> <span class="n">_client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SophiaClient</span><span class="p">(</span><span class="n">IpAddress</span><span class="p">,</span> <span class="n">DemonPort</span><span class="p">,</span> <span class="n">WalletPort</span><span class="p">);</span> 
 </code></pre>
 </div>
 
-<h1 id="library-functions">Library Functions</h1>
+<h1 id="library-functions-dotnetapi">Library Functions-DotNetApi</h1>
 
-<h1 id="details">Details</h1>
+<h1 id="details-dotnetapi">Details-DotNetApi</h1>
 <p>Get Feed History</p>
 <div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Transaction</span><span class="p">.</span><span class="nf">GetFeedHistory</span><span class="p">(</span><span class="n">CurrencySymbol</span><span class="p">);</span>
 
@@ -318,7 +319,7 @@
 </code></pre>
 </div>
 
-<h1 id="keys">Keys</h1>
+<h1 id="keys-dotnetapi">Keys-DotNetApi</h1>
 <p>Generate Private Key and Public Key pair</p>
 <div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Key</span><span class="p">.</span><span class="nf">GeneratePrivateKey</span><span class="p">(</span><span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">51</span><span class="p">],</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">53</span><span class="p">]);</span>
 </code></pre>
@@ -328,7 +329,7 @@
 </code></pre>
 </div>
 
-<h1 id="cryptography">Cryptography</h1>
+<h1 id="cryptography-dotnetapi">Cryptography-DotNetApi</h1>
 <p>Encrypt Memo with private key and receiver’s public key for sending secure data across the blockchain</p>
 <div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Key</span><span class="p">.</span><span class="nf">EncryptMemo</span><span class="p">(</span><span class="n">memo</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">,</span> <span class="n">PublicKey2</span><span class="p">,</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">1024</span><span class="p">]);</span>
 </code></pre>
@@ -398,7 +399,7 @@
 </code></pre>
 </div>
 
-<h1 id="accounts">Accounts</h1>
+<h1 id="accounts-dotnetapi">Accounts-DotNetApi</h1>
 <p>Create account using private key. Same public key can be used for all three keys required to create accoun.</p>
 
 <p>Seed, can be any unique value string (have atleast 3 digits and no special characters ($, £, #, etc.)) for genrating new account name.</p>
@@ -470,7 +471,7 @@
 </code></pre>
 </div>
 
-<h1 id="transactions">Transactions</h1>
+<h1 id="transactions-dotnetapi">Transactions-DotNetApi</h1>
 <p>Transfer amount (argument in the format “250000.00 SPHTX”) from one to other account</p>
 <div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Asset</span><span class="p">.</span><span class="nf">Transfer</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">beneficiaryAccountName</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">memo</span><span class="p">,</span> <span class="n">privateKey</span><span class="p">);</span>
 </code></pre>
@@ -483,8 +484,8 @@
 <div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Asset</span><span class="p">.</span><span class="nf">TransferToVesting</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">beneficiaryAccountName</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">privateKey</span><span class="p">);</span>
 </code></pre>
 </div>
-<p>Witnesses
-=================</p>
+
+<h1 id="witnesses-dotnetapi">Witnesses-DotNetApi</h1>
 
 <p>Get Active Witnesses</p>
 <div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Witness</span><span class="p">.</span><span class="nf">GetActiveWitnesses</span><span class="p">();</span>
@@ -526,7 +527,7 @@
 </code></pre>
 </div>
 
-<h1 id="votes">Votes</h1>
+<h1 id="votes-dotnetapi">Votes-DotNetApi</h1>
 <p>Set voting proxy</p>
 <div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">SetVotingProxy</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">proxyAccountName</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">);</span>
 </code></pre>
@@ -536,7 +537,7 @@
 </code></pre>
 </div>
 
-<h1 id="applications">Applications</h1>
+<h1 id="applications-dotnetapi">Applications-DotNetApi</h1>
 <p>Create application (the price parameter that specifies billing for the app (1 or 0))</p>
 <div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Application</span><span class="p">.</span><span class="nf">CreateApplication</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">applicationName</span><span class="p">,</span> <span class="n">URL</span><span class="p">,</span> <span class="n">jsonData</span><span class="p">,</span> <span class="n">priceParam</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">);</span>
 </code></pre>
@@ -567,7 +568,7 @@
 </code></pre>
 </div>
 
-<h1 id="daemon-methods">Daemon Methods</h1>
+<h1 id="daemon-methods-dotnetapi">Daemon Methods-DotNetApi</h1>
 <p>Call methods from different Api.</p>
 <div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">argumentObject</span><span class="p">(){};</span>
 <span class="n">_client</span><span class="p">.</span><span class="n">Transaction</span><span class="p">.</span><span class="nf">CallPlugin</span><span class="p">(</span><span class="n">ApiName</span><span class="p">,</span><span class="n">MethodName</span><span class="p">,</span><span class="n">args</span><span class="p">);</span>
