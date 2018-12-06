@@ -16,19 +16,19 @@
     <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>C# SDK - SophiaTX Developers</title>
 <meta property="og:title" content="C# SDK" />
-<meta name="description" content="TODO: provide C# SDK doc" />
-<meta property="og:description" content="TODO: provide C# SDK doc" />
+<meta name="description" content="Alexandria Alexandria.NET library for SophiaTX blockchain" />
+<meta property="og:description" content="Alexandria Alexandria.NET library for SophiaTX blockchain" />
 <link rel="canonical" href="https://developers.sophiatx.com/sdks/dotnet" />
 <meta property="og:url" content="https://developers.sophiatx.com/sdks/dotnet" />
 <meta property="og:site_name" content="SophiaTX Developers" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-11-30T09:52:20+01:00" />
+<meta property="article:published_time" content="2018-12-06T10:34:12+01:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "C# SDK",
-"datePublished": "2018-11-30T09:52:20+01:00",
-"description": "TODO: provide C# SDK doc",
+"datePublished": "2018-12-06T10:34:12+01:00",
+"description": "Alexandria Alexandria.NET library for SophiaTX blockchain",
 "url": "https://developers.sophiatx.com/sdks/dotnet"}</script>
 <!-- End Jekyll SEO tag -->
 
@@ -158,6 +158,14 @@
 						
 					
 						
+						<li><a href="/apidefinitions/#apidefinitions-custom-api">Custom Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-subscribe-api">Subscribe Api</a></li>
+						
+					
+						
 						<li><a href="/apidefinitions/#apidefinitions-alexandria-api">Alexandria Api</a></li>
 						
 					
@@ -167,14 +175,6 @@
 					
 						
 						<li><a href="/apidefinitions/#apidefinitions-chain-api">Chain Api</a></li>
-						
-					
-						
-						<li><a href="/apidefinitions/#apidefinitions-custom-api">Custom Api</a></li>
-						
-					
-						
-						<li><a href="/apidefinitions/#apidefinitions-subscribe-api">Subscribe Api</a></li>
 						
 					
 				
@@ -236,7 +236,343 @@
         <h1 class="hero__h1"></h1>
         <!--<img class="hero__img" src="/images/hero.png">-->
     </div>
-    <p>TODO: provide C# SDK doc</p>
+    <h1 id="alexandria">Alexandria</h1>
+<p>Alexandria.NET library for SophiaTX blockchain</p>
+
+<h1 id="table-of-contents">Table of Contents</h1>
+
+<ul>
+  <li><a href="#install">Install</a></li>
+  <li><a href="#create-connection">Create Connection</a></li>
+  <li><a href="#library-functions">Library Functions</a>
+    <ul>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#keys">Keys</a></li>
+      <li><a href="#cryptography">Cryptography</a></li>
+      <li><a href="#accounts">Accounts</a></li>
+      <li><a href="#transactions">Transactions</a></li>
+      <li><a href="#witnesses">Witnesses</a></li>
+      <li><a href="#votes">Votes</a></li>
+      <li><a href="#applications">Applications</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="install">Install</h1>
+<ul>
+  <li>
+    <p>As a prerequisite for the nuget package to work, please have openssl installed on your machine
+(download openssl and install on Windows environment using https://slproweb.com/products/Win32OpenSSL.html)
+(“brew install openssl” on Mac environment)</p>
+  </li>
+  <li>
+    <p>Get the latest nuget package from nuget.org (https://www.nuget.org)</p>
+  </li>
+  <li>
+    <p>Please select the package depending on your platform requirements 64 or 32 (x86) bit.</p>
+  </li>
+  <li>
+    <p>Add the nuget package into the project (using Nuget Package Manager)</p>
+  </li>
+  <li>
+    <p>Rebuild the project and use the below mentioned functions to get connected with SophiaTX Blockchain</p>
+  </li>
+</ul>
+
+<h1 id="create-connection">Create Connection</h1>
+
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code> <span class="k">protected</span> <span class="k">readonly</span> <span class="n">SophiaClient</span> <span class="n">_client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SophiaClient</span><span class="p">(</span><span class="n">IpAddress</span><span class="p">,</span> <span class="n">DemonPort</span><span class="p">,</span> <span class="n">WalletPort</span><span class="p">);</span> 
+</code></pre>
+</div>
+
+<h1 id="library-functions">Library Functions</h1>
+
+<h1 id="details">Details</h1>
+<p>Get Feed History</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Transaction</span><span class="p">.</span><span class="nf">GetFeedHistory</span><span class="p">(</span><span class="n">CurrencySymbol</span><span class="p">);</span>
+
+</code></pre>
+</div>
+<p>Get details about the Blockchain</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Transaction</span><span class="p">.</span><span class="nf">About</span><span class="p">();</span>
+</code></pre>
+</div>
+<p>Get a list of functions and How-To available on the sophia blockchain</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Transaction</span><span class="p">.</span><span class="nf">Help</span><span class="p">();</span>
+</code></pre>
+</div>
+<p>Get recent transaction and block information on the blockchain</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Transaction</span><span class="p">.</span><span class="nf">Info</span><span class="p">();</span>
+</code></pre>
+</div>
+<p>Get block infromation using blockId</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Transaction</span><span class="p">.</span><span class="nf">GetBlock</span><span class="p">(</span><span class="n">blockNumber</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Get operations from a block</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Transaction</span><span class="p">.</span><span class="nf">GetOpsInBlock</span><span class="p">(</span><span class="n">blockNumber</span><span class="p">,</span> <span class="n">onlyVirtual</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Get Transaction details</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">trx</span><span class="p">=</span><span class="n">_client</span><span class="p">.</span><span class="n">Transaction</span><span class="p">.</span><span class="nf">GetTransaction</span><span class="p">(</span><span class="n">transactionId</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h1 id="keys">Keys</h1>
+<p>Generate Private Key and Public Key pair</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Key</span><span class="p">.</span><span class="nf">GeneratePrivateKey</span><span class="p">(</span><span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">51</span><span class="p">],</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">53</span><span class="p">]);</span>
+</code></pre>
+</div>
+<p>Get public key using private key</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Key</span><span class="p">.</span><span class="nf">GetPublicKey</span><span class="p">(</span><span class="n">privateKey</span><span class="p">,</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">53</span><span class="p">]);</span>
+</code></pre>
+</div>
+
+<h1 id="cryptography">Cryptography</h1>
+<p>Encrypt Memo with private key and receiver’s public key for sending secure data across the blockchain</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Key</span><span class="p">.</span><span class="nf">EncryptMemo</span><span class="p">(</span><span class="n">memo</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">,</span> <span class="n">PublicKey2</span><span class="p">,</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">1024</span><span class="p">]);</span>
+</code></pre>
+</div>
+<p>Decrypt the received using private key and sender’s public key</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Key</span><span class="p">.</span><span class="nf">DecryptMemo</span><span class="p">(</span><span class="n">encryptedMemo</span><span class="p">,</span> <span class="n">PrivateKey2</span><span class="p">,</span> <span class="n">PublicKey</span><span class="p">,</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">1024</span><span class="p">]);</span>
+</code></pre>
+</div>
+<p>Send JSON data to list of recepients</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">test</span> <span class="p">=</span> <span class="s">"{\"new_book_name\":\"test9999\"}"</span><span class="p">;</span>
+           
+<span class="kt">var</span> <span class="n">data</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SenderData</span>
+            <span class="p">{</span>
+                <span class="n">AppId</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span>
+                <span class="n">PrivateKey</span> <span class="p">=</span> <span class="n">PrivateKey</span><span class="p">,</span>
+                <span class="n">Recipients</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="n">accountName1</span><span class="p">,</span> <span class="n">acocuntName2</span><span class="p">},</span>
+                <span class="n">Sender</span> <span class="p">=</span> <span class="n">accountName</span><span class="p">,</span>
+                <span class="n">JsonDoc</span> <span class="p">=</span> <span class="n">test</span>
+            <span class="p">};</span>
+            
+<span class="n">_client</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="nf">SendJson</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Send plain text to list of recepients</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">data</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SenderData</span>
+            <span class="p">{</span>
+                <span class="n">AppId</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span>
+                <span class="n">PrivateKey</span> <span class="p">=</span> <span class="n">PrivateKey</span><span class="p">,</span>
+                <span class="n">Recipients</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="n">accountName1</span><span class="p">,</span> <span class="n">acocuntName2</span><span class="p">},</span>
+                <span class="n">Sender</span> <span class="p">=</span> <span class="n">accountName</span><span class="p">,</span>
+                <span class="n">BinaryDoc</span> <span class="p">=</span> <span class="n">memo</span>
+            <span class="p">};</span>
+            
+<span class="n">_client</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="nf">SendBinary</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Send JSON data to list of recipients asynchronously</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">test</span> <span class="p">=</span> <span class="s">"{\"new_book_name\":\"test9999\"}"</span><span class="p">;</span>
+           
+<span class="kt">var</span> <span class="n">data</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SenderData</span>
+            <span class="p">{</span>
+                <span class="n">AppId</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span>
+                <span class="n">PrivateKey</span> <span class="p">=</span> <span class="n">PrivateKey</span><span class="p">,</span>
+                <span class="n">Recipients</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="n">accountName1</span><span class="p">,</span> <span class="n">acocuntName2</span><span class="p">},</span>
+                <span class="n">Sender</span> <span class="p">=</span> <span class="n">accountName</span><span class="p">,</span>
+                <span class="n">JsonDoc</span> <span class="p">=</span> <span class="n">test</span>
+            <span class="p">};</span>
+            
+<span class="n">_client</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="nf">SendJsonAsync</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Send plain text to list of recipients asynchronously</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">data</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SenderData</span>
+            <span class="p">{</span>
+                <span class="n">AppId</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span>
+                <span class="n">PrivateKey</span> <span class="p">=</span> <span class="n">PrivateKey</span><span class="p">,</span>
+                <span class="n">Recipients</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="n">accountName1</span><span class="p">,</span> <span class="n">acocuntName2</span><span class="p">},</span>
+                <span class="n">Sender</span> <span class="p">=</span> <span class="n">accountName</span><span class="p">,</span>
+                <span class="n">BinaryDoc</span> <span class="p">=</span> <span class="n">memo</span>
+            <span class="p">};</span>
+            
+<span class="n">_client</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="nf">SendBinaryAsync</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>List recieved documents, sorted depending on the search type, start(ISOTimeStamp)</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="nf">Receive</span><span class="p">(</span><span class="n">AppID</span><span class="p">,</span> <span class="n">accountName</span><span class="p">,</span> <span class="n">SearchType</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">numberOfEntries</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h1 id="accounts">Accounts</h1>
+<p>Create account using private key. Same public key can be used for all three keys required to create accoun.</p>
+
+<p>Seed, can be any unique value string (have atleast 3 digits and no special characters ($, £, #, etc.)) for genrating new account name.</p>
+
+<p>Creator, is an account with enough balance to pay for account creation.</p>
+
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">CreateAccount</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">jsonData</span><span class="p">,</span> <span class="n">ownerKey</span><span class="p">,</span> <span class="n">activeKey</span><span class="p">,</span> <span class="n">memoKey</span><span class="p">,</span> <span class="n">creator</span><span class="p">,</span> <span class="n">creatorPrivateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Get account details</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">GetAccount</span><span class="p">(</span><span class="n">accountName</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Delete account</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">DeleteAccount</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Update account keys and JSON details</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">UpdateAccount</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">jsonData</span><span class="p">,</span> <span class="n">ownerKey</span><span class="p">,</span> <span class="n">activeKey</span><span class="p">,</span> <span class="n">memoKey</span><span class="p">,</span> <span class="n">privateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Get account history</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">GetAccountHistory</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="k">from</span><span class="p">,</span> <span class="n">limit</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Get account name from seed (used to create account)</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">GetAccountNameFromSeed</span><span class="p">(</span><span class="n">accountName</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Get account vesting balance</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">GetVestingBalance</span><span class="p">(</span><span class="n">accountName</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Get account balance</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">GetAccountBalance</span><span class="p">(</span><span class="n">accountName</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Check if account still exists</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">AccountExists</span><span class="p">(</span><span class="n">accountName</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Get account authority key</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">GetActiveAuthority</span><span class="p">(</span><span class="n">accountName</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Get account memo key</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">GetMemoKey</span><span class="p">(</span><span class="n">accountName</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Get account owner key</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">GetOwnerAuthority</span><span class="p">(</span><span class="n">accountName</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Create simple multi-signature authority</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">pubkeys</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="n">publicKey1</span><span class="p">,</span> <span class="n">publicKey2</span><span class="p">};</span>
+<span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">CreateSimpleMultisigAuthority</span><span class="p">(</span><span class="n">pubkeys</span><span class="p">,</span> <span class="n">requiredSignatures</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Create simple managing authority</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">CreateSimpleManagedAuthority</span><span class="p">(</span><span class="n">managingAccountName</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Create simple multi-signature managing authority</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">pubkeys</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="n">publicKey1</span><span class="p">,</span> <span class="n">publicKey2</span><span class="p">};</span>
+<span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">CreateSimpleMultiManagedAuthority</span><span class="p">(</span><span class="n">pubkeys</span><span class="p">,</span> <span class="n">requiredSignatures</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h1 id="transactions">Transactions</h1>
+<p>Transfer amount (argument in the format “250000.00 SPHTX”) from one to other account</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Asset</span><span class="p">.</span><span class="nf">Transfer</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">beneficiaryAccountName</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">memo</span><span class="p">,</span> <span class="n">privateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Withdraw amount (argument in the format “250000.00 SPHTX”) vesting account balance</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Asset</span><span class="p">.</span><span class="nf">WithdrawVesting</span><span class="p">(</span><span class="n">acocuntName</span><span class="p">,</span> <span class="n">ammount</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Transfer amount to vesting account</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Asset</span><span class="p">.</span><span class="nf">TransferToVesting</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">beneficiaryAccountName</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">privateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Witnesses
+=================</p>
+
+<p>Get Active Witnesses</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Witness</span><span class="p">.</span><span class="nf">GetActiveWitnesses</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>Get List of all witnesses</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Witness</span><span class="p">.</span><span class="nf">ListWitnesses</span><span class="p">(</span><span class="n">witnessName</span><span class="p">,</span> <span class="n">numberOfEntries</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>Get details of a witness</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Witness</span><span class="p">.</span><span class="nf">GetWitness</span><span class="p">(</span><span class="n">witnessName</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Become a witness, price feed example can be as</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">feed1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">PrizeFeedQuoteMessage</span><span class="p">&gt;</span>
+            <span class="p">{</span>
+                <span class="k">new</span> <span class="n">PrizeFeedQuoteMessage</span>
+                <span class="p">{</span>
+                    <span class="n">Currency</span> <span class="p">=</span> <span class="s">"USD"</span><span class="p">,</span>
+                    <span class="n">PrizeFeedQuote</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PrizeFeedQuote</span> <span class="p">{</span><span class="n">Base</span> <span class="p">=</span> <span class="s">"1 USD"</span><span class="p">,</span> <span class="n">Quote</span> <span class="p">=</span> <span class="s">"0.152063 SPHTX"</span><span class="p">}</span>
+                <span class="p">}</span>
+                
+            <span class="p">};</span>
+            <span class="kt">var</span> <span class="n">feed2</span><span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">PrizeFeedQuoteMessage</span><span class="p">&gt;</span>
+            <span class="p">{</span>
+                <span class="k">new</span> <span class="n">PrizeFeedQuoteMessage</span>
+                <span class="p">{</span>
+                    <span class="n">Currency</span> <span class="p">=</span> <span class="s">"EUR"</span><span class="p">,</span>
+                    <span class="n">PrizeFeedQuote</span> <span class="p">=</span> <span class="k">new</span> <span class="n">PrizeFeedQuote</span> <span class="p">{</span><span class="n">Base</span> <span class="p">=</span> <span class="s">"1 EUR"</span><span class="p">,</span> <span class="n">Quote</span> <span class="p">=</span> <span class="s">"0.154988 SPHTX"</span><span class="p">}</span>
+                <span class="p">}</span>
+                
+            <span class="p">};</span>     
+        
+<span class="kt">var</span> <span class="n">pricefeed</span><span class="p">=</span><span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="n">PrizeFeedQuoteMessage</span><span class="p">&gt;&gt;{</span><span class="n">feed1</span><span class="p">,</span><span class="n">feed2</span><span class="p">};</span>
+
+<span class="n">_client</span><span class="p">.</span><span class="n">Witness</span><span class="p">.</span><span class="nf">UpdateWitness</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">blockSigningKey</span><span class="p">,</span> <span class="n">accountCreationFee</span><span class="p">,</span> <span class="n">minimumBlockSize</span><span class="p">,</span> <span class="n">pricefeed</span><span class="p">,</span> <span class="n">privateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h1 id="votes">Votes</h1>
+<p>Set voting proxy</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="nf">SetVotingProxy</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">proxyAccountName</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Vote for a witness</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Witness</span><span class="p">.</span><span class="nf">VoteForWitness</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">witnessName</span><span class="p">,</span> <span class="n">voteType</span><span class="p">,</span> <span class="n">privateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h1 id="applications">Applications</h1>
+<p>Create application (the price parameter that specifies billing for the app (1 or 0))</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Application</span><span class="p">.</span><span class="nf">CreateApplication</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">applicationName</span><span class="p">,</span> <span class="n">URL</span><span class="p">,</span> <span class="n">jsonData</span><span class="p">,</span> <span class="n">priceParam</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Update application</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Application</span><span class="p">.</span><span class="nf">UpdateApplication</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">applicationName</span><span class="p">,</span> <span class="n">URL</span><span class="p">,</span> <span class="n">jsonData</span><span class="p">,</span> <span class="n">priceParam</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Delete application</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Application</span><span class="p">.</span><span class="nf">DeleteApplication</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">applicationName</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Buy Application</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Application</span><span class="p">.</span><span class="nf">BuyApplication</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">appId</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Cancel Application purchase</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Application</span><span class="p">.</span><span class="nf">CancelApplicationBuying</span><span class="p">(</span><span class="n">sellerAccountName</span><span class="p">,</span> <span class="n">buyerAccountName</span><span class="p">,</span> <span class="n">appId</span><span class="p">,</span> <span class="n">PrivateKey</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Get a list of all bought application and sorting is done depending on search type (bySeller or byBuyer)</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">_client</span><span class="p">.</span><span class="n">Application</span><span class="p">.</span><span class="nf">GetApplicationBuyings</span><span class="p">(</span><span class="n">accountName</span><span class="p">,</span> <span class="n">SearchType</span><span class="p">,</span> <span class="n">numberOfEntries</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Get details of list of applications</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">names</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;{</span><span class="n">applicationName1</span><span class="p">,</span> <span class="n">applicationName2</span><span class="p">};</span>
+<span class="n">_client</span><span class="p">.</span><span class="n">Application</span><span class="p">.</span><span class="nf">GetApplications</span><span class="p">(</span><span class="n">names</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h1 id="daemon-methods">Daemon Methods</h1>
+<p>Call methods from different Api.</p>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="kt">var</span> <span class="n">args</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">argumentObject</span><span class="p">(){};</span>
+<span class="n">_client</span><span class="p">.</span><span class="n">Transaction</span><span class="p">.</span><span class="nf">CallPlugin</span><span class="p">(</span><span class="n">ApiName</span><span class="p">,</span><span class="n">MethodName</span><span class="p">,</span><span class="n">args</span><span class="p">);</span>
+</code></pre>
+</div>
 
 </div>
 <div class="footer">
