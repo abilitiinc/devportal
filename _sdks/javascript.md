@@ -10,19 +10,20 @@ Alexandria.js API library for SophiaTX Blockchain
 Table of Contents
 =================
 
-- [Install](#install)
-- [Help](#help)
-- [Details](#details)
-- [Keys](#keys)
-- [Cryptography](#cryptography)
-- [Accounts](#accounts)
-- [Transaction](#transaction)
-- [Witness](#witness)
-- [Voting](#voting)
-- [Data Transmission](#data-transmission)
+- [Install](#install-jsapi)
+- [Help](#help-jsapi)
+- [Details](#details-jsapi)
+- [Keys](#keys-jsapi)
+- [Cryptography](#cryptography-jsapi)
+- [Accounts](#accounts-jsapi)
+- [Transaction](#transaction-jsapi)
+- [Witness](#witness-jsapi)
+- [Voting](#voting-jsapi)
+- [Data Transmission](#data-transmission-jsapi)
+- [Daemon Methods](#daemon-methods-jsapi)
 
 
-Install
+Install-JsApi
 =================
 ````
 git clone https://github.com/SophiaTX/Alexandria.js.git
@@ -46,7 +47,8 @@ Connect to http services
 ```js
 sophia.api.setOptions({url: httpConnectionUrl });
 ```
-Help
+
+Help-JsApi
 =================
 
  Get the current version and information about the blockchain
@@ -67,7 +69,8 @@ sophia.api.help(function(err, response){
     console.log(err, response);
 });
 ```
-Details
+
+Details-JsApi
 =================
 
 Get details about the block using block_id
@@ -143,8 +146,9 @@ sophia.api.getMemoKey(accountName,function(err, response){
        console.log(err, response);
    });
  ```
- Keys
- =================
+ 
+Keys-JsApi
+=================
  
  Generates separate public key for each of the roles
   ```js
@@ -178,8 +182,9 @@ sophia.api.getMemoKey(accountName,function(err, response){
  ```js
  console.log(sophia.auth.normalizeBrainKey(passphrase));
  ```
- Cryptography
- =================
+ 
+Cryptography-JsApi
+==================
  
   Use privateKey of sender's account and publicKey of receiver's account to encrypt the message
   ```js
@@ -190,7 +195,7 @@ sophia.api.getMemoKey(accountName,function(err, response){
   console.log(sophia.auth.decrypt(privateKey,publicKey,EncryptedMessage));
  ```
  
-Accounts
+Accounts-JsApi
 ================= 
 
  Create account using seed(Any data string including uppercase,lowercase and numbers), creator as Witness's name, Witness's PrivateKey and user's PublicKey as ActiveKey
@@ -224,8 +229,8 @@ Accounts
   });
   ```
  
- Transaction
- =================
+Transaction-JsApi
+=================
  
   Transfer an amount (in the form of "amount (space) currencySymbol, 10.000 SPHTX") to other account with a memo (receipt/details) attached to the transfer using Sender's Priavtekey.
  ```js
@@ -255,7 +260,8 @@ Accounts
        console.log(err, response);
   });
  ```
-Witness
+ 
+Witness-JsApi
 =================
 
 Get list of Witnesses or miners
@@ -285,7 +291,8 @@ To become a witness the user must have at least 250,000 SPHTX tokens in her vest
   console.log(err,response);
   });
 ```
-Voting
+
+Voting-JsApi
 =================
 
  Set a proxy account for doing votes on behalf of first account.
@@ -300,8 +307,9 @@ Voting
      console.log(err,response);
  });
  ```
- Data Transmission
- =================
+ 
+Data Transmission-JsApi
+=======================
   Get the list of received documents, it can be searched by by_sender, by_recipient,by_sender_datetime,by_recipient_datetime.
   ```js
   sophia.api.getReceivedDocuments(appId, accountName, searchType, start, count, function(err,response){
@@ -320,8 +328,9 @@ Voting
     console.log(err,response);
  });
  ```
- Daemon Methods
- ==============
+ 
+Daemon Methods-JsApi
+====================
  Run other endpoint methods 
  ```js
  sophia.api.callPlugin(pluginName,methodName,arguments,function(err, response){
