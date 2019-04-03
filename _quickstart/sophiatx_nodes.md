@@ -38,21 +38,9 @@ Block log should be place in `blockchain` directory below `data_dir` and node sh
 
 Replay helps to sync blockchain in much faster rate, but as blockchain grows in size replay might also take some time to verify blocks. 
 
-There is another [trick which might help](https://github.com/steemit/steem/issues/2391) with faster sync/replay on smaller equipped servers:
-
-```
-while :
-do
-   dd if=blockchain/block_log iflag=nocache count=0
-   sleep 60
-done
-```
-
-Above bash script drops `block_log` from the OS cache, leaving more memory free for backing the blockchain database. It might also help while running live, but measurement would be needed to determine this.
-
 ##### Few other tricks that might help: 
 
-For Linux users, virtual memory writes dirty pages of the shared file out to disk more often than is optimal which results in steemd being slowed down by redundant IO operations. These settings are recommended to optimize reindex time.
+For Linux users, virtual memory writes dirty pages of the shared file out to disk more often than is optimal which results in sophiatxd being slowed down by redundant IO operations. These settings are recommended to optimize reindex time.
 
 ```
 echo    75 | sudo tee /proc/sys/vm/dirty_background_ratio
@@ -62,19 +50,3 @@ echo 30000 | sudo tee /proc/sys/vm/dirty_writeback_centisecs
 ```
 
 Another settings that can be changed in `config.ini` is `flush` - it is to specify a target number of blocks to process before flushing the chain database to disk. This is needed on Linux machines and a value of 100000 is recommended. It is not needed on OS X, but can be used if desired.
-
-``` bash
-docker run \
-    -d -p 2001:2001 -p 8090:8090 --name steemd-default \
-    steemit/steem
-
-docker logs -f steemd-default  # follow along
-``` 
-``` bash
-docker run \
-    --env USE_WAY_TOO_MUCH_RAM=1 \
-    -d -p 2001:2001 -p 8090:8090 --name steemd-full \
-    steemit/steem
-
-docker logs -f steemd-full
-```  

@@ -1,11 +1,11 @@
 ---
-title: Community
-section: Community
+title: Cli Wallet
+section: Cli Wallet
 layout: default
-permalink: /community/
+permalink: /cli_wallet/
 ---
 
-{% assign sorted_collections = site.collections | where:'id', "community" %}
+{% assign sorted_collections = site.collections | where:'id', "cli_wallet" %}
 {% for collection in sorted_collections %}
 	{% assign sorted_docs = collection.docs | sort: "position" %}
 	{% for doc in sorted_docs %}
@@ -22,7 +22,7 @@ permalink: /community/
 				<p class="description">{{doc.description}}</p>
 			{% endif %}
 
-			{{ doc.content | replace: "<dl>", "<h6>Parameters</h6><dl>" }}
+			{{ doc.content | replace: "<dl>", "<h6>Parameters</h6></dl>" }}
 		</section>
 	{% endfor %}
 {% endfor %}

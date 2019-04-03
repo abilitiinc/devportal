@@ -113,7 +113,7 @@
     - '{"jsonrpc":"2.0", "method":"database_api.verify_account_authority", "params":{"account":"initminer","signers":["STM7Q2rLBqzPzFeteQZewv9Lu3NLE69fZoLeL6YK59t7UmssCBNTU"]},
       "id":1}'
     expected_curl_responses:
-    - Missing Active Authority steemit
+    - Missing Active Authority
   - api_method: database_api.verify_authority
     purpose: Returns true if the transaction has all of the required signatures.
     parameter_json: '{"trx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'

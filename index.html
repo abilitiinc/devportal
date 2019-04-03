@@ -23,7 +23,7 @@ title: API Docs
 								<p class="description">{{doc.description}}</p>
 							{% endif %}
 
-							{{ doc.content | replace: "<dl>", "<h6>Parameters</h6><dl>" }}
+							{{ doc.content | replace: "<dl>", "<h6>Parameters</h6></dl>" }}
 						</section>
 					</section>
 				{% endunless %}	
