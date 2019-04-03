@@ -18,18 +18,18 @@ toc:
     url: "/sdks/"
     position: 4
     exclude: true
+  - title: "Cli Wallet"
+    collection: "cli_wallet"
+    url: "/cli_wallet/"
+    position: 5
+    exclude: true
   - title: "Appbase API"
     collection: apidefinitions    
     url: "/apidefinitions/"
-    exclude: true
-    position: 5
-  - title: "Community"
-    collection: "community"
-    url: "/community/"
     exclude: true
     position: 6
   - title: "Glossary"
     collection: "glossary"
     url: "/glossary/"
-    position: 7
+    position: 8
     exclude: true

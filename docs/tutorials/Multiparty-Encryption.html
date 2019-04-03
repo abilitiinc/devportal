@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:300,400" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/fav.png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/css/fontawesome-all.min.css">
+    <script src="/js/main.js"></script>
+
+    <!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Multiparty Encryption - SophiaTX Developers</title>
+<meta property="og:title" content="Multiparty Encryption" />
+<meta name="description" content="Multiparty encryption operates in a closed group of participants, managed by one admin. Multiparty messaging is implemented as an application on top of SophiaTX’s custom_json_operation." />
+<meta property="og:description" content="Multiparty encryption operates in a closed group of participants, managed by one admin. Multiparty messaging is implemented as an application on top of SophiaTX’s custom_json_operation." />
+<link rel="canonical" href="https://developers.sophiatx.com/tutorials/Multiparty-Encryption" />
+<meta property="og:url" content="https://developers.sophiatx.com/tutorials/Multiparty-Encryption" />
+<meta property="og:site_name" content="SophiaTX Developers" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-04-03T21:19:38+02:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Multiparty Encryption",
+"datePublished": "2019-04-03T21:19:38+02:00",
+"description": "Multiparty encryption operates in a closed group of participants, managed by one admin. Multiparty messaging is implemented as an application on top of SophiaTX’s custom_json_operation.",
+"url": "https://developers.sophiatx.com/tutorials/Multiparty-Encryption"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+<header>
+    <h1>
+        <button type="button" class="open-nav" id="open-nav"></button>
+        <a href="/"  class="logo-link"><img src="/images/logo.svg" height="40" alt="SophiaTX Developers logo"></a>
+    </h1>
+
+    <form action="/search/" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search">
+        <input type="submit" value="Search" style="display: none;">
+    </form>
+
+    <div id="sidebar" class="sidebar">
+	
+	
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/">
+		<h6 class="ctrl-nav-section title">Introduction</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/#introduction-welcome">Welcome to SophiaTX</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/quickstart/">
+		<h6 class="ctrl-nav-section title">Quickstart</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/quickstart/#quickstart-choose-sdk">Choose SDK</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-sophiatx-nodes">SophiaTX Nodes</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-testnet">SophiaTX testnet</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/tutorials/">
+		<h6 class="ctrl-nav-section title">Tutorials</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-to-become-witness">How to become witness</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-to-start-sync-node">How to start sync node</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-multiparty-encryption">Multiparty Encryption</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-subscription-api-quick-guide">Subscription API guide</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/sdks/">
+		<h6 class="ctrl-nav-section title">SDK'S</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
+						
+					
+						
+						<li><a href="/sdks/#sdks-java">Java SDK</a></li>
+						
+					
+						
+						<li><a href="/sdks/#sdks-javascript">Javascript SDK</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
+		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/apidefinitions/">
+		<h6 class="ctrl-nav-section title">Appbase API</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-account-history-api">Account History Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-database-api">Database Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-jsonrpc">Jsonrpc</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-network-broadcast-api">Network Broadcast Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-alexandria-api">Alexandria Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-block-api">Block Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-chain-api">Chain Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-custom-api">Custom Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-subscribe-api">Subscribe Api</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/glossary/">
+		<h6 class="ctrl-nav-section title">Glossary</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/glossary/#glossary-chain-basics">Chain Basics</a></li>
+						
+					
+						
+					
+						
+						<li><a href="/glossary/#glossary-governance">Governance</a></li>
+						
+					
+						
+						<li><a href="/glossary/#glossary-transactions">Transactions</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+</div>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+</header>
+<div class="main" id="top">
+    <div class="hero">
+        <h1 class="hero__h1"></h1>
+        <!--<img class="hero__img" src="/images/hero.png">-->
+    </div>
+    <p>Multiparty encryption operates in a closed group of participants, managed by one admin. Multiparty messaging is implemented as an application on top of SophiaTX’s <code class="highlighter-rouge">custom_json_operation</code>.</p>
+
+<h1 id="use-cases">Use cases</h1>
+
+<h2 id="group-creation">Group creation</h2>
+<p>Group is created by assigning it a new random name (“group address”), a group key, and individually inviting initial participants to it. The invite is encrypted and readable only to the sender (admin) and recipient (new group member).</p>
+
+<h2 id="group-update">Group update</h2>
+<p>Group can be updated any time with new name and/or new group key. Whenever new participants are being added or deleted, the group key must be updated. Group name might be optionally updated. Regular updates of the group will prevent external observers to map group activity, i.e. the potential attacker might not even learn of the existence of the group, its lifetime, and/or members. The group updates are updated to the group address and encrypted using the group key, and thus readable only to group members.</p>
+
+<h2 id="group-messaging">Group messaging</h2>
+<p>Any member of the group can send message to the group address. This message is encrypted using the group key.</p>
+
+<h2 id="participant-list-change">Participant list change</h2>
+<p>Whenever admin adds new group member(s), he updates the group key and sends invite to these new members. Updating the group key prevents new members to be able to read old messages.
+Whenever admin removes participants from the group, new group address and group key has to be generated. The new group key is encrypted in the way that only remaining participants can read it.</p>
+
+<h2 id="group-disband">Group disband</h2>
+<p>Admin can discontinue the group by disbanding it. No new messages, updates or messages, can be sent to the group anymore.</p>
+
+<h2 id="receiving-group-messages">Receiving group messages</h2>
+<p>Group participants can read the new group messages only if they know the actual group name (group address) and group key. To keep track, the group updates needs to be monitored and group parameters updated accordingly.</p>
+
+<h1 id="message-format">Message format</h1>
+<p>There are three basic types of messages:</p>
+<ul>
+  <li>Group invites</li>
+  <li>Group updates</li>
+  <li>Group message</li>
+</ul>
+
+<p>First two are so called system message. They don’t carry the actual communication between participants, just the various group parameters. The last one, group message, is carrying actual information between users.</p>
+
+<h2 id="group-invite">Group invite</h2>
+<p>Group invite is sent from admin to individual user. The format of the JSON payload is as follows:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                       </span><span class="err">//&lt;aka</span><span class="w"> </span><span class="nt">"system message"</span><span class="w">
+  </span><span class="nt">"operation_data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">                  </span><span class="err">//&lt;always</span><span class="w"> </span><span class="err">1</span><span class="w">
+    </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"add"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"new_group_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;NEW GROUP NAME&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;A SHORT DESCRIPTION OF THE PURPOSE OF THE GROUP&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_list"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;OPTIONAL LIST OF OTHER PARTICIPANTS&gt;"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"senders_pubkey"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ADMIN PUBLIC MEMO KEY&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"new_key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="s2">"&lt;RECIPIENT PUBLIC MEMO KEY&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s2">"&lt;GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT SHARED SECRET&gt;"</span><span class="p">]]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>NOTE: Public memo keys are stored in the structure for references. In case one of the participants changes her memo key, one can easily find which key was used in construction of the shared secret.</p>
+
+<p>This payload is then encrypted using sender-recipient shared secret, and packed into a JSON wrapper:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ADMIN PUBLIC MEMO KEY&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;RECIPIENT PUBLIC MEMO KEY&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="group-update-1">Group update</h2>
+<p>Group update is sent from admin to the actual group address. 
+The format of the JSON payload is as follows:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                       </span><span class="err">//&lt;aka</span><span class="w"> </span><span class="nt">"system message"</span><span class="w">
+  </span><span class="nt">"operation_data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">                  </span><span class="err">//&lt;always</span><span class="w"> </span><span class="err">1</span><span class="w">
+    </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">             
+    </span><span class="nt">"new_group_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;NEW GROUP NAME&gt;"</span><span class="p">,</span><span class="w"> </span><span class="err">//optional</span><span class="w"> </span><span class="err">parameter,</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">case</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">changes.</span><span class="w"> </span><span class="err">Can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">omitted.</span><span class="w">
+    </span><span class="nt">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;A SHORT DESCRIPTION OF THE PURPOSE OF THE GROUP&gt;"</span><span class="p">,</span><span class="w"> </span><span class="err">//optional</span><span class="w"> </span><span class="err">parameter,</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">case</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">description</span><span class="w"> </span><span class="err">changes.</span><span class="w"> </span><span class="err">Can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">omitted.</span><span class="w">
+    </span><span class="nt">"user_list"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;OPTIONAL LIST OF OTHER PARTICIPANTS&gt;"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"senders_pubkey"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ADMIN PUBLIC MEMO KEY&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"new_key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="s2">"SEE BELOW"</span><span class="p">]]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Would the group key change, the new key is encoded either with group key or with shared secrets for each individual group participant. The later must be used in case of deleting participants. 
+The first case has then the following format:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>"new_key" : [["SPH1111111111111111111111111111111114T1Anm", "&lt;ENCRYPTED_GROUP_KEY&gt;"]]
+</code></pre>
+</div>
+
+<p>The second case will end in a list of encrypted keys:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>"new_key" : [
+    ["&lt;RECIPIENT1 PUBLIC MEMO KEY&gt;", "&lt;GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT1 SHARED SECRET&gt;"],
+    ["&lt;RECIPIENT2 PUBLIC MEMO KEY&gt;", "&lt;GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT2 SHARED SECRET&gt;"],
+(...)
+    ["&lt;RECIPIENT_N PUBLIC MEMO KEY&gt;", "&lt;GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT_N SHARED SECRET&gt;"]
+]
+</code></pre>
+</div>
+
+<p>This payload is then encrypted using group key, and packed into a JSON wrapper:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"iv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;INITIAL VECTOR FOR AES&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="group-message">Group message</h2>
+<p>Group update is sent from a group member to the actual group address.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message_data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;HEX ENCODED COMMUNICATION&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>This payload is then encrypted using group key, and packed into a JSON wrapper:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"iv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;INITIAL VECTOR FOR AES&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h1 id="encryption">Encryption</h1>
+
+<p>As a base, AES256 is used.</p>
+
+<p>Group key is of length 256 bits. Initialisation vector of length 256 bits is randomly generated and added as a parameter to the messages where group key encryption is used.</p>
+
+<p>Shared secret between sender and recipient is derived from sender’s private and recipient’s public keys or recipient’s private and sender’s public keys using Elliptic curve integrated encryption scheme (ECIES) over SECP256K1 curve. The resulting 512 bits are split to halfs, one half used as IV and the other as key in AES256 schema.</p>
+
+<h1 id="api">API</h1>
+<p>The multiparty messaging plugin was developed as a reference implementation. Its usability is limited to be run on end-user’s node, and the node must not expose its API to general public. The plugin is started when the following parameters are added to the daemon when starting:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>--plugin multiparty_messaging --mpm-app-id 2 --mpm-account &lt;MYACCOUNT&gt; --mpm-private-key &lt;PRIVATE_MEMO_KEY&gt;
+</code></pre>
+</div>
+<p>NOTE: The <code class="highlighter-rouge">mpm-account</code> and <code class="highlighter-rouge">mpm-private-key</code> can be repeated more than once.</p>
+
+<p>Once the plugin is started, it starts listening for <code class="highlighter-rouge">custom_json_operations</code> with the given application ID and executes the logic as described above. It stores in database information about all past and active groups the user has been involved in, as well as all decoded messages. 
+The API calls can be split into two logical part:</p>
+<ul>
+  <li>Retrieving the group and messages info from the database, namely <code class="highlighter-rouge">get_group</code>, <code class="highlighter-rouge">get_group_name</code>, <code class="highlighter-rouge">list_my_groups</code> and <code class="highlighter-rouge">list_messages</code>.</li>
+  <li>Preparing encrypted <code class="highlighter-rouge">custom_json_operations</code> payloads. The returned payloads has to be sent to the provided addresses either with Alexandria SDKs or cli_wallet.</li>
+</ul>
+
+<h3 id="example">Example</h3>
+<p>First create the group invitation by user <code class="highlighter-rouge">initminer</code> using wscat:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; {"jsonrpc":"2.0", "id":1, "method":"multiparty_messaging.create_group", "params":{"admin":"initminer", "description":"blah", "members":["kpX6yHkAb_RIEuQ7g7UVoGwpUKo"]}}
+&lt; {"jsonrpc":"2.0","result":{"group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g","operation_payloads":[["kpX6yHkAb_RIEuQ7g7UVoGwpUKo",{"sender":"SPH8HWPUynRQnH8QCHdCvebNKbKGuVpZ9FZpg3EWv9UN5qayA8v7k","recipient":"SPH7t5298LP6CDuC8SHT7PGaH7rvqCYgV6sCsrT55VLJXEuQXWnPw","data":"396a3370a56a188403c1185b6ac98d69d01a2c42699a986da80f1d762e54671d82a9097983a228da8635d157d24c01bd9fe20ea0c1a390a6d6c7a247eea80ab3b6f4649c1dc1d3539307a36e9f525f8bab3416ccaf1bac26ee539ea0e289489a1f0261ac9a9f5a95317c3fe62bd49b3b0a5f85db3708eab406e6f181deb6a6fce851154f7ded1495befd308a33abe7002798f4a3d45adbb0c52a97175dbe14e76850d40b05d1147e4d070320051c6c46de600307e5ad59aa0290deb6368e92974a98047f96c5b70a7be005dd455c1557"}]]},"id":1}
+</code></pre>
+</div>
+<p>Group name <code class="highlighter-rouge">"wY8SqXZDuH3SL0Im0G5vuZOch6g"</code> was generated, as well as one invitation.
+The returned invitation payload is then sent using cli_wallet:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>unlocked &gt;&gt;&gt; send_custom_json_document 2 initminer ["kpX6yHkAb_RIEuQ7g7UVoGwpUKo"] "{\"sender\":\"SPH8HWPUynRQnH8QCHdCvebNKbKGuVpZ9FZpg3EWv9UN5qayA8v7k\",\"recipient\":\"SPH7t5298LP6CDuC8SHT7PGaH7rvqCYgV6sCsrT55VLJXEuQXWnPw\",\"data\":\"396a3370a56a188403c1185b6ac98d69d01a2c42699a986da80f1d762e54671d82a9097983a228da8635d157d24c01bd9fe20ea0c1a390a6d6c7a247eea80ab3b6f4649c1dc1d3539307a36e9f525f8bab3416ccaf1bac26ee539ea0e289489a1f0261ac9a9f5a95317c3fe62bd49b3b0a5f85db3708eab406e6f181deb6a6fce851154f7ded1495befd308a33abe7002798f4a3d45adbb0c52a97175dbe14e76850d40b05d1147e4d070320051c6c46de600307e5ad59aa0290deb6368e92974a98047f96c5b70a7be005dd455c1557\"}" true
+{
+  "ref_block_num": 2417,
+  "ref_block_prefix": 3747953573,
+  "expiration": "2018-12-13T13:34:00",
+  "operations": [[
+      "custom_json",{
+        "fee": "0.000000 SPHTX",
+        "sender": "initminer",
+        "recipients": [
+          "kpX6yHkAb_RIEuQ7g7UVoGwpUKo"
+        ],
+        "app_id": 2,
+        "json": "{\"sender\":\"SPH8HWPUynRQnH8QCHdCvebNKbKGuVpZ9FZpg3EWv9UN5qayA8v7k\",\"recipient\":\"SPH7t5298LP6CDuC8SHT7PGaH7rvqCYgV6sCsrT55VLJXEuQXWnPw\",\"data\":\"396a3370a56a188403c1185b6ac98d69d01a2c42699a986da80f1d762e54671d82a9097983a228da8635d157d24c01bd9fe20ea0c1a390a6d6c7a247eea80ab3b6f4649c1dc1d3539307a36e9f525f8bab3416ccaf1bac26ee539ea0e289489a1f0261ac9a9f5a95317c3fe62bd49b3b0a5f85db3708eab406e6f181deb6a6fce851154f7ded1495befd308a33abe7002798f4a3d45adbb0c52a97175dbe14e76850d40b05d1147e4d070320051c6c46de600307e5ad59aa0290deb6368e92974a98047f96c5b70a7be005dd455c1557\"}"
+      }
+    ]
+  ],
+  "extensions": [],
+  "signatures": [
+    "1f6b1c7281e2d875aed831d9f117a1c65f84c5b806dcac88f395a9635247418a104a0c69b0935dcc848be8171c288ff56b8e3e944041c3e4000d93afb3d10bf8d1"
+  ],
+  "transaction_id": "e76c37b71a3ca23ddc044edd2224880295a0bce0",
+  "block_num": 2418,
+  "transaction_num": 0
+}
+unlocked &gt;&gt;&gt;
+</code></pre>
+</div>
+<p>We can check success of the operation again with wscat:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; {"jsonrpc":"2.0", "id":2, "method":"multiparty_messaging.get_group", "params":{"group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g"}}
+&lt; {"jsonrpc":"2.0","result":{"group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g","current_group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g","description":"blah","members":["kpX6yHkAb_RIEuQ7g7UVoGwpUKo","initminer"],"admin":"initminer","group_key":"b019a8e962d111b020f0fd0181f3e59e6f7727076fce2486bc28cf8c0270a589","messages":1},"id":2}
+</code></pre>
+</div>
+
+
+</div>
+<div class="footer">
+    <a href="#">↑ Back to top</a>
+</div>
+<script>
+    document.getElementById("open-nav").addEventListener("click", function () {
+        document.body.classList.toggle("nav-open");
+    });
+</script>
+</body>
+</html>
+
+<script src="/js/adjust.js"></script>

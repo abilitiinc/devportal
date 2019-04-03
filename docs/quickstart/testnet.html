@@ -22,12 +22,12 @@
 <meta property="og:url" content="https://developers.sophiatx.com/quickstart/testnet" />
 <meta property="og:site_name" content="SophiaTX Developers" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-12-06T11:39:12+01:00" />
+<meta property="article:published_time" content="2019-04-03T21:19:38+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "SophiaTX testnet",
-"datePublished": "2018-12-06T11:39:12+01:00",
+"datePublished": "2019-04-03T21:19:38+02:00",
 "description": "SophiaTX blockchain software is written in C++ and in order to modify the source code you need some understanding of the C++ programming language. Each SophiaTX node runs an instance of this software, so in order to test your changes, you will need to know how to install dependencies which can be found in the SophiaTX repo. This also means that some knowledge of System administration is also required. There are multiple advantages of running a testnet, you can test your scripts or applications on a testnet without extra spam on the live network, which allows much more flexibility to try new things. Having access to a testnet also helps you to work on new features and possibly submit new or improved pull requests to official the SophiaTX GitHub repository.",
 "url": "https://developers.sophiatx.com/quickstart/testnet"}</script>
 <!-- End Jekyll SEO tag -->
@@ -99,6 +99,26 @@
 				
 					
 					
+						
+						<li><a href="/tutorials/#tutorials-guide-to-become-witness">How to become witness</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-to-start-sync-node">How to start sync node</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-multiparty-encryption">Multiparty Encryption</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-subscription-api-quick-guide">Subscription API guide</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
+						
+					
 				
 			
 		</ul>
@@ -113,10 +133,6 @@
 					
 					
 						
-						<li><a href="/sdks/#sdks-abap">ABAP SDK</a></li>
-						
-					
-						
 						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
 						
 					
@@ -126,6 +142,23 @@
 					
 						
 						<li><a href="/sdks/#sdks-javascript">Javascript SDK</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
+		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
 						
 					
 				
@@ -158,14 +191,6 @@
 						
 					
 						
-						<li><a href="/apidefinitions/#apidefinitions-custom-api">Custom Api</a></li>
-						
-					
-						
-						<li><a href="/apidefinitions/#apidefinitions-subscribe-api">Subscribe Api</a></li>
-						
-					
-						
 						<li><a href="/apidefinitions/#apidefinitions-alexandria-api">Alexandria Api</a></li>
 						
 					
@@ -177,21 +202,12 @@
 						<li><a href="/apidefinitions/#apidefinitions-chain-api">Chain Api</a></li>
 						
 					
-				
-			
-		</ul>
-	</section>
-	
-		
-    <section class="pnl-main-nav-section main-nav-section" url="/community/">
-		<h6 class="ctrl-nav-section title">Community</h6>
-		<ul class="cont-nav-section content">
-			
-				
-					
+						
+						<li><a href="/apidefinitions/#apidefinitions-custom-api">Custom Api</a></li>
+						
 					
 						
-						<li><a href="/community/#community-overview">Overview</a></li>
+						<li><a href="/apidefinitions/#apidefinitions-subscribe-api">Subscribe Api</a></li>
 						
 					
 				
@@ -260,35 +276,7 @@
   <li><code class="highlighter-rouge">16GB RAM</code> (mostly needed for <code class="highlighter-rouge">sophiatxd</code> build)</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get dist-upgrade
-sudo reboot
-
-sudo apt-get install autoconf automake autotools-dev bsdmainutils build-essential cmake doxygen <span class="se">\</span>
-   git libboost-all-dev libreadline-dev libssl-dev libtool ncurses-dev pbzip2 pkg-config <span class="se">\</span>
-   python3-dev python3-jinja2 python3-pip libbz2-dev libsnappy-dev<span class="se">\</span>
-   wget curl screen pv virtualenv nano xz-utils
-mkdir -p src
-<span class="nb">cd </span>src
-git clone https://github.com/SophiaTX/SophiaTX
-<span class="nb">cd </span>SophiaTX
-git checkout &lt;develop OR a more current branch&gt;
-git submodule update --init --recursive
-mkdir -p build
-<span class="nb">cd </span>build
-cmake <span class="se">\</span>
-   -DCMAKE_BUILD_TYPE<span class="o">=</span>Release <span class="se">\</span>
-   -DBUILD_STEEM_TESTNET<span class="o">=</span>ON <span class="se">\</span>
-   -DENABLE_SMT_SUPPORT<span class="o">=</span>ON <span class="se">\</span>
-   -DLOW_MEMORY_NODE<span class="o">=</span>ON <span class="se">\</span>
-   -DCHAINBASE_CHECK_LOCKING<span class="o">=</span>ON <span class="se">\</span>
-   -DCLEAR_VOTES<span class="o">=</span>ON <span class="se">\</span>
-   -DSKIP_BY_TX_ID<span class="o">=</span>ON <span class="se">\</span>
-   -DSTEEM_LINT_LEVEL<span class="o">=</span>OFF <span class="se">\</span>
-   ..
-make -j<span class="k">$(</span>nproc<span class="k">)</span> install
-<span class="nb">cd
-</span>mkdir -p testnet-data
-nano config.ini
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>TODO: provide testnet build instructions
 </code></pre>
 </div>
 
@@ -308,7 +296,7 @@ nano config.ini
 <span class="py">webserver-http-endpoint</span> <span class="p">=</span> <span class="s">0.0.0.0:8751</span>
 <span class="py">webserver-ws-endpoint</span> <span class="p">=</span> <span class="s">0.0.0.0:8752</span>
 
-<span class="c"># testnet.steemitdev.com
+<span class="c"># testnet.sophiatx.com
 </span><span class="py">p2p-seed-node</span> <span class="p">=</span> 
 </code></pre>
 </div>
@@ -325,13 +313,13 @@ nano config.ini
 
 <p>In the file named <code class="highlighter-rouge">SophiaTX/libraries/protocol/include/SophiaTX/protocol/config.hpp</code>, we can see the first few lines dedicated to the Testnet section. The line starts with <code class="highlighter-rouge">#ifdef IS_TEST_NET</code>.</p>
 
-<p>Let’s say we want to create a custom testnet with an initial supply of <strong>1,000,000 STEEM</strong>. We can change <code class="highlighter-rouge">STEEM_INIT_SUPPLY 1,000,000</code> and by changing <code class="highlighter-rouge">STEEM_CHAIN_ID_NAME "testnet"</code>, <strong>testnet</strong> to <strong>mytestnet</strong> we will automatically get a unique Chain ID for our testnet. The address prefix can be set to something like <strong>MTN</strong> and of course, we need to change the public and private keys to the genesis account. Note that the genesis account will receive the entire pre-mined supply of 1,000,000. That way, you can execute a setup script to fund any newly created accounts. Such a custom testnet will not have any additional hardware requirements to run.</p>
+<p>Let’s say we want to create a custom testnet with an initial supply of <strong>1,000,000 sphtx</strong>. We can change <code class="highlighter-rouge">SOPHIATX_INIT_SUPPLY 1,000,000</code> and by changing <code class="highlighter-rouge">SOPHIATX_CHAIN_ID_NAME "testnet"</code>, <strong>testnet</strong> to <strong>mytestnet</strong> we will automatically get a unique Chain ID for our testnet. The address prefix can be set to something like <strong>MTN</strong> and of course, we need to change the public and private keys to the genesis account. Note that the genesis account will receive the entire pre-mined supply of 1,000,000. That way, you can execute a setup script to fund any newly created accounts. Such a custom testnet will not have any additional hardware requirements to run.</p>
 
-<p>A minimum of 8GB RAM should be sufficient to run a custom testnet. Currently, Steem only has Linux and Mac compiling guides to build. A testnet can either be hosted locally, on a rented AWS, or dedicated bare metal servers so one can start testing functionality, explore different APIs, and start developing.</p>
+<p>A minimum of 8GB RAM should be sufficient to run a custom testnet. Currently, SophiaTX only has Linux and Mac compiling guides to build. A testnet can either be hosted locally, on a rented AWS, or dedicated bare metal servers so one can start testing functionality, explore different APIs, and start developing.</p>
 
-<p>One more crucial point to modify is to change the number of witnesses required to accept hardforks for a custom testnet, by default it is set to 17, we can change it to <strong>1</strong> <code class="highlighter-rouge">STEEM_HARDFORK_REQUIRED_WITNESSES 1</code> so that only one node instance would be sufficient and the network will be still functional and fast.</p>
+<p>One more crucial point to modify is to change the number of witnesses required to accept hardforks for a custom testnet, by default it is set to 17, we can change it to <strong>1</strong> <code class="highlighter-rouge">SOPHIATX_HARDFORK_REQUIRED_WITNESSES 1</code> so that only one node instance would be sufficient and the network will be still functional and fast.</p>
 
-<p>Another thing to note is that you can start a new chain with all previous hardforks already accepted, by changing the file named <code class="highlighter-rouge">steem/blob/master/libraries/chain/database.cpp</code> with the following function:</p>
+<p>Another thing to note is that you can start a new chain with all previous hardforks already accepted, by changing the file named <code class="highlighter-rouge">SophiaTX/blob/master/libraries/chain/database.cpp</code> with the following function:</p>
 
 <p><code class="highlighter-rouge">void database::init_genesis( uint64_t init_supply )</code> inside <code class="highlighter-rouge">try</code> add this line:</p>
 
@@ -339,19 +327,7 @@ nano config.ini
 
 <p>This would mean that 19 hardforks have been accepted by witnesses and the new chain will start with all previous forks included.</p>
 
-<p>After these changes, all we have to do is compile the source code and get the <code class="highlighter-rouge">steemd</code> executable. And once we fire up the custom testnet we can start testing and experimenting.</p>
-
-<p>If you want to port some data from Steem main network you can use <a href="https://github.com/SophiaTX/tinman">Tinman</a>, also developed by SophiaTX, to help with taking snapshots of the main network.</p>
-
-<h4 id="custom-live-testnet">Custom live testnet</h4>
-
-<p>An example of a custom testnet run by Steem community member <a href="https://SophiaTX.com/@almost-digital">@almost-digital</a>. It doesn’t have a snapshot of the main network</p>
-
-<ul>
-  <li>ChainID: <code class="highlighter-rouge">79276aea5d4877d9a25892eaa01b0adf019d3e5cb12a97478df3298ccdd01673</code></li>
-  <li>Address prefix: <code class="highlighter-rouge">STX</code></li>
-  <li>API node: <code class="highlighter-rouge">https://testnet.steem.vc</code></li>
-</ul>
+<p>After these changes, all we have to do is compile the source code and get the <code class="highlighter-rouge">sophiatxd</code> executable. And once we fire up the custom testnet we can start testing and experimenting.</p>
 
 
 </div>

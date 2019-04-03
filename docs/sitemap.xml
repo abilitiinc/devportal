@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://developers.sophiatx.com/CONTRIBUTING</loc>
-</url>
-<url>
 <loc>https://developers.sophiatx.com/apidefinitions/</loc>
 </url>
 <url>
-<loc>https://developers.sophiatx.com/community/</loc>
+<loc>https://developers.sophiatx.com/cli_wallet/</loc>
 </url>
 <url>
 <loc>https://developers.sophiatx.com/</loc>
@@ -17,6 +14,9 @@
 </url>
 <url>
 <loc>https://developers.sophiatx.com/sdks/</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/tutorials/</loc>
 </url>
 <url>
 <loc>https://developers.sophiatx.com/apidefinitions/account-history-api</loc>
@@ -46,7 +46,7 @@
 <loc>https://developers.sophiatx.com/apidefinitions/subscribe-api</loc>
 </url>
 <url>
-<loc>https://developers.sophiatx.com/community/overview</loc>
+<loc>https://developers.sophiatx.com/cli_wallet/RPC_calls</loc>
 </url>
 <url>
 <loc>https://developers.sophiatx.com/glossary/chain_basics</loc>
@@ -73,9 +73,6 @@
 <loc>https://developers.sophiatx.com/quickstart/testnet</loc>
 </url>
 <url>
-<loc>https://developers.sophiatx.com/sdks/abap</loc>
-</url>
-<url>
 <loc>https://developers.sophiatx.com/sdks/dotnet</loc>
 </url>
 <url>
@@ -83,5 +80,20 @@
 </url>
 <url>
 <loc>https://developers.sophiatx.com/sdks/javascript</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/tutorials/Guide-to-become-witness</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/tutorials/Guide-to-start-sync-node</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/tutorials/Multiparty-Encryption</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/tutorials/Subscription-API-quick-guide</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/tutorials/Using-SophiaTX-to-send-Hello-World-msg</loc>
 </url>
 </urlset>

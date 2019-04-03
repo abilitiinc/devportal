@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:300,400" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/fav.png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/css/fontawesome-all.min.css">
+    <script src="/js/main.js"></script>
+
+    <!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>How to start sync node - SophiaTX Developers</title>
+<meta property="og:title" content="How to start sync node" />
+<meta name="description" content="Download latest binaries Go here and download latest binaries. Extract the binaries Please run this command to extract the binaries tar -xzf BINARY_NAME Start a node Please execute following command to run the node ./sophiatxd and kill it (Ctrl + C) Modify configuration Now you need to modify config.ini file, to have proper full node. Execute following commands: cd witness_node_data_dir/ nano config.ini And add following configuration to your config.ini ``` plugin = condenser_api plugin = chain_api plugin = database_api plugin = block_api" />
+<meta property="og:description" content="Download latest binaries Go here and download latest binaries. Extract the binaries Please run this command to extract the binaries tar -xzf BINARY_NAME Start a node Please execute following command to run the node ./sophiatxd and kill it (Ctrl + C) Modify configuration Now you need to modify config.ini file, to have proper full node. Execute following commands: cd witness_node_data_dir/ nano config.ini And add following configuration to your config.ini ``` plugin = condenser_api plugin = chain_api plugin = database_api plugin = block_api" />
+<link rel="canonical" href="https://developers.sophiatx.com/tutorials/Guide-to-start-sync-node" />
+<meta property="og:url" content="https://developers.sophiatx.com/tutorials/Guide-to-start-sync-node" />
+<meta property="og:site_name" content="SophiaTX Developers" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-04-03T21:19:38+02:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "How to start sync node",
+"datePublished": "2019-04-03T21:19:38+02:00",
+"description": "Download latest binaries Go here and download latest binaries. Extract the binaries Please run this command to extract the binaries tar -xzf BINARY_NAME Start a node Please execute following command to run the node ./sophiatxd and kill it (Ctrl + C) Modify configuration Now you need to modify config.ini file, to have proper full node. Execute following commands: cd witness_node_data_dir/ nano config.ini And add following configuration to your config.ini ``` plugin = condenser_api plugin = chain_api plugin = database_api plugin = block_api",
+"url": "https://developers.sophiatx.com/tutorials/Guide-to-start-sync-node"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+<header>
+    <h1>
+        <button type="button" class="open-nav" id="open-nav"></button>
+        <a href="/"  class="logo-link"><img src="/images/logo.svg" height="40" alt="SophiaTX Developers logo"></a>
+    </h1>
+
+    <form action="/search/" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search">
+        <input type="submit" value="Search" style="display: none;">
+    </form>
+
+    <div id="sidebar" class="sidebar">
+	
+	
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/">
+		<h6 class="ctrl-nav-section title">Introduction</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/#introduction-welcome">Welcome to SophiaTX</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/quickstart/">
+		<h6 class="ctrl-nav-section title">Quickstart</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/quickstart/#quickstart-choose-sdk">Choose SDK</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-sophiatx-nodes">SophiaTX Nodes</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-testnet">SophiaTX testnet</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/tutorials/">
+		<h6 class="ctrl-nav-section title">Tutorials</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-to-become-witness">How to become witness</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-to-start-sync-node">How to start sync node</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-multiparty-encryption">Multiparty Encryption</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-subscription-api-quick-guide">Subscription API guide</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/sdks/">
+		<h6 class="ctrl-nav-section title">SDK'S</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
+						
+					
+						
+						<li><a href="/sdks/#sdks-java">Java SDK</a></li>
+						
+					
+						
+						<li><a href="/sdks/#sdks-javascript">Javascript SDK</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
+		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/apidefinitions/">
+		<h6 class="ctrl-nav-section title">Appbase API</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-account-history-api">Account History Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-database-api">Database Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-jsonrpc">Jsonrpc</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-network-broadcast-api">Network Broadcast Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-alexandria-api">Alexandria Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-block-api">Block Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-chain-api">Chain Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-custom-api">Custom Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-subscribe-api">Subscribe Api</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/glossary/">
+		<h6 class="ctrl-nav-section title">Glossary</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/glossary/#glossary-chain-basics">Chain Basics</a></li>
+						
+					
+						
+					
+						
+						<li><a href="/glossary/#glossary-governance">Governance</a></li>
+						
+					
+						
+						<li><a href="/glossary/#glossary-transactions">Transactions</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+</div>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+</header>
+<div class="main" id="top">
+    <div class="hero">
+        <h1 class="hero__h1"></h1>
+        <!--<img class="hero__img" src="/images/hero.png">-->
+    </div>
+    <h3 id="download-latest-binaries">Download latest binaries</h3>
+<p>Go <a href="https://github.com/SophiaTX/SophiaTX/releases">here</a> and download latest binaries.</p>
+<h3 id="extract-the-binaries">Extract the binaries</h3>
+<p>Please run this command to extract the binaries <code class="highlighter-rouge">tar -xzf BINARY_NAME</code></p>
+<h3 id="start-a-node">Start a node</h3>
+<p>Please execute following command to run the node <code class="highlighter-rouge">./sophiatxd</code> and kill it (Ctrl + C)</p>
+<h3 id="modify-configuration">Modify configuration</h3>
+<p>Now you need to modify config.ini file, to have proper full node. Execute following commands:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>cd witness_node_data_dir/
+nano config.ini
+</code></pre>
+</div>
+<p>And add following configuration to your config.ini</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>plugin = condenser_api
+plugin = chain_api
+plugin = database_api
+plugin = block_api
+
+webserver-ws-endpoint = 0.0.0.0:8090
+</code></pre>
+</div>
+<p>When you finished you can save document with Ctrl+x and then press Y to approve changes.</p>
+
+<h3 id="rerun-the-node">Rerun the node</h3>
+<p>Now go back and rerun the node</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>cd ..
+./sophiatxd
+</code></pre>
+</div>
+<h3 id="check-if-node-is-syncing">Check if node is syncing</h3>
+<p>Open new terminal window and run wallet <code class="highlighter-rouge">./cli_wallet</code> when wallet is running set up a password for wallet and execute info command to check if node is syncing.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>set_password YOUR_PASSWORD
+unlock YOUR_PASSWORD
+info
+</code></pre>
+</div>
+<p>Output should look like something like this</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"head_block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">22646</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"head_block_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00005876350c332f4009a37c55fc9147902b8eb1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-26T07:15:36"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"current_witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initminer"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"current_supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"349999999.780000 SPHTX"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total_vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2250001.000000 VESTS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"witness_required_vesting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250000.000000 VESTS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">262144</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"current_aslot"</span><span class="p">:</span><span class="w"> </span><span class="mi">24312</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"recent_slots_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"340282366920938463463374607431768211455"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_irreversible_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">22595</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"average_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"witness_majority_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"hardfork_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"head_block_age"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 seconds old"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"participation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.00000000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"median_sbd1_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"median_sbd2_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"median_sbd3_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"median_sbd4_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"median_sbd5_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"account_creation_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.050000 SPHTX"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>You can rerun this command a few times and see the head_block_age is up to date</p>
+
+<h3 id="setting-up-seednode">Setting up seednode</h3>
+<p>If you have followed all steps, now you can create a seednode and be official part of our network. To do that you just need to edit following line in config.ini .</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>p2p-endpoint = 0.0.0.0:60000 
+</code></pre>
+</div>
+<p>Please be sure, that your node is open for p2p traffic.</p>
+
+</div>
+<div class="footer">
+    <a href="#">↑ Back to top</a>
+</div>
+<script>
+    document.getElementById("open-nav").addEventListener("click", function () {
+        document.body.classList.toggle("nav-open");
+    });
+</script>
+</body>
+</html>
+
+<script src="/js/adjust.js"></script>

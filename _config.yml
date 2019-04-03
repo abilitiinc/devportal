@@ -28,15 +28,15 @@ collections:
     id: sdks
     position: 6
     output: true
-  community:
-    title: Community
-    id: community
+  cli_wallet:
+    title: Cli Wallet
+    id: cli_wallet
     position: 7
     output: true
   glossary:
     title: Glossary
     id: glossary
-    position: 8
+    position: 9
     output: true
   apidefinitions:
     title: API Definitions
@@ -70,5 +70,5 @@ types:
 
 kramdown:
   auto_ids: true
-  
+
 plugins_dir: ./_plugins
