@@ -1917,17 +1917,17 @@ still under development and subject to change.</strong></p>
 
 </ul>
 <h4 id="alexandria_api.create_simple_transaction">alexandria_api.create_simple_transaction <a href="#alexandria_api.create_simple_transaction"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Creates transaction in requirded format from provided operation</p>
 <h5 id="alexandria_api.create_simple_transaction-parameter_json">Query Parameters JSON <a href="#alexandria_api.create_simple_transaction-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"transfer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_json"</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"data\":\"any valid json data\"}"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1935,16 +1935,24 @@ still under development and subject to change.</strong></p>
 </div>
 <h5 id="alexandria_api.create_simple_transaction-expected_response_json">Expected Response JSON <a href="#alexandria_api.create_simple_transaction-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"simple_tx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"custom_json"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"data\":\"any valid json data\"}"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+</div>
+
+<h5 id="alexandria_api.create_simple_transaction-curl-examples">Example <code>curl</code> <a href="#alexandria_api.create_simple_transaction-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.create_simple_transaction", "params": {"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]}, "id": 1}'</span> https://API_URL
+</code></pre>
 </div>
 
 <hr />
@@ -2857,25 +2865,36 @@ still under development and subject to change.</strong></p>
 
 </ul>
 <h4 id="alexandria_api.make_custom_binary_operation">alexandria_api.make_custom_binary_operation <a href="#alexandria_api.make_custom_binary_operation"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Creates "custom_binary" operation in requested json format. Applications can and should create such operation themselves and skipp this call<br /><br /> <b>Request fields:</b><br /> data - data in base64 format<br /> <b>Result fields:</b><br /> data -  data in hex format<br /></p>
 <h5 id="alexandria_api.make_custom_binary_operation-parameter_json">Query Parameters JSON <a href="#alexandria_api.make_custom_binary_operation-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SGVsbG8gU29waGlhVFg="</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 <h5 id="alexandria_api.make_custom_binary_operation-expected_response_json">Expected Response JSON <a href="#alexandria_api.make_custom_binary_operation-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"TODO:add name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_binary"</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48656c6c6f20536f706869615458"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+</div>
+
+<h5 id="alexandria_api.make_custom_binary_operation-curl-examples">Example <code>curl</code> <a href="#alexandria_api.make_custom_binary_operation-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.make_custom_binary_operation", "params": {"app_id": 10, "from": "user1", "to": ["user2", "user3"], "data": "SGVsbG8gU29waGlhVFg="}, "id": 1}'</span> https://API_URL
+</code></pre>
 </div>
 
 <hr />
@@ -2886,25 +2905,36 @@ still under development and subject to change.</strong></p>
 
 </ul>
 <h4 id="alexandria_api.make_custom_json_operation">alexandria_api.make_custom_json_operation <a href="#alexandria_api.make_custom_json_operation"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Creates “custom_json” operation in requested json format. Applications can and should create such operation themselves and skipp this call</p>
 <h5 id="alexandria_api.make_custom_json_operation-parameter_json">Query Parameters JSON <a href="#alexandria_api.make_custom_json_operation-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"data\":\"any valid json data\"}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 <h5 id="alexandria_api.make_custom_json_operation-expected_response_json">Expected Response JSON <a href="#alexandria_api.make_custom_json_operation-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"TODO:add name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_json"</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"data\":\"any valid json data\"}"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+</div>
+
+<h5 id="alexandria_api.make_custom_json_operation-curl-examples">Example <code>curl</code> <a href="#alexandria_api.make_custom_json_operation-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.make_custom_json_operation", "params": {"app_id": 10, "from": "user1", "to": ["user2", "user3"], "json": "{\"data\":\"any valid json data\"}"}, "id": 1}'</span> https://API_URL
+</code></pre>
 </div>
 
 <hr />
@@ -2915,38 +2945,69 @@ still under development and subject to change.</strong></p>
 
 </ul>
 <h4 id="alexandria_api.send_and_sign_operation">alexandria_api.send_and_sign_operation <a href="#alexandria_api.send_and_sign_operation"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Creates transaction based on provided operation, signs it and broadcasts it to the network<br /><br /> <b>Request</b></p>
+<li>op - any of the supported operations(TODO add link to supported operations)</li>
+<li>pk - sender private key</li>
+<p><br />
+<b>Response</b></p>
+<li>signed_tx - signed, created and broadcasted transaction</li>
+<p><br />
+<b>Internal steps make by this call are equivalent to:</b><br /></p>
+<li>tx               = alexandria_api.create_simple_transaction(request.op)</li>
+<li>digest           = alexandria_api.get_transaction_digest(tx)</li>
+<li>signed_digest    = alexandria_api.sign_digest(digest, request.pk)</li>
+<li>signed_tx        = alexandria_api.add_siganture(tx, signed_digest)</li>
+<li>result.signed_tx = alexandria_api.broadcast_transaction(signed_tx)</li>
 <h5 id="alexandria_api.send_and_sign_operation-parameter_json">Query Parameters JSON <a href="#alexandria_api.send_and_sign_operation-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"transfer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"custom_json"</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"data\":\"any valid json data\"}"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"pk"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="nt">"pk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sender PRIVATE KEY"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 <h5 id="alexandria_api.send_and_sign_operation-expected_response_json">Expected Response JSON <a href="#alexandria_api.send_and_sign_operation-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"signed_tx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">2230</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">331838658</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:10:42"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"custom_json"</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.010000 SPHTX"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+          </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"data\":\"any valid json data\"}"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nt">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"1f5f304dd4d478f498fb4e42f3abf75fb6e7b0f3d5da9a42068c36127374ce6bab64628c0fe22a4a7ff78d2b8a7176e8738a3ee7920f4c0787cbd4125755300154"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dacf80351711e1049bccf0d804b5556ca8282c17"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">2231</span><span class="p">,</span><span class="w">
     </span><span class="nt">"transaction_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+</div>
+
+<h5 id="alexandria_api.send_and_sign_operation-curl-examples">Example <code>curl</code> <a href="#alexandria_api.send_and_sign_operation-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.send_and_sign_operation", "params": {"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}],"pk":"sender PRIVATE KEY"}, "id": 1}'</span> https://API_URL
+</code></pre>
 </div>
 
 <hr />
@@ -2957,36 +3018,77 @@ still under development and subject to change.</strong></p>
 
 </ul>
 <h4 id="alexandria_api.send_and_sign_transaction">alexandria_api.send_and_sign_transaction <a href="#alexandria_api.send_and_sign_transaction"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Signs provided transaction and broadcasts it to network<br /><br /> Such transaction can be created by call alexandria_api.create_simple_transaction(…)<br /><br /> <b>Request</b></p>
+<li>tx - unsigned transaction</li>
+<li>pk - sender private key</li>
+<p><br />
+<b>Response</b></p>
+<li>signed_tx - signed, created and broadcasted transaction</li>
+<p><br />
+<b>Internal steps make by this call are equivalent to:</b><br /></p>
+<li>digest           = alexandria_api.get_transaction_digest(tx)</li>
+<li>signed_digest    = alexandria_api.sign_digest(digest, request.pk)</li>
+<li>signed_tx        = alexandria_api.add_siganture(tx, signed_digest)</li>
+<li>result.signed_tx = alexandria_api.broadcast_transaction(signed_tx)</li>
 <h5 id="alexandria_api.send_and_sign_transaction-parameter_json">Query Parameters JSON <a href="#alexandria_api.send_and_sign_transaction-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"tx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">3701</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">914684397</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T13:30:15"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"custom_json"</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.010000 SPHTX"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+          </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"data\":\"any valid json data\"}"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nt">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nt">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"pk"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="nt">"pk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sender PRIVATE KEY"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 <h5 id="alexandria_api.send_and_sign_transaction-expected_response_json">Expected Response JSON <a href="#alexandria_api.send_and_sign_transaction-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"signed_tx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">3701</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">914684397</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T13:30:15"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"custom_json"</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.010000 SPHTX"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+          </span><span class="nt">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"data\":\"any valid json data\"}"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nt">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"203cd5873cba28262b2972245b2524341750cc8c1b67dc8fe5307f87c9aac8f8276365ac22002f91e8468c8160fa0343f5b1a5ca53a62464a4d9560a2a9173953d"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8b9afcccdf8bed9484fadd56eaa3bd744a13f819"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">3782</span><span class="p">,</span><span class="w">
     </span><span class="nt">"transaction_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+</div>
+
+<h5 id="alexandria_api.send_and_sign_transaction-curl-examples">Example <code>curl</code> <a href="#alexandria_api.send_and_sign_transaction-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.send_and_sign_transaction", "params": {"tx":{"ref_block_num":3701,"ref_block_prefix":914684397,"expiration":"2019-04-04T13:30:15","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":[]},"pk":"sender PRIVATE KEY"}, "id": 1}'</span> https://API_URL
+</code></pre>
 </div>
 
 <hr />
