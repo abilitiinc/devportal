@@ -244,18 +244,34 @@
     parameter_json: '{"name":"","limit":0}'
     expected_response_json: '{"witnesses_by_vote":[]}'
   - api_method: alexandria_api.make_custom_binary_operation
-    purpose: 
-    parameter_json: '{"app_id":0,"from":"","to":[],"data":""}'
-    expected_response_json: '{"op":["TODO:add name",{"fee":"0.000000 SPHTX","sender":"","recipients":[],"app_id":0,"data":""}]}'
+    purpose: Creates \"custom_binary\" operation in requested json format. Applications can and should create such operation themselves and skipp this call<br><br>
+              <b>Request fields:</b><br>
+              data - data in base64 format<br>
+              <b>Result fields:</b><br>
+              data -  data in hex format<br>
+    parameter_json: '{"app_id": 10, "from": "user1", "to": ["user2", "user3"], "data": "SGVsbG8gU29waGlhVFg="}'
+    expected_response_json: '{"op":["custom_binary",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"data":"48656c6c6f20536f706869615458"}]}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.make_custom_binary_operation", "params": {"app_id": 10, "from": "user1", "to": ["user2", "user3"], "data": "SGVsbG8gU29waGlhVFg="}, "id": 1}'
   - api_method: alexandria_api.make_custom_json_operation
-    purpose: 
-    parameter_json: '{"app_id":0,"from":"","to":[],"json":""}'
-    expected_response_json: '{"op":["TODO:add name",{"fee":"0.000000 SPHTX","sender":"","recipients":[],"app_id":0,"json":""}]}'
+    purpose: "Creates \"custom_json\" operation in requested json format. Applications can and should create such operation themselves and skipp this call"
+    parameter_json: '{"app_id": 10, "from": "user1", "to": ["user2", "user3"], "json": "{\"data\":\"any valid json data\"}"}'
+    expected_response_json: '{"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.make_custom_json_operation", "params": {"app_id": 10, "from": "user1", "to": ["user2", "user3"], "json": "{\"data\":\"any valid json data\"}"}, "id": 1}'
   - api_method: alexandria_api.send_and_sign_operation
-    purpose: 
-    parameter_json: '{"op":["transfer",{"fee":"0.000000 SPHTX","from":"","to":"","amount":"0.000000
-      SPHTX","memo":""}],"pk":""}'
-    expected_response_json: '{"signed_tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[],"transaction_id":"0000000000000000000000000000000000000000","block_num":0,"transaction_num":0}}'
+    purpose: Creates transaction based on provided operation, signs it and broadcasts it to the network<br><br>
+              Internal steps make by this call are equivalent to:<br>
+
+              <li>tx               = alexandria_api.create_simple_transaction(request.op)</li>
+              <li>digest           = alexandria_api.get_transaction_digest(tx)</li>
+              <li>signed_digest    = alexandria_api.sign_digest(digest, request.pk)</li>
+              <li>signed_tx        = alexandria_api.add_siganture(tx, signed_digest)</li>
+              <li>result.signed_tx = alexandria_api.broadcast_transaction(signed_tx)</li>
+    parameter_json: '{"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}],"pk":"user1 PRIVATE KEY"}'
+    expected_response_json: '{"signed_tx":{"ref_block_num":2230,"ref_block_prefix":331838658,"expiration":"2019-04-04T12:10:42","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":["1f5f304dd4d478f498fb4e42f3abf75fb6e7b0f3d5da9a42068c36127374ce6bab64628c0fe22a4a7ff78d2b8a7176e8738a3ee7920f4c0787cbd4125755300154"],"transaction_id":"dacf80351711e1049bccf0d804b5556ca8282c17","block_num":2231,"transaction_num":0}}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.send_and_sign_operation", "params": {"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}],"pk":"user1 PRIVATE KEY"}, "id": 1}'
   - api_method: alexandria_api.send_and_sign_transaction
     purpose: 
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]},"pk":""}'
