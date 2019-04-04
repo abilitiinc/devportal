@@ -92,7 +92,7 @@
   - api_method: alexandria_api.create_simple_transaction
     purpose: Creates transaction in requirded format from provided operation
     parameter_json: '{"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]}'
-    expected_response_json: '{"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]}'
+    expected_response_json: '{"simple_tx":{"ref_block_num":3701,"ref_block_prefix":914684397,"expiration":"2019-04-04T13:24:15","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":[]}}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.create_simple_transaction", "params": {"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]}, "id": 1}'
   - api_method: alexandria_api.create_transaction
