@@ -1,5 +1,5 @@
 ---
-title: Hello World on SophiaTX via API calls
+title: Hello World via API calls
 position: 1
 ---
 
