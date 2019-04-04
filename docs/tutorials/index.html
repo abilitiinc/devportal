@@ -113,6 +113,10 @@
 						
 					
 						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg-via-api">Hello World on SophiaTX via API calls</a></li>
+						
+					
+						
 						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
 						
 					
@@ -131,10 +135,6 @@
 					
 						
 						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
-						
-					
-						
-						<li><a href="/sdks/#sdks-java">Java SDK</a></li>
 						
 					
 						
@@ -275,34 +275,31 @@
 <p><code class="highlighter-rouge">cd witness_node_data_dir/</code></p>
 
 <p>And modify this properties:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>plugin = alexandria_api
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugin = alexandria_api
 plugin = network_broadcast_api
 
 webserver-ws-endpoint = 0.0.0.0:9191
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Now start <code class="highlighter-rouge">cli_wallet</code>, create new wallet file and key for witness</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>./cli_wallet
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./cli_wallet
 new &gt;&gt;&gt; set_password YOUR_PASSWORD
 locked &gt;&gt;&gt; unlock YOUR_PASSWORD
 unlocked &gt;&gt;&gt; import_key YOUR_PRIVATE_KEY
 unlocked &gt;&gt;&gt; suggest_brain_key
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Output should look like something like this</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"brain_priv_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLENT EPOCHA GREED OCQUE BHALU TAPE SMUT AVERAH BALAO SHARPEN BUSTARD ATHIRST PACTION WIDBIN NYMPHA BANK"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"wif_priv_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5J7ejuMu2ZkNWQ367X38wVvBWFzgbsjPvw6PLNtwsYEQrbhigT6"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"pub_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH6m3vR9ZfRiGCSmpdY8G6kaAjXxGYBxu6pRE99cFL95SEcxEWeh"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "brain_priv_key": "BLENT EPOCHA GREED OCQUE BHALU TAPE SMUT AVERAH BALAO SHARPEN BUSTARD ATHIRST PACTION WIDBIN NYMPHA BANK",
+  "wif_priv_key": "5J7ejuMu2ZkNWQ367X38wVvBWFzgbsjPvw6PLNtwsYEQrbhigT6",
+  "pub_key": "SPH6m3vR9ZfRiGCSmpdY8G6kaAjXxGYBxu6pRE99cFL95SEcxEWeh"
+}
+</code></pre></div></div>
 <p>Now kill the daemon and modify config.ini
 Now you can reedit config.ini with following properties (you can remove rest of the plugins if you want to be just the witness)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>plugin = witness
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugin = witness
 
 witness = "YOUR_ACCOUNT_NAME"
 
@@ -311,16 +308,14 @@ private-key = 5J7ejuMu2ZkNWQ367X38wVvBWFzgbsjPvw6PLNtwsYEQrbhigT6 (just example)
 enable-stale-production = false
 
 required-participation = 35
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>And rerun the daemon with command
 <code class="highlighter-rouge">./sophiatxd</code></p>
 
 <p>Now you need to vest tokens to you account and update yourself as witness</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>unlocked &gt;&gt;&gt; transfer_to_vesting YOUR_ACCOUNT_NAME YOUR_ACCOUNT_NAME "250000 SPHTX" true
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unlocked &gt;&gt;&gt; transfer_to_vesting YOUR_ACCOUNT_NAME YOUR_ACCOUNT_NAME "250000 SPHTX" true
 unlocked &gt;&gt;&gt; update_witness YOUR_ACCOUNT_NAME "YOUR_URL" SPH6m3vR9ZfRiGCSmpdY8G6kaAjXxGYBxu6pRE99cFL95SEcxEWeh {"account_creation_fee":"0.05 SPHTX","maximum_block_size":50331648,"price_feeds":[]} true
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="check-if-your-setup-is-right">Check if your setup is right</h3>
 <p>Go to cli_wallet and execute command: <code class="highlighter-rouge">get_witness YOUR_WITNESS_NAME</code> and if you check the output, you should be able to you last confirmed block</p>
@@ -334,30 +329,26 @@ unlocked &gt;&gt;&gt; update_witness YOUR_ACCOUNT_NAME "YOUR_URL" SPH6m3vR9ZfRiG
 
 <p>Once the script functionality is checked, run it regularly, at lease once per day. You can use e.g. crond service on Linux:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>crontab
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crontab
 0 * * * * /usr/local/bin/feeder &lt;YOUR_ACCOUNT_NAME&gt; &lt;YOUR_MINING_KEY&gt;
 &lt;ctrl-D&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="setup-ntp-time-synchronization">Setup NTP Time Synchronization</h2>
 <h3 id="suse">Suse</h3>
 <p><a href="https://www.suse.com/documentation/sles11/book_sle_admin/data/sec_netz_xntp_netconf.html">Suse guide</a></p>
 <h3 id="ubuntu">Ubuntu</h3>
 <p>Before installing ntpd, you should turn off timesyncd:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo timedatectl set-ntp no
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo timedatectl set-ntp no
+</code></pre></div></div>
 <p>Please install ntpd by executing following command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install ntp
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install ntp
+</code></pre></div></div>
 <p>ntpd will be started automatically after install. You can verify that everything is working by following command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo ntpq -p
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ntpq -p
+</code></pre></div></div>
 <p>Example:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>     remote           refid      st t when poll reach   delay   offset  jitter
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     remote           refid      st t when poll reach   delay   offset  jitter
 ==============================================================================
  0.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
  1.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
@@ -374,8 +365,7 @@ unlocked &gt;&gt;&gt; update_witness YOUR_ACCOUNT_NAME "YOUR_URL" SPH6m3vR9ZfRiG
  pugot.canonical 17.253.34.125    2 u    -   64    1   11.398   -1.159   0.000
  chilipepper.can 145.238.203.14   2 u    1   64    1   10.779   -1.549   0.000
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 		</section>
@@ -397,84 +387,78 @@ unlocked &gt;&gt;&gt; update_witness YOUR_ACCOUNT_NAME "YOUR_URL" SPH6m3vR9ZfRiG
 <p>Please execute following command to run the node <code class="highlighter-rouge">./sophiatxd</code> and kill it (Ctrl + C)</p>
 <h3 id="modify-configuration">Modify configuration</h3>
 <p>Now you need to modify config.ini file, to have proper full node. Execute following commands:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>cd witness_node_data_dir/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd witness_node_data_dir/
 nano config.ini
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>And add following configuration to your config.ini</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>plugin = condenser_api
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugin = condenser_api
 plugin = chain_api
 plugin = database_api
 plugin = block_api
 
 webserver-ws-endpoint = 0.0.0.0:8090
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>When you finished you can save document with Ctrl+x and then press Y to approve changes.</p>
 
 <h3 id="rerun-the-node">Rerun the node</h3>
 <p>Now go back and rerun the node</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>cd ..
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ..
 ./sophiatxd
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="check-if-node-is-syncing">Check if node is syncing</h3>
 <p>Open new terminal window and run wallet <code class="highlighter-rouge">./cli_wallet</code> when wallet is running set up a password for wallet and execute info command to check if node is syncing.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>set_password YOUR_PASSWORD
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set_password YOUR_PASSWORD
 unlock YOUR_PASSWORD
 info
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Output should look like something like this</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"head_block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">22646</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"head_block_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00005876350c332f4009a37c55fc9147902b8eb1"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-26T07:15:36"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"current_witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initminer"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"current_supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"349999999.780000 SPHTX"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total_vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2250001.000000 VESTS"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"witness_required_vesting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250000.000000 VESTS"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">262144</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"current_aslot"</span><span class="p">:</span><span class="w"> </span><span class="mi">24312</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"recent_slots_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"340282366920938463463374607431768211455"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"last_irreversible_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">22595</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"average_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"witness_majority_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"hardfork_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"head_block_age"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 seconds old"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"participation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.00000000000000000"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"median_sbd1_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"median_sbd2_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"median_sbd3_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"median_sbd4_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"median_sbd5_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"account_creation_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.050000 SPHTX"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "head_block_number": 22646,
+  "head_block_id": "00005876350c332f4009a37c55fc9147902b8eb1",
+  "time": "2018-07-26T07:15:36",
+  "current_witness": "initminer",
+  "current_supply": "349999999.780000 SPHTX",
+  "total_vesting_shares": "2250001.000000 VESTS",
+  "witness_required_vesting": "250000.000000 VESTS",
+  "maximum_block_size": 262144,
+  "current_aslot": 24312,
+  "recent_slots_filled": "340282366920938463463374607431768211455",
+  "participation_count": 128,
+  "last_irreversible_block_num": 22595,
+  "average_block_size": 0,
+  "witness_majority_version": "0.0.0",
+  "hardfork_version": "1.0.0",
+  "head_block_age": "2 seconds old",
+  "participation": "100.00000000000000000",
+  "median_sbd1_price": {
+    "base": "0.000000 SPHTX",
+    "quote": "0.000000 SPHTX"
+  },
+  "median_sbd2_price": {
+    "base": "0.000000 SPHTX",
+    "quote": "0.000000 SPHTX"
+  },
+  "median_sbd3_price": {
+    "base": "0.000000 SPHTX",
+    "quote": "0.000000 SPHTX"
+  },
+  "median_sbd4_price": {
+    "base": "0.000000 SPHTX",
+    "quote": "0.000000 SPHTX"
+  },
+  "median_sbd5_price": {
+    "base": "0.000000 SPHTX",
+    "quote": "0.000000 SPHTX"
+  },
+  "account_creation_fee": "0.050000 SPHTX"
+}
+</code></pre></div></div>
 <p>You can rerun this command a few times and see the head_block_age is up to date</p>
 
 <h3 id="setting-up-seednode">Setting up seednode</h3>
 <p>If you have followed all steps, now you can create a seednode and be official part of our network. To do that you just need to edit following line in config.ini .</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>p2p-endpoint = 0.0.0.0:60000 
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p2p-endpoint = 0.0.0.0:60000 
+</code></pre></div></div>
 <p>Please be sure, that your node is open for p2p traffic.</p>
 
 		</section>
@@ -523,90 +507,82 @@ Whenever admin removes participants from the group, new group address and group 
 
 <h2 id="group-invite">Group invite</h2>
 <p>Group invite is sent from admin to individual user. The format of the JSON payload is as follows:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                       </span><span class="err">//&lt;aka</span><span class="w"> </span><span class="nt">"system message"</span><span class="w">
-  </span><span class="nt">"operation_data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">                  </span><span class="err">//&lt;always</span><span class="w"> </span><span class="err">1</span><span class="w">
-    </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"add"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"new_group_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;NEW GROUP NAME&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;A SHORT DESCRIPTION OF THE PURPOSE OF THE GROUP&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user_list"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;OPTIONAL LIST OF OTHER PARTICIPANTS&gt;"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"senders_pubkey"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ADMIN PUBLIC MEMO KEY&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"new_key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="s2">"&lt;RECIPIENT PUBLIC MEMO KEY&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s2">"&lt;GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT SHARED SECRET&gt;"</span><span class="p">]]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "type" : 0,                       //&lt;aka "system message"
+  "operation_data" : {
+    "version" : 1,                  //&lt;always 1
+    "type" : "add",
+    "new_group_name" : "&lt;NEW GROUP NAME&gt;",
+    "description" : "&lt;A SHORT DESCRIPTION OF THE PURPOSE OF THE GROUP&gt;",
+    "user_list" : ["&lt;OPTIONAL LIST OF OTHER PARTICIPANTS&gt;"],
+    "senders_pubkey" : "&lt;ADMIN PUBLIC MEMO KEY&gt;",
+    "new_key" : [["&lt;RECIPIENT PUBLIC MEMO KEY&gt;", "&lt;GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT SHARED SECRET&gt;"]]
+  }
+}
+</code></pre></div></div>
 <p>NOTE: Public memo keys are stored in the structure for references. In case one of the participants changes her memo key, one can easily find which key was used in construction of the shared secret.</p>
 
 <p>This payload is then encrypted using sender-recipient shared secret, and packed into a JSON wrapper:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ADMIN PUBLIC MEMO KEY&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;RECIPIENT PUBLIC MEMO KEY&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD&gt;"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "sender": "&lt;ADMIN PUBLIC MEMO KEY&gt;",
+  "recipient": "&lt;RECIPIENT PUBLIC MEMO KEY&gt;",
+  "data" : "&lt;HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD&gt;"
+}
+</code></pre></div></div>
 
 <h2 id="group-update-1">Group update</h2>
 <p>Group update is sent from admin to the actual group address. 
 The format of the JSON payload is as follows:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                       </span><span class="err">//&lt;aka</span><span class="w"> </span><span class="nt">"system message"</span><span class="w">
-  </span><span class="nt">"operation_data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">                  </span><span class="err">//&lt;always</span><span class="w"> </span><span class="err">1</span><span class="w">
-    </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">             
-    </span><span class="nt">"new_group_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;NEW GROUP NAME&gt;"</span><span class="p">,</span><span class="w"> </span><span class="err">//optional</span><span class="w"> </span><span class="err">parameter,</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">case</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">changes.</span><span class="w"> </span><span class="err">Can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">omitted.</span><span class="w">
-    </span><span class="nt">"description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;A SHORT DESCRIPTION OF THE PURPOSE OF THE GROUP&gt;"</span><span class="p">,</span><span class="w"> </span><span class="err">//optional</span><span class="w"> </span><span class="err">parameter,</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">case</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">description</span><span class="w"> </span><span class="err">changes.</span><span class="w"> </span><span class="err">Can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">omitted.</span><span class="w">
-    </span><span class="nt">"user_list"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;OPTIONAL LIST OF OTHER PARTICIPANTS&gt;"</span><span class="p">],</span><span class="w">
-    </span><span class="nt">"senders_pubkey"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ADMIN PUBLIC MEMO KEY&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"new_key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="s2">"SEE BELOW"</span><span class="p">]]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "type" : 0,                       //&lt;aka "system message"
+  "operation_data" : {
+    "version" : 1,                  //&lt;always 1
+    "type" : "update",             
+    "new_group_name" : "&lt;NEW GROUP NAME&gt;", //optional parameter, in case group name changes. Can be omitted.
+    "description" : "&lt;A SHORT DESCRIPTION OF THE PURPOSE OF THE GROUP&gt;", //optional parameter, in case group description changes. Can be omitted.
+    "user_list" : ["&lt;OPTIONAL LIST OF OTHER PARTICIPANTS&gt;"],
+    "senders_pubkey" : "&lt;ADMIN PUBLIC MEMO KEY&gt;",
+    "new_key" : [["SEE BELOW"]]
+  }
+}
+</code></pre></div></div>
 
 <p>Would the group key change, the new key is encoded either with group key or with shared secrets for each individual group participant. The later must be used in case of deleting participants. 
 The first case has then the following format:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>"new_key" : [["SPH1111111111111111111111111111111114T1Anm", "&lt;ENCRYPTED_GROUP_KEY&gt;"]]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"new_key" : [["SPH1111111111111111111111111111111114T1Anm", "&lt;ENCRYPTED_GROUP_KEY&gt;"]]
+</code></pre></div></div>
 
 <p>The second case will end in a list of encrypted keys:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>"new_key" : [
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"new_key" : [
     ["&lt;RECIPIENT1 PUBLIC MEMO KEY&gt;", "&lt;GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT1 SHARED SECRET&gt;"],
     ["&lt;RECIPIENT2 PUBLIC MEMO KEY&gt;", "&lt;GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT2 SHARED SECRET&gt;"],
 (...)
     ["&lt;RECIPIENT_N PUBLIC MEMO KEY&gt;", "&lt;GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT_N SHARED SECRET&gt;"]
 ]
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This payload is then encrypted using group key, and packed into a JSON wrapper:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"iv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;INITIAL VECTOR FOR AES&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD&gt;"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "iv": "&lt;INITIAL VECTOR FOR AES&gt;",
+  "data" : "&lt;HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD&gt;"
+}
+</code></pre></div></div>
 
 <h2 id="group-message">Group message</h2>
 <p>Group update is sent from a group member to the actual group address.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"message_data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;HEX ENCODED COMMUNICATION&gt;"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "type" : 1,
+  "message_data" : "&lt;HEX ENCODED COMMUNICATION&gt;"
+}
+</code></pre></div></div>
 
 <p>This payload is then encrypted using group key, and packed into a JSON wrapper:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"iv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;INITIAL VECTOR FOR AES&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD&gt;"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "iv": "&lt;INITIAL VECTOR FOR AES&gt;",
+  "data" : "&lt;HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD&gt;"
+}
+</code></pre></div></div>
 
 <h1 id="encryption">Encryption</h1>
 
@@ -618,9 +594,8 @@ The first case has then the following format:</p>
 
 <h1 id="api">API</h1>
 <p>The multiparty messaging plugin was developed as a reference implementation. Its usability is limited to be run on end-user’s node, and the node must not expose its API to general public. The plugin is started when the following parameters are added to the daemon when starting:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>--plugin multiparty_messaging --mpm-app-id 2 --mpm-account &lt;MYACCOUNT&gt; --mpm-private-key &lt;PRIVATE_MEMO_KEY&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--plugin multiparty_messaging --mpm-app-id 2 --mpm-account &lt;MYACCOUNT&gt; --mpm-private-key &lt;PRIVATE_MEMO_KEY&gt;
+</code></pre></div></div>
 <p>NOTE: The <code class="highlighter-rouge">mpm-account</code> and <code class="highlighter-rouge">mpm-private-key</code> can be repeated more than once.</p>
 
 <p>Once the plugin is started, it starts listening for <code class="highlighter-rouge">custom_json_operations</code> with the given application ID and executes the logic as described above. It stores in database information about all past and active groups the user has been involved in, as well as all decoded messages. 
@@ -632,13 +607,12 @@ The API calls can be split into two logical part:</p>
 
 <h3 id="example">Example</h3>
 <p>First create the group invitation by user <code class="highlighter-rouge">initminer</code> using wscat:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt; {"jsonrpc":"2.0", "id":1, "method":"multiparty_messaging.create_group", "params":{"admin":"initminer", "description":"blah", "members":["kpX6yHkAb_RIEuQ7g7UVoGwpUKo"]}}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; {"jsonrpc":"2.0", "id":1, "method":"multiparty_messaging.create_group", "params":{"admin":"initminer", "description":"blah", "members":["kpX6yHkAb_RIEuQ7g7UVoGwpUKo"]}}
 &lt; {"jsonrpc":"2.0","result":{"group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g","operation_payloads":[["kpX6yHkAb_RIEuQ7g7UVoGwpUKo",{"sender":"SPH8HWPUynRQnH8QCHdCvebNKbKGuVpZ9FZpg3EWv9UN5qayA8v7k","recipient":"SPH7t5298LP6CDuC8SHT7PGaH7rvqCYgV6sCsrT55VLJXEuQXWnPw","data":"396a3370a56a188403c1185b6ac98d69d01a2c42699a986da80f1d762e54671d82a9097983a228da8635d157d24c01bd9fe20ea0c1a390a6d6c7a247eea80ab3b6f4649c1dc1d3539307a36e9f525f8bab3416ccaf1bac26ee539ea0e289489a1f0261ac9a9f5a95317c3fe62bd49b3b0a5f85db3708eab406e6f181deb6a6fce851154f7ded1495befd308a33abe7002798f4a3d45adbb0c52a97175dbe14e76850d40b05d1147e4d070320051c6c46de600307e5ad59aa0290deb6368e92974a98047f96c5b70a7be005dd455c1557"}]]},"id":1}
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Group name <code class="highlighter-rouge">"wY8SqXZDuH3SL0Im0G5vuZOch6g"</code> was generated, as well as one invitation.
 The returned invitation payload is then sent using cli_wallet:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>unlocked &gt;&gt;&gt; send_custom_json_document 2 initminer ["kpX6yHkAb_RIEuQ7g7UVoGwpUKo"] "{\"sender\":\"SPH8HWPUynRQnH8QCHdCvebNKbKGuVpZ9FZpg3EWv9UN5qayA8v7k\",\"recipient\":\"SPH7t5298LP6CDuC8SHT7PGaH7rvqCYgV6sCsrT55VLJXEuQXWnPw\",\"data\":\"396a3370a56a188403c1185b6ac98d69d01a2c42699a986da80f1d762e54671d82a9097983a228da8635d157d24c01bd9fe20ea0c1a390a6d6c7a247eea80ab3b6f4649c1dc1d3539307a36e9f525f8bab3416ccaf1bac26ee539ea0e289489a1f0261ac9a9f5a95317c3fe62bd49b3b0a5f85db3708eab406e6f181deb6a6fce851154f7ded1495befd308a33abe7002798f4a3d45adbb0c52a97175dbe14e76850d40b05d1147e4d070320051c6c46de600307e5ad59aa0290deb6368e92974a98047f96c5b70a7be005dd455c1557\"}" true
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unlocked &gt;&gt;&gt; send_custom_json_document 2 initminer ["kpX6yHkAb_RIEuQ7g7UVoGwpUKo"] "{\"sender\":\"SPH8HWPUynRQnH8QCHdCvebNKbKGuVpZ9FZpg3EWv9UN5qayA8v7k\",\"recipient\":\"SPH7t5298LP6CDuC8SHT7PGaH7rvqCYgV6sCsrT55VLJXEuQXWnPw\",\"data\":\"396a3370a56a188403c1185b6ac98d69d01a2c42699a986da80f1d762e54671d82a9097983a228da8635d157d24c01bd9fe20ea0c1a390a6d6c7a247eea80ab3b6f4649c1dc1d3539307a36e9f525f8bab3416ccaf1bac26ee539ea0e289489a1f0261ac9a9f5a95317c3fe62bd49b3b0a5f85db3708eab406e6f181deb6a6fce851154f7ded1495befd308a33abe7002798f4a3d45adbb0c52a97175dbe14e76850d40b05d1147e4d070320051c6c46de600307e5ad59aa0290deb6368e92974a98047f96c5b70a7be005dd455c1557\"}" true
 {
   "ref_block_num": 2417,
   "ref_block_prefix": 3747953573,
@@ -664,13 +638,11 @@ The returned invitation payload is then sent using cli_wallet:</p>
   "transaction_num": 0
 }
 unlocked &gt;&gt;&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>We can check success of the operation again with wscat:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt; {"jsonrpc":"2.0", "id":2, "method":"multiparty_messaging.get_group", "params":{"group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g"}}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; {"jsonrpc":"2.0", "id":2, "method":"multiparty_messaging.get_group", "params":{"group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g"}}
 &lt; {"jsonrpc":"2.0","result":{"group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g","current_group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g","description":"blah","members":["kpX6yHkAb_RIEuQ7g7UVoGwpUKo","initminer"],"admin":"initminer","group_key":"b019a8e962d111b020f0fd0181f3e59e6f7727076fce2486bc28cf8c0270a589","messages":1},"id":2}
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 		</section>
@@ -686,20 +658,63 @@ unlocked &gt;&gt;&gt;
 
 			<h1 id="subscription-api-quick-guide">Subscription API quick guide</h1>
 <p>Subscription API is accessible as one of the daemon APIs. In order to work, it has to be enabled, as well as dependant APIs with params</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>--plugin custom_api --plugin subscribe_api
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--plugin custom_api --plugin subscribe_api
+</code></pre></div></div>
 
 <p>Once it is enabled, WebSocket subscriptions can be used. The only call supported now is <code class="highlighter-rouge">custom_object_subscription</code>. Example of usage is:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>wscat  --connect 127.0.0.1:8095
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wscat  --connect 127.0.0.1:8095
 connected (press CTRL+C to quit)
 &gt; {"jsonrpc": "2.0", "method": "subscribe_api.custom_object_subscription", "params":{"return_id":22, "app_id":1, "account_name":"initminer", "search_type":"by_sender", "start":1},  "id": 1}
 &lt; {"jsonrpc":"2.0","result":1,"id":1}
 (now the messages comes)
 &lt; {"method":"notice","params":[22,[2,{"id":3,"sender":"initminer","recipients":["initminer"],"app_id":1,"data":"{}","received":"2018-08-23T11:55:12","binary":false}]]}
-</code></pre>
-</div>
+</code></pre></div></div>
+
+		</section>
+	
+		<section id="tutorials-using-sophiatx-to-send-hello-world-msg-via-api" class="row tutorials-using-sophiatx-to-send-hello-world-msg-via-api">
+			<h3>
+				<a id="tutorials-using-sophiatx-to-send-hello-world-msg-via-api">
+					Hello World on SophiaTX via API calls
+					
+				</a>
+			</h3>
+			
+
+			<h1 id="hello-world-example">Hello World example</h1>
+<p>This is just simple example of sending Hello World message proper way in our blockchain via public API.</p>
+
+<h2 id="creating-custom-json-operation">Creating custom json operation</h2>
+<p>To send Hello World via our API function to our blockchain, you need to fill this JSON structure.
+JSON struct:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+  "custom_json",{
+    "sender": "USERNAME", //actual user account on blockchain, that will sign this transaction
+    "recipients": [ //array of recipients, does not to be actuall account on blockchain, but you are free to used for your app logic
+      "MSG_BOX" 
+    ],
+    "app_id": 777, //App id of your app
+    "json": "{\"Hello World\"}" //escaped msg
+  }
+]
+</code></pre></div></div>
+<p>Then you can use this curl commnad to send it to blockchain.
+private_key is private key of USERNAME</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -v -s --data '{"id":0,"jsonrpc":"2.0","method":"alexandria_api.send_and_sign_operation", "params":{"op": ["custom_json",{"sender": "USERNAME", "recipients": [ "MSG_BOX" ],"app_id": 777, "json": "{ \"msg\" : \"Hello World\"}"}], "pk" : private_key}}' https://API_URL
+</code></pre></div></div>
+<p>resposne</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"jsonrpc":"2.0","result":{"signed_tx":{"ref_block_num":15641,"ref_block_prefix":973882209,"expiration":"2019-04-04T12:39:12","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["MSG_BOX"],"app_id":777,"json":"{ \"msg\" :\"Hello World\"}"}]],"extensions":[],"signatures":["20044265aecd561bd3cf05bae0eab195698a16f5cba8eb8f69e930b4992be0144558437db2503fbbec748c29c8a667d44399e38d75e215138d1eb2ccd10c8f73f7"],"transaction_id":"418cf08ac9192aa309c31357d3caf0d3bc214362","block_num":81178,"transaction_num":0}},"id":0}
+</code></pre></div></div>
+
+<h3 id="checking-message">Checking message</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -v -s --data '{"id":0,"jsonrpc":"2.0","method":"alexandria_api.get_received_documents", "params":{ "app_id": 777, "account_name": "USERNAME", "search_type": "by_sender_reverse", "start": "1", "count": 10 }}' https://API_URL
+</code></pre></div></div>
+
+<p>response:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"jsonrpc":"2.0","result":{"received_documents":[[1,{"id":0,"sender":"user1","recipients":["MSG_BOX"],"app_id":777,"data":"{ \"msg\" :\"Hello World\"}","received":"2019-04-04T12:38:42","binary":false}]]},"id":0}
+</code></pre></div></div>
+
 
 		</section>
 	
@@ -722,19 +737,17 @@ connected (press CTRL+C to quit)
 <p><code class="highlighter-rouge">&gt;&gt;&gt;generate_key_pair</code></p>
 
 <p>response:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"pub_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"wif_priv_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5KdvUxpR2NTdQHV91qT9K7g8oHvNz6F6vyhnGDUNUC1KYpaYH9r"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "pub_key": "SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ",
+  "wif_priv_key": "5KdvUxpR2NTdQHV91qT9K7g8oHvNz6F6vyhnGDUNUC1KYpaYH9r"
+}
+</code></pre></div></div>
 <h3 id="creating-account-1">Creating account</h3>
 <p>So now, when the key pair is ready I can create create_account operation</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>create_account registered_account test_account "{}" SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create_account registered_account test_account "{}" SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ
+</code></pre></div></div>
 <p>response:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>[
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
   "account_create",{
     "fee": "0.100000 SPHTX",
     "creator": "4PMRaUBMJmL89eWcb1XrpL7DFGhJ",
@@ -761,61 +774,56 @@ connected (press CTRL+C to quit)
     "json_metadata": "{}"
   }
 ]
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="signing-and-broadcasting-transaction">Signing and broadcasting transaction</h3>
 <p>Now when operation is ready, we need to create transaction from it, sign it and broadcast to blockchain node. It is possible to use specific function for each of these steps, but there is one function that will do everything for us, but do not use this function on network, because it will expose your private key!</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt;send_and_sign_operation operation_from_last_step registered_account_private_key
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt;send_and_sign_operation operation_from_last_step registered_account_private_key
+</code></pre></div></div>
 <h3 id="checking-if-account-was-created">Checking if account was created</h3>
 <p>Now we should check if account was successfully created and for that we can use function:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt;get_account test_account
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt;get_account test_account
+</code></pre></div></div>
 <p>response:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4PMRaUBMJmL89eWcb1XrpL7DFGhJ"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="w">
-        </span><span class="s2">"SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ"</span><span class="p">,</span><span class="w">
-        </span><span class="mi">1</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="w">
-        </span><span class="s2">"SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ"</span><span class="p">,</span><span class="w">
-        </span><span class="mi">1</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"memo_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"json_metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"voting_proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111111111111111111"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 VESTS"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"vesting_withdraw_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 VESTS"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to_withdraw"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"witness_votes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="nt">"sponsored_accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="nt">"sponsoring_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111111111111111111"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "id": 3,
+  "name": "4PMRaUBMJmL89eWcb1XrpL7DFGhJ",
+  "owner": {
+    "weight_threshold": 1,
+    "account_auths": [],
+    "key_auths": [[
+        "SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ",
+        1
+      ]
+    ]
+  },
+  "active": {
+    "weight_threshold": 1,
+    "account_auths": [],
+    "key_auths": [[
+        "SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ",
+        1
+      ]
+    ]
+  },
+  "memo_key": "SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ",
+  "json_metadata": "",
+  "voting_proxy": "11111111111111111111",
+  "balance": "0.000000 SPHTX",
+  "vesting_shares": "0.000000 VESTS",
+  "vesting_withdraw_rate": "0.000000 VESTS",
+  "to_withdraw": 0,
+  "witness_votes": [],
+  "sponsored_accounts": [],
+  "sponsoring_account": "11111111111111111111"
+}
+</code></pre></div></div>
 <h2 id="creating-application">Creating application</h2>
 <p>Next step is to create application, that we will use for sending custom document</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt;create_application 4PMRaUBMJmL89eWcb1XrpL7DFGhJ TESTAPP "www.sophiatx.com" "" 0
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt;create_application 4PMRaUBMJmL89eWcb1XrpL7DFGhJ TESTAPP "www.sophiatx.com" "" 0
+</code></pre></div></div>
 
 <p>result:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>[
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
   "application_create",{
     "fee": "0.000000 SPHTX",
     "author": "4PMRaUBMJmL89eWcb1XrpL7DFGhJ",
@@ -825,15 +833,13 @@ connected (press CTRL+C to quit)
     "price_param": 0
   }
 ]
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Now you need to sign and broadcast it as in create account.</p>
 <h3 id="checking-if-account-was-created-1">Checking if account was created</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt;get_applications ["TESTAPP"]
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt;get_applications ["TESTAPP"]
+</code></pre></div></div>
 <p>result:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>[{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[{
     "id": 1,
     "name": "TESTAPP",
     "author": "4PMRaUBMJmL89eWcb1XrpL7DFGhJ",
@@ -842,15 +848,13 @@ connected (press CTRL+C to quit)
     "price_param": "permanent"
   }
 ]
-</code></pre>
-</div>
+</code></pre></div></div>
 <h2 id="creating-custom-json-operation">Creating custom json operation</h2>
 <p>Now the final step sending message Hello world. For that we will use make_custom_json_operation.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>make_custom_json_operation 1 GN3Ug8ou6tiE4kWvyopJBJmZgcw ["4PMRaUBMJmL89eWcb1XrpL7DFGhJ"] "{\"Hello World\"}"
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make_custom_json_operation 1 GN3Ug8ou6tiE4kWvyopJBJmZgcw ["4PMRaUBMJmL89eWcb1XrpL7DFGhJ"] "{\"Hello World\"}"
+</code></pre></div></div>
 <p>result:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>[
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
   "custom_json",{
     "fee": "0.000000 SPHTX",
     "sender": "GN3Ug8ou6tiE4kWvyopJBJmZgcw",
@@ -861,16 +865,14 @@ connected (press CTRL+C to quit)
     "json": "{\"Hello World\"}"
   }
 ]
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Now we need to sign and send it</p>
 <h3 id="checking-message">Checking message</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>get_received_documents 1 GN3Ug8ou6tiE4kWvyopJBJmZgcw "by_sender" 10 1
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_received_documents 1 GN3Ug8ou6tiE4kWvyopJBJmZgcw "by_sender" 10 1
+</code></pre></div></div>
 
 <p>result:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>[[
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[
     1,{
       "sender": "GN3Ug8ou6tiE4kWvyopJBJmZgcw",
       "recipients": [
@@ -883,8 +885,7 @@ connected (press CTRL+C to quit)
     }
   ]
 ]
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 		</section>

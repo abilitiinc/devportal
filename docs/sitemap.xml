@@ -76,9 +76,6 @@
 <loc>https://developers.sophiatx.com/sdks/dotnet</loc>
 </url>
 <url>
-<loc>https://developers.sophiatx.com/sdks/java</loc>
-</url>
-<url>
 <loc>https://developers.sophiatx.com/sdks/javascript</loc>
 </url>
 <url>
@@ -92,6 +89,9 @@
 </url>
 <url>
 <loc>https://developers.sophiatx.com/tutorials/Subscription-API-quick-guide</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/tutorials/Using-SophiaTX-to-send-Hello-World-msg-via-API</loc>
 </url>
 <url>
 <loc>https://developers.sophiatx.com/tutorials/Using-SophiaTX-to-send-Hello-World-msg</loc>

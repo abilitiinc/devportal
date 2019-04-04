@@ -113,6 +113,10 @@
 						
 					
 						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg-via-api">Hello World on SophiaTX via API calls</a></li>
+						
+					
+						
 						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
 						
 					
@@ -131,10 +135,6 @@
 					
 						
 						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
-						
-					
-						
-						<li><a href="/sdks/#sdks-java">Java SDK</a></li>
 						
 					
 						
@@ -328,12 +328,11 @@
 
 <p>For Linux users, virtual memory writes dirty pages of the shared file out to disk more often than is optimal which results in sophiatxd being slowed down by redundant IO operations. These settings are recommended to optimize reindex time.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>echo    75 | sudo tee /proc/sys/vm/dirty_background_ratio
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo    75 | sudo tee /proc/sys/vm/dirty_background_ratio
 echo  1000 | sudo tee /proc/sys/vm/dirty_expire_centisecs
 echo    80 | sudo tee /proc/sys/vm/dirty_ratio
 echo 30000 | sudo tee /proc/sys/vm/dirty_writeback_centisecs
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Another settings that can be changed in <code class="highlighter-rouge">config.ini</code> is <code class="highlighter-rouge">flush</code> - it is to specify a target number of blocks to process before flushing the chain database to disk. This is needed on Linux machines and a value of 100000 is recommended. It is not needed on OS X, but can be used if desired.</p>
 
@@ -372,13 +371,12 @@ echo 30000 | sudo tee /proc/sys/vm/dirty_writeback_centisecs
   <li><code class="highlighter-rouge">16GB RAM</code> (mostly needed for <code class="highlighter-rouge">sophiatxd</code> build)</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>TODO: provide testnet build instructions
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TODO: provide testnet build instructions
+</code></pre></div></div>
 
 <h3 id="configini"><code class="highlighter-rouge">config.ini</code></h3>
 
-<div class="language-ini highlighter-rouge"><pre class="highlight"><code><span class="py">log-console-appender</span> <span class="p">=</span> <span class="s">{"appender":"stderr","stream":"std_error"}</span>
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">log-console-appender</span> <span class="p">=</span> <span class="s">{"appender":"stderr","stream":"std_error"}</span>
 <span class="py">log-file-appender</span> <span class="p">=</span> <span class="s">{"appender":"p2p","file":"logs/p2p/p2p.log"}</span>
 <span class="py">log-logger</span> <span class="p">=</span> <span class="s">{"name":"default","level":"info","appender":"stderr"}</span>
 <span class="py">log-logger</span> <span class="p">=</span> <span class="s">{"name":"p2p","level":"warn","appender":"p2p"}</span>
@@ -394,12 +392,10 @@ echo 30000 | sudo tee /proc/sys/vm/dirty_writeback_centisecs
 
 <span class="c"># testnet.sophiatx.com
 </span><span class="py">p2p-seed-node</span> <span class="p">=</span> 
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sophiatxd --data-dir<span class="o">=</span>. --chain-id<span class="o">=</span>46d82ab7d8db682eb1959aed0ada039a6d49afa1602491f93dde9cac3e8e6c32
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sophiatxd <span class="nt">--data-dir</span><span class="o">=</span><span class="nb">.</span> <span class="nt">--chain-id</span><span class="o">=</span>46d82ab7d8db682eb1959aed0ada039a6d49afa1602491f93dde9cac3e8e6c32
+</code></pre></div></div>
 
 <p>Now let it sync, and you’ll have a shiny new testnet seed node to play with.</p>
 
