@@ -1793,16 +1793,25 @@ still under development and subject to change.</strong></p>
 </span></code></pre></div></div>
 <h5 id="alexandria_api.create_simple_transaction-expected_response_json">Expected Response JSON <a href="#alexandria_api.create_simple_transaction-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"custom_json"</span><span class="p">,</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
-      </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">any valid json data</span><span class="se">\"</span><span class="s2">}"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"simple_tx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">3701</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">914684397</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T13:24:15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"custom_json"</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.010000 SPHTX"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">],</span><span class="w">
+          </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">any valid json data</span><span class="se">\"</span><span class="s2">}"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
