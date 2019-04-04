@@ -21,13 +21,10 @@
 <link rel="canonical" href="https://developers.sophiatx.com/apidefinitions/jsonrpc" />
 <meta property="og:url" content="https://developers.sophiatx.com/apidefinitions/jsonrpc" />
 <meta property="og:site_name" content="SophiaTX Developers" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-04-03T21:19:38+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
-"@type": "BlogPosting",
+"@type": "WebPage",
 "headline": "Jsonrpc",
-"datePublished": "2019-04-03T21:19:38+02:00",
 "description": "Used to lookup information about the JSON RPC API. These AppBase API methods are still under development and subject to change. jsonrpc.get_methods Returns a list of methods supported by the JSON RPC API. Query Parameters JSON {} Expected Response JSON [] Example curl curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;jsonrpc.get_methods&quot;, &quot;id&quot;:1}&#39; https://API_URL jsonrpc.get_signature Returns the signature information for a JSON RPC method including the arguments and expected response JSON. Query Parameters JSON {&quot;method&quot;: &quot;&quot;} Expected Response JSON {&quot;args&quot;: null, &quot;ret&quot;: null} Example curl curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;jsonrpc.get_signature&quot;, &quot;params&quot;:{&quot;method&quot;:&quot;jsonrpc.get_methods&quot;}, &quot;id&quot;:1}&#39; https://API_URL curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;jsonrpc.get_signature&quot;, &quot;params&quot;:{&quot;method&quot;:&quot;jsonrpc.get_signature&quot;}, &quot;id&quot;:1}&#39; https://API_URL curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;jsonrpc.get_signature&quot;, &quot;params&quot;:{&quot;method&quot;:&quot;condenser_api.get_dynamic_global_properties&quot;}, &quot;id&quot;:1}&#39; https://API_URL curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;jsonrpc.get_signature&quot;, &quot;params&quot;:{&quot;method&quot;:&quot;database_api.get_dynamic_global_properties&quot;}, &quot;id&quot;:1}&#39; https://API_URL",
 "url": "https://developers.sophiatx.com/apidefinitions/jsonrpc"}</script>
 <!-- End Jekyll SEO tag -->
@@ -116,6 +113,10 @@
 						
 					
 						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg-via-api">Hello World on SophiaTX via API calls</a></li>
+						
+					
+						
 						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
 						
 					
@@ -134,10 +135,6 @@
 					
 						
 						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
-						
-					
-						
-						<li><a href="/sdks/#sdks-java">Java SDK</a></li>
 						
 					
 						
@@ -263,19 +260,16 @@
 <h4 id="jsonrpc.get_methods">jsonrpc.get_methods <a href="#jsonrpc.get_methods"><i class="fas fa-link fa-xs"></i></a></h4>
 <p>Returns a list of methods supported by the JSON RPC API.</p>
 <h5 id="jsonrpc.get_methods-parameter_json">Query Parameters JSON <a href="#jsonrpc.get_methods-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
 <h5 id="jsonrpc.get_methods-expected_response_json">Expected Response JSON <a href="#jsonrpc.get_methods-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[]</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[]</span><span class="w">
+</span></code></pre></div></div>
 
 <h5 id="jsonrpc.get_methods-curl-examples">Example <code>curl</code> <a href="#jsonrpc.get_methods-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_methods", "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_methods", "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
 <hr />
 
@@ -287,31 +281,25 @@
 <h4 id="jsonrpc.get_signature">jsonrpc.get_signature <a href="#jsonrpc.get_signature"><i class="fas fa-link fa-xs"></i></a></h4>
 <p>Returns the signature information for a JSON RPC method including the arguments and expected response JSON.</p>
 <h5 id="jsonrpc.get_signature-parameter_json">Query Parameters JSON <a href="#jsonrpc.get_signature-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 <h5 id="jsonrpc.get_signature-expected_response_json">Expected Response JSON <a href="#jsonrpc.get_signature-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nt">"ret"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"args"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"ret"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h5 id="jsonrpc.get_signature-curl-examples">Example <code>curl</code> <a href="#jsonrpc.get_signature-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"jsonrpc.get_methods"}, "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"jsonrpc.get_methods"}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"jsonrpc.get_signature"}, "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"jsonrpc.get_signature"}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"condenser_api.get_dynamic_global_properties"}, "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"condenser_api.get_dynamic_global_properties"}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"database_api.get_dynamic_global_properties"}, "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"database_api.get_dynamic_global_properties"}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
 <hr />
 

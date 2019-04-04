@@ -14,22 +14,19 @@
     <script src="/js/main.js"></script>
 
     <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>Java SDK - SophiaTX Developers</title>
-<meta property="og:title" content="Java SDK" />
-<meta name="description" content="TODO: provide java SDK doc" />
-<meta property="og:description" content="TODO: provide java SDK doc" />
-<link rel="canonical" href="https://developers.sophiatx.com/sdks/java" />
-<meta property="og:url" content="https://developers.sophiatx.com/sdks/java" />
+<title>Hello World on SophiaTX via API calls - SophiaTX Developers</title>
+<meta property="og:title" content="Hello World on SophiaTX via API calls" />
+<meta name="description" content="Hello World example This is just simple example of sending Hello World message proper way in our blockchain via public API." />
+<meta property="og:description" content="Hello World example This is just simple example of sending Hello World message proper way in our blockchain via public API." />
+<link rel="canonical" href="https://developers.sophiatx.com/tutorials/Using-SophiaTX-to-send-Hello-World-msg-via-API" />
+<meta property="og:url" content="https://developers.sophiatx.com/tutorials/Using-SophiaTX-to-send-Hello-World-msg-via-API" />
 <meta property="og:site_name" content="SophiaTX Developers" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-04-03T21:19:38+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
-"@type": "BlogPosting",
-"headline": "Java SDK",
-"datePublished": "2019-04-03T21:19:38+02:00",
-"description": "TODO: provide java SDK doc",
-"url": "https://developers.sophiatx.com/sdks/java"}</script>
+"@type": "WebPage",
+"headline": "Hello World on SophiaTX via API calls",
+"description": "Hello World example This is just simple example of sending Hello World message proper way in our blockchain via public API.",
+"url": "https://developers.sophiatx.com/tutorials/Using-SophiaTX-to-send-Hello-World-msg-via-API"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -116,6 +113,10 @@
 						
 					
 						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg-via-api">Hello World on SophiaTX via API calls</a></li>
+						
+					
+						
 						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
 						
 					
@@ -134,10 +135,6 @@
 					
 						
 						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
-						
-					
-						
-						<li><a href="/sdks/#sdks-java">Java SDK</a></li>
 						
 					
 						
@@ -252,7 +249,39 @@
         <h1 class="hero__h1"></h1>
         <!--<img class="hero__img" src="/images/hero.png">-->
     </div>
-    <p>TODO: provide java SDK doc</p>
+    <h1 id="hello-world-example">Hello World example</h1>
+<p>This is just simple example of sending Hello World message proper way in our blockchain via public API.</p>
+
+<h2 id="creating-custom-json-operation">Creating custom json operation</h2>
+<p>To send Hello World via our API function to our blockchain, you need to fill this JSON structure.
+JSON struct:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+  "custom_json",{
+    "sender": "USERNAME", //actual user account on blockchain, that will sign this transaction
+    "recipients": [ //array of recipients, does not to be actuall account on blockchain, but you are free to used for your app logic
+      "MSG_BOX" 
+    ],
+    "app_id": 777, //App id of your app
+    "json": "{\"Hello World\"}" //escaped msg
+  }
+]
+</code></pre></div></div>
+<p>Then you can use this curl commnad to send it to blockchain.
+private_key is private key of USERNAME</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -v -s --data '{"id":0,"jsonrpc":"2.0","method":"alexandria_api.send_and_sign_operation", "params":{"op": ["custom_json",{"sender": "USERNAME", "recipients": [ "MSG_BOX" ],"app_id": 777, "json": "{ \"msg\" : \"Hello World\"}"}], "pk" : private_key}}' https://API_URL
+</code></pre></div></div>
+<p>resposne</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"jsonrpc":"2.0","result":{"signed_tx":{"ref_block_num":15641,"ref_block_prefix":973882209,"expiration":"2019-04-04T12:39:12","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["MSG_BOX"],"app_id":777,"json":"{ \"msg\" :\"Hello World\"}"}]],"extensions":[],"signatures":["20044265aecd561bd3cf05bae0eab195698a16f5cba8eb8f69e930b4992be0144558437db2503fbbec748c29c8a667d44399e38d75e215138d1eb2ccd10c8f73f7"],"transaction_id":"418cf08ac9192aa309c31357d3caf0d3bc214362","block_num":81178,"transaction_num":0}},"id":0}
+</code></pre></div></div>
+
+<h3 id="checking-message">Checking message</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -v -s --data '{"id":0,"jsonrpc":"2.0","method":"alexandria_api.get_received_documents", "params":{ "app_id": 777, "account_name": "USERNAME", "search_type": "by_sender_reverse", "start": "1", "count": 10 }}' https://API_URL
+</code></pre></div></div>
+
+<p>response:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"jsonrpc":"2.0","result":{"received_documents":[[1,{"id":0,"sender":"user1","recipients":["MSG_BOX"],"app_id":777,"data":"{ \"msg\" :\"Hello World\"}","received":"2019-04-04T12:38:42","binary":false}]]},"id":0}
+</code></pre></div></div>
+
 
 </div>
 <div class="footer">

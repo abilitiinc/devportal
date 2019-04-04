@@ -21,13 +21,10 @@
 <link rel="canonical" href="https://developers.sophiatx.com/tutorials/Guide-to-become-witness" />
 <meta property="og:url" content="https://developers.sophiatx.com/tutorials/Guide-to-become-witness" />
 <meta property="og:site_name" content="SophiaTX Developers" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-04-03T21:19:38+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
-"@type": "BlogPosting",
+"@type": "WebPage",
 "headline": "How to become witness",
-"datePublished": "2019-04-03T21:19:38+02:00",
 "description": "Setup witness node Download wallet and node daemon Go to https://github.com/SophiaTX/SophiaTX/releases and download latest version. Prepare node Start node for the first time with following command:",
 "url": "https://developers.sophiatx.com/tutorials/Guide-to-become-witness"}</script>
 <!-- End Jekyll SEO tag -->
@@ -116,6 +113,10 @@
 						
 					
 						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg-via-api">Hello World on SophiaTX via API calls</a></li>
+						
+					
+						
 						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
 						
 					
@@ -134,10 +135,6 @@
 					
 						
 						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
-						
-					
-						
-						<li><a href="/sdks/#sdks-java">Java SDK</a></li>
 						
 					
 						
@@ -265,34 +262,31 @@
 <p><code class="highlighter-rouge">cd witness_node_data_dir/</code></p>
 
 <p>And modify this properties:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>plugin = alexandria_api
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugin = alexandria_api
 plugin = network_broadcast_api
 
 webserver-ws-endpoint = 0.0.0.0:9191
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Now start <code class="highlighter-rouge">cli_wallet</code>, create new wallet file and key for witness</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>./cli_wallet
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./cli_wallet
 new &gt;&gt;&gt; set_password YOUR_PASSWORD
 locked &gt;&gt;&gt; unlock YOUR_PASSWORD
 unlocked &gt;&gt;&gt; import_key YOUR_PRIVATE_KEY
 unlocked &gt;&gt;&gt; suggest_brain_key
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Output should look like something like this</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"brain_priv_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLENT EPOCHA GREED OCQUE BHALU TAPE SMUT AVERAH BALAO SHARPEN BUSTARD ATHIRST PACTION WIDBIN NYMPHA BANK"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"wif_priv_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5J7ejuMu2ZkNWQ367X38wVvBWFzgbsjPvw6PLNtwsYEQrbhigT6"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"pub_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH6m3vR9ZfRiGCSmpdY8G6kaAjXxGYBxu6pRE99cFL95SEcxEWeh"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "brain_priv_key": "BLENT EPOCHA GREED OCQUE BHALU TAPE SMUT AVERAH BALAO SHARPEN BUSTARD ATHIRST PACTION WIDBIN NYMPHA BANK",
+  "wif_priv_key": "5J7ejuMu2ZkNWQ367X38wVvBWFzgbsjPvw6PLNtwsYEQrbhigT6",
+  "pub_key": "SPH6m3vR9ZfRiGCSmpdY8G6kaAjXxGYBxu6pRE99cFL95SEcxEWeh"
+}
+</code></pre></div></div>
 <p>Now kill the daemon and modify config.ini
 Now you can reedit config.ini with following properties (you can remove rest of the plugins if you want to be just the witness)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>plugin = witness
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugin = witness
 
 witness = "YOUR_ACCOUNT_NAME"
 
@@ -301,16 +295,14 @@ private-key = 5J7ejuMu2ZkNWQ367X38wVvBWFzgbsjPvw6PLNtwsYEQrbhigT6 (just example)
 enable-stale-production = false
 
 required-participation = 35
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>And rerun the daemon with command
 <code class="highlighter-rouge">./sophiatxd</code></p>
 
 <p>Now you need to vest tokens to you account and update yourself as witness</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>unlocked &gt;&gt;&gt; transfer_to_vesting YOUR_ACCOUNT_NAME YOUR_ACCOUNT_NAME "250000 SPHTX" true
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unlocked &gt;&gt;&gt; transfer_to_vesting YOUR_ACCOUNT_NAME YOUR_ACCOUNT_NAME "250000 SPHTX" true
 unlocked &gt;&gt;&gt; update_witness YOUR_ACCOUNT_NAME "YOUR_URL" SPH6m3vR9ZfRiGCSmpdY8G6kaAjXxGYBxu6pRE99cFL95SEcxEWeh {"account_creation_fee":"0.05 SPHTX","maximum_block_size":50331648,"price_feeds":[]} true
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="check-if-your-setup-is-right">Check if your setup is right</h3>
 <p>Go to cli_wallet and execute command: <code class="highlighter-rouge">get_witness YOUR_WITNESS_NAME</code> and if you check the output, you should be able to you last confirmed block</p>
@@ -324,30 +316,26 @@ unlocked &gt;&gt;&gt; update_witness YOUR_ACCOUNT_NAME "YOUR_URL" SPH6m3vR9ZfRiG
 
 <p>Once the script functionality is checked, run it regularly, at lease once per day. You can use e.g. crond service on Linux:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>crontab
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crontab
 0 * * * * /usr/local/bin/feeder &lt;YOUR_ACCOUNT_NAME&gt; &lt;YOUR_MINING_KEY&gt;
 &lt;ctrl-D&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="setup-ntp-time-synchronization">Setup NTP Time Synchronization</h2>
 <h3 id="suse">Suse</h3>
 <p><a href="https://www.suse.com/documentation/sles11/book_sle_admin/data/sec_netz_xntp_netconf.html">Suse guide</a></p>
 <h3 id="ubuntu">Ubuntu</h3>
 <p>Before installing ntpd, you should turn off timesyncd:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo timedatectl set-ntp no
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo timedatectl set-ntp no
+</code></pre></div></div>
 <p>Please install ntpd by executing following command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install ntp
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install ntp
+</code></pre></div></div>
 <p>ntpd will be started automatically after install. You can verify that everything is working by following command:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo ntpq -p
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ntpq -p
+</code></pre></div></div>
 <p>Example:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>     remote           refid      st t when poll reach   delay   offset  jitter
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     remote           refid      st t when poll reach   delay   offset  jitter
 ==============================================================================
  0.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
  1.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
@@ -364,8 +352,7 @@ unlocked &gt;&gt;&gt; update_witness YOUR_ACCOUNT_NAME "YOUR_URL" SPH6m3vR9ZfRiG
  pugot.canonical 17.253.34.125    2 u    -   64    1   11.398   -1.159   0.000
  chilipepper.can 145.238.203.14   2 u    1   64    1   10.779   -1.549   0.000
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 </div>

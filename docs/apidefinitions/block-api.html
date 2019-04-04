@@ -21,13 +21,10 @@
 <link rel="canonical" href="https://developers.sophiatx.com/apidefinitions/block-api" />
 <meta property="og:url" content="https://developers.sophiatx.com/apidefinitions/block-api" />
 <meta property="og:site_name" content="SophiaTX Developers" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-04-03T21:19:38+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
-"@type": "BlogPosting",
+"@type": "WebPage",
 "headline": "Block Api",
-"datePublished": "2019-04-03T21:19:38+02:00",
 "description": "Used to query values related to the block plugin. These AppBase API methods are still under development and subject to change. block_api.get_block Retrieve a full, signed block of the referenced block, or null if no matching block was found. Parameters: block_num:int block_num (int)   1 Queries the very first block. 8675309 Queries block number 8,675,309. 62396745 Queries block number 62,396,745. Query Parameters JSON {&quot;block_num&quot;: 0} Expected Response JSON {} Example curl curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;block_api.get_block&quot;, &quot;params&quot;:{&quot;block_num&quot;:1}, &quot;id&quot;:1}&#39; https://API_URL curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;block_api.get_block&quot;, &quot;params&quot;:{&quot;block_num&quot;:8675309}, &quot;id&quot;:1}&#39; https://API_URL curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;block_api.get_block&quot;, &quot;params&quot;:{&quot;block_num&quot;:62396745}, &quot;id&quot;:1}&#39; https://API_URL block_api.get_block_header Retrieve a block header of the referenced block, or null if no matching block was found. Parameters: block_num:int - Height of the block whose header should be returned block_num (int)   1 Queries the block headers for the very first block. 8675309 Queries block headers for block number 8,675,309. 62396745 Queries block headers for block number 62,396,745. Query Parameters JSON {&quot;block_num&quot;: 0} Expected Response JSON {} Example curl curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;block_api.get_block_header&quot;, &quot;params&quot;:{&quot;block_num&quot;:1}, &quot;id&quot;:1}&#39; https://API_URL curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;block_api.get_block_header&quot;, &quot;params&quot;:{&quot;block_num&quot;:8675309}, &quot;id&quot;:1}&#39; https://API_URL curl -s --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;block_api.get_block_header&quot;, &quot;params&quot;:{&quot;block_num&quot;:62396745}, &quot;id&quot;:1}&#39; https://API_URL",
 "url": "https://developers.sophiatx.com/apidefinitions/block-api"}</script>
 <!-- End Jekyll SEO tag -->
@@ -116,6 +113,10 @@
 						
 					
 						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg-via-api">Hello World on SophiaTX via API calls</a></li>
+						
+					
+						
 						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
 						
 					
@@ -134,10 +135,6 @@
 					
 						
 						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
-						
-					
-						
-						<li><a href="/sdks/#sdks-java">Java SDK</a></li>
 						
 					
 						
@@ -293,27 +290,22 @@
 </table>
 
 <h5 id="block_api.get_block-parameter_json">Query Parameters JSON <a href="#block_api.get_block-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 <h5 id="block_api.get_block-expected_response_json">Expected Response JSON <a href="#block_api.get_block-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
 
 <h5 id="block_api.get_block-curl-examples">Example <code>curl</code> <a href="#block_api.get_block-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block", "params":{"block_num":1}, "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block", "params":{"block_num":1}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block", "params":{"block_num":8675309}, "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block", "params":{"block_num":8675309}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block", "params":{"block_num":62396745}, "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block", "params":{"block_num":62396745}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
 <hr />
 
@@ -355,27 +347,22 @@
 </table>
 
 <h5 id="block_api.get_block_header-parameter_json">Query Parameters JSON <a href="#block_api.get_block_header-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 <h5 id="block_api.get_block_header-expected_response_json">Expected Response JSON <a href="#block_api.get_block_header-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
 
 <h5 id="block_api.get_block_header-curl-examples">Example <code>curl</code> <a href="#block_api.get_block_header-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block_header", "params":{"block_num":1}, "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block_header", "params":{"block_num":1}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block_header", "params":{"block_num":8675309}, "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block_header", "params":{"block_num":8675309}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -s --data <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block_header", "params":{"block_num":62396745}, "id":1}'</span> https://API_URL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"block_api.get_block_header", "params":{"block_num":62396745}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
 <hr />
 

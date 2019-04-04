@@ -21,13 +21,10 @@
 <link rel="canonical" href="https://developers.sophiatx.com/sdks/javascript" />
 <meta property="og:url" content="https://developers.sophiatx.com/sdks/javascript" />
 <meta property="og:site_name" content="SophiaTX Developers" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-04-03T21:19:38+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
-"@type": "BlogPosting",
+"@type": "WebPage",
 "headline": "Javascript SDK",
-"datePublished": "2019-04-03T21:19:38+02:00",
 "description": "Alexandria.js Alexandria.js API library for SophiaTX Blockchain",
 "url": "https://developers.sophiatx.com/sdks/javascript"}</script>
 <!-- End Jekyll SEO tag -->
@@ -116,6 +113,10 @@
 						
 					
 						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg-via-api">Hello World on SophiaTX via API calls</a></li>
+						
+					
+						
 						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
 						
 					
@@ -134,10 +135,6 @@
 					
 						
 						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
-						
-					
-						
-						<li><a href="/sdks/#sdks-java">Java SDK</a></li>
 						
 					
 						
@@ -272,307 +269,257 @@
 </ul>
 
 <h1 id="install-jsapi">Install-JsApi</h1>
-<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/SophiaTX/Alexandria.js.git
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/SophiaTX/Alexandria.js.git
 npm install
 npm run build
-</code></pre>
-</div>
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"../dist/alexandria.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"../dist/alexandria.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
 
 <p>or,  use the new updated sophiatx-alexandria-api, npm module to run the project</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>npm install sophiatx-alexandria-api --save
-</code></pre>
-</div>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sophia</span><span class="o">=</span><span class="nx">require</span><span class="p">(</span><span class="s1">'sophiatx-alexandria-api'</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install sophiatx-alexandria-api --save
+</code></pre></div></div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sophia</span><span class="o">=</span><span class="nx">require</span><span class="p">(</span><span class="s1">'sophiatx-alexandria-api'</span><span class="p">);</span>
+</code></pre></div></div>
 <p>Connect to http services</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">({</span><span class="na">url</span><span class="p">:</span> <span class="nx">httpConnectionUrl</span> <span class="p">});</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">({</span><span class="na">url</span><span class="p">:</span> <span class="nx">httpConnectionUrl</span> <span class="p">});</span>
+</code></pre></div></div>
 
 <h1 id="help-jsapi">Help-JsApi</h1>
 
 <p>Get the current version and information about the blockchain</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">about</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">about</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get the recent updates on the blockchain.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get help to work with the blockchain, this returns all the method and necessary details about the blockchain its functionalities.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">help</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">help</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="details-jsapi">Details-JsApi</h1>
 
 <p>Get details about the block using block_id</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getBlock</span><span class="p">(</span><span class="nx">blockNumber</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getBlock</span><span class="p">(</span><span class="nx">blockNumber</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get details of operations inside a block</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getOpsInBlock</span><span class="p">(</span><span class="nx">blockNumber</span><span class="p">,</span><span class="kc">true</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getOpsInBlock</span><span class="p">(</span><span class="nx">blockNumber</span><span class="p">,</span><span class="kc">true</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Check if the account still exists</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">accountExist</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">accountExist</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get transaction history of an account from (-1 means most recent entry) and limit (number of data to be displayed)</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getAccountHistory</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="nx">from</span><span class="p">,</span><span class="nx">limit</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getAccountHistory</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="k">from</span><span class="p">,</span><span class="nx">limit</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get Account History filtered using its type (transfer, transfer_to_vesting, witness_update, account_create, account_delete,account_update, 
  withdraw_vesting, vote, witness_update, transfer_to_vesting, account_witness_vote, account_witness_proxy, custom_json, custom_binary, etc.)</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getAccountHistoryByType</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="nx">type</span><span class="p">,</span><span class="nx">from</span><span class="p">,</span><span class="nx">limit</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getAccountHistoryByType</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="nx">type</span><span class="p">,</span><span class="k">from</span><span class="p">,</span><span class="nx">limit</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get ActiveKey related to the account</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getActiveAuthority</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getActiveAuthority</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get MemoKey related to the account</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getMemoKey</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getMemoKey</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get OwnerKey related to the account</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getOwnerAuthority</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getOwnerAuthority</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get account balance of an account</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getAccountBalance</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getAccountBalance</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get account name using the seed(Any data string including uppercase,lowercase and numbers) used to create the account.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getAccountNameFromSeed</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getAccountNameFromSeed</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get vesting balance of the account</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getVestingBalance</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getVestingBalance</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get feed history of the currency using its symbol</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>   <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getFeedHistory</span><span class="p">(</span><span class="nx">symbol</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getFeedHistory</span><span class="p">(</span><span class="nx">symbol</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
    <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="keys-jsapi">Keys-JsApi</h1>
 
 <p>Generates separate public key for each of the roles</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">generateKeys</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">password</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">generateKeys</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">password</span><span class="p">));</span>
+</code></pre></div></div>
 <p>Validates account name whether it can be set or not</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">validateAccountName</span><span class="p">(</span><span class="nx">accountName</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">validateAccountName</span><span class="p">(</span><span class="nx">accountName</span><span class="p">));</span>
+</code></pre></div></div>
 <p>Generates public key and private key pair</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">getPrivateKeys</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">password</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">getPrivateKeys</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">password</span><span class="p">));</span>
+</code></pre></div></div>
 <p>Checks the format of Public key and decides if it is valid with prefix</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">isPubkey</span><span class="p">(</span><span class="nx">publicKey</span><span class="p">,</span><span class="nx">prefix</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">isPubkey</span><span class="p">(</span><span class="nx">publicKey</span><span class="p">,</span><span class="nx">prefix</span><span class="p">));</span>
+</code></pre></div></div>
 <p>Checks the format of Private key and decides if it is valid</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">isWif</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">isWif</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">));</span>
+</code></pre></div></div>
 <p>Returns public key on supplied Private key</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">wifToPublic</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">wifToPublic</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">));</span>
+</code></pre></div></div>
 <p>Matches public key with private key returns boolean value</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">wifIsValid</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span><span class="nx">publicKey</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">wifIsValid</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span><span class="nx">publicKey</span><span class="p">));</span>
+</code></pre></div></div>
 <p>Corrects the caps and spaces in distorted passPhrase (brainKey)</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">normalizeBrainKey</span><span class="p">(</span><span class="nx">passphrase</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">normalizeBrainKey</span><span class="p">(</span><span class="nx">passphrase</span><span class="p">));</span>
+</code></pre></div></div>
 
 <h1 id="cryptography-jsapi">Cryptography-JsApi</h1>
 
 <p>Use privateKey of sender’s account and publicKey of receiver’s account to encrypt the message</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">encrypt</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span><span class="nx">publickey</span><span class="p">,</span><span class="nx">Message</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">encrypt</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span><span class="nx">publickey</span><span class="p">,</span><span class="nx">Message</span><span class="p">));</span>
+</code></pre></div></div>
 <p>Use publicKey of sender’s account and privateKey of receiver’s account to decrypt the message</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">decrypt</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span><span class="nx">publicKey</span><span class="p">,</span><span class="nx">EncryptedMessage</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">auth</span><span class="p">.</span><span class="nx">decrypt</span><span class="p">(</span><span class="nx">privateKey</span><span class="p">,</span><span class="nx">publicKey</span><span class="p">,</span><span class="nx">EncryptedMessage</span><span class="p">));</span>
+</code></pre></div></div>
 
 <h1 id="accounts-jsapi">Accounts-JsApi</h1>
 
 <p>Create account using seed(Any data string including uppercase,lowercase and numbers), creator as Witness’s name, Witness’s PrivateKey and user’s PublicKey as ActiveKey</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">createAccount</span><span class="p">(</span><span class="nx">creatorName</span><span class="p">,</span><span class="nx">seed</span><span class="p">,</span><span class="nx">creatorPrivateKey</span><span class="p">,</span><span class="nx">json_meta</span><span class="p">,</span> <span class="nx">owner</span><span class="p">,</span> <span class="nx">active</span><span class="p">,</span> <span class="nx">memo_key</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">createAccount</span><span class="p">(</span><span class="nx">creatorName</span><span class="p">,</span><span class="nx">seed</span><span class="p">,</span><span class="nx">creatorPrivateKey</span><span class="p">,</span><span class="nx">json_meta</span><span class="p">,</span> <span class="nx">owner</span><span class="p">,</span> <span class="nx">active</span><span class="p">,</span> <span class="nx">memo_key</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Delete account using user’s PrivateKey</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">deleteAccount</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">deleteAccount</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Update ActiveKey, OwnerKey, MemoKey and JsonMetadata of the account using user’s PrivateKey</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">updateAccount</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="nx">jsonMeta</span><span class="p">,</span><span class="nx">owner</span><span class="p">,</span><span class="nx">active</span><span class="p">,</span> <span class="nx">memoKey</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">updateAccount</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span><span class="nx">jsonMeta</span><span class="p">,</span><span class="nx">owner</span><span class="p">,</span><span class="nx">active</span><span class="p">,</span> <span class="nx">memoKey</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get account details</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getAccount</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getAccount</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Sponsor an account, isSponsored is a boolean value to enable and disable the sponsorship</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">sponsorAccountFees</span><span class="p">(</span><span class="nx">sponsor</span><span class="p">,</span><span class="nx">sponsored</span><span class="p">,</span><span class="nx">isSponsored</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">sponsorAccountFees</span><span class="p">(</span><span class="nx">sponsor</span><span class="p">,</span><span class="nx">sponsored</span><span class="p">,</span><span class="nx">isSponsored</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
   <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="transaction-jsapi">Transaction-JsApi</h1>
 
 <p>Transfer an amount (in the form of “amount (space) currencySymbol, 10.000 SPHTX”) to other account with a memo (receipt/details) attached to the transfer using Sender’s Priavtekey.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">amount</span><span class="p">,</span> <span class="nx">memo</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="k">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">amount</span><span class="p">,</span> <span class="nx">memo</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get transaction id using transaction object as an argument.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getTransactionId</span><span class="p">(</span><span class="nx">transaction</span><span class="p">));</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getTransactionId</span><span class="p">(</span><span class="nx">transaction</span><span class="p">));</span>
+</code></pre></div></div>
 <p>Transfer amount (in the form of “amount currencySymbol, 10.000 SPHTX”) to Vesting.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">transferToVesting</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">amount</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">transferToVesting</span><span class="p">(</span><span class="k">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">amount</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
   <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Withdraw amount (in the form of “amount currencySymbol, 10.000 SPHTX”) from Vesting in fractions.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">withdrawVesting</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span><span class="nx">vestingShares</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">withdrawVesting</span><span class="p">(</span><span class="k">from</span><span class="p">,</span><span class="nx">vestingShares</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
   <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get transaction details using transaction id</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getTransaction</span><span class="p">(</span><span class="nx">transactionId</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getTransaction</span><span class="p">(</span><span class="nx">transactionId</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
   <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="witness-jsapi">Witness-JsApi</h1>
 
 <p>Get list of Witnesses or miners</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">listWitnesses</span><span class="p">(</span><span class="nx">startFromWitnessName</span><span class="p">,</span><span class="nx">count</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">listWitnesses</span><span class="p">(</span><span class="nx">startFromWitnessName</span><span class="p">,</span><span class="nx">count</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get list of Witnesses by votes in descending order</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">listWitnessesByVote</span><span class="p">(</span><span class="nx">startFromWitnessName</span><span class="p">,</span><span class="nx">count</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">listWitnessesByVote</span><span class="p">(</span><span class="nx">startFromWitnessName</span><span class="p">,</span><span class="nx">count</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Get details about a Witness</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getWitness</span><span class="p">(</span><span class="nx">witnessName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getWitness</span><span class="p">(</span><span class="nx">witnessName</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Update witness is the function to update an existing account as a witness contender it needs prize feed update as an argument, 
 prizeFeed example (<code class="highlighter-rouge">[["USD",{"base":"1 USD","quote":"0.187331 SPHTX"}]]</code>) can be used for testing,
 blockSigningKey (publicKey format) is used to sign all the blocks. It also needs a description url, where the willing user can put detail about herself.
 To become a witness the user must have at least 250,000 SPHTX tokens in her vesting account.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">updateWitness</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span> <span class="nx">descriptionUrl</span><span class="p">,</span> <span class="nx">blockSigningKey</span><span class="p">,</span> <span class="nx">accountCreationFee</span><span class="p">,</span> <span class="nx">maximumBlockSizeLimit</span><span class="p">,</span> <span class="nx">prizeFeed</span><span class="p">,</span> <span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">updateWitness</span><span class="p">(</span><span class="nx">accountName</span><span class="p">,</span> <span class="nx">descriptionUrl</span><span class="p">,</span> <span class="nx">blockSigningKey</span><span class="p">,</span> <span class="nx">accountCreationFee</span><span class="p">,</span> <span class="nx">maximumBlockSizeLimit</span><span class="p">,</span> <span class="nx">prizeFeed</span><span class="p">,</span> <span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
   <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="voting-jsapi">Voting-JsApi</h1>
 
 <p>Set a proxy account for doing votes on behalf of first account.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">setVotingProxy</span><span class="p">(</span><span class="nx">accountToModify</span><span class="p">,</span> <span class="nx">proxy</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">setVotingProxy</span><span class="p">(</span><span class="nx">accountToModify</span><span class="p">,</span> <span class="nx">proxy</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Vote for a witness using witness name and voter’s PrivateKey</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">voteForWitness</span><span class="p">(</span><span class="nx">accountToVoteWith</span><span class="p">,</span> <span class="nx">accountToVoteFor</span><span class="p">,</span> <span class="nx">approve</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">voteForWitness</span><span class="p">(</span><span class="nx">accountToVoteWith</span><span class="p">,</span> <span class="nx">accountToVoteFor</span><span class="p">,</span> <span class="nx">approve</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span><span class="nx">privateKey</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="data-transmission-jsapi">Data Transmission-JsApi</h1>
 <p>Get the list of received documents, it can be searched by by_sender, by_recipient,by_sender_datetime,by_recipient_datetime.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getReceivedDocuments</span><span class="p">(</span><span class="nx">appId</span><span class="p">,</span> <span class="nx">accountName</span><span class="p">,</span> <span class="nx">searchType</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">count</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getReceivedDocuments</span><span class="p">(</span><span class="nx">appId</span><span class="p">,</span> <span class="nx">accountName</span><span class="p">,</span> <span class="nx">searchType</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">count</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
   <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Send binary data to the list of recipients (Secured/Encoded data could be transmitted using this function).</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">makeCustomBinaryOperation</span><span class="p">(</span><span class="nx">appId</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">privateKey</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">makeCustomBinaryOperation</span><span class="p">(</span><span class="nx">appId</span><span class="p">,</span> <span class="k">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">privateKey</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Send JSON data to the list of recipients.</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">makeCustomJSONOperation</span><span class="p">(</span><span class="nx">appId</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">privateKey</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">makeCustomJSONOperation</span><span class="p">(</span><span class="nx">appId</span><span class="p">,</span> <span class="k">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">privateKey</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">response</span><span class="p">);</span>
  <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h1 id="daemon-methods-jsapi">Daemon Methods-JsApi</h1>
 <p>Run other endpoint methods</p>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">callPlugin</span><span class="p">(</span><span class="nx">pluginName</span><span class="p">,</span><span class="nx">methodName</span><span class="p">,</span><span class="nx">arguments</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">sophia</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">callPlugin</span><span class="p">(</span><span class="nx">pluginName</span><span class="p">,</span><span class="nx">methodName</span><span class="p">,</span><span class="kr">arguments</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
   <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 </div>
 <div class="footer">
