@@ -209,9 +209,30 @@
     parameter_json: '{"private_key":""}'
     expected_response_json: '{"public_key":"SPH1111111111111111111111111111111114T1Anm"}'
   - api_method: alexandria_api.get_received_documents
-    purpose:
-    parameter_json: '{"app_id":0,"account_name":"","search_type":"","start":"","count":0}'
-    expected_response_json: '{"received_documents":[]}'
+    purpose: "Returns custom json or binary documents that were saved into blockchain filtered by app_id and search_type<br><br>
+               <b>Request</b>
+
+               <li>app_id - general filter</li>
+               <li>account_name - name of account used in search_type filters</li>
+               <li>search type: (_reverse in search_types will be deleted in next version)
+                 <ul>
+                   <li>by_sender_reverse</li>
+                   <li>by_recipient_reverse</li>
+                   <li>by_sender_datetime_reverse</li>
+                   <li>by_recipient_datetime_reverse</li>
+                 </ul>
+               </li>
+               <li>start - index of starting element</li>
+               <li>count - max number of elements to be returned</li><br>
+
+               <b>Response</b>
+
+               <li>received_documents - list of received documents filtered by app_id and search_type</li><br>
+               "
+    parameter_json: '{"app_id": 1,"account_name": "user1","search_type": "by_sender","start": "0","count": 10}'
+    expected_response_json: '{"received_documents":[[1,{"id":4,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data\"}","received":"2019-04-05T08:39:42","binary":false}],[2,{"id":5,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data idx 2\"}","received":"2019-04-05T08:39:54","binary":false}],[3,{"id":6,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data idx 3\"}","received":"2019-04-05T08:40:00","binary":false}]]}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_received_documents", "params": {"app_id": 2,"account_name": "user2","search_type": "by_sender_reverse","start": "0","count": 10}, "id": 1}'
   - api_method: alexandria_api.get_required_signatures
     purpose:
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
@@ -246,9 +267,9 @@
     expected_response_json: '{"witnesses_by_vote":[]}'
   - api_method: alexandria_api.make_custom_binary_operation
     purpose: Creates \"custom_binary\" operation in requested json format. Applications can and should create such operation themselves and skipp this call<br><br>
-              <b>Request fields:</b><br>
+              <b>Request:</b><br>
               data - data in base64 format<br>
-              <b>Result fields:</b><br>
+              <b>Result:</b><br>
               data -  data in hex format<br>
     parameter_json: '{"app_id": 10, "from": "user1", "to": ["user2", "user3"], "data": "SGVsbG8gU29waGlhVFg="}'
     expected_response_json: '{"op":["custom_binary",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"data":"48656c6c6f20536f706869615458"}]}'
