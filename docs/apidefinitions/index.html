@@ -2461,19 +2461,72 @@ still under development and subject to change.</strong></p>
 
 </ul>
 <h4 id="alexandria_api.get_received_documents">alexandria_api.get_received_documents <a href="#alexandria_api.get_received_documents"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns custom json or binary documents that were saved into blockchain filtered by app_id and search_type<br /><br /> <b>Request</b></p>
+<li>app_id - general filter</li>
+<li>account_name - name of account used in search_type filters</li>
+<li>search type: (_reverse in search_types will be deleted in next version) <ul> <li>by_sender_reverse</li> <li>by_recipient_reverse</li> <li>by_sender_datetime_reverse</li> <li>by_recipient_datetime_reverse</li> </ul> </li>
+<li>start - index of starting element</li>
+<li>count - max number of elements to be returned</li>
+<p><br />
+<b>Response</b></p>
+<li>received_documents - list of received documents filtered by app_id and search_type</li>
+<p><br /></p>
 <h5 id="alexandria_api.get_received_documents-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_received_documents-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"search_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"search_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_sender"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 <h5 id="alexandria_api.get_received_documents-expected_response_json">Expected Response JSON <a href="#alexandria_api.get_received_documents-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"received_documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"received_documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">app 1 data</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-05T08:39:42"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"binary"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+      </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">app 1 data idx 2</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-05T08:39:54"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"binary"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+      </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user2"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">data</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">app 1 data idx 3</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"received"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-05T08:40:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"binary"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<h5 id="alexandria_api.get_received_documents-curl-examples">Example <code>curl</code> <a href="#alexandria_api.get_received_documents-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_received_documents", "params": {"app_id": 2,"account_name": "user2","search_type": "by_sender_reverse","start": "0","count": 10}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
 
 <hr />
 
@@ -2656,7 +2709,7 @@ still under development and subject to change.</strong></p>
 
 </ul>
 <h4 id="alexandria_api.make_custom_binary_operation">alexandria_api.make_custom_binary_operation <a href="#alexandria_api.make_custom_binary_operation"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Creates "custom_binary" operation in requested json format. Applications can and should create such operation themselves and skipp this call<br /><br /> <b>Request fields:</b><br /> data - data in base64 format<br /> <b>Result fields:</b><br /> data -  data in hex format<br /></p>
+<p>Creates "custom_binary" operation in requested json format. Applications can and should create such operation themselves and skipp this call<br /><br /> <b>Request:</b><br /> data - data in base64 format<br /> <b>Result:</b><br /> data -  data in hex format<br /></p>
 <h5 id="alexandria_api.make_custom_binary_operation-parameter_json">Query Parameters JSON <a href="#alexandria_api.make_custom_binary_operation-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
