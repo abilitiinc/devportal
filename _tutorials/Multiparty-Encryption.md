@@ -36,7 +36,7 @@ First two are so called system message. They don't carry the actual communicatio
 
 ## Group invite
 Group invite is sent from admin to individual user. The format of the JSON payload is as follows:
-```
+```json
 {
   "type" : 0,                       //<aka "system message"
   "operation_data" : {
@@ -53,7 +53,7 @@ Group invite is sent from admin to individual user. The format of the JSON paylo
 NOTE: Public memo keys are stored in the structure for references. In case one of the participants changes her memo key, one can easily find which key was used in construction of the shared secret. 
 
 This payload is then encrypted using sender-recipient shared secret, and packed into a JSON wrapper:
-```
+```json
 {
   "sender": "<ADMIN PUBLIC MEMO KEY>",
   "recipient": "<RECIPIENT PUBLIC MEMO KEY>",
@@ -64,7 +64,7 @@ This payload is then encrypted using sender-recipient shared secret, and packed 
 ## Group update
 Group update is sent from admin to the actual group address. 
 The format of the JSON payload is as follows:
-```
+```json
 {
   "type" : 0,                       //<aka "system message"
   "operation_data" : {
@@ -81,12 +81,12 @@ The format of the JSON payload is as follows:
 
 Would the group key change, the new key is encoded either with group key or with shared secrets for each individual group participant. The later must be used in case of deleting participants. 
 The first case has then the following format:
-```
+```json
 "new_key" : [["SPH1111111111111111111111111111111114T1Anm", "<ENCRYPTED_GROUP_KEY>"]]
 ```
 
 The second case will end in a list of encrypted keys:
-```
+```json
 "new_key" : [
     ["<RECIPIENT1 PUBLIC MEMO KEY>", "<GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT1 SHARED SECRET>"],
     ["<RECIPIENT2 PUBLIC MEMO KEY>", "<GROUP KEY ENCRYPTED WITH SENDER-RECIPIENT2 SHARED SECRET>"],
@@ -96,7 +96,7 @@ The second case will end in a list of encrypted keys:
 ```
 
 This payload is then encrypted using group key, and packed into a JSON wrapper:
-```
+```json
 {
   "iv": "<INITIAL VECTOR FOR AES>",
   "data" : "<HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD>"
@@ -106,7 +106,7 @@ This payload is then encrypted using group key, and packed into a JSON wrapper:
 ## Group message
 Group update is sent from a group member to the actual group address. 
 
-```
+```json
 {
   "type" : 1,
   "message_data" : "<HEX ENCODED COMMUNICATION>"
@@ -114,7 +114,7 @@ Group update is sent from a group member to the actual group address.
 ```
 
 This payload is then encrypted using group key, and packed into a JSON wrapper:
-```
+```json
 {
   "iv": "<INITIAL VECTOR FOR AES>",
   "data" : "<HEX ENCODED BYTE ARRAY OF THE ENCRYPTED PAYLOAD>"
@@ -143,13 +143,13 @@ The API calls can be split into two logical part:
 
 ### Example 
 First create the group invitation by user `initminer` using wscat:
-```
+```json
 > {"jsonrpc":"2.0", "id":1, "method":"multiparty_messaging.create_group", "params":{"admin":"initminer", "description":"blah", "members":["kpX6yHkAb_RIEuQ7g7UVoGwpUKo"]}}
 < {"jsonrpc":"2.0","result":{"group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g","operation_payloads":[["kpX6yHkAb_RIEuQ7g7UVoGwpUKo",{"sender":"SPH8HWPUynRQnH8QCHdCvebNKbKGuVpZ9FZpg3EWv9UN5qayA8v7k","recipient":"SPH7t5298LP6CDuC8SHT7PGaH7rvqCYgV6sCsrT55VLJXEuQXWnPw","data":"396a3370a56a188403c1185b6ac98d69d01a2c42699a986da80f1d762e54671d82a9097983a228da8635d157d24c01bd9fe20ea0c1a390a6d6c7a247eea80ab3b6f4649c1dc1d3539307a36e9f525f8bab3416ccaf1bac26ee539ea0e289489a1f0261ac9a9f5a95317c3fe62bd49b3b0a5f85db3708eab406e6f181deb6a6fce851154f7ded1495befd308a33abe7002798f4a3d45adbb0c52a97175dbe14e76850d40b05d1147e4d070320051c6c46de600307e5ad59aa0290deb6368e92974a98047f96c5b70a7be005dd455c1557"}]]},"id":1}
 ```
 Group name `"wY8SqXZDuH3SL0Im0G5vuZOch6g"` was generated, as well as one invitation.
 The returned invitation payload is then sent using cli_wallet:
-```
+```json
 unlocked >>> send_custom_json_document 2 initminer ["kpX6yHkAb_RIEuQ7g7UVoGwpUKo"] "{\"sender\":\"SPH8HWPUynRQnH8QCHdCvebNKbKGuVpZ9FZpg3EWv9UN5qayA8v7k\",\"recipient\":\"SPH7t5298LP6CDuC8SHT7PGaH7rvqCYgV6sCsrT55VLJXEuQXWnPw\",\"data\":\"396a3370a56a188403c1185b6ac98d69d01a2c42699a986da80f1d762e54671d82a9097983a228da8635d157d24c01bd9fe20ea0c1a390a6d6c7a247eea80ab3b6f4649c1dc1d3539307a36e9f525f8bab3416ccaf1bac26ee539ea0e289489a1f0261ac9a9f5a95317c3fe62bd49b3b0a5f85db3708eab406e6f181deb6a6fce851154f7ded1495befd308a33abe7002798f4a3d45adbb0c52a97175dbe14e76850d40b05d1147e4d070320051c6c46de600307e5ad59aa0290deb6368e92974a98047f96c5b70a7be005dd455c1557\"}" true
 {
   "ref_block_num": 2417,
@@ -178,7 +178,7 @@ unlocked >>> send_custom_json_document 2 initminer ["kpX6yHkAb_RIEuQ7g7UVoGwpUKo
 unlocked >>>
 ```
 We can check success of the operation again with wscat:
-```
+```json
 > {"jsonrpc":"2.0", "id":2, "method":"multiparty_messaging.get_group", "params":{"group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g"}}
 < {"jsonrpc":"2.0","result":{"group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g","current_group_name":"wY8SqXZDuH3SL0Im0G5vuZOch6g","description":"blah","members":["kpX6yHkAb_RIEuQ7g7UVoGwpUKo","initminer"],"admin":"initminer","group_key":"b019a8e962d111b020f0fd0181f3e59e6f7727076fce2486bc28cf8c0270a589","messages":1},"id":2}
 ```

@@ -14,19 +14,19 @@
     <script src="/js/main.js"></script>
 
     <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>Choose SDK - SophiaTX Developers</title>
-<meta property="og:title" content="Choose SDK" />
-<meta name="description" content="Getting started to develop robust and feature rich SophiaTX applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives." />
-<meta property="og:description" content="Getting started to develop robust and feature rich SophiaTX applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives." />
-<link rel="canonical" href="https://developers.sophiatx.com/quickstart/choose_sdk" />
-<meta property="og:url" content="https://developers.sophiatx.com/quickstart/choose_sdk" />
+<title>Custom plugins - SophiaTX Developers</title>
+<meta property="og:title" content="Custom plugins" />
+<meta name="description" content="External Plugins" />
+<meta property="og:description" content="External Plugins" />
+<link rel="canonical" href="https://developers.sophiatx.com/tutorials/guide_custom_plugins" />
+<meta property="og:url" content="https://developers.sophiatx.com/tutorials/guide_custom_plugins" />
 <meta property="og:site_name" content="SophiaTX Developers" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "WebPage",
-"headline": "Choose SDK",
-"description": "Getting started to develop robust and feature rich SophiaTX applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives.",
-"url": "https://developers.sophiatx.com/quickstart/choose_sdk"}</script>
+"headline": "Custom plugins",
+"description": "External Plugins",
+"url": "https://developers.sophiatx.com/tutorials/guide_custom_plugins"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -257,9 +257,90 @@
         <h1 class="hero__h1"></h1>
         <!--<img class="hero__img" src="/images/hero.png">-->
     </div>
-    <p>Getting started to develop robust and feature rich <strong>SophiaTX</strong> applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives.</p>
+    <h2 id="external-plugins">External Plugins</h2>
 
-<p>Building a picture discovery app is a breeze with the <a href="/sdks/#sdks-javascript">JavaScript</a> SDK. There is also a <a href="/sdks/#sdks-java">Java</a> and <a href="/sdks/#sdks-abab">ABAB</a> SDK’s available.</p>
+<p>External/runtime-loadable plugins provide a way for building custom applications with advanced functionality 
+on top of blockchain core functionality.</p>
+
+<h2 id="key-features">Key Features</h2>
+
+<ul>
+  <li>Dynamically specify external plugins to load</li>
+  <li>Plugins are developed as standalone shared libraries</li>
+  <li>Automatically load dependent plugins in order</li>
+  <li>Plugins can specify commandline arguments and configuration file options</li>
+  <li>Separate configuration files for each plugin</li>
+</ul>
+
+<h2 id="standard-plugins-vs-external-plugins">Standard plugins vs External plugins</h2>
+
+<ul>
+  <li>Standard plugins are static libraries(.a), external plugins must be shared libraries(.so) + their names must 
+contain suffix “_plugin”:</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add_library( track_and_trace_plugin SHARED
+             source files...
+           )
+</code></pre></div></div>
+<ul>
+  <li>They both share the same interface(<code class="highlighter-rouge">plugin&lt;T&gt;, which is derived from abstract_plugin</code>), but external plugins must provide dll import interface on top of that. Format:</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extern "C" BOOST_SYMBOL_EXPORT std::shared_ptr&lt;abstract_plugin&gt; get_plugin() {
+   return std::make_shared&lt;track_and_trace_plugin&gt;();
+}
+</code></pre></div></div>
+
+<h2 id="configuration">Configuration</h2>
+<p>In main configuration file are two parameters, which define list of external plugins:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Directory containing external/runtime-loadable plugins binaries (absolute path or relative to the data-dir/)
+external-plugins-dir = "external-plugins"
+
+# External plugin(s) to enable, may be specified multiple times
+external_plugin = track_and_trace
+</code></pre></div></div>
+<p>“external_plugin” parameter contains only plugin name. Binary file of such plugin must be stored in directory specified by “external-plugins-dir” parameter
+under following naming convetion:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lib&lt;plugin name&gt;_plugin.so -&gt; example: "libtrack_and_trace_plugin.so"
+</code></pre></div></div>
+
+<p>Plugin-specific parameters are stored in separate configuration file in subdirectory “configs” 
+of “data-dir” parameter under naming convention:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;plugin name&gt;_plugin_config.ini -&gt; example: "track_and_trace_plugin_config.ini"
+</code></pre></div></div>
+
+<h3 id="example-of-data-dir-directory-structure-with-external-plugin">Example of data-dir directory structure with external plugin:</h3>
+<p>Lets say program parameter “data-dir” is set to default value: “sophia_app_data”. This is how directory structure would look like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sophiatx-binaries                                  # directory with sophiaTX binaries
+ ├── sophiatxd                                      # SophiaTX demon
+ ├── sophia_app_data                                # data-dir
+ │   ├── external-plugins                           # external plugins binaries directory
+ │   │   ├── libtrack_and_trace_plugin.so
+ │   │   └── ...  
+ │   ├── configs                                    # configuration files directory
+ │   │   ├── config.ini                             # main config
+ │   │   ├── track_and_trace_plugin_config.ini      # track_and_trace plugin config
+ │   │   └── ...
+ │   ├── blockchain                                 # blockchain directory
+ │   │   └── ... 
+ │   ├── logs                                       # logs directory
+ │   │   └── ...
+ │   └── p2p                                        # p2p directory
+ │       └── ...  
+ └── ...      
+</code></pre></div></div>
+
+<h2 id="code-samples">Code samples:</h2>
+
+<p>External Plugin code template is the same as for standard plugins with two minor differencies 
+mentioned in “Standard plugins vs External plugins” section. Standard plugin template can be found <a href="https://github.com/SophiaTX/SophiaTX/tree/develop/libraries/plugins/template_plugin">here</a>.</p>
+
+<p>Example of concrete implementation of external plugin (track_and_trace) can be found <a href="https://github.com/SophiaTX/SophiaTX/tree/develop/external_plugins/track_and_trace">here</a>.</p>
+
+<h2 id="build-instructions">Build instructions:</h2>
+<p>External plugin as well as all libraries that are linked must be build with -DBUILD_PIC flag to enable <a href="https://en.wikipedia.org/wiki/Position-independent_code">Position Independent Code</a>.</p>
 
 </div>
 <div class="footer">

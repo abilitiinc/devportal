@@ -13,7 +13,7 @@ New account requires new pair of keys, we use 3 different key_pairs in our block
 ``` >>>generate_key_pair ```
 
 response:
-```
+```json
 {
   "pub_key": "SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ",
   "wif_priv_key": "5KdvUxpR2NTdQHV91qT9K7g8oHvNz6F6vyhnGDUNUC1KYpaYH9r"
@@ -25,7 +25,7 @@ So now, when the key pair is ready I can create create_account operation
 create_account registered_account test_account "{}" SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ SPH667jA4gwFxRkSpKFAyWTDbzydRF1JPQrDc4ReqtpeujwvVUDfQ
 ```
 response:
-```
+```json
 [
   "account_create",{
     "fee": "0.100000 SPHTX",
@@ -65,7 +65,7 @@ Now we should check if account was successfully created and for that we can use 
 >>>get_account test_account
 ```
 response:
-```
+```json
 {
   "id": 3,
   "name": "4PMRaUBMJmL89eWcb1XrpL7DFGhJ",
@@ -106,7 +106,7 @@ Next step is to create application, that we will use for sending custom document
 ```
 
 result:
-```
+```json
 [
   "application_create",{
     "fee": "0.000000 SPHTX",
@@ -124,7 +124,7 @@ Now you need to sign and broadcast it as in create account.
 >>>get_applications ["TESTAPP"]
 ```
 result:
-```
+```json
 [{
     "id": 1,
     "name": "TESTAPP",
@@ -141,7 +141,7 @@ Now the final step sending message Hello world. For that we will use make_custom
 make_custom_json_operation 1 GN3Ug8ou6tiE4kWvyopJBJmZgcw ["4PMRaUBMJmL89eWcb1XrpL7DFGhJ"] "{\"Hello World\"}"
 ```
 result:
-```
+```json
 [
   "custom_json",{
     "fee": "0.000000 SPHTX",
@@ -161,7 +161,7 @@ get_received_documents 1 GN3Ug8ou6tiE4kWvyopJBJmZgcw "by_sender" 10 1
 ```
 
 result:
-```
+```json
 [[
     1,{
       "sender": "GN3Ug8ou6tiE4kWvyopJBJmZgcw",

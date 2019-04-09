@@ -40,7 +40,7 @@ unlock YOUR_PASSWORD
 info
 ```
 Output should look like something like this
-```
+```json
 {
   "head_block_number": 22646,
   "head_block_id": "00005876350c332f4009a37c55fc9147902b8eb1",

@@ -33,7 +33,7 @@ unlocked >>> suggest_brain_key
 ```
 Output should look like something like this
 
-```
+```json
 {
   "brain_priv_key": "BLENT EPOCHA GREED OCQUE BHALU TAPE SMUT AVERAH BALAO SHARPEN BUSTARD ATHIRST PACTION WIDBIN NYMPHA BANK",
   "wif_priv_key": "5J7ejuMu2ZkNWQ367X38wVvBWFzgbsjPvw6PLNtwsYEQrbhigT6",

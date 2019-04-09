@@ -120,6 +120,14 @@
 						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
 						
 					
+						
+						<li><a href="/tutorials/#tutorials-guide-automatic-deploy">Node Deploy script</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-custom-plugins">Custom plugins</a></li>
+						
+					
 				
 			
 		</ul>
@@ -277,12 +285,12 @@ unlocked &gt;&gt;&gt; suggest_brain_key
 </code></pre></div></div>
 <p>Output should look like something like this</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "brain_priv_key": "BLENT EPOCHA GREED OCQUE BHALU TAPE SMUT AVERAH BALAO SHARPEN BUSTARD ATHIRST PACTION WIDBIN NYMPHA BANK",
-  "wif_priv_key": "5J7ejuMu2ZkNWQ367X38wVvBWFzgbsjPvw6PLNtwsYEQrbhigT6",
-  "pub_key": "SPH6m3vR9ZfRiGCSmpdY8G6kaAjXxGYBxu6pRE99cFL95SEcxEWeh"
-}
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"brain_priv_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLENT EPOCHA GREED OCQUE BHALU TAPE SMUT AVERAH BALAO SHARPEN BUSTARD ATHIRST PACTION WIDBIN NYMPHA BANK"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"wif_priv_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5J7ejuMu2ZkNWQ367X38wVvBWFzgbsjPvw6PLNtwsYEQrbhigT6"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pub_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH6m3vR9ZfRiGCSmpdY8G6kaAjXxGYBxu6pRE99cFL95SEcxEWeh"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 <p>Now kill the daemon and modify config.ini
 Now you can reedit config.ini with following properties (you can remove rest of the plugins if you want to be just the witness)</p>
 
