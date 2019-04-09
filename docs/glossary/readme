@@ -1,0 +1,7 @@
+Glossary is now oved into the introduction section. Glossary can be displayed again by adding it to the _data/nav.yml
+
+- title: "Glossary"
+collection: "glossary"
+url: "/glossary/"
+position: 8
+exclude: true
