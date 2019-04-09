@@ -120,6 +120,14 @@
 						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
 						
 					
+						
+						<li><a href="/tutorials/#tutorials-guide-automatic-deploy">Node Deploy script</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-custom-plugins">Custom plugins</a></li>
+						
+					
 				
 			
 		</ul>
@@ -282,47 +290,47 @@ unlock YOUR_PASSWORD
 info
 </code></pre></div></div>
 <p>Output should look like something like this</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "head_block_number": 22646,
-  "head_block_id": "00005876350c332f4009a37c55fc9147902b8eb1",
-  "time": "2018-07-26T07:15:36",
-  "current_witness": "initminer",
-  "current_supply": "349999999.780000 SPHTX",
-  "total_vesting_shares": "2250001.000000 VESTS",
-  "witness_required_vesting": "250000.000000 VESTS",
-  "maximum_block_size": 262144,
-  "current_aslot": 24312,
-  "recent_slots_filled": "340282366920938463463374607431768211455",
-  "participation_count": 128,
-  "last_irreversible_block_num": 22595,
-  "average_block_size": 0,
-  "witness_majority_version": "0.0.0",
-  "hardfork_version": "1.0.0",
-  "head_block_age": "2 seconds old",
-  "participation": "100.00000000000000000",
-  "median_sbd1_price": {
-    "base": "0.000000 SPHTX",
-    "quote": "0.000000 SPHTX"
-  },
-  "median_sbd2_price": {
-    "base": "0.000000 SPHTX",
-    "quote": "0.000000 SPHTX"
-  },
-  "median_sbd3_price": {
-    "base": "0.000000 SPHTX",
-    "quote": "0.000000 SPHTX"
-  },
-  "median_sbd4_price": {
-    "base": "0.000000 SPHTX",
-    "quote": "0.000000 SPHTX"
-  },
-  "median_sbd5_price": {
-    "base": "0.000000 SPHTX",
-    "quote": "0.000000 SPHTX"
-  },
-  "account_creation_fee": "0.050000 SPHTX"
-}
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"head_block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">22646</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"head_block_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00005876350c332f4009a37c55fc9147902b8eb1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-26T07:15:36"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initminer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"349999999.780000 SPHTX"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2250001.000000 VESTS"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"witness_required_vesting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250000.000000 VESTS"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">262144</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_aslot"</span><span class="p">:</span><span class="w"> </span><span class="mi">24312</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"recent_slots_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"340282366920938463463374607431768211455"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_irreversible_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">22595</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"average_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"witness_majority_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"hardfork_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"head_block_age"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 seconds old"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"participation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.00000000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"median_sbd1_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"median_sbd2_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"median_sbd3_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"median_sbd4_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"median_sbd5_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"account_creation_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.050000 SPHTX"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 <p>You can rerun this command a few times and see the head_block_age is up to date</p>
 
 <h3 id="setting-up-seednode">Setting up seednode</h3>

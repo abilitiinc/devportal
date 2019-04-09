@@ -14,19 +14,19 @@
     <script src="/js/main.js"></script>
 
     <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>Choose SDK - SophiaTX Developers</title>
-<meta property="og:title" content="Choose SDK" />
-<meta name="description" content="Getting started to develop robust and feature rich SophiaTX applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives." />
-<meta property="og:description" content="Getting started to develop robust and feature rich SophiaTX applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives." />
-<link rel="canonical" href="https://developers.sophiatx.com/quickstart/choose_sdk" />
-<meta property="og:url" content="https://developers.sophiatx.com/quickstart/choose_sdk" />
+<title>Node Deploy script - SophiaTX Developers</title>
+<meta property="og:title" content="Node Deploy script" />
+<meta name="description" content="Automatic node deploy" />
+<meta property="og:description" content="Automatic node deploy" />
+<link rel="canonical" href="https://developers.sophiatx.com/tutorials/guide_automatic_deploy" />
+<meta property="og:url" content="https://developers.sophiatx.com/tutorials/guide_automatic_deploy" />
 <meta property="og:site_name" content="SophiaTX Developers" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "WebPage",
-"headline": "Choose SDK",
-"description": "Getting started to develop robust and feature rich SophiaTX applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives.",
-"url": "https://developers.sophiatx.com/quickstart/choose_sdk"}</script>
+"headline": "Node Deploy script",
+"description": "Automatic node deploy",
+"url": "https://developers.sophiatx.com/tutorials/guide_automatic_deploy"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -257,9 +257,50 @@
         <h1 class="hero__h1"></h1>
         <!--<img class="hero__img" src="/images/hero.png">-->
     </div>
-    <p>Getting started to develop robust and feature rich <strong>SophiaTX</strong> applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives.</p>
+    <h1 id="automatic-node-deploy">Automatic node deploy</h1>
 
-<p>Building a picture discovery app is a breeze with the <a href="/sdks/#sdks-javascript">JavaScript</a> SDK. There is also a <a href="/sdks/#sdks-java">Java</a> and <a href="/sdks/#sdks-abab">ABAB</a> SDK’s available.</p>
+<p><a href="https://github.com/SophiaTX/SophiaTX/tree/develop/ciscripts/deploy">Deploy Script</a> connects to the server and automatically deploys node binaries and stores previous version</p>
+
+<p>Created file structure on server:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ~                                          # home of specified user
+ ├── ...                        
+ ├── sophiatx_binaries                      # Binaries folder
+ │   ├── sophiatx_#&lt;NUM&gt;.tar.gz             # SophiaTX archived binaries
+ │   ├── sophiatx_#&lt;NUM&gt;.tar.gz.old         # Previous version of SophiaTX archived binaries
+ │   ├── sophiatxd                          # SophiaTX demon
+ │   └── sophia_app_data                    # Master data folder
+ │       ├── configs                        # Configs data folder
+ │       │   ├── testnet_config.ini         # SophiaTX demon config file
+ │       │   ├── testnet_config.ini.old     # Previous version of SophiaTX demon config file
+ │       │   └── ...
+ │       └── ...
+ └── ... 
+</code></pre></div></div>
+
+<h2 id="usage">Usage</h2>
+
+<p>./deploy-node.sh -h host -u user [-s sourceUrl] [-r]</p>
+
+<h4 id="arguments-description">Arguments description:</h4>
+
+<p>-h host         : host(server), where node binaries should be deployed into</p>
+
+<p>-u user         : user to be used to connect to the host. This user has to have id_rsa.pub imported on host</p>
+
+<p>[-s sourceUrl]  : sourceUrl from which are the the binaries downloaded. optional. In case it is not specified, latest binaries(devnet) are downloaded.</p>
+
+<p>[-r]            : replay-blockain flag. It is used when starting sophiatxd. optional</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>For using automatic deploy script, you have to install Ansible on your machine:</p>
+
+<p>$ sudo apt-get update <br />
+$ sudo apt-get install software-properties-common <br />
+$ sudo apt-add-repository ppa:ansible/ansible <br />
+$ sudo apt-get update <br />
+$ sudo apt-get install ansible**</p>
 
 </div>
 <div class="footer">
