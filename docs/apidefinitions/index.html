@@ -58,6 +58,18 @@
 						<li><a href="/#introduction-welcome">Welcome to SophiaTX</a></li>
 						
 					
+						
+						<li><a href="/#introduction-chain-basics">Chain Basics</a></li>
+						
+					
+						
+						<li><a href="/#introduction-transactions">Transactions</a></li>
+						
+					
+						
+						<li><a href="/#introduction-governance">Governance</a></li>
+						
+					
 				
 			
 		</ul>
@@ -155,23 +167,6 @@
 	</section>
 	
 		
-    <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
-		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
-		<ul class="cont-nav-section content">
-			
-				
-					
-					
-						
-						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
-						
-					
-				
-			
-		</ul>
-	</section>
-	
-		
     <section class="pnl-main-nav-section main-nav-section" url="/apidefinitions/">
 		<h6 class="ctrl-nav-section title">Appbase API</h6>
 		<ul class="cont-nav-section content">
@@ -180,7 +175,11 @@
 					
 					
 						
-						<li><a href="/apidefinitions/#apidefinitions-account-history-api">Account History Api</a></li>
+						<li><a href="/apidefinitions/#apidefinitions-introduction">Introduction</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-alexandria-api">Alexandria Api</a></li>
 						
 					
 						
@@ -196,7 +195,7 @@
 						
 					
 						
-						<li><a href="/apidefinitions/#apidefinitions-alexandria-api">Alexandria Api</a></li>
+						<li><a href="/apidefinitions/#apidefinitions-account-history-api">Account History Api</a></li>
 						
 					
 						
@@ -221,25 +220,15 @@
 	</section>
 	
 		
-    <section class="pnl-main-nav-section main-nav-section" url="/glossary/">
-		<h6 class="ctrl-nav-section title">Glossary</h6>
+    <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
+		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
 		<ul class="cont-nav-section content">
 			
 				
 					
 					
 						
-						<li><a href="/glossary/#glossary-chain-basics">Chain Basics</a></li>
-						
-					
-						
-					
-						
-						<li><a href="/glossary/#glossary-governance">Governance</a></li>
-						
-					
-						
-						<li><a href="/glossary/#glossary-transactions">Transactions</a></li>
+						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
 						
 					
 				
@@ -257,947 +246,27 @@
         <h1 class="hero__h1"> API Definitions</h1>
         <!--<img class="hero__img" src="/images/hero.png">-->
     </div>
-    <section class="row">
-  <section class="row">
-	  <blockquote class="warning">
-		  While the <code>condenser_api.*</code> calls are ready for use, all other appbase methods are currently works in progress and may change, or be unsuitable for production use.
-	  </blockquote>
-  </section>
-</section>
-
-
+    
 
 	
 	
-		<section id="apidefinitions-account-history-api" class="row apidefinitions-account-history-api">
+		<section id="apidefinitions-introduction" class="row apidefinitions-introduction">
 			<h3>
-				<a id="apidefinitions-account-history-api">
-					Account History Api
+				<a id="apidefinitions-introduction">
+					Introduction
 					
 				</a>
 			</h3>
 			
 
-			
-<p>Used to lookup account history information. <strong>These AppBase API methods are still under development and subject to change.</strong></p>
+			<blockquote class="warning">
+  <h5>While the <code>alexandria_api.*</code> calls are ready for use, all other appbase methods are currently works in progress and may change, or be unsuitable for production use !!!</h5>
+</blockquote>
 
-<ul style="float: right; list-style: none;">
+<p>Best practice for application developers is to use one of the provided <strong>SDK’s</strong> depending on what language the application is writenn in.</p>
 
-
-
-</ul>
-<h4 id="account_history_api.get_account_history">account_history_api.get_account_history <a href="#account_history_api.get_account_history"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a history of all operations for a given account.</p>
-<h5 id="account_history_api.get_account_history-parameter_json">Query Parameters JSON <a href="#account_history_api.get_account_history-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"reverse_order"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="account_history_api.get_account_history-expected_response_json">Expected Response JSON <a href="#account_history_api.get_account_history-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="account_history_api.get_account_history-curl-examples">Example <code>curl</code> <a href="#account_history_api.get_account_history-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"account_history_api.get_account_history", "params":{"account":"initminer", "start":1000, "limit":1000}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"account_history_api.get_account_history", "params":{"account":"initminer", "start":-1, "limit":10000}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="account_history_api.get_ops_in_block">account_history_api.get_ops_in_block <a href="#account_history_api.get_ops_in_block"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns all operations contained in a block.</p>
-<h5 id="account_history_api.get_ops_in_block-parameter_json">Query Parameters JSON <a href="#account_history_api.get_ops_in_block-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"only_virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="account_history_api.get_ops_in_block-expected_response_json">Expected Response JSON <a href="#account_history_api.get_ops_in_block-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"ops"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="account_history_api.get_ops_in_block-curl-examples">Example <code>curl</code> <a href="#account_history_api.get_ops_in_block-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"account_history_api.get_ops_in_block", "params":{"block_num":1,"only_virtual":false}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"account_history_api.get_ops_in_block", "params":{"block_num":5443322,"only_virtual":true}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-<li class="warning"><strong><small>Deprecated</small></strong></li>
-
-
-</ul>
-<h4 id="account_history_api.get_transaction">account_history_api.get_transaction <a href="#account_history_api.get_transaction"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns the details of a transaction based on a transaction id.</p>
-<h5 id="account_history_api.get_transaction-parameter_json">Query Parameters JSON <a href="#account_history_api.get_transaction-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="account_history_api.get_transaction-expected_response_json">Expected Response JSON <a href="#account_history_api.get_transaction-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transaction_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="account_history_api.get_transaction-curl-examples">Example <code>curl</code> <a href="#account_history_api.get_transaction-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"account_history_api.get_transaction", "params":{"id":"6fde0190a97835ea6d9e651293e90c89911f933c"}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-
-		</section>
-	
-		<section id="apidefinitions-database-api" class="row apidefinitions-database-api">
-			<h3>
-				<a id="apidefinitions-database-api">
-					Database Api
-					
-				</a>
-			</h3>
-			
-
-			
-<p>Used to query information about accounts, transactions, and blockchain data. <strong>These AppBase API methods are still under development and subject to change.</strong></p>
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_active_witnesses">database_api.get_active_witnesses <a href="#database_api.get_active_witnesses"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns the list of active witnesses.</p>
-<h5 id="database_api.get_active_witnesses-parameter_json">Query Parameters JSON <a href="#database_api.get_active_witnesses-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_active_witnesses-expected_response_json">Expected Response JSON <a href="#database_api.get_active_witnesses-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"witnesses"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.get_active_witnesses-curl-examples">Example <code>curl</code> <a href="#database_api.get_active_witnesses-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_active_witnesses", "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_config">database_api.get_config <a href="#database_api.get_config"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns information about compile-time constants. Some properties may not be present.  See: <a href="/tutorials-recipes/understanding-configuration-values">Understanding Configuration Values</a></p>
-<h5 id="database_api.get_config-parameter_json">Query Parameters JSON <a href="#database_api.get_config-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_config-expected_response_json">Expected Response JSON <a href="#database_api.get_config-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.get_config-curl-examples">Example <code>curl</code> <a href="#database_api.get_config-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_config", "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_current_price_feed">database_api.get_current_price_feed <a href="#database_api.get_current_price_feed"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns the current price feed.</p>
-<h5 id="database_api.get_current_price_feed-parameter_json">Query Parameters JSON <a href="#database_api.get_current_price_feed-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPHTX"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_current_price_feed-expected_response_json">Expected Response JSON <a href="#database_api.get_current_price_feed-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_dynamic_global_properties">database_api.get_dynamic_global_properties <a href="#database_api.get_dynamic_global_properties"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns the current dynamic global properties.  See: <a href="/tutorials-recipes/understanding-dynamic-global-properties">Understanding Dynamic Global Properties</a></p>
-<h5 id="database_api.get_dynamic_global_properties-parameter_json">Query Parameters JSON <a href="#database_api.get_dynamic_global_properties-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_dynamic_global_properties-expected_response_json">Expected Response JSON <a href="#database_api.get_dynamic_global_properties-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"head_block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"head_block_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"current_witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"current_supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"total_vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 VESTS"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"total_reward_fund"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"current_aslot"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"witness_required_vesting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250000.000000 SPHTX"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"recent_slots_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"last_irreversible_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.get_dynamic_global_properties-curl-examples">Example <code>curl</code> <a href="#database_api.get_dynamic_global_properties-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_dynamic_global_properties", "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_feed_history">database_api.get_feed_history <a href="#database_api.get_feed_history"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns the history of price feed values.</p>
-<h5 id="database_api.get_feed_history-parameter_json">Query Parameters JSON <a href="#database_api.get_feed_history-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPHTX"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_feed_history-expected_response_json">Expected Response JSON <a href="#database_api.get_feed_history-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPHTX"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"current_median_history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"price_history"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.get_feed_history-curl-examples">Example <code>curl</code> <a href="#database_api.get_feed_history-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_feed_history", "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_hardfork_properties">database_api.get_hardfork_properties <a href="#database_api.get_hardfork_properties"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns the current properties about the blockchain’s hardforks.</p>
-<h5 id="database_api.get_hardfork_properties-parameter_json">Query Parameters JSON <a href="#database_api.get_hardfork_properties-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_hardfork_properties-expected_response_json">Expected Response JSON <a href="#database_api.get_hardfork_properties-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"processed_hardforks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"last_hardfork"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"current_hardfork_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"next_hardfork"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"next_hardfork_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.get_hardfork_properties-curl-examples">Example <code>curl</code> <a href="#database_api.get_hardfork_properties-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_hardfork_properties", "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_potential_signatures">database_api.get_potential_signatures <a href="#database_api.get_potential_signatures"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>This method will return the set of all public keys that could possibly sign for a given transaction.</p>
-<h5 id="database_api.get_potential_signatures-parameter_json">Query Parameters JSON <a href="#database_api.get_potential_signatures-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_potential_signatures-expected_response_json">Expected Response JSON <a href="#database_api.get_potential_signatures-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.get_potential_signatures-curl-examples">Example <code>curl</code> <a href="#database_api.get_potential_signatures-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_potential_signatures", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]}}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_required_signatures">database_api.get_required_signatures <a href="#database_api.get_required_signatures"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>This API will take a partially signed transaction and a set of public keys that the owner has the ability to sign for and return the minimal subset of public keys that should add signatures to the transaction.</p>
-<h5 id="database_api.get_required_signatures-parameter_json">Query Parameters JSON <a href="#database_api.get_required_signatures-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"available_keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_required_signatures-expected_response_json">Expected Response JSON <a href="#database_api.get_required_signatures-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.get_required_signatures-curl-examples">Example <code>curl</code> <a href="#database_api.get_required_signatures-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_required_signatures", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]},"available_keys":[]}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_transaction_hex">database_api.get_transaction_hex <a href="#database_api.get_transaction_hex"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a hexdump of the serialized binary form of a transaction.</p>
-<h5 id="database_api.get_transaction_hex-parameter_json">Query Parameters JSON <a href="#database_api.get_transaction_hex-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_transaction_hex-expected_response_json">Expected Response JSON <a href="#database_api.get_transaction_hex-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.get_transaction_hex-curl-examples">Example <code>curl</code> <a href="#database_api.get_transaction_hex-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_transaction_hex", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]}}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_witness_schedule">database_api.get_witness_schedule <a href="#database_api.get_witness_schedule"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns the current witness schedule.</p>
-<h5 id="database_api.get_witness_schedule-parameter_json">Query Parameters JSON <a href="#database_api.get_witness_schedule-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_witness_schedule-expected_response_json">Expected Response JSON <a href="#database_api.get_witness_schedule-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"current_virtual_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"next_shuffle_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"current_shuffled_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"num_scheduled_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"top19_weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"timeshare_weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"witness_pay_normalization_factor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"median_props"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"account_creation_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">262144</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price_feeds"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"majority_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"max_voted_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"max_runner_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"hardfork_required_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.get_witness_schedule-curl-examples">Example <code>curl</code> <a href="#database_api.get_witness_schedule-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_witness_schedule", "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.list_account_recovery_requests">database_api.list_account_recovery_requests <a href="#database_api.list_account_recovery_requests"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a list of account recovery requests.</p>
-<h5 id="database_api.list_account_recovery_requests-parameter_json">Query Parameters JSON <a href="#database_api.list_account_recovery_requests-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.list_account_recovery_requests-expected_response_json">Expected Response JSON <a href="#database_api.list_account_recovery_requests-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.list_accounts">database_api.list_accounts <a href="#database_api.list_accounts"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a list of accounts.</p>
-<h5 id="database_api.list_accounts-parameter_json">Query Parameters JSON <a href="#database_api.list_accounts-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.list_accounts-expected_response_json">Expected Response JSON <a href="#database_api.list_accounts-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.list_change_recovery_account_requests">database_api.list_change_recovery_account_requests <a href="#database_api.list_change_recovery_account_requests"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a list of recovery account change requests.</p>
-<h5 id="database_api.list_change_recovery_account_requests-parameter_json">Query Parameters JSON <a href="#database_api.list_change_recovery_account_requests-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.list_change_recovery_account_requests-expected_response_json">Expected Response JSON <a href="#database_api.list_change_recovery_account_requests-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.list_escrows">database_api.list_escrows <a href="#database_api.list_escrows"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a list of escrows.</p>
-<h5 id="database_api.list_escrows-parameter_json">Query Parameters JSON <a href="#database_api.list_escrows-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.list_escrows-expected_response_json">Expected Response JSON <a href="#database_api.list_escrows-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"escrows"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.list_owner_histories">database_api.list_owner_histories <a href="#database_api.list_owner_histories"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a list of owner authority histories.</p>
-<h5 id="database_api.list_owner_histories-parameter_json">Query Parameters JSON <a href="#database_api.list_owner_histories-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.list_owner_histories-expected_response_json">Expected Response JSON <a href="#database_api.list_owner_histories-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"owner_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.list_witness_votes">database_api.list_witness_votes <a href="#database_api.list_witness_votes"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a list of witness votes.</p>
-<h5 id="database_api.list_witness_votes-parameter_json">Query Parameters JSON <a href="#database_api.list_witness_votes-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.list_witness_votes-expected_response_json">Expected Response JSON <a href="#database_api.list_witness_votes-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"votes"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.list_witnesses">database_api.list_witnesses <a href="#database_api.list_witnesses"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns the list of witnesses.</p>
-<h5 id="database_api.list_witnesses-parameter_json">Query Parameters JSON <a href="#database_api.list_witnesses-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.list_witnesses-expected_response_json">Expected Response JSON <a href="#database_api.list_witnesses-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"witnesses"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-<li class="warning"><strong><small>Disabled</small></strong></li>
-
-</ul>
-<h4 id="database_api.verify_account_authority">database_api.verify_account_authority <a href="#database_api.verify_account_authority"><i class="fas fa-link fa-xs"></i></a></h4>
-<p><strong>Not Implemented</strong></p>
-
-<h5 id="database_api.verify_account_authority-parameter_json">Query Parameters JSON <a href="#database_api.verify_account_authority-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"signers"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.verify_account_authority-expected_response_json">Expected Response JSON <a href="#database_api.verify_account_authority-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.verify_account_authority-curl-examples">Example <code>curl</code> <a href="#database_api.verify_account_authority-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.verify_account_authority", "params":{"account":"initminer","signers":["STM7Q2rLBqzPzFeteQZewv9Lu3NLE69fZoLeL6YK59t7UmssCBNTU"]}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.verify_authority">database_api.verify_authority <a href="#database_api.verify_authority"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns true if the transaction has all of the required signatures.</p>
-<h5 id="database_api.verify_authority-parameter_json">Query Parameters JSON <a href="#database_api.verify_authority-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.verify_authority-expected_response_json">Expected Response JSON <a href="#database_api.verify_authority-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="database_api.verify_authority-curl-examples">Example <code>curl</code> <a href="#database_api.verify_authority-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.verify_authority", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]}}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.verify_signatures">database_api.verify_signatures <a href="#database_api.verify_signatures"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>This is a general purpose API that checks signatures against accounts for an arbitrary sha256 hash using the existing authority structures.</p>
-<h5 id="database_api.verify_signatures-parameter_json">Query Parameters JSON <a href="#database_api.verify_signatures-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"required_owner"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"required_active"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"required_other"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.verify_signatures-expected_response_json">Expected Response JSON <a href="#database_api.verify_signatures-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_application_buyings">database_api.get_application_buyings <a href="#database_api.get_application_buyings"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<h5 id="database_api.get_application_buyings-parameter_json">Query Parameters JSON <a href="#database_api.get_application_buyings-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"search_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_application_buyings-expected_response_json">Expected Response JSON <a href="#database_api.get_application_buyings-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"application_buyings"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_burned_balance">database_api.get_burned_balance <a href="#database_api.get_burned_balance"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<h5 id="database_api.get_burned_balance-parameter_json">Query Parameters JSON <a href="#database_api.get_burned_balance-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_burned_balance-expected_response_json">Expected Response JSON <a href="#database_api.get_burned_balance-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"0.000000 SPHTX"</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.get_promotion_pool_balance">database_api.get_promotion_pool_balance <a href="#database_api.get_promotion_pool_balance"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<h5 id="database_api.get_promotion_pool_balance-parameter_json">Query Parameters JSON <a href="#database_api.get_promotion_pool_balance-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.get_promotion_pool_balance-expected_response_json">Expected Response JSON <a href="#database_api.get_promotion_pool_balance-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"0.000000 SPHTX"</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.list_applications">database_api.list_applications <a href="#database_api.list_applications"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<h5 id="database_api.list_applications-parameter_json">Query Parameters JSON <a href="#database_api.list_applications-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.list_applications-expected_response_json">Expected Response JSON <a href="#database_api.list_applications-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"applications"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.find_account_recovery_requests">database_api.find_account_recovery_requests <a href="#database_api.find_account_recovery_requests"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a list of account recovery requests.</p>
-<h5 id="database_api.find_account_recovery_requests-parameter_json">Query Parameters JSON <a href="#database_api.find_account_recovery_requests-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.find_account_recovery_requests-expected_response_json">Expected Response JSON <a href="#database_api.find_account_recovery_requests-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.find_accounts">database_api.find_accounts <a href="#database_api.find_accounts"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Search for accounts.</p>
-<h5 id="database_api.find_accounts-parameter_json">Query Parameters JSON <a href="#database_api.find_accounts-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.find_accounts-expected_response_json">Expected Response JSON <a href="#database_api.find_accounts-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-<li class="success"><strong><small>Since: HF11</small></strong></li>
-
-
-
-</ul>
-<h4 id="database_api.find_change_recovery_account_requests">database_api.find_change_recovery_account_requests <a href="#database_api.find_change_recovery_account_requests"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a list of requests to change the recovery account.</p>
-<h5 id="database_api.find_change_recovery_account_requests-parameter_json">Query Parameters JSON <a href="#database_api.find_change_recovery_account_requests-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.find_change_recovery_account_requests-expected_response_json">Expected Response JSON <a href="#database_api.find_change_recovery_account_requests-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-<li class="success"><strong><small>Since: HF14</small></strong></li>
-
-
-
-</ul>
-<h4 id="database_api.find_escrows">database_api.find_escrows <a href="#database_api.find_escrows"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a list of escrows.</p>
-<h5 id="database_api.find_escrows-parameter_json">Query Parameters JSON <a href="#database_api.find_escrows-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.find_escrows-expected_response_json">Expected Response JSON <a href="#database_api.find_escrows-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"escrows"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.find_owner_histories">database_api.find_owner_histories <a href="#database_api.find_owner_histories"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns owner authority history.</p>
-<h5 id="database_api.find_owner_histories-parameter_json">Query Parameters JSON <a href="#database_api.find_owner_histories-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.find_owner_histories-expected_response_json">Expected Response JSON <a href="#database_api.find_owner_histories-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"owner_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="database_api.find_witnesses">database_api.find_witnesses <a href="#database_api.find_witnesses"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Search for witnesses.</p>
-<h5 id="database_api.find_witnesses-parameter_json">Query Parameters JSON <a href="#database_api.find_witnesses-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"owners"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="database_api.find_witnesses-expected_response_json">Expected Response JSON <a href="#database_api.find_witnesses-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"witnesses"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-
-		</section>
-	
-		<section id="apidefinitions-jsonrpc" class="row apidefinitions-jsonrpc">
-			<h3>
-				<a id="apidefinitions-jsonrpc">
-					Jsonrpc
-					
-				</a>
-			</h3>
-			
-
-			
-<p>Used to lookup information about the JSON RPC API. <strong>These AppBase API methods are still under development and subject to change.</strong></p>
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="jsonrpc.get_methods">jsonrpc.get_methods <a href="#jsonrpc.get_methods"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns a list of methods supported by the JSON RPC API.</p>
-<h5 id="jsonrpc.get_methods-parameter_json">Query Parameters JSON <a href="#jsonrpc.get_methods-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="jsonrpc.get_methods-expected_response_json">Expected Response JSON <a href="#jsonrpc.get_methods-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[]</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="jsonrpc.get_methods-curl-examples">Example <code>curl</code> <a href="#jsonrpc.get_methods-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_methods", "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="jsonrpc.get_signature">jsonrpc.get_signature <a href="#jsonrpc.get_signature"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns the signature information for a JSON RPC method including the arguments and expected response JSON.</p>
-<h5 id="jsonrpc.get_signature-parameter_json">Query Parameters JSON <a href="#jsonrpc.get_signature-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="jsonrpc.get_signature-expected_response_json">Expected Response JSON <a href="#jsonrpc.get_signature-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"args"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"ret"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="jsonrpc.get_signature-curl-examples">Example <code>curl</code> <a href="#jsonrpc.get_signature-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"jsonrpc.get_methods"}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"jsonrpc.get_signature"}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"condenser_api.get_dynamic_global_properties"}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"database_api.get_dynamic_global_properties"}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-
-		</section>
-	
-		<section id="apidefinitions-network-broadcast-api" class="row apidefinitions-network-broadcast-api">
-			<h3>
-				<a id="apidefinitions-network-broadcast-api">
-					Network Broadcast Api
-					
-				</a>
-			</h3>
-			
-
-			
-<p>Used to broadcast transactions and blocks. <strong>These AppBase API methods are
-still under development and subject to change.</strong></p>
-
-<p>Also see: <a href="/apidefinitions/broadcast-ops">Blockchain Ops</a></p>
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="network_broadcast_api.broadcast_block">network_broadcast_api.broadcast_block <a href="#network_broadcast_api.broadcast_block"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Used to broadcast a block.</p>
-<h5 id="network_broadcast_api.broadcast_block-parameter_json">Query Parameters JSON <a href="#network_broadcast_api.broadcast_block-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"block"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_merkle_root"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"witness_signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="network_broadcast_api.broadcast_block-expected_response_json">Expected Response JSON <a href="#network_broadcast_api.broadcast_block-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="network_broadcast_api.broadcast_block-curl-examples">Example <code>curl</code> <a href="#network_broadcast_api.broadcast_block-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"network_broadcast_api.broadcast_block", "params":{"block":{"previous":"0000000000000000000000000000000000000000","timestamp":"1970-01-01T00:00:00","witness":"","transaction_merkle_root":"0000000000000000000000000000000000000000","extensions":[],"witness_signature":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000","transactions":[]}}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="network_broadcast_api.broadcast_transaction">network_broadcast_api.broadcast_transaction <a href="#network_broadcast_api.broadcast_transaction"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Used to broadcast a transaction.</p>
-<h5 id="network_broadcast_api.broadcast_transaction-parameter_json">Query Parameters JSON <a href="#network_broadcast_api.broadcast_transaction-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"max_block_age"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="network_broadcast_api.broadcast_transaction-expected_response_json">Expected Response JSON <a href="#network_broadcast_api.broadcast_transaction-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="network_broadcast_api.broadcast_transaction-curl-examples">Example <code>curl</code> <a href="#network_broadcast_api.broadcast_transaction-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"network_broadcast_api.broadcast_transaction", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"vote_operation","value":{"voter":"initminer","author":"alice","permlink":"a-post-by-alice","weight":10000}}],"extensions":[],"signatures":[]},"max_block_age":50}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"network_broadcast_api.broadcast_transaction", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]},"max_block_age":50}, "id":1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="network_broadcast_api.broadcast_transaction_synchronous">network_broadcast_api.broadcast_transaction_synchronous <a href="#network_broadcast_api.broadcast_transaction_synchronous"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<h5 id="network_broadcast_api.broadcast_transaction_synchronous-parameter_json">Query Parameters JSON <a href="#network_broadcast_api.broadcast_transaction_synchronous-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"max_block_age"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="network_broadcast_api.broadcast_transaction_synchronous-expected_response_json">Expected Response JSON <a href="#network_broadcast_api.broadcast_transaction_synchronous-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"trx_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
+<p>If there is no such SDK, then use directly alexandria_api. In case there are some methods missing in alexandria_api, please create an issue <a href="https://github.com/SophiaTX/SophiaTX/issues">here</a>
+or use other API’s as the last option.</p>
 
 		</section>
 	
@@ -3282,6 +2351,938 @@ still under development and subject to change.</strong></p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<hr />
+
+
+		</section>
+	
+		<section id="apidefinitions-database-api" class="row apidefinitions-database-api">
+			<h3>
+				<a id="apidefinitions-database-api">
+					Database Api
+					
+				</a>
+			</h3>
+			
+
+			
+<p>Used to query information about accounts, transactions, and blockchain data. <strong>These AppBase API methods are still under development and subject to change.</strong></p>
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_active_witnesses">database_api.get_active_witnesses <a href="#database_api.get_active_witnesses"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns the list of active witnesses.</p>
+<h5 id="database_api.get_active_witnesses-parameter_json">Query Parameters JSON <a href="#database_api.get_active_witnesses-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_active_witnesses-expected_response_json">Expected Response JSON <a href="#database_api.get_active_witnesses-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"witnesses"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.get_active_witnesses-curl-examples">Example <code>curl</code> <a href="#database_api.get_active_witnesses-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_active_witnesses", "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_config">database_api.get_config <a href="#database_api.get_config"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns information about compile-time constants. Some properties may not be present.  See: <a href="/tutorials-recipes/understanding-configuration-values">Understanding Configuration Values</a></p>
+<h5 id="database_api.get_config-parameter_json">Query Parameters JSON <a href="#database_api.get_config-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_config-expected_response_json">Expected Response JSON <a href="#database_api.get_config-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.get_config-curl-examples">Example <code>curl</code> <a href="#database_api.get_config-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_config", "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_current_price_feed">database_api.get_current_price_feed <a href="#database_api.get_current_price_feed"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns the current price feed.</p>
+<h5 id="database_api.get_current_price_feed-parameter_json">Query Parameters JSON <a href="#database_api.get_current_price_feed-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPHTX"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_current_price_feed-expected_response_json">Expected Response JSON <a href="#database_api.get_current_price_feed-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_dynamic_global_properties">database_api.get_dynamic_global_properties <a href="#database_api.get_dynamic_global_properties"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns the current dynamic global properties.  See: <a href="/tutorials-recipes/understanding-dynamic-global-properties">Understanding Dynamic Global Properties</a></p>
+<h5 id="database_api.get_dynamic_global_properties-parameter_json">Query Parameters JSON <a href="#database_api.get_dynamic_global_properties-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_dynamic_global_properties-expected_response_json">Expected Response JSON <a href="#database_api.get_dynamic_global_properties-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"head_block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"head_block_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 VESTS"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_reward_fund"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_aslot"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"witness_required_vesting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250000.000000 SPHTX"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"recent_slots_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_irreversible_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.get_dynamic_global_properties-curl-examples">Example <code>curl</code> <a href="#database_api.get_dynamic_global_properties-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_dynamic_global_properties", "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_feed_history">database_api.get_feed_history <a href="#database_api.get_feed_history"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns the history of price feed values.</p>
+<h5 id="database_api.get_feed_history-parameter_json">Query Parameters JSON <a href="#database_api.get_feed_history-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPHTX"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_feed_history-expected_response_json">Expected Response JSON <a href="#database_api.get_feed_history-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPHTX"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_median_history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"price_history"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.get_feed_history-curl-examples">Example <code>curl</code> <a href="#database_api.get_feed_history-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_feed_history", "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_hardfork_properties">database_api.get_hardfork_properties <a href="#database_api.get_hardfork_properties"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns the current properties about the blockchain’s hardforks.</p>
+<h5 id="database_api.get_hardfork_properties-parameter_json">Query Parameters JSON <a href="#database_api.get_hardfork_properties-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_hardfork_properties-expected_response_json">Expected Response JSON <a href="#database_api.get_hardfork_properties-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"processed_hardforks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"last_hardfork"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_hardfork_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next_hardfork"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next_hardfork_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.get_hardfork_properties-curl-examples">Example <code>curl</code> <a href="#database_api.get_hardfork_properties-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_hardfork_properties", "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_potential_signatures">database_api.get_potential_signatures <a href="#database_api.get_potential_signatures"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>This method will return the set of all public keys that could possibly sign for a given transaction.</p>
+<h5 id="database_api.get_potential_signatures-parameter_json">Query Parameters JSON <a href="#database_api.get_potential_signatures-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_potential_signatures-expected_response_json">Expected Response JSON <a href="#database_api.get_potential_signatures-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.get_potential_signatures-curl-examples">Example <code>curl</code> <a href="#database_api.get_potential_signatures-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_potential_signatures", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]}}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_required_signatures">database_api.get_required_signatures <a href="#database_api.get_required_signatures"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>This API will take a partially signed transaction and a set of public keys that the owner has the ability to sign for and return the minimal subset of public keys that should add signatures to the transaction.</p>
+<h5 id="database_api.get_required_signatures-parameter_json">Query Parameters JSON <a href="#database_api.get_required_signatures-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"available_keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_required_signatures-expected_response_json">Expected Response JSON <a href="#database_api.get_required_signatures-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.get_required_signatures-curl-examples">Example <code>curl</code> <a href="#database_api.get_required_signatures-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_required_signatures", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]},"available_keys":[]}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_transaction_hex">database_api.get_transaction_hex <a href="#database_api.get_transaction_hex"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a hexdump of the serialized binary form of a transaction.</p>
+<h5 id="database_api.get_transaction_hex-parameter_json">Query Parameters JSON <a href="#database_api.get_transaction_hex-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_transaction_hex-expected_response_json">Expected Response JSON <a href="#database_api.get_transaction_hex-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.get_transaction_hex-curl-examples">Example <code>curl</code> <a href="#database_api.get_transaction_hex-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_transaction_hex", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]}}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_witness_schedule">database_api.get_witness_schedule <a href="#database_api.get_witness_schedule"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns the current witness schedule.</p>
+<h5 id="database_api.get_witness_schedule-parameter_json">Query Parameters JSON <a href="#database_api.get_witness_schedule-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_witness_schedule-expected_response_json">Expected Response JSON <a href="#database_api.get_witness_schedule-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_virtual_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next_shuffle_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"current_shuffled_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"num_scheduled_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"top19_weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timeshare_weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"witness_pay_normalization_factor"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"median_props"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"account_creation_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">262144</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_feeds"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"majority_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max_voted_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max_runner_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"hardfork_required_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.get_witness_schedule-curl-examples">Example <code>curl</code> <a href="#database_api.get_witness_schedule-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.get_witness_schedule", "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.list_account_recovery_requests">database_api.list_account_recovery_requests <a href="#database_api.list_account_recovery_requests"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a list of account recovery requests.</p>
+<h5 id="database_api.list_account_recovery_requests-parameter_json">Query Parameters JSON <a href="#database_api.list_account_recovery_requests-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.list_account_recovery_requests-expected_response_json">Expected Response JSON <a href="#database_api.list_account_recovery_requests-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.list_accounts">database_api.list_accounts <a href="#database_api.list_accounts"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a list of accounts.</p>
+<h5 id="database_api.list_accounts-parameter_json">Query Parameters JSON <a href="#database_api.list_accounts-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.list_accounts-expected_response_json">Expected Response JSON <a href="#database_api.list_accounts-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.list_change_recovery_account_requests">database_api.list_change_recovery_account_requests <a href="#database_api.list_change_recovery_account_requests"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a list of recovery account change requests.</p>
+<h5 id="database_api.list_change_recovery_account_requests-parameter_json">Query Parameters JSON <a href="#database_api.list_change_recovery_account_requests-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.list_change_recovery_account_requests-expected_response_json">Expected Response JSON <a href="#database_api.list_change_recovery_account_requests-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.list_escrows">database_api.list_escrows <a href="#database_api.list_escrows"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a list of escrows.</p>
+<h5 id="database_api.list_escrows-parameter_json">Query Parameters JSON <a href="#database_api.list_escrows-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.list_escrows-expected_response_json">Expected Response JSON <a href="#database_api.list_escrows-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"escrows"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.list_owner_histories">database_api.list_owner_histories <a href="#database_api.list_owner_histories"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a list of owner authority histories.</p>
+<h5 id="database_api.list_owner_histories-parameter_json">Query Parameters JSON <a href="#database_api.list_owner_histories-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.list_owner_histories-expected_response_json">Expected Response JSON <a href="#database_api.list_owner_histories-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"owner_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.list_witness_votes">database_api.list_witness_votes <a href="#database_api.list_witness_votes"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a list of witness votes.</p>
+<h5 id="database_api.list_witness_votes-parameter_json">Query Parameters JSON <a href="#database_api.list_witness_votes-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.list_witness_votes-expected_response_json">Expected Response JSON <a href="#database_api.list_witness_votes-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"votes"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.list_witnesses">database_api.list_witnesses <a href="#database_api.list_witnesses"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns the list of witnesses.</p>
+<h5 id="database_api.list_witnesses-parameter_json">Query Parameters JSON <a href="#database_api.list_witnesses-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.list_witnesses-expected_response_json">Expected Response JSON <a href="#database_api.list_witnesses-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"witnesses"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+<li class="warning"><strong><small>Disabled</small></strong></li>
+
+</ul>
+<h4 id="database_api.verify_account_authority">database_api.verify_account_authority <a href="#database_api.verify_account_authority"><i class="fas fa-link fa-xs"></i></a></h4>
+<p><strong>Not Implemented</strong></p>
+
+<h5 id="database_api.verify_account_authority-parameter_json">Query Parameters JSON <a href="#database_api.verify_account_authority-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"signers"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.verify_account_authority-expected_response_json">Expected Response JSON <a href="#database_api.verify_account_authority-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.verify_account_authority-curl-examples">Example <code>curl</code> <a href="#database_api.verify_account_authority-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.verify_account_authority", "params":{"account":"initminer","signers":["STM7Q2rLBqzPzFeteQZewv9Lu3NLE69fZoLeL6YK59t7UmssCBNTU"]}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.verify_authority">database_api.verify_authority <a href="#database_api.verify_authority"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns true if the transaction has all of the required signatures.</p>
+<h5 id="database_api.verify_authority-parameter_json">Query Parameters JSON <a href="#database_api.verify_authority-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.verify_authority-expected_response_json">Expected Response JSON <a href="#database_api.verify_authority-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="database_api.verify_authority-curl-examples">Example <code>curl</code> <a href="#database_api.verify_authority-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"database_api.verify_authority", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]}}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.verify_signatures">database_api.verify_signatures <a href="#database_api.verify_signatures"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>This is a general purpose API that checks signatures against accounts for an arbitrary sha256 hash using the existing authority structures.</p>
+<h5 id="database_api.verify_signatures-parameter_json">Query Parameters JSON <a href="#database_api.verify_signatures-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"required_owner"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"required_active"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"required_other"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.verify_signatures-expected_response_json">Expected Response JSON <a href="#database_api.verify_signatures-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_application_buyings">database_api.get_application_buyings <a href="#database_api.get_application_buyings"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="database_api.get_application_buyings-parameter_json">Query Parameters JSON <a href="#database_api.get_application_buyings-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"search_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_application_buyings-expected_response_json">Expected Response JSON <a href="#database_api.get_application_buyings-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"application_buyings"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_burned_balance">database_api.get_burned_balance <a href="#database_api.get_burned_balance"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="database_api.get_burned_balance-parameter_json">Query Parameters JSON <a href="#database_api.get_burned_balance-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_burned_balance-expected_response_json">Expected Response JSON <a href="#database_api.get_burned_balance-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"0.000000 SPHTX"</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.get_promotion_pool_balance">database_api.get_promotion_pool_balance <a href="#database_api.get_promotion_pool_balance"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="database_api.get_promotion_pool_balance-parameter_json">Query Parameters JSON <a href="#database_api.get_promotion_pool_balance-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.get_promotion_pool_balance-expected_response_json">Expected Response JSON <a href="#database_api.get_promotion_pool_balance-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"0.000000 SPHTX"</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.list_applications">database_api.list_applications <a href="#database_api.list_applications"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="database_api.list_applications-parameter_json">Query Parameters JSON <a href="#database_api.list_applications-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"by_name"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.list_applications-expected_response_json">Expected Response JSON <a href="#database_api.list_applications-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"applications"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.find_account_recovery_requests">database_api.find_account_recovery_requests <a href="#database_api.find_account_recovery_requests"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a list of account recovery requests.</p>
+<h5 id="database_api.find_account_recovery_requests-parameter_json">Query Parameters JSON <a href="#database_api.find_account_recovery_requests-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.find_account_recovery_requests-expected_response_json">Expected Response JSON <a href="#database_api.find_account_recovery_requests-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.find_accounts">database_api.find_accounts <a href="#database_api.find_accounts"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Search for accounts.</p>
+<h5 id="database_api.find_accounts-parameter_json">Query Parameters JSON <a href="#database_api.find_accounts-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.find_accounts-expected_response_json">Expected Response JSON <a href="#database_api.find_accounts-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+<li class="success"><strong><small>Since: HF11</small></strong></li>
+
+
+
+</ul>
+<h4 id="database_api.find_change_recovery_account_requests">database_api.find_change_recovery_account_requests <a href="#database_api.find_change_recovery_account_requests"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a list of requests to change the recovery account.</p>
+<h5 id="database_api.find_change_recovery_account_requests-parameter_json">Query Parameters JSON <a href="#database_api.find_change_recovery_account_requests-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.find_change_recovery_account_requests-expected_response_json">Expected Response JSON <a href="#database_api.find_change_recovery_account_requests-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+<li class="success"><strong><small>Since: HF14</small></strong></li>
+
+
+
+</ul>
+<h4 id="database_api.find_escrows">database_api.find_escrows <a href="#database_api.find_escrows"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a list of escrows.</p>
+<h5 id="database_api.find_escrows-parameter_json">Query Parameters JSON <a href="#database_api.find_escrows-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.find_escrows-expected_response_json">Expected Response JSON <a href="#database_api.find_escrows-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"escrows"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.find_owner_histories">database_api.find_owner_histories <a href="#database_api.find_owner_histories"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns owner authority history.</p>
+<h5 id="database_api.find_owner_histories-parameter_json">Query Parameters JSON <a href="#database_api.find_owner_histories-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.find_owner_histories-expected_response_json">Expected Response JSON <a href="#database_api.find_owner_histories-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"owner_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="database_api.find_witnesses">database_api.find_witnesses <a href="#database_api.find_witnesses"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Search for witnesses.</p>
+<h5 id="database_api.find_witnesses-parameter_json">Query Parameters JSON <a href="#database_api.find_witnesses-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"owners"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="database_api.find_witnesses-expected_response_json">Expected Response JSON <a href="#database_api.find_witnesses-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"witnesses"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+
+		</section>
+	
+		<section id="apidefinitions-jsonrpc" class="row apidefinitions-jsonrpc">
+			<h3>
+				<a id="apidefinitions-jsonrpc">
+					Jsonrpc
+					
+				</a>
+			</h3>
+			
+
+			
+<p>Used to lookup information about the JSON RPC API. <strong>These AppBase API methods are still under development and subject to change.</strong></p>
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="jsonrpc.get_methods">jsonrpc.get_methods <a href="#jsonrpc.get_methods"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a list of methods supported by the JSON RPC API.</p>
+<h5 id="jsonrpc.get_methods-parameter_json">Query Parameters JSON <a href="#jsonrpc.get_methods-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="jsonrpc.get_methods-expected_response_json">Expected Response JSON <a href="#jsonrpc.get_methods-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[]</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="jsonrpc.get_methods-curl-examples">Example <code>curl</code> <a href="#jsonrpc.get_methods-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_methods", "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="jsonrpc.get_signature">jsonrpc.get_signature <a href="#jsonrpc.get_signature"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns the signature information for a JSON RPC method including the arguments and expected response JSON.</p>
+<h5 id="jsonrpc.get_signature-parameter_json">Query Parameters JSON <a href="#jsonrpc.get_signature-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="jsonrpc.get_signature-expected_response_json">Expected Response JSON <a href="#jsonrpc.get_signature-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"args"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"ret"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="jsonrpc.get_signature-curl-examples">Example <code>curl</code> <a href="#jsonrpc.get_signature-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"jsonrpc.get_methods"}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"jsonrpc.get_signature"}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"condenser_api.get_dynamic_global_properties"}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"jsonrpc.get_signature", "params":{"method":"database_api.get_dynamic_global_properties"}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+
+		</section>
+	
+		<section id="apidefinitions-network-broadcast-api" class="row apidefinitions-network-broadcast-api">
+			<h3>
+				<a id="apidefinitions-network-broadcast-api">
+					Network Broadcast Api
+					
+				</a>
+			</h3>
+			
+
+			
+<p>Used to broadcast transactions and blocks. <strong>These AppBase API methods are
+still under development and subject to change.</strong></p>
+
+<p>Also see: <a href="/apidefinitions/broadcast-ops">Blockchain Ops</a></p>
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="network_broadcast_api.broadcast_block">network_broadcast_api.broadcast_block <a href="#network_broadcast_api.broadcast_block"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Used to broadcast a block.</p>
+<h5 id="network_broadcast_api.broadcast_block-parameter_json">Query Parameters JSON <a href="#network_broadcast_api.broadcast_block-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"block"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_merkle_root"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"witness_signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="network_broadcast_api.broadcast_block-expected_response_json">Expected Response JSON <a href="#network_broadcast_api.broadcast_block-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="network_broadcast_api.broadcast_block-curl-examples">Example <code>curl</code> <a href="#network_broadcast_api.broadcast_block-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"network_broadcast_api.broadcast_block", "params":{"block":{"previous":"0000000000000000000000000000000000000000","timestamp":"1970-01-01T00:00:00","witness":"","transaction_merkle_root":"0000000000000000000000000000000000000000","extensions":[],"witness_signature":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000","transactions":[]}}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="network_broadcast_api.broadcast_transaction">network_broadcast_api.broadcast_transaction <a href="#network_broadcast_api.broadcast_transaction"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Used to broadcast a transaction.</p>
+<h5 id="network_broadcast_api.broadcast_transaction-parameter_json">Query Parameters JSON <a href="#network_broadcast_api.broadcast_transaction-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"max_block_age"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="network_broadcast_api.broadcast_transaction-expected_response_json">Expected Response JSON <a href="#network_broadcast_api.broadcast_transaction-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="network_broadcast_api.broadcast_transaction-curl-examples">Example <code>curl</code> <a href="#network_broadcast_api.broadcast_transaction-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"network_broadcast_api.broadcast_transaction", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"vote_operation","value":{"voter":"initminer","author":"alice","permlink":"a-post-by-alice","weight":10000}}],"extensions":[],"signatures":[]},"max_block_age":50}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"network_broadcast_api.broadcast_transaction", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]},"max_block_age":50}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="network_broadcast_api.broadcast_transaction_synchronous">network_broadcast_api.broadcast_transaction_synchronous <a href="#network_broadcast_api.broadcast_transaction_synchronous"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="network_broadcast_api.broadcast_transaction_synchronous-parameter_json">Query Parameters JSON <a href="#network_broadcast_api.broadcast_transaction_synchronous-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"max_block_age"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="network_broadcast_api.broadcast_transaction_synchronous-expected_response_json">Expected Response JSON <a href="#network_broadcast_api.broadcast_transaction_synchronous-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trx_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+
+		</section>
+	
+		<section id="apidefinitions-account-history-api" class="row apidefinitions-account-history-api">
+			<h3>
+				<a id="apidefinitions-account-history-api">
+					Account History Api
+					
+				</a>
+			</h3>
+			
+
+			
+<p>Used to lookup account history information. <strong>These AppBase API methods are still under development and subject to change.</strong></p>
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="account_history_api.get_account_history">account_history_api.get_account_history <a href="#account_history_api.get_account_history"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns a history of all operations for a given account.</p>
+<h5 id="account_history_api.get_account_history-parameter_json">Query Parameters JSON <a href="#account_history_api.get_account_history-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reverse_order"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="account_history_api.get_account_history-expected_response_json">Expected Response JSON <a href="#account_history_api.get_account_history-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="account_history_api.get_account_history-curl-examples">Example <code>curl</code> <a href="#account_history_api.get_account_history-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"account_history_api.get_account_history", "params":{"account":"initminer", "start":1000, "limit":1000}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"account_history_api.get_account_history", "params":{"account":"initminer", "start":-1, "limit":10000}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="account_history_api.get_ops_in_block">account_history_api.get_ops_in_block <a href="#account_history_api.get_ops_in_block"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns all operations contained in a block.</p>
+<h5 id="account_history_api.get_ops_in_block-parameter_json">Query Parameters JSON <a href="#account_history_api.get_ops_in_block-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"only_virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="account_history_api.get_ops_in_block-expected_response_json">Expected Response JSON <a href="#account_history_api.get_ops_in_block-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"ops"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="account_history_api.get_ops_in_block-curl-examples">Example <code>curl</code> <a href="#account_history_api.get_ops_in_block-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"account_history_api.get_ops_in_block", "params":{"block_num":1,"only_virtual":false}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"account_history_api.get_ops_in_block", "params":{"block_num":5443322,"only_virtual":true}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+<li class="warning"><strong><small>Deprecated</small></strong></li>
+
+
+</ul>
+<h4 id="account_history_api.get_transaction">account_history_api.get_transaction <a href="#account_history_api.get_transaction"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns the details of a transaction based on a transaction id.</p>
+<h5 id="account_history_api.get_transaction-parameter_json">Query Parameters JSON <a href="#account_history_api.get_transaction-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="account_history_api.get_transaction-expected_response_json">Expected Response JSON <a href="#account_history_api.get_transaction-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"ref_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ref_block_prefix"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"signatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transaction_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="account_history_api.get_transaction-curl-examples">Example <code>curl</code> <a href="#account_history_api.get_transaction-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"account_history_api.get_transaction", "params":{"id":"6fde0190a97835ea6d9e651293e90c89911f933c"}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
 
 <hr />
 

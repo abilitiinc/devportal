@@ -1,16 +1,7 @@
----
-section: Introduction
-position: 1
-exclude: true
-exclude_nav: true
----
-
-
-<section class="row">
-	<section class="row">
+<section>
+	<section>
 		<dl class="dl-horizontal glossary">
-			{% for sections in site.data.glossary.index %}
-			   	<h3 id="{{ sections.id }}">{{sections.name}}</h3>
+			{% for sections in include.data %}
 			   	{% for entry in sections.items %}
 			   		<section id="{{entry.term | slugify}}">
 					   	<dt>{{entry.term}}</dt>

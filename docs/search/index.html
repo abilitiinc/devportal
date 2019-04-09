@@ -58,6 +58,18 @@
 						<li><a href="/#introduction-welcome">Welcome to SophiaTX</a></li>
 						
 					
+						
+						<li><a href="/#introduction-chain-basics">Chain Basics</a></li>
+						
+					
+						
+						<li><a href="/#introduction-transactions">Transactions</a></li>
+						
+					
+						
+						<li><a href="/#introduction-governance">Governance</a></li>
+						
+					
 				
 			
 		</ul>
@@ -155,23 +167,6 @@
 	</section>
 	
 		
-    <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
-		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
-		<ul class="cont-nav-section content">
-			
-				
-					
-					
-						
-						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
-						
-					
-				
-			
-		</ul>
-	</section>
-	
-		
     <section class="pnl-main-nav-section main-nav-section" url="/apidefinitions/">
 		<h6 class="ctrl-nav-section title">Appbase API</h6>
 		<ul class="cont-nav-section content">
@@ -180,7 +175,11 @@
 					
 					
 						
-						<li><a href="/apidefinitions/#apidefinitions-account-history-api">Account History Api</a></li>
+						<li><a href="/apidefinitions/#apidefinitions-introduction">Introduction</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-alexandria-api">Alexandria Api</a></li>
 						
 					
 						
@@ -196,7 +195,7 @@
 						
 					
 						
-						<li><a href="/apidefinitions/#apidefinitions-alexandria-api">Alexandria Api</a></li>
+						<li><a href="/apidefinitions/#apidefinitions-account-history-api">Account History Api</a></li>
 						
 					
 						
@@ -221,25 +220,15 @@
 	</section>
 	
 		
-    <section class="pnl-main-nav-section main-nav-section" url="/glossary/">
-		<h6 class="ctrl-nav-section title">Glossary</h6>
+    <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
+		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
 		<ul class="cont-nav-section content">
 			
 				
 					
 					
 						
-						<li><a href="/glossary/#glossary-chain-basics">Chain Basics</a></li>
-						
-					
-						
-					
-						
-						<li><a href="/glossary/#glossary-governance">Governance</a></li>
-						
-					
-						
-						<li><a href="/glossary/#glossary-transactions">Transactions</a></li>
+						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
 						
 					
 				
@@ -374,6 +363,23 @@
 					
 						,
 						
+						"apidefinitions-introduction": {
+							"id": "apidefinitions-introduction",
+							"title": "Introduction",
+							"category": "apidefinitions",
+							"description": "",
+		  				"type": "",
+							"url": "/apidefinitions/introduction",
+							"content": "While the alexandria_api.* calls are ready for use, all other appbase methods are currently works in progress and may change, or be unsuitable for production use !!!\n\n\nBest practice for application developers is to use one of the provided SDK’s depending on what language the application is writenn in.\n\nIf there is no such SDK, then use directly alexandria_api. In case there are some methods missing in alexandria_api, please create an issue here\nor use other API’s as the last option."
+						}
+						
+					
+				
+			
+				
+					
+						,
+						
 						"apidefinitions-jsonrpc": {
 							"id": "apidefinitions-jsonrpc",
 							"title": "Jsonrpc",
@@ -453,7 +459,7 @@
 							"description": "Dictionary of Chain Basic Terms",
 		  				"type": "",
 							"url": "/glossary/chain_basics",
-							"content": "TermDefinition\n\t\n\n\t\n\t\tBlockchainDecentralized ledger and consensus protocol\n\t\n\n\t\n\t\tSophiaTXName of the blockchain and platform"
+							"content": ""
 						}
 						
 					
@@ -516,6 +522,57 @@
 					
 						,
 						
+						"introduction-chain-basics": {
+							"id": "introduction-chain-basics",
+							"title": "Chain Basics",
+							"category": "introduction",
+							"description": "Dictionary of Chain Basic Terms",
+		  				"type": "",
+							"url": "/introduction/chain_basics",
+							"content": "Blockchain\n\t\t\t\t\t    Decentralized ledger and consensus protocol\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tSophiaTX\n\t\t\t\t\t    Name of the blockchain and platform\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tBandwidth\n\t\t\t\t\t    is the limit of data each account can send/use\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tSPHTX\n\t\t\t\t\t    Currency of the blockchain=\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tTransaction\n\t\t\t\t\t    Operations/Activity/Write requests to the blockchain\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tBlock\n\t\t\t\t\t    Bundle of transactions to be included in blockchain\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tBlock Header\n\t\t\t\t\t    Information about block, root and witness who signed, etc.\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tPrice feed\n\t\t\t\t\t    Feed that is maintained by witnesses to ensure USD/SPHTX price stability\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tAccount\n\t\t\t\t\t    User account on SophiaTX blockchain\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tAuthority\n\t\t\t\t\t    Each Account has multiple authority and keys to manager different permissions on the platform\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tOwner\n\t\t\t\t\t    Owner authority/permission of account\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tPublic Key\n\t\t\t\t\t    Public key of account's certain authority\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tPrivate Key\n\t\t\t\t\t    Private key to sign a transaction with account's authority, should be kept secret because it grants access to account\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tWif\n\t\t\t\t\t    Wallet Import Format/Private key, should be kept secret because it grants access to account\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tActive key\n\t\t\t\t\t    The active key is used to make transfers and place orders in the internal market\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tOwner key\n\t\t\t\t\t    The owner key is the master key for the account and is required to change the other keys\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tVote\n\t\t\t\t\t    Voting a content\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tMainnet\n\t\t\t\t\t    The 'production' SophiaTX blockchain network wherein real SPHTX is held and actual transactions take place."
+						}
+						
+					
+				
+			
+				
+					
+						,
+						
+						"introduction-governance": {
+							"id": "introduction-governance",
+							"title": "Governance",
+							"category": "introduction",
+							"description": "Dictionary of Governance Terms",
+		  				"type": "",
+							"url": "/introduction/governance",
+							"content": "DPOS\n\t\t\t\t\t    Delegated Proof of Stake\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tNode\n\t\t\t\t\t    Servers running blockchain software\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tWitness\n\t\t\t\t\t    Witness is a position/role for the people who are chosen by community (delegate trust) to support platform and run consensus protocol to ensure security and validity of transactions/blocks on the blockchain\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tHardfork\n\t\t\t\t\t    Process to release protocol/blockchain consensus upgrades\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tSoftfork\n\t\t\t\t\t    Process to release protocol/blockchain software improvements\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tWitness Vote\n\t\t\t\t\t    Voting/electing witnesses with account's stake"
+						}
+						
+					
+				
+			
+				
+					
+						,
+						
+						"introduction-transactions": {
+							"id": "introduction-transactions",
+							"title": "Transactions",
+							"category": "introduction",
+							"description": "Dictionary of Transaction Terms",
+		  				"type": "",
+							"url": "/introduction/transactions",
+							"content": "Transaction\n\t\t\t\t\t    Operations submitted to the blockchain\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tPending Transaction\n\t\t\t\t\t    Transaction that is pending and to be included to the blockchain\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tTransaction Hex\n\t\t\t\t\t    Hash of the transaction\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tDigest\n\t\t\t\t\t    Hash (sha256) of the transaction used for signing\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tSignatures\n\t\t\t\t\t    Transaction signature signed by account with private key\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tBroadcast Transaction\n\t\t\t\t\t    Event where signed transaction is broadcasted to the network, so that witnesses could validate and include in block\n\t\t\t\t    \n\t\t\t    \n\t\t\t   \t\t\n\t\t\t\t\t   \tVirtual operation\n\t\t\t\t\t    Operations that are derived from blockchain activity, but aren't actually stored as operations themselves (ex. curation and author rewards). They happen based on consensus from the blockchain based on other normal operations"
+						}
+						
+					
+				
+			
+				
+					
+						,
+						
 						"introduction-welcome": {
 							"id": "introduction-welcome",
 							"title": "Welcome to SophiaTX",
@@ -523,7 +580,7 @@
 							"description": "",
 		  				"type": "",
 							"url": "/introduction/welcome",
-							"content": "Welcome to the SophiaTX Developer Portal\n\nThis site is designed to aid those interested in developing applications on the  SophiaTX blockchain.\n\nIf you don’t know about SophiaTX yet, visit sophiatx.com.\n\nThe code for this site is on github. If you’d like to see a specific improvement \nyou can either submit a pull request or file an issue.\n\n\nSite Resources\n\nThe quickstart section has some general information on working with nodes, and testnets.\n\nOur SDK’s section will take you through the basics of interacting with SophiaTX apis in Javascript, Java, and Abab.\n\nMore detailed API specs are available in the APPBASE API section. Those apis are under development, so please read \nnotes at the top of each section.\n\nYou can find community resources, libraries, and more ‘human’ ways to get help and education in the communities section.\n\nThe glossary has SophiaTX specific terms that will help you understand documentation, whitepapers, and the speech of SophiaTX."
+							"content": "Welcome to the SophiaTX Developer Portal\n\nThis site is designed to aid those interested in developing applications on the  SophiaTX blockchain.\n\nIf you don’t know about SophiaTX yet, visit sophiatx.com.\n\nThe code for this site is on github. If you’d like to see a specific improvement \nyou can either submit a pull request or file an issue.\n\n\n\nSite Resources\n\nThe quickstart section has some general information on working with nodes, and testnets.\n\nOur SDK’s section will take you through the basics of interacting with SophiaTX apis in Javascript and C#.\n\nMore detailed API specs are available in the APPBASE API section. Those apis are under development, so please read \nnotes at the top of each section.\n\n\n\nBelow are SophiaTX specific terms that will help you understand documentation, whitepapers, and the speech of SophiaTX."
 						}
 						
 					

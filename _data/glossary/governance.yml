@@ -1,0 +1,15 @@
+- name: Governance
+  id: glossary-governance
+  items:
+    - term: DPOS
+      def: Delegated Proof of Stake
+    - term: Node
+      def: Servers running blockchain software
+    - term: Witness
+      def: Witness is a position/role for the people who are chosen by community (delegate trust) to support platform and run consensus protocol to ensure security and validity of transactions/blocks on the blockchain
+    - term: Hardfork
+      def: Process to release protocol/blockchain consensus upgrades
+    - term: Softfork
+      def: Process to release protocol/blockchain software improvements
+    - term: Witness Vote
+      def: Voting/electing witnesses with account's stake

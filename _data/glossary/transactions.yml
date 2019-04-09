@@ -1,0 +1,17 @@
+- name: Transactions
+  id: glossary-transactions
+  items:
+    - term: Transaction
+      def: Operations submitted to the blockchain
+    - term: Pending Transaction
+      def: Transaction that is pending and to be included to the blockchain
+    - term: Transaction Hex
+      def: Hash of the transaction
+    - term: Digest
+      def: Hash (sha256) of the transaction used for signing
+    - term: Signatures
+      def: Transaction signature signed by account with private key
+    - term: Broadcast Transaction
+      def: Event where signed transaction is broadcasted to the network, so that witnesses could validate and include in block
+    - term: Virtual operation
+      def: Operations that are derived from blockchain activity, but aren't actually stored as operations themselves (ex. curation and author rewards). They happen based on consensus from the blockchain based on other normal operations

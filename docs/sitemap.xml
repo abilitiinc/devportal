@@ -37,6 +37,9 @@
 <loc>https://developers.sophiatx.com/apidefinitions/database-api</loc>
 </url>
 <url>
+<loc>https://developers.sophiatx.com/apidefinitions/introduction</loc>
+</url>
+<url>
 <loc>https://developers.sophiatx.com/apidefinitions/jsonrpc</loc>
 </url>
 <url>
@@ -59,6 +62,15 @@
 </url>
 <url>
 <loc>https://developers.sophiatx.com/glossary/transactions</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/introduction/chain_basics</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/introduction/governance</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/introduction/transactions</loc>
 </url>
 <url>
 <loc>https://developers.sophiatx.com/introduction/welcome</loc>
