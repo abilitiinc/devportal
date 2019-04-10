@@ -14,19 +14,19 @@
     <script src="/js/main.js"></script>
 
     <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>Transactions - SophiaTX Developers</title>
-<meta property="og:title" content="Transactions" />
-<meta name="description" content="Dictionary of Transaction Terms" />
-<meta property="og:description" content="Dictionary of Transaction Terms" />
-<link rel="canonical" href="https://developers.sophiatx.com/introduction/transactions" />
-<meta property="og:url" content="https://developers.sophiatx.com/introduction/transactions" />
+<title>SophiaTX Blockchain - SophiaTX Developers</title>
+<meta property="og:title" content="SophiaTX Blockchain" />
+<meta name="description" content="SophiaTX is Delegated Proof of Stake blockchain. The source code is publicly available on github." />
+<meta property="og:description" content="SophiaTX is Delegated Proof of Stake blockchain. The source code is publicly available on github." />
+<link rel="canonical" href="https://developers.sophiatx.com/introduction/sophiatx_blockchain" />
+<meta property="og:url" content="https://developers.sophiatx.com/introduction/sophiatx_blockchain" />
 <meta property="og:site_name" content="SophiaTX Developers" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "WebPage",
-"headline": "Transactions",
-"description": "Dictionary of Transaction Terms",
-"url": "https://developers.sophiatx.com/introduction/transactions"}</script>
+"headline": "SophiaTX Blockchain",
+"description": "SophiaTX is Delegated Proof of Stake blockchain. The source code is publicly available on github.",
+"url": "https://developers.sophiatx.com/introduction/sophiatx_blockchain"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -273,51 +273,52 @@
         <h1 class="hero__h1"></h1>
         <!--<img class="hero__img" src="/images/hero.png">-->
     </div>
-    <section>
-	<section>
-		<dl class="dl-horizontal glossary">
-			
-			   	
-			   		<section id="transaction">
-					   	<dt>Transaction</dt>
-					    <dd>Operations submitted to the blockchain</dd>
-				    </section>
-			    
-			   		<section id="pending-transaction">
-					   	<dt>Pending Transaction</dt>
-					    <dd>Transaction that is pending and to be included to the blockchain</dd>
-				    </section>
-			    
-			   		<section id="transaction-hex">
-					   	<dt>Transaction Hex</dt>
-					    <dd>Hash of the transaction</dd>
-				    </section>
-			    
-			   		<section id="digest">
-					   	<dt>Digest</dt>
-					    <dd>Hash (sha256) of the transaction used for signing</dd>
-				    </section>
-			    
-			   		<section id="signatures">
-					   	<dt>Signatures</dt>
-					    <dd>Transaction signature signed by account with private key</dd>
-				    </section>
-			    
-			   		<section id="broadcast-transaction">
-					   	<dt>Broadcast Transaction</dt>
-					    <dd>Event where signed transaction is broadcasted to the network, so that witnesses could validate and include in block</dd>
-				    </section>
-			    
-			   		<section id="virtual-operation">
-					   	<dt>Virtual operation</dt>
-					    <dd>Operations that are derived from blockchain activity, but aren't actually stored as operations themselves (ex. curation and author rewards). They happen based on consensus from the blockchain based on other normal operations</dd>
-				    </section>
-			    
-				<hr />
-			
-		</dl>
-	</section>
-</section>
+    <p>SophiaTX is Delegated Proof of Stake blockchain. The source code is publicly available on <a href="https://github.com/SophiaTX/SophiaTX">github</a>.</p>
+
+<h4 id="public-announcement--discussion">Public Announcement &amp; Discussion</h4>
+
+<p>SophiaTX was announced on the
+<a href="https://bitcointalk.org/index.php?topic=2214715.0">Bitcointalk forum</a> prior to
+the start of any mining.</p>
+
+<h4 id="whitepaper">Whitepaper</h4>
+
+<p>You can read the SophiaTX Whitepaper at <a href="https://www.sophiatx.com/storage/web/SophiaTX_Whitepaper_v1.9.pdf">SophiaTXWhitePaper.pdf</a>.</p>
+
+<h4 id="quickstart">Quickstart</h4>
+
+<p>Just want to get up and running quickly? We have pre-built docker images for your convenience. More details are in our <a href="doc/quickstartguide.md">technical quickstart guide</a>.</p>
+
+<h4 id="downloading">Downloading</h4>
+
+<p>Latest release can be always found <a href="https://github.com/SophiaTX/SophiaTX/releases">here</a></p>
+
+<h4 id="building">Building</h4>
+
+<p>If you would like to build from source, we do have <a href="/quickstart/#quickstart-build-instructions">build instructions</a> for Linux (Ubuntu LTS).</p>
+
+<h4 id="config-file">Config File</h4>
+
+<p>Run <code class="highlighter-rouge">sophiatxd</code> once to generate a data directory and config file. The default location is <code class="highlighter-rouge">witness_node_data_dir</code>. Kill <code class="highlighter-rouge">sophiatxd</code>. It won’t do anything without seed nodes. If you want to modify the config to your liking, we have two example configs. ( <a href="https://github.com/SophiaTX/SophiaTX/blob/develop/contrib/fullnode_config.ini">full node</a>, <a href="https://github.com/SophiaTX/SophiaTX/blob/develop/contrib/witness_config.ini">witness node</a> ) All options will be present in the default config file and there may be more options needing to be changed from the those configs (some of the options actually used in images are configured via command line).</p>
+
+<h4 id="seed-nodes">Seed Nodes</h4>
+
+<p>A list of some seed nodes to get you:</p>
+<li>seednode1.sophiatx.com:60000</li>
+<li>seednode2.sophiatx.com:60000</li>
+<li>seednode3.sophiatx.com:60000</li>
+<li>seednode4.sophiatx.com:60000</li>
+<li>seednode5.sophiatx.com:60000</li>
+<li>seednode6.sophiatx.com:60000</li>
+<p><br /></p>
+
+<h4 id="system-requirements">System Requirements</h4>
+
+<p>For a full web node, you need at least 110GB of disk space available. SophiaTXd uses a memory mapped file which currently holds 56GB of data and by default is set to use up to 80GB. The block log of the blockchain itself is a little over 27GB. It’s highly recommended to run sophiatxd on a fast disk such as an SSD or by placing the shared memory files in a ramdisk and using the <code class="highlighter-rouge">--shared-file-dir=/path</code> command line option to specify where. At least 16GB of memory is required for a full web node. Seed nodes (p2p mode) can run with as little as 4GB of memory with a 24 GB state file. Any CPU with decent single core performance should be sufficient. SophiaTXd is constantly growing, so you may find you need more disk space to run a full node. We are also constantly working on optimizing SophiaTX’s use of disk space.</p>
+
+<p><br />
+<br />
+Below are SophiaTX specific terms that will help you understand documentation, whitepapers, and the speech of SophiaTX.</p>
 
 </div>
 <div class="footer">

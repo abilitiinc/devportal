@@ -55,7 +55,11 @@
 					
 					
 						
-						<li><a href="/#introduction-welcome">Welcome to SophiaTX</a></li>
+						<li><a href="/#introduction-welcome">Welcome to SophiaTX Developer Portal</a></li>
+						
+					
+						
+						<li><a href="/#introduction-sophiatx-blockchain">SophiaTX Blockchain</a></li>
 						
 					
 						
@@ -93,6 +97,10 @@
 					
 						
 						<li><a href="/quickstart/#quickstart-testnet">SophiaTX testnet</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-build-instructions">Build instructions</a></li>
 						
 					
 				
@@ -168,7 +176,7 @@
 	
 		
     <section class="pnl-main-nav-section main-nav-section" url="/apidefinitions/">
-		<h6 class="ctrl-nav-section title">Appbase API</h6>
+		<h6 class="ctrl-nav-section title">API'S</h6>
 		<ul class="cont-nav-section content">
 			
 				
@@ -220,12 +228,31 @@
 	</section>
 	
 		
+    <section class="pnl-main-nav-section main-nav-section" url="/demos/">
+		<h6 class="ctrl-nav-section title">Demo's</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
     <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
 		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
 		<ul class="cont-nav-section content">
 			
 				
 					
+					
+						
+						<li><a href="/cli_wallet/#cli-wallet-introduction">Introduction</a></li>
+						
 					
 						
 						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
@@ -446,6 +473,42 @@
 					
 				
 			
+				
+					
+						,
+						
+						"cli-wallet-introduction": {
+							"id": "cli-wallet-introduction",
+							"title": "Introduction",
+							"category": "cli_wallet",
+							"description": "",
+		  				"type": "",
+							"url": "/cli_wallet/introduction",
+							"content": "We provide a basic cli wallet for interfacing with sophiatxd. The wallet is self documented via command line help. The node you connect to via the cli wallet needs to be running the account_by_key_api, alexnadria_api, and needs to be configured to accept websocket connections via webserver-ws-endpoint."
+						}
+						
+					
+				
+			
+		
+			
+				
+					
+						,
+						
+						"demos-index": {
+							"id": "demos-index",
+							"title": "Index",
+							"category": "demos",
+							"description": "",
+		  				"type": "",
+							"url": "/demos/index",
+							"content": ""
+						}
+						
+					
+				
+			
 		
 			
 				
@@ -556,6 +619,23 @@
 					
 						,
 						
+						"introduction-sophiatx-blockchain": {
+							"id": "introduction-sophiatx-blockchain",
+							"title": "SophiaTX Blockchain",
+							"category": "introduction",
+							"description": "",
+		  				"type": "",
+							"url": "/introduction/sophiatx_blockchain",
+							"content": "SophiaTX is Delegated Proof of Stake blockchain. The source code is publicly available on github.\n\nPublic Announcement &amp; Discussion\n\nSophiaTX was announced on the\nBitcointalk forum prior to\nthe start of any mining.\n\nWhitepaper\n\nYou can read the SophiaTX Whitepaper at SophiaTXWhitePaper.pdf.\n\nQuickstart\n\nJust want to get up and running quickly? We have pre-built docker images for your convenience. More details are in our technical quickstart guide.\n\nDownloading\n\nLatest release can be always found here\n\nBuilding\n\nIf you would like to build from source, we do have build instructions for Linux (Ubuntu LTS).\n\nConfig File\n\nRun sophiatxd once to generate a data directory and config file. The default location is witness_node_data_dir. Kill sophiatxd. It won’t do anything without seed nodes. If you want to modify the config to your liking, we have two example configs. ( full node, witness node ) All options will be present in the default config file and there may be more options needing to be changed from the those configs (some of the options actually used in images are configured via command line).\n\nSeed Nodes\n\nA list of some seed nodes to get you:\nseednode1.sophiatx.com:60000\nseednode2.sophiatx.com:60000\nseednode3.sophiatx.com:60000\nseednode4.sophiatx.com:60000\nseednode5.sophiatx.com:60000\nseednode6.sophiatx.com:60000\n\n\nSystem Requirements\n\nFor a full web node, you need at least 110GB of disk space available. SophiaTXd uses a memory mapped file which currently holds 56GB of data and by default is set to use up to 80GB. The block log of the blockchain itself is a little over 27GB. It’s highly recommended to run sophiatxd on a fast disk such as an SSD or by placing the shared memory files in a ramdisk and using the --shared-file-dir=/path command line option to specify where. At least 16GB of memory is required for a full web node. Seed nodes (p2p mode) can run with as little as 4GB of memory with a 24 GB state file. Any CPU with decent single core performance should be sufficient. SophiaTXd is constantly growing, so you may find you need more disk space to run a full node. We are also constantly working on optimizing SophiaTX’s use of disk space.\n\n\n\nBelow are SophiaTX specific terms that will help you understand documentation, whitepapers, and the speech of SophiaTX."
+						}
+						
+					
+				
+			
+				
+					
+						,
+						
 						"introduction-transactions": {
 							"id": "introduction-transactions",
 							"title": "Transactions",
@@ -575,12 +655,12 @@
 						
 						"introduction-welcome": {
 							"id": "introduction-welcome",
-							"title": "Welcome to SophiaTX",
+							"title": "Welcome to SophiaTX Developer Portal",
 							"category": "introduction",
 							"description": "",
 		  				"type": "",
 							"url": "/introduction/welcome",
-							"content": "Welcome to the SophiaTX Developer Portal\n\nThis site is designed to aid those interested in developing applications on the  SophiaTX blockchain.\n\nIf you don’t know about SophiaTX yet, visit sophiatx.com.\n\nThe code for this site is on github. If you’d like to see a specific improvement \nyou can either submit a pull request or file an issue.\n\n\n\nSite Resources\n\nThe quickstart section has some general information on working with nodes, and testnets.\n\nOur SDK’s section will take you through the basics of interacting with SophiaTX apis in Javascript and C#.\n\nMore detailed API specs are available in the APPBASE API section. Those apis are under development, so please read \nnotes at the top of each section.\n\n\n\nBelow are SophiaTX specific terms that will help you understand documentation, whitepapers, and the speech of SophiaTX."
+							"content": "This site is designed to aid those interested in developing applications on the  SophiaTX blockchain.\n\nIf you don’t know about SophiaTX yet, visit sophiatx.com.\n\nThe code for this site is on github. If you’d like to see a specific improvement \nyou can either submit a pull request or file an issue.\n\n\n\nSite Resources\n\nThe QUICKSTAST section has some general information on working with nodes, existing testnets and building source code.\n\nThere is also a TUTORIALS section that provide a lot of useful information on different topics like creating custom plugins on top of core functionality of SophiaTX blockchain, etc…\n\nOur SDK’s section will take you through the basics of interacting with SophiaTX apis in Javascript and C#.\n\nMore detailed API specs are available in the APPBASE API section. Those apis are under development, so please read \nnotes at the top of each section.\n\nCLI_WALLET section provides information about tool for interfacing with sophiatxd."
 						}
 						
 					
@@ -594,6 +674,23 @@
 					
 						,
 						
+						"quickstart-build-instructions": {
+							"id": "quickstart-build-instructions",
+							"title": "Build instructions",
+							"category": "quickstart",
+							"description": "",
+		  				"type": "",
+							"url": "/quickstart/build_instructions",
+							"content": "Compile-Time Options (cmake)\n\nCMAKE_BUILD_TYPE=[Release/Debug]\n\nSpecifies whether to build with or without optimization and without or with\nthe symbol table for debugging. Unless you are specifically debugging or\nrunning tests, it is recommended to build as release.\n\nLOW_MEMORY_NODE=[OFF/ON]\n\nBuilds sophiatxd to be a consensus-only low memory node. Data and fields not\nneeded for consensus are not stored in the object database.  This option is\nrecommended for witnesses and seed-nodes.\n\nCLEAR_VOTES=[ON/OFF]\n\nClears old votes from memory that are no longer required for consensus.\n\nBUILD_SOPHIATX_TESTNET=[OFF/ON]\n\nBuilds sophiatx for use in a private testnet. Also required for building unit tests.\n\nSKIP_BY_TX_ID=[OFF/ON]\n\nBy default this is off. Enabling will prevent the account history plugin querying transactions \nby id, but saving around 65% of CPU time when reindexing. Enabling this option is a\nhuge gain if you do not need this functionality.\n\nBuilding on Ubuntu 18.04.1\nFor Ubuntu 18.04.1 users, after installing the right packages with apt SophiaTX\nwill build out of the box without further effort:\n\n# Required packages\nsudo apt install -y \\\n    autoconf \\\n    automake \\\n    cmake \\\n    gcc \\\n    g++ \\\n    git \\\n    libbz2-dev \\\n    libssl-dev \\\n    libtool \\\n    make \\\n    pkg-config \\\n    python3 \\\n    python3-jinja2 \\\n    zlib1g-dev \\\n    libsqlite3-dev\n    \n# Boost packages (also required)\nsudo apt-get install -y \\\n    libboost-chrono-dev \\\n    libboost-context-dev \\\n    libboost-coroutine-dev \\\n    libboost-date-time-dev \\\n    libboost-filesystem-dev \\\n    libboost-iostreams-dev \\\n    libboost-locale-dev \\\n    libboost-program-options-dev \\\n    libboost-serialization-dev \\\n    libboost-signals-dev \\\n    libboost-system-dev \\\n    libboost-test-dev \\\n    libboost-thread-dev\n\n# Optional packages (not required, but will make a nicer experience)\nsudo apt install -y \\\n    doxygen \\\n    libncurses5-dev \\\n    libreadline-dev \\\n    perl\n    \ngit clone https://github.com/SophiaTX/SophiaTX\ncd SophiaTX\ngit checkout master\ngit submodule update --init --recursive\nmkdir build\ncd build\ncmake -DCMAKE_BUILD_TYPE=Release ..\nmake -j$(nproc) sophiatxd\nmake -j$(nproc) cli_wallet\n\n# optional\nmake install  # defaults to /usr/local\n\n\nBuilding Boost 1.67\n\nSophiaTX requires Boost 1.65 and works with versions up to 1.69 (including).\nHere is how to build and install Boost 1.67 into your user’s home directory\n\nexport BOOST_ROOT=$HOME/opt/boost_1_67_0\nURL='http://sourceforge.net/projects/boost/files/boost/1.67.0/boost_1_67_0.tar.gz'\nwget \"$URL\"\n[ $( sha256sum boost_1_67_0.tar.gz | cut -d ' ' -f 1 ) == \\\n    \"8aa4e330c870ef50a896634c931adf468b21f8a69b77007e45c444151229f665\" ] \\\n    || ( echo 'Corrupt download' ; exit 1 )\ntar xzf boost_1_67_0.tar.gz\ncd boost_1_67_0\n./bootstrap.sh \"--prefix=$BOOST_ROOT\"\n./b2 -j$(nproc) install\n\n\nBuilding on Other Platforms\n\n\n  \n    Windows build instructions are available here https://github.com/SophiaTX/SophiaTX/wiki/Setting-up-Windows-build-enviroment\n  \n  The developers normally compile with gcc and clang. These compilers should\nbe well-supported.\n  Community members occasionally attempt to compile the code with mingw,\nIntel and Microsoft compilers. These compilers may work, but the\ndevelopers do not use them. Pull requests fixing warnings / errors from\nthese compilers are accepted."
+						}
+						
+					
+				
+			
+				
+					
+						,
+						
 						"quickstart-choose-sdk": {
 							"id": "quickstart-choose-sdk",
 							"title": "Choose SDK",
@@ -601,7 +698,7 @@
 							"description": "",
 		  				"type": "",
 							"url": "/quickstart/choose_sdk",
-							"content": "Getting started to develop robust and feature rich SophiaTX applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives.\n\nBuilding a picture discovery app is a breeze with the JavaScript SDK. There is also a Java and ABAB SDK’s available."
+							"content": "Getting started to develop robust and feature rich SophiaTX applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives.\n\nBuilding a picture discovery app is a breeze with the JavaScript and C# available. More SDK’s might be developed in the future."
 						}
 						
 					
