@@ -1,6 +1,6 @@
 ---
 title: RPC calls
-position: 1
+position: 2
 exclude: true
 ---
 

@@ -18,13 +18,17 @@ toc:
     url: "/sdks/"
     position: 4
     exclude: true
-  - title: "Appbase API"
+  - title: "API'S"
     collection: apidefinitions    
     url: "/apidefinitions/"
     exclude: true
     position: 5
+  - title: "Demo's"
+    collection: "demos"
+    url: "/demos/"
+    position: 7
   - title: "Cli Wallet"
     collection: "cli_wallet"
     url: "/cli_wallet/"
-    position: 6
+    position: 7
     exclude: true

@@ -1,15 +1,13 @@
 ---
-title: Welcome to SophiaTX
+title: Welcome to SophiaTX Developer Portal
 position: 1
 ---
-
-#### Welcome to the SophiaTX Developer Portal
 
 This site is designed to aid those interested in developing applications on the  **[SophiaTX](https://www.sophiatx.com/){:target="_blank"}** blockchain. 
 
 If you don't know about SophiaTX yet, visit [sophiatx.com](https://www.sophiatx.com/).
 
-The code for this site is on [github](https://github.com/SophiaTX/SophiaTX.github.io). If you'd like to see a specific improvement 
+The code for this site is on [github](https://github.com/SophiaTX/devportal). If you'd like to see a specific improvement 
 you can either submit a pull request or file an issue.
 <br>
 <br>
@@ -17,13 +15,13 @@ you can either submit a pull request or file an issue.
 
 #### Site Resources
 
-The **quickstart** section has some general information on working with nodes, and testnets.
+The [QUICKSTAST](/quickstart/) section has some general information on working with nodes, existing testnets and building source code.
 
-Our **SDK's** section will take you through the basics of interacting with SophiaTX apis in Javascript and C#.
+There is also a [TUTORIALS](/tutorials/) section that provide a lot of useful information on different topics like creating custom plugins on top of core functionality of SophiaTX blockchain, etc... 
 
-More detailed API specs are available in the **APPBASE API** section. Those apis are under development, so please read 
+Our [SDK's](/sdks/) section will take you through the basics of interacting with SophiaTX apis in Javascript and C#.
+
+More detailed API specs are available in the [APPBASE API](/apidefinitions/) section. Those apis are under development, so please read 
 notes at the top of each section.
 
-<br>
-<br>
-Below are SophiaTX specific terms that will help you understand documentation, whitepapers, and the speech of SophiaTX.
+[CLI_WALLET](/cli_wallet/) section provides information about tool for interfacing with sophiatxd.

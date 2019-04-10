@@ -56,7 +56,11 @@
 					
 					
 						
-						<li><a href="/#introduction-welcome">Welcome to SophiaTX</a></li>
+						<li><a href="/#introduction-welcome">Welcome to SophiaTX Developer Portal</a></li>
+						
+					
+						
+						<li><a href="/#introduction-sophiatx-blockchain">SophiaTX Blockchain</a></li>
 						
 					
 						
@@ -94,6 +98,10 @@
 					
 						
 						<li><a href="/quickstart/#quickstart-testnet">SophiaTX testnet</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-build-instructions">Build instructions</a></li>
 						
 					
 				
@@ -169,7 +177,7 @@
 	
 		
     <section class="pnl-main-nav-section main-nav-section" url="/apidefinitions/">
-		<h6 class="ctrl-nav-section title">Appbase API</h6>
+		<h6 class="ctrl-nav-section title">API'S</h6>
 		<ul class="cont-nav-section content">
 			
 				
@@ -221,12 +229,31 @@
 	</section>
 	
 		
+    <section class="pnl-main-nav-section main-nav-section" url="/demos/">
+		<h6 class="ctrl-nav-section title">Demo's</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
     <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
 		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
 		<ul class="cont-nav-section content">
 			
 				
 					
+					
+						
+						<li><a href="/cli_wallet/#cli-wallet-introduction">Introduction</a></li>
+						
 					
 						
 						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
@@ -259,31 +286,91 @@
 						<section class="row">
 							<h3>
 								<a id="introduction-welcome">
-									Welcome to SophiaTX
+									Welcome to SophiaTX Developer Portal
 									
 								</a>
 							</h3>
 							
 
-							<h4 id="welcome-to-the-sophiatx-developer-portal">Welcome to the SophiaTX Developer Portal</h4>
-
-<p>This site is designed to aid those interested in developing applications on the  <strong><a href="https://www.sophiatx.com/" target="_blank">SophiaTX</a></strong> blockchain.</p>
+							<p>This site is designed to aid those interested in developing applications on the  <strong><a href="https://www.sophiatx.com/" target="_blank">SophiaTX</a></strong> blockchain.</p>
 
 <p>If you don’t know about SophiaTX yet, visit <a href="https://www.sophiatx.com/">sophiatx.com</a>.</p>
 
-<p>The code for this site is on <a href="https://github.com/SophiaTX/SophiaTX.github.io">github</a>. If you’d like to see a specific improvement 
+<p>The code for this site is on <a href="https://github.com/SophiaTX/devportal">github</a>. If you’d like to see a specific improvement 
 you can either submit a pull request or file an issue.
 <br />
 <br /></p>
 
 <h4 id="site-resources">Site Resources</h4>
 
-<p>The <strong>quickstart</strong> section has some general information on working with nodes, and testnets.</p>
+<p>The <a href="/quickstart/">QUICKSTAST</a> section has some general information on working with nodes, existing testnets and building source code.</p>
 
-<p>Our <strong>SDK’s</strong> section will take you through the basics of interacting with SophiaTX apis in Javascript and C#.</p>
+<p>There is also a <a href="/tutorials/">TUTORIALS</a> section that provide a lot of useful information on different topics like creating custom plugins on top of core functionality of SophiaTX blockchain, etc…</p>
 
-<p>More detailed API specs are available in the <strong>APPBASE API</strong> section. Those apis are under development, so please read 
+<p>Our <a href="/sdks/">SDK’s</a> section will take you through the basics of interacting with SophiaTX apis in Javascript and C#.</p>
+
+<p>More detailed API specs are available in the <a href="/apidefinitions/">APPBASE API</a> section. Those apis are under development, so please read 
 notes at the top of each section.</p>
+
+<p><a href="/cli_wallet/">CLI_WALLET</a> section provides information about tool for interfacing with sophiatxd.</p>
+
+						</section>
+					</section>
+					
+			
+				    
+					<section id="introduction-sophiatx-blockchain"class="row introduction-sophiatx-blockchain">
+						<section class="row">
+							<h3>
+								<a id="introduction-sophiatx-blockchain">
+									SophiaTX Blockchain
+									
+								</a>
+							</h3>
+							
+
+							<p>SophiaTX is Delegated Proof of Stake blockchain. The source code is publicly available on <a href="https://github.com/SophiaTX/SophiaTX">github</a>.</p>
+
+<h4 id="public-announcement--discussion">Public Announcement &amp; Discussion</h4>
+
+<p>SophiaTX was announced on the
+<a href="https://bitcointalk.org/index.php?topic=2214715.0">Bitcointalk forum</a> prior to
+the start of any mining.</p>
+
+<h4 id="whitepaper">Whitepaper</h4>
+
+<p>You can read the SophiaTX Whitepaper at <a href="https://www.sophiatx.com/storage/web/SophiaTX_Whitepaper_v1.9.pdf">SophiaTXWhitePaper.pdf</a>.</p>
+
+<h4 id="quickstart">Quickstart</h4>
+
+<p>Just want to get up and running quickly? We have pre-built docker images for your convenience. More details are in our <a href="doc/quickstartguide.md">technical quickstart guide</a>.</p>
+
+<h4 id="downloading">Downloading</h4>
+
+<p>Latest release can be always found <a href="https://github.com/SophiaTX/SophiaTX/releases">here</a></p>
+
+<h4 id="building">Building</h4>
+
+<p>If you would like to build from source, we do have <a href="/quickstart/#quickstart-build-instructions">build instructions</a> for Linux (Ubuntu LTS).</p>
+
+<h4 id="config-file">Config File</h4>
+
+<p>Run <code class="highlighter-rouge">sophiatxd</code> once to generate a data directory and config file. The default location is <code class="highlighter-rouge">witness_node_data_dir</code>. Kill <code class="highlighter-rouge">sophiatxd</code>. It won’t do anything without seed nodes. If you want to modify the config to your liking, we have two example configs. ( <a href="https://github.com/SophiaTX/SophiaTX/blob/develop/contrib/fullnode_config.ini">full node</a>, <a href="https://github.com/SophiaTX/SophiaTX/blob/develop/contrib/witness_config.ini">witness node</a> ) All options will be present in the default config file and there may be more options needing to be changed from the those configs (some of the options actually used in images are configured via command line).</p>
+
+<h4 id="seed-nodes">Seed Nodes</h4>
+
+<p>A list of some seed nodes to get you:</p>
+<li>seednode1.sophiatx.com:60000</li>
+<li>seednode2.sophiatx.com:60000</li>
+<li>seednode3.sophiatx.com:60000</li>
+<li>seednode4.sophiatx.com:60000</li>
+<li>seednode5.sophiatx.com:60000</li>
+<li>seednode6.sophiatx.com:60000</li>
+<p><br /></p>
+
+<h4 id="system-requirements">System Requirements</h4>
+
+<p>For a full web node, you need at least 110GB of disk space available. SophiaTXd uses a memory mapped file which currently holds 56GB of data and by default is set to use up to 80GB. The block log of the blockchain itself is a little over 27GB. It’s highly recommended to run sophiatxd on a fast disk such as an SSD or by placing the shared memory files in a ramdisk and using the <code class="highlighter-rouge">--shared-file-dir=/path</code> command line option to specify where. At least 16GB of memory is required for a full web node. Seed nodes (p2p mode) can run with as little as 4GB of memory with a 24 GB state file. Any CPU with decent single core performance should be sufficient. SophiaTXd is constantly growing, so you may find you need more disk space to run a full node. We are also constantly working on optimizing SophiaTX’s use of disk space.</p>
 
 <p><br />
 <br />
@@ -545,6 +632,17 @@ Below are SophiaTX specific terms that will help you understand documentation, w
 		
 	
 
+		
+	
+
+	
+		
+		
+			
+			
+					
+			
+		
 		
 	
 

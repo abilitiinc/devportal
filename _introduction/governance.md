@@ -1,6 +1,6 @@
 ---
 title: Governance
-position: 4
+position: 5
 description: Dictionary of Governance Terms
 ---
 
