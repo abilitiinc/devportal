@@ -66,9 +66,25 @@
     parameter_json: '{"app_owner":"","buyer":"","app_id":0}'
     expected_response_json: '{"op":["TODO:add name",{"fee":"0.000000 SPHTX","app_owner":"","buyer":"","app_id":0}]}'
   - api_method: alexandria_api.create_account
-    purpose: 
+    purpose: Creates operation 'account_create' in required json format<br><br>
+              <b>Request</b>
+
+              <li>creator - existing account. It can be later used to regenerate private key of created account</li>
+              <li>name_seed - seed name of the new account</li>
+              <li>json_meta - any data related to the new account</li>
+              <li>owner - owner public key. Paired private key has full control over this account</li>
+              <li>active - active public key. Paired private key has restricted control over this account</li>
+              <li>memo - memo public key. It is used for encrypting messages meant to be read only by this account. Paired private is used fot decrypting</li><br>
+
+              <b>Response</b>
+
+              <li>op - operation "accunt_create" created in required json format</li><br>
     parameter_json: '{"creator":"","name_seed":"","json_meta":"","owner":"SPH1111111111111111111111111111111114T1Anm","active":"SPH1111111111111111111111111111111114T1Anm","memo":"SPH1111111111111111111111111111111114T1Anm"}'
-    expected_response_json: '{"op":["TODO:add name",{"fee":"0.000000 SPHTX","creator":"","name_seed":"","owner":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"active":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"memo_key":"SPH1111111111111111111111111111111114T1Anm","json_metadata":""}]}'
+    expected_response_json: '{"op":["account_create",{"fee":"0.000000 SPHTX","creator":"","name_seed":"","owner":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"active":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"memo_key":"SPH1111111111111111111111111111111114T1Anm","json_metadata":""}]}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.create_account", "params": {"creator": "user1","name_seed": "sophiatx_user","json_meta": "{\"data\":\"anything related to the sophiatx_user\"}","owner": "SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw","active": "SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP","memo": "SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy"}, "id": 1}'
+    curl_responses:
+    - '{"jsonrpc":"2.0","result":{"op":["account_create",{"fee":"0.000000 SPHTX","creator":"user1","name_seed":"sophiatx_user","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",1]]},"memo_key":"SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy","json_metadata":"{\"data\":\"anything related to the sophiatx_user\"}"}]},"id":1}'
   - api_method: alexandria_api.create_application
     purpose: 
     parameter_json: '{"author":"","app_name":"","url":"","meta_data":"","price_param":0}'
@@ -128,9 +144,17 @@
     parameter_json: '{"data":""}'
     expected_response_json: '{"str":""}'
   - api_method: alexandria_api.generate_key_pair
-    purpose:
+    purpose: Generates public/private key pair.
+
+              <blockquote class="warning">
+                <h5>This functionality should be done locally in SDK and not remotely !!!</h5>
+              </blockquote>
     parameter_json: "{}"
     expected_response_json: '{"key_pair":{"pub_key":"SPH1111111111111111111111111111111114T1Anm","wif_priv_key":""}}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.generate_key_pair", "params": {}, "id": 1}'
+    curl_responses:
+    - '{"jsonrpc":"2.0","result":{"key_pair":{"pub_key":"SPH59JiJ8xruCD1HdRAGJemfMnUwr5KUm8dJXYe6R5fFdkD3UhsU7","wif_priv_key":"5KEAAt3W2nrc61ZMkrLLbqSK9wqi8N3Afrr1sWDb7Q7xd9CPHz7"}},"id":1}'
   - api_method: alexandria_api.generate_key_pair_from_brain_key
     purpose:
     parameter_json: '{"brain_key":""}'
