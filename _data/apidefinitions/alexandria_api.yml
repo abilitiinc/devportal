@@ -66,9 +66,25 @@
     parameter_json: '{"app_owner":"","buyer":"","app_id":0}'
     expected_response_json: '{"op":["TODO:add name",{"fee":"0.000000 SPHTX","app_owner":"","buyer":"","app_id":0}]}'
   - api_method: alexandria_api.create_account
-    purpose: 
+    purpose: Creates operation 'account_create' in required json format<br><br>
+              <b>Request</b>
+
+              <li>creator - existing account. It can be later used to regenerate private key of created account</li>
+              <li>name_seed - seed name of the new account</li>
+              <li>json_meta - any data related to the new account</li>
+              <li>owner - owner public key. Paired private key has full control over this account</li>
+              <li>active - active public key. Paired private key has restricted control over this account</li>
+              <li>memo - memo public key. It is used for encrypting messages meant to be read only by this account. Paired private is used fot decrypting</li><br>
+
+              <b>Response</b>
+
+              <li>op - operation "accunt_create" created in required json format</li><br>
     parameter_json: '{"creator":"","name_seed":"","json_meta":"","owner":"SPH1111111111111111111111111111111114T1Anm","active":"SPH1111111111111111111111111111111114T1Anm","memo":"SPH1111111111111111111111111111111114T1Anm"}'
-    expected_response_json: '{"op":["TODO:add name",{"fee":"0.000000 SPHTX","creator":"","name_seed":"","owner":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"active":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"memo_key":"SPH1111111111111111111111111111111114T1Anm","json_metadata":""}]}'
+    expected_response_json: '{"op":["account_create",{"fee":"0.000000 SPHTX","creator":"","name_seed":"","owner":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"active":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"memo_key":"SPH1111111111111111111111111111111114T1Anm","json_metadata":""}]}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.create_account", "params": {"creator": "user1","name_seed": "sophiatx_user","json_meta": "{\"data\":\"anything related to the sophiatx_user\"}","owner": "SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw","active": "SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP","memo": "SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy"}, "id": 1}'
+    curl_responses:
+    - '{"jsonrpc":"2.0","result":{"op":["account_create",{"fee":"0.000000 SPHTX","creator":"user1","name_seed":"sophiatx_user","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",1]]},"memo_key":"SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy","json_metadata":"{\"data\":\"anything related to the sophiatx_user\"}"}]},"id":1}'
   - api_method: alexandria_api.create_application
     purpose: 
     parameter_json: '{"author":"","app_name":"","url":"","meta_data":"","price_param":0}'
@@ -128,9 +144,17 @@
     parameter_json: '{"data":""}'
     expected_response_json: '{"str":""}'
   - api_method: alexandria_api.generate_key_pair
-    purpose:
+    purpose: Generates public/private key pair.
+
+              <blockquote class="warning">
+                <h5>This functionality should be done locally in SDK and not remotely !!!</h5>
+              </blockquote>
     parameter_json: "{}"
     expected_response_json: '{"key_pair":{"pub_key":"SPH1111111111111111111111111111111114T1Anm","wif_priv_key":""}}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.generate_key_pair", "params": {}, "id": 1}'
+    curl_responses:
+    - '{"jsonrpc":"2.0","result":{"key_pair":{"pub_key":"SPH59JiJ8xruCD1HdRAGJemfMnUwr5KUm8dJXYe6R5fFdkD3UhsU7","wif_priv_key":"5KEAAt3W2nrc61ZMkrLLbqSK9wqi8N3Afrr1sWDb7Q7xd9CPHz7"}},"id":1}'
   - api_method: alexandria_api.generate_key_pair_from_brain_key
     purpose:
     parameter_json: '{"brain_key":""}'
@@ -209,12 +233,12 @@
     parameter_json: '{"private_key":""}'
     expected_response_json: '{"public_key":"SPH1111111111111111111111111111111114T1Anm"}'
   - api_method: alexandria_api.get_received_documents
-    purpose: "Returns custom json or binary documents that were saved into blockchain filtered by app_id and search_type<br><br>
+    purpose: Returns custom json or binary documents that were saved into blockchain filtered by app_id and search_type<br><br>
                <b>Request</b>
 
                <li>app_id - general filter</li>
                <li>account_name - name of account used in search_type filters</li>
-               <li>search type: (_reverse in search_types will be deleted in next version)
+               <li>search type (_reverse in search_types will be deleted in next version)
                  <ul>
                    <li>by_sender_reverse</li>
                    <li>by_recipient_reverse</li>
@@ -228,11 +252,13 @@
                <b>Response</b>
 
                <li>received_documents - list of received documents filtered by app_id and search_type</li><br>
-               "
-    parameter_json: '{"app_id": 1,"account_name": "user1","search_type": "by_sender","start": "0","count": 10}'
-    expected_response_json: '{"received_documents":[[1,{"id":4,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data\"}","received":"2019-04-05T08:39:42","binary":false}],[2,{"id":5,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data idx 2\"}","received":"2019-04-05T08:39:54","binary":false}],[3,{"id":6,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data idx 3\"}","received":"2019-04-05T08:40:00","binary":false}]]}'
+
+    parameter_json: '{"app_id": 0,"account_name": "","search_type": "","start": 0,"count": 10}'
+    expected_response_json: '{"received_documents":[]}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.get_received_documents", "params": {"app_id": 2,"account_name": "user2","search_type": "by_sender_reverse","start": "0","count": 10}, "id": 1}'
+    curl_responses:
+    -  '{"received_documents":[[1,{"id":4,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data\"}","received":"2019-04-05T08:39:42","binary":false}],[2,{"id":5,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data idx 2\"}","received":"2019-04-05T08:39:54","binary":false}],[3,{"id":6,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data idx 3\"}","received":"2019-04-05T08:40:00","binary":false}]]}'
   - api_method: alexandria_api.get_required_signatures
     purpose:
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
@@ -266,23 +292,58 @@
     parameter_json: '{"name":"","limit":0}'
     expected_response_json: '{"witnesses_by_vote":[]}'
   - api_method: alexandria_api.make_custom_binary_operation
-    purpose: Creates \"custom_binary\" operation in requested json format. Applications can and should create such operation themselves and skipp this call<br><br>
+    purpose: Creates \"custom_binary\" operation in requested json format.
+
+              <blockquote class="warning">
+              <h5>Applications can and should create such operation themselves and skipp this call.</h5>
+              </blockquote>
+
               <b>Request:</b><br>
-              data - data in base64 format<br>
+
+              <li>app_id - application-specific id</li>
+              <li>from - sender account</li>
+              <li>to - recipients accounts</li>
+              <li>data - data in base64 format</li>
+
               <b>Result:</b><br>
-              data -  data in hex format<br>
-    parameter_json: '{"app_id": 10, "from": "user1", "to": ["user2", "user3"], "data": "SGVsbG8gU29waGlhVFg="}'
-    expected_response_json: '{"op":["custom_binary",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"data":"48656c6c6f20536f706869615458"}]}'
+
+              <li>op -  operation "custom_binary" created in required json format. Important - "data" field inside operation is in hex format</li><br>
+    parameter_json: '{"app_id": 0, "from": "", "to": [], "data": ""}'
+    expected_response_json: '{"op":["custom_binary",{"fee":"0.000000 SPHTX","sender":"","recipients":[],"app_id":0,"data":""}]}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.make_custom_binary_operation", "params": {"app_id": 10, "from": "user1", "to": ["user2", "user3"], "data": "SGVsbG8gU29waGlhVFg="}, "id": 1}'
+    curl_responses:
+    - '{"op":["custom_binary",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"data":"48656c6c6f20536f706869615458"}]}'
   - api_method: alexandria_api.make_custom_json_operation
-    purpose: "Creates \"custom_json\" operation in requested json format. Applications can and should create such operation themselves and skipp this call"
-    parameter_json: '{"app_id": 10, "from": "user1", "to": ["user2", "user3"], "json": "{\"data\":\"any valid json data\"}"}'
-    expected_response_json: '{"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]}'
+    purpose: Creates \"custom_json\" operation in requested json format.
+
+               <blockquote class="warning">
+               <h5>Applications can and should create such operation themselves and skipp this call.</h5>
+               </blockquote>
+
+               <b>Request:</b><br>
+
+               <li>app_id - application-specific id</li>
+               <li>from - sender account</li>
+               <li>to - recipients accounts</li>
+               <li>data - any valid data json data</li>
+
+               <b>Result:</b><br>
+
+               <li>op - operation "custom_json" created in required json format.</li><br>
+    parameter_json: '{"app_id": 0, "from": "", "to": [], "json": ""}'
+    expected_response_json: '{"op":[]}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.make_custom_json_operation", "params": {"app_id": 10, "from": "user1", "to": ["user2", "user3"], "json": "{\"data\":\"any valid json data\"}"}, "id": 1}'
+    curl_responses:
+    - '{"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]}'
   - api_method: alexandria_api.send_and_sign_operation
     purpose: Creates transaction based on provided operation, signs it and broadcasts it to the network<br><br>
+
+              <blockquote class="warning">
+              <h5>This functionality should be done locally in SDK and not remotely !!! Only alexandria_api.broadcast_transaction should be called remotely. See "Internal steps" below.</h5>
+              </blockquote>
+
               <b>Request</b>
 
               <li>op - any of the supported operations(TODO add link to supported operations)</li>
@@ -298,14 +359,21 @@
               <li>digest           = alexandria_api.get_transaction_digest(tx)</li>
               <li>signed_digest    = alexandria_api.sign_digest(digest, request.pk)</li>
               <li>signed_tx        = alexandria_api.add_siganture(tx, signed_digest)</li>
-              <li>result.signed_tx = alexandria_api.broadcast_transaction(signed_tx)</li>
-    parameter_json: '{"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}],"pk":"sender PRIVATE KEY"}'
-    expected_response_json: '{"signed_tx":{"ref_block_num":2230,"ref_block_prefix":331838658,"expiration":"2019-04-04T12:10:42","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":["1f5f304dd4d478f498fb4e42f3abf75fb6e7b0f3d5da9a42068c36127374ce6bab64628c0fe22a4a7ff78d2b8a7176e8738a3ee7920f4c0787cbd4125755300154"],"transaction_id":"dacf80351711e1049bccf0d804b5556ca8282c17","block_num":2231,"transaction_num":0}}'
+              <li>result.signed_tx = alexandria_api.broadcast_transaction(signed_tx)</li><BR>
+    parameter_json: '{"op": [], "pk": ""}'
+    expected_response_json: '{"signed_tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[],"transaction_id":"0000000000000000000000000000000000000000","block_num":0,"transaction_num":0}}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.send_and_sign_operation", "params": {"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}],"pk":"sender PRIVATE KEY"}, "id": 1}'
+    curl_responses:
+    - '{"signed_tx":{"ref_block_num":2230,"ref_block_prefix":331838658,"expiration":"2019-04-04T12:10:42","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":["1f5f304dd4d478f498fb4e42f3abf75fb6e7b0f3d5da9a42068c36127374ce6bab64628c0fe22a4a7ff78d2b8a7176e8738a3ee7920f4c0787cbd4125755300154"],"transaction_id":"dacf80351711e1049bccf0d804b5556ca8282c17","block_num":2231,"transaction_num":0}}'
   - api_method: alexandria_api.send_and_sign_transaction
     purpose: Signs provided transaction and broadcasts it to network<br><br>
               Such transaction can be created by call alexandria_api.create_simple_transaction(...)<br><br>
+
+              <blockquote class="warning">
+              <h5>This functionality should be done locally in SDK and not remotely !!! Only alexandria_api.broadcast_transaction should be called remotely. See "Internal steps" below.</h5>
+              </blockquote>
+
               <b>Request</b>
 
               <li>tx - unsigned transaction</li>
@@ -320,11 +388,13 @@
               <li>digest           = alexandria_api.get_transaction_digest(tx)</li>
               <li>signed_digest    = alexandria_api.sign_digest(digest, request.pk)</li>
               <li>signed_tx        = alexandria_api.add_siganture(tx, signed_digest)</li>
-              <li>result.signed_tx = alexandria_api.broadcast_transaction(signed_tx)</li>
-    parameter_json: '{"tx":{"ref_block_num":3701,"ref_block_prefix":914684397,"expiration":"2019-04-04T13:30:15","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":[]},"pk":"sender PRIVATE KEY"}'
-    expected_response_json: '{"signed_tx":{"ref_block_num":3701,"ref_block_prefix":914684397,"expiration":"2019-04-04T13:30:15","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":["203cd5873cba28262b2972245b2524341750cc8c1b67dc8fe5307f87c9aac8f8276365ac22002f91e8468c8160fa0343f5b1a5ca53a62464a4d9560a2a9173953d"],"transaction_id":"8b9afcccdf8bed9484fadd56eaa3bd744a13f819","block_num":3782,"transaction_num":0}}'
+              <li>result.signed_tx = alexandria_api.broadcast_transaction(signed_tx)</li><br>
+    parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]},"pk":""}'
+    expected_response_json: '{"signed_tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[""],"transaction_id":"0000000000000000000000000000000000000000","block_num":0,"transaction_num":0}}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.send_and_sign_transaction", "params": {"tx":{"ref_block_num":3701,"ref_block_prefix":914684397,"expiration":"2019-04-04T13:30:15","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":[]},"pk":"sender PRIVATE KEY"}, "id": 1}'
+    curl_responses:
+    - '{"signed_tx":{"ref_block_num":3701,"ref_block_prefix":914684397,"expiration":"2019-04-04T13:30:15","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":["203cd5873cba28262b2972245b2524341750cc8c1b67dc8fe5307f87c9aac8f8276365ac22002f91e8468c8160fa0343f5b1a5ca53a62464a4d9560a2a9173953d"],"transaction_id":"8b9afcccdf8bed9484fadd56eaa3bd744a13f819","block_num":3782,"transaction_num":0}}'
   - api_method: alexandria_api.set_voting_proxy
     purpose: 
     parameter_json: '{"account_to_modify":"","proxy":""}'

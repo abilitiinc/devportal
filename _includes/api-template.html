@@ -30,6 +30,18 @@ curl -s --data '{{curl}}' https://API_URL
 ```
 {% endfor %}
 {% endif %}
+
+{% if method.curl_responses %}
+<h5 id="{{ method.api_method | slug }}-curl-responses">Response <code>curl</code> <a href="#{{ method.api_method | slug}}-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+{% for response in method.curl_responses %}
+```bash
+'{{response | neat_json}}'
+```
+{% endfor %}
+{% endif %}
+
+
+
 ---
 {% endfor %}
 {% endfor %}
