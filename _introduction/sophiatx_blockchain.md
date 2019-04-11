@@ -19,7 +19,7 @@ You can read the SophiaTX Whitepaper at [SophiaTXWhitePaper.pdf](https://www.sop
 
 #### Quickstart
 
-Just want to get up and running quickly? We have pre-built docker images for your convenience. More details are in our [technical quickstart guide](doc/quickstartguide.md).
+Just want to get up and running quickly? We have pre-built docker images for your convenience. More details are in our [technical quickstart guide](/quickstart/#quickstart-technical-quickstart).
 
 #### Downloading
 

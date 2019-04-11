@@ -1,6 +1,6 @@
 ---
 title: Choose SDK
-position: 1
+position: 3
 exclude: true
 ---
 

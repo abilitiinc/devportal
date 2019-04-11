@@ -1,6 +1,6 @@
 ---
 title: Build instructions
-position: 4
+position: 2
 exclude: true
 ---
 

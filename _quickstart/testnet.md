@@ -1,6 +1,6 @@
 ---
 title: SophiaTX testnet
-position: 3
+position: 5
 exclude: true
 ---
 
