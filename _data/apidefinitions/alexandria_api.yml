@@ -159,6 +159,14 @@
     purpose:
     parameter_json: '{"brain_key":""}'
     expected_response_json: '{"key_pair":{"pub_key":"SPH1111111111111111111111111111111114T1Anm","wif_priv_key":""}}'
+  - api_method: alexandria_api.get_account_name_from_seed
+    purpose: Returns account name saved in blockchain based on human-readable seed name. In all further transactions, real blockchain account name should be used.
+    parameter_json: '{"seed":""}'
+    expected_response_json: '{"account_name":""}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_account_name_from_seed", "params": {"seed" : "sophiatx_user"}, "id": 1}'
+    curl_responses:
+    - '{"jsonrpc":"2.0","result":{"account_name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY"},"id":1}'
   - api_method: alexandria_api.get_account
     purpose: Returns account info specified by name. Either seed name or blockchain real account name can be used.
     parameter_json: '{"account_name":""}'
@@ -190,14 +198,6 @@
     purpose: Returns account history
     parameter_json: '{"account":"","start":0,"limit":0}'
     expected_response_json: '{"account_history":[]}'
-  - api_method: alexandria_api.get_account_name_from_seed
-    purpose: Returns account name saved in blockchain based on human-readable seed name. In all further transactions, real blockchain account name should be used.
-    parameter_json: '{"seed":""}'
-    expected_response_json: '{"account_name":""}'
-    curl_examples:
-    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_account_name_from_seed", "params": {"seed" : "sophiatx_user"}, "id": 1}'
-    curl_responses:
-    -  '{"jsonrpc":"2.0","result":{"account_name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY"},"id":1}'
   - api_method: alexandria_api.get_active_authority
     purpose:
     parameter_json: '{"account_name":""}'
