@@ -1217,6 +1217,36 @@ or use other API’s as the last option.</p>
 
 
 </ul>
+<h4 id="alexandria_api.get_account_name_from_seed">alexandria_api.get_account_name_from_seed <a href="#alexandria_api.get_account_name_from_seed"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Returns account name saved in blockchain based on human-readable seed name. In all further transactions, real blockchain account name should be used.</p>
+<h5 id="alexandria_api.get_account_name_from_seed-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_account_name_from_seed-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"seed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api.get_account_name_from_seed-expected_response_json">Expected Response JSON <a href="#alexandria_api.get_account_name_from_seed-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="alexandria_api.get_account_name_from_seed-curl-examples">Example <code>curl</code> <a href="#alexandria_api.get_account_name_from_seed-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_account_name_from_seed", "params": {"seed" : "sophiatx_user"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api.get_account_name_from_seed-curl-responses">Response <code>curl</code> <a href="#alexandria_api.get_account_name_from_seed-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {"account_name": "7HLPQ1kpnAIWawkAEgcoN4I7qJY"},
+  "id": 1
+}'</span>
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
 <h4 id="alexandria_api.get_account">alexandria_api.get_account <a href="#alexandria_api.get_account"><i class="fas fa-link fa-xs"></i></a></h4>
 <p>Returns account info specified by name. Either seed name or blockchain real account name can be used.</p>
 <h5 id="alexandria_api.get_account-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_account-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
@@ -1538,36 +1568,6 @@ or use other API’s as the last option.</p>
 <h5 id="alexandria_api.get_account_history-expected_response_json">Expected Response JSON <a href="#alexandria_api.get_account_history-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_history"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
 </span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-<h4 id="alexandria_api.get_account_name_from_seed">alexandria_api.get_account_name_from_seed <a href="#alexandria_api.get_account_name_from_seed"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns account name saved in blockchain based on human-readable seed name. In all further transactions, real blockchain account name should be used.</p>
-<h5 id="alexandria_api.get_account_name_from_seed-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_account_name_from_seed-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"seed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-<h5 id="alexandria_api.get_account_name_from_seed-expected_response_json">Expected Response JSON <a href="#alexandria_api.get_account_name_from_seed-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="alexandria_api.get_account_name_from_seed-curl-examples">Example <code>curl</code> <a href="#alexandria_api.get_account_name_from_seed-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_account_name_from_seed", "params": {"seed" : "sophiatx_user"}, "id": 1}'</span> https://API_URL
-</code></pre></div></div>
-
-<h5 id="alexandria_api.get_account_name_from_seed-curl-responses">Response <code>curl</code> <a href="#alexandria_api.get_account_name_from_seed-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
-  "jsonrpc": "2.0",
-  "result": {"account_name": "7HLPQ1kpnAIWawkAEgcoN4I7qJY"},
-  "id": 1
-}'</span>
-</code></pre></div></div>
 
 <hr />
 
