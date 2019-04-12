@@ -1218,37 +1218,27 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_account">alexandria_api.get_account <a href="#alexandria_api.get_account"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns account info specified by name</p>
+<p>Returns account info specified by name. Either seed name or blockchain real account name can be used.</p>
 <h5 id="alexandria_api.get_account-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_account-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dsgrjxA6FHQA2CV4W-vezsaYrQQ"</span><span class="p">}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 <h5 id="alexandria_api.get_account-expected_response_json">Expected Response JSON <a href="#alexandria_api.get_account-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dsgrjxA6FHQA2CV4W-vezsaYrQQ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk"</span><span class="p">,</span><span class="w">
-            </span><span class="mi">1</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"SPH5exSMJE8QyFbHjtigobia2pGZj88eRG3nj3Te7XFWVLfB6JewS"</span><span class="p">,</span><span class="w">
-            </span><span class="mi">1</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"memo_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH8eAn9t5ryjarx88uvXvFoysBYqaRLNhpTNFgqdBWjSHLoonypi"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memo_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"json_metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"voting_proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
@@ -1265,7 +1255,100 @@ or use other API’s as the last option.</p>
 
 <h5 id="alexandria_api.get_account-curl-examples">Example <code>curl</code> <a href="#alexandria_api.get_account-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_account", "params": {"account_name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ"}, "id": 1}'</span> https://API_URL
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_account", "params": {"account_name" : "sophiatx_user"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_account", "params": {"account_name" : "7HLPQ1kpnAIWawkAEgcoN4I7qJY"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api.get_account-curl-responses">Response <code>curl</code> <a href="#alexandria_api.get_account-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {
+    "account": [
+      {
+        "id": 50,
+        "name": "7HLPQ1kpnAIWawkAEgcoN4I7qJY",
+        "owner": {
+          "weight_threshold": 1,
+          "account_auths": [],
+          "key_auths": [
+            [
+              "SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",
+              1
+            ]
+          ]
+        },
+        "active": {
+          "weight_threshold": 1,
+          "account_auths": [],
+          "key_auths": [
+            [
+              "SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",
+              1
+            ]
+          ]
+        },
+        "memo_key": "SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy",
+        "json_metadata": "{\"data\":\"anything related to the sophiatx_user\"}",
+        "voting_proxy": "",
+        "balance": "0.000000 SPHTX",
+        "vesting_shares": "0.000000 VESTS",
+        "vesting_withdraw_rate": "0.000000 VESTS",
+        "to_withdraw": 0,
+        "witness_votes": [],
+        "sponsored_accounts": [],
+        "sponsoring_account": ""
+      }
+    ]
+  },
+  "id": 1
+}'</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {
+    "account": [
+      {
+        "id": 50,
+        "name": "7HLPQ1kpnAIWawkAEgcoN4I7qJY",
+        "owner": {
+          "weight_threshold": 1,
+          "account_auths": [],
+          "key_auths": [
+            [
+              "SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",
+              1
+            ]
+          ]
+        },
+        "active": {
+          "weight_threshold": 1,
+          "account_auths": [],
+          "key_auths": [
+            [
+              "SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",
+              1
+            ]
+          ]
+        },
+        "memo_key": "SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy",
+        "json_metadata": "{\"data\":\"anything related to the sophiatx_user\"}",
+        "voting_proxy": "",
+        "balance": "0.000000 SPHTX",
+        "vesting_shares": "0.000000 VESTS",
+        "vesting_withdraw_rate": "0.000000 VESTS",
+        "to_withdraw": 0,
+        "witness_votes": [],
+        "sponsored_accounts": [],
+        "sponsoring_account": ""
+      }
+    ]
+  },
+  "id": 1
+}'</span>
 </code></pre></div></div>
 
 <hr />
@@ -1276,7 +1359,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_accounts">alexandria_api.get_accounts <a href="#alexandria_api.get_accounts"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns accounts info specified by names</p>
+<p>Returns accounts info specified by names. Either seed names or blockchain real account names can be used.</p>
 <h5 id="alexandria_api.get_accounts-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_accounts-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"account_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1289,66 +1372,19 @@ or use other API’s as the last option.</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dsgrjxA6FHQA2CV4W-vezsaYrQQ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk"</span><span class="p">,</span><span class="w">
-            </span><span class="mi">1</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"SPH5exSMJE8QyFbHjtigobia2pGZj88eRG3nj3Te7XFWVLfB6JewS"</span><span class="p">,</span><span class="w">
-            </span><span class="mi">1</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"memo_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH8eAn9t5ryjarx88uvXvFoysBYqaRLNhpTNFgqdBWjSHLoonypi"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"json_metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"voting_proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 VESTS"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vesting_withdraw_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 VESTS"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"to_withdraw"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"witness_votes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="s2">"sponsored_accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="s2">"sponsoring_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vesting_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"transfer_history"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="s2">"other_history"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ayp1dsJTvH13b8k_4aXTZC5rp5g"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"SPH5enokWABeJzdtyTKJ7psxv3ex85PcschmGugNX38ioUSiJy9nk"</span><span class="p">,</span><span class="w">
-            </span><span class="mi">1</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"SPH4ycHC92BWtYWQyDKc5v2331z4HQ1VTQcVMic76ZE2CrwCG7h1X"</span><span class="p">,</span><span class="w">
-            </span><span class="mi">1</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"memo_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH7s5uMfDoKwPXiczxp23j7SaAvWBDvZNak3aNegLaB6SPEp1S3u"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memo_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"json_metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"voting_proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
@@ -1371,6 +1407,92 @@ or use other API’s as the last option.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_accounts", "params": {"account_names":["dsgrjxA6FHQA2CV4W-vezsaYrQQ", "ayp1dsJTvH13b8k_4aXTZC5rp5g"]}, "id": 1}'</span> https://API_URL
 </code></pre></div></div>
 
+<h5 id="alexandria_api.get_accounts-curl-responses">Response <code>curl</code> <a href="#alexandria_api.get_accounts-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {
+    "accounts": [
+      {
+        "id": 44,
+        "name": "dsgrjxA6FHQA2CV4W-vezsaYrQQ",
+        "owner": {
+          "weight_threshold": 1,
+          "account_auths": [],
+          "key_auths": [
+            [
+              "SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk",
+              1
+            ]
+          ]
+        },
+        "active": {
+          "weight_threshold": 1,
+          "account_auths": [],
+          "key_auths": [
+            [
+              "SPH5exSMJE8QyFbHjtigobia2pGZj88eRG3nj3Te7XFWVLfB6JewS",
+              1
+            ]
+          ]
+        },
+        "memo_key": "SPH8eAn9t5ryjarx88uvXvFoysBYqaRLNhpTNFgqdBWjSHLoonypi",
+        "json_metadata": "{}",
+        "voting_proxy": "",
+        "balance": "0.000000 SPHTX",
+        "vesting_shares": "0.000000 VESTS",
+        "vesting_withdraw_rate": "0.000000 VESTS",
+        "to_withdraw": 0,
+        "witness_votes": [],
+        "sponsored_accounts": [],
+        "sponsoring_account": "",
+        "vesting_balance": "0.000000 SPHTX",
+        "transfer_history": [],
+        "other_history": []
+      },
+      {
+        "id": 45,
+        "name": "ayp1dsJTvH13b8k_4aXTZC5rp5g",
+        "owner": {
+          "weight_threshold": 1,
+          "account_auths": [],
+          "key_auths": [
+            [
+              "SPH5enokWABeJzdtyTKJ7psxv3ex85PcschmGugNX38ioUSiJy9nk",
+              1
+            ]
+          ]
+        },
+        "active": {
+          "weight_threshold": 1,
+          "account_auths": [],
+          "key_auths": [
+            [
+              "SPH4ycHC92BWtYWQyDKc5v2331z4HQ1VTQcVMic76ZE2CrwCG7h1X",
+              1
+            ]
+          ]
+        },
+        "memo_key": "SPH7s5uMfDoKwPXiczxp23j7SaAvWBDvZNak3aNegLaB6SPEp1S3u",
+        "json_metadata": "{}",
+        "voting_proxy": "",
+        "balance": "0.000000 SPHTX",
+        "vesting_shares": "0.000000 VESTS",
+        "vesting_withdraw_rate": "0.000000 VESTS",
+        "to_withdraw": 0,
+        "witness_votes": [],
+        "sponsored_accounts": [],
+        "sponsoring_account": "",
+        "vesting_balance": "0.000000 SPHTX",
+        "transfer_history": [],
+        "other_history": []
+      }
+    ]
+  },
+  "id": 1
+}'</span>
+</code></pre></div></div>
+
 <hr />
 
 <ul style="float: right; list-style: none;">
@@ -1379,13 +1501,27 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_account_balance">alexandria_api.get_account_balance <a href="#alexandria_api.get_account_balance"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns account balance in SOPHIATX_SATOSHIS<br /> 1 SPHTX = 1000 000 SOPHIATX_SATOSHIS</p>
 <h5 id="alexandria_api.get_account_balance-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_account_balance-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 <h5 id="alexandria_api.get_account_balance-expected_response_json">Expected Response JSON <a href="#alexandria_api.get_account_balance-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<h5 id="alexandria_api.get_account_balance-curl-examples">Example <code>curl</code> <a href="#alexandria_api.get_account_balance-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_account_balance", "params": {"account_name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api.get_account_balance-curl-responses">Response <code>curl</code> <a href="#alexandria_api.get_account_balance-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {"account_balance": 1000000000},
+  "id": 1
+}'</span>
+</code></pre></div></div>
 
 <hr />
 
@@ -1395,7 +1531,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_account_history">alexandria_api.get_account_history <a href="#alexandria_api.get_account_history"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns account history</p>
 <h5 id="alexandria_api.get_account_history-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_account_history-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1411,13 +1547,27 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_account_name_from_seed">alexandria_api.get_account_name_from_seed <a href="#alexandria_api.get_account_name_from_seed"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns account name saved in blockchain based on human-readable seed name. In all further transactions, real blockchain account name should be used.</p>
 <h5 id="alexandria_api.get_account_name_from_seed-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_account_name_from_seed-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"seed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 <h5 id="alexandria_api.get_account_name_from_seed-expected_response_json">Expected Response JSON <a href="#alexandria_api.get_account_name_from_seed-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<h5 id="alexandria_api.get_account_name_from_seed-curl-examples">Example <code>curl</code> <a href="#alexandria_api.get_account_name_from_seed-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_account_name_from_seed", "params": {"seed" : "sophiatx_user"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api.get_account_name_from_seed-curl-responses">Response <code>curl</code> <a href="#alexandria_api.get_account_name_from_seed-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {"account_name": "7HLPQ1kpnAIWawkAEgcoN4I7qJY"},
+  "id": 1
+}'</span>
+</code></pre></div></div>
 
 <hr />
 
@@ -2278,7 +2428,16 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.transfer">alexandria_api.transfer <a href="#alexandria_api.transfer"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Creates "transfer" operation in requested json format.</p>
+<blockquote class="warning"> <h5>Applications can and should create such operation themselves and skipp this call.</h5> </blockquote>
+<p><b>Request:</b><br /></p>
+<li>from - sender account</li>
+<li>to - recipient account</li>
+<li>amount - amount of SPHTX tokens to be transfered</li>
+<li>memo - custom note</li>
+<p><b>Result:</b><br /></p>
+<li>op -  operation "transfer" created in required json format.</li>
+<p><br /></p>
 <h5 id="alexandria_api.transfer-parameter_json">Query Parameters JSON <a href="#alexandria_api.transfer-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -2290,7 +2449,7 @@ or use other API’s as the last option.</p>
 <h5 id="alexandria_api.transfer-expected_response_json">Expected Response JSON <a href="#alexandria_api.transfer-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"TODO:add name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transfer"</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -2301,6 +2460,31 @@ or use other API’s as the last option.</p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<h5 id="alexandria_api.transfer-curl-examples">Example <code>curl</code> <a href="#alexandria_api.transfer-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.transfer", "params": {"from": "7HLPQ1kpnAIWawkAEgcoN4I7qJY", "to": "YWV2w-Q5eB3e0gt_nKS1m85sc0U", "amount": "1000.000000 SPHTX","memo": "some note"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api.transfer-curl-responses">Response <code>curl</code> <a href="#alexandria_api.transfer-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {
+    "op": [
+      "transfer",
+      {
+        "fee": "0.000000 SPHTX",
+        "from": "user1",
+        "to": "7HLPQ1kpnAIWawkAEgcoN4I7qJY",
+        "amount": "1000.000000 SPHTX",
+        "memo": "some note"
+      }
+    ]
+  },
+  "id": 1
+}'</span>
+</code></pre></div></div>
 
 <hr />
 

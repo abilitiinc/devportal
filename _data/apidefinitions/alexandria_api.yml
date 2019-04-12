@@ -160,29 +160,44 @@
     parameter_json: '{"brain_key":""}'
     expected_response_json: '{"key_pair":{"pub_key":"SPH1111111111111111111111111111111114T1Anm","wif_priv_key":""}}'
   - api_method: alexandria_api.get_account
-    purpose: "Returns account info specified by name"
-    parameter_json: '{"account_name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ"}'
-    expected_response_json: '{"account":[{"id":44,"name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5exSMJE8QyFbHjtigobia2pGZj88eRG3nj3Te7XFWVLfB6JewS",1]]},"memo_key":"SPH8eAn9t5ryjarx88uvXvFoysBYqaRLNhpTNFgqdBWjSHLoonypi","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":""}]}'
+    purpose: Returns account info specified by name. Either seed name or blockchain real account name can be used.
+    parameter_json: '{"account_name":""}'
+    expected_response_json: '{"account":[{"id":0,"name":"","owner":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"active":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"memo_key":"","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":""}]}'
     curl_examples:
-    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_account", "params": {"account_name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ"}, "id": 1}'
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_account", "params": {"account_name" : "sophiatx_user"}, "id": 1}'
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_account", "params": {"account_name" : "7HLPQ1kpnAIWawkAEgcoN4I7qJY"}, "id": 1}'
+    curl_responses:
+    - '{"jsonrpc":"2.0","result":{"account":[{"id":50,"name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",1]]},"memo_key":"SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy","json_metadata":"{\"data\":\"anything related to the sophiatx_user\"}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":""}]},"id":1}'
+    - '{"jsonrpc":"2.0","result":{"account":[{"id":50,"name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",1]]},"memo_key":"SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy","json_metadata":"{\"data\":\"anything related to the sophiatx_user\"}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":""}]},"id":1}'
   - api_method: alexandria_api.get_accounts
-    purpose: "Returns accounts info specified by names"
+    purpose: Returns accounts info specified by names. Either seed names or blockchain real account names can be used.
     parameter_json: '{"account_names":["dsgrjxA6FHQA2CV4W-vezsaYrQQ", "ayp1dsJTvH13b8k_4aXTZC5rp5g"]}'
-    expected_response_json: '{"accounts":[{"id":44,"name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5exSMJE8QyFbHjtigobia2pGZj88eRG3nj3Te7XFWVLfB6JewS",1]]},"memo_key":"SPH8eAn9t5ryjarx88uvXvFoysBYqaRLNhpTNFgqdBWjSHLoonypi","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]},{"id":45,"name":"ayp1dsJTvH13b8k_4aXTZC5rp5g","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5enokWABeJzdtyTKJ7psxv3ex85PcschmGugNX38ioUSiJy9nk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH4ycHC92BWtYWQyDKc5v2331z4HQ1VTQcVMic76ZE2CrwCG7h1X",1]]},"memo_key":"SPH7s5uMfDoKwPXiczxp23j7SaAvWBDvZNak3aNegLaB6SPEp1S3u","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]}]}'
+    expected_response_json: '{"accounts":[{"id":0,"name":"","owner":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"active":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"memo_key":"","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]}]}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.get_accounts", "params": {"account_names":["dsgrjxA6FHQA2CV4W-vezsaYrQQ", "ayp1dsJTvH13b8k_4aXTZC5rp5g"]}, "id": 1}'
+    curl_responses:
+    -  '{"jsonrpc":"2.0","result":{"accounts":[{"id":44,"name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5exSMJE8QyFbHjtigobia2pGZj88eRG3nj3Te7XFWVLfB6JewS",1]]},"memo_key":"SPH8eAn9t5ryjarx88uvXvFoysBYqaRLNhpTNFgqdBWjSHLoonypi","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]},{"id":45,"name":"ayp1dsJTvH13b8k_4aXTZC5rp5g","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5enokWABeJzdtyTKJ7psxv3ex85PcschmGugNX38ioUSiJy9nk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH4ycHC92BWtYWQyDKc5v2331z4HQ1VTQcVMic76ZE2CrwCG7h1X",1]]},"memo_key":"SPH7s5uMfDoKwPXiczxp23j7SaAvWBDvZNak3aNegLaB6SPEp1S3u","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]}]},"id":1}'
   - api_method: alexandria_api.get_account_balance
-    purpose:
+    purpose: Returns account balance in SOPHIATX_SATOSHIS<br>
+              1 SPHTX = 1000 000 SOPHIATX_SATOSHIS
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"account_balance":0}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_account_balance", "params": {"account_name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY"}, "id": 1}'
+    curl_responses:
+    - '{"jsonrpc":"2.0","result":{"account_balance":1000000000},"id":1}'
   - api_method: alexandria_api.get_account_history
-    purpose:
+    purpose: Returns account history
     parameter_json: '{"account":"","start":0,"limit":0}'
     expected_response_json: '{"account_history":[]}'
   - api_method: alexandria_api.get_account_name_from_seed
-    purpose:
+    purpose: Returns account name saved in blockchain based on human-readable seed name. In all further transactions, real blockchain account name should be used.
     parameter_json: '{"seed":""}'
     expected_response_json: '{"account_name":""}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_account_name_from_seed", "params": {"seed" : "sophiatx_user"}, "id": 1}'
+    curl_responses:
+    -  '{"jsonrpc":"2.0","result":{"account_name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY"},"id":1}'
   - api_method: alexandria_api.get_active_authority
     purpose:
     parameter_json: '{"account_name":""}'
@@ -416,9 +431,28 @@
     parameter_json: '{"data":""}'
     expected_response_json: '{"base64_str":""}'
   - api_method: alexandria_api.transfer
-    purpose: 
+    purpose: Creates \"transfer\" operation in requested json format.
+
+      <blockquote class="warning">
+      <h5>Applications can and should create such operation themselves and skipp this call.</h5>
+      </blockquote>
+
+      <b>Request:</b><br>
+
+      <li>from - sender account</li>
+      <li>to - recipient account</li>
+      <li>amount - amount of SPHTX tokens to be transfered</li>
+      <li>memo - custom note</li>
+
+      <b>Result:</b><br>
+
+      <li>op -  operation "transfer" created in required json format.</li><br>
     parameter_json: '{"from":"","to":"","amount":"0.000000 SPHTX","memo":""}'
-    expected_response_json: '{"op":["TODO:add name",{"fee":"0.000000 SPHTX","from":"","to":"","amount":"0.000000SPHTX","memo":""}]}'
+    expected_response_json: '{"op":["transfer",{"fee":"0.000000 SPHTX","from":"","to":"","amount":"0.000000SPHTX","memo":""}]}'
+    curl_examples:
+    -  '{"jsonrpc": "2.0", "method": "alexandria_api.transfer", "params": {"from": "7HLPQ1kpnAIWawkAEgcoN4I7qJY", "to": "YWV2w-Q5eB3e0gt_nKS1m85sc0U", "amount": "1000.000000 SPHTX","memo": "some note"}, "id": 1}'
+    curl_responses:
+    -   '{"jsonrpc":"2.0","result":{"op":["transfer",{"fee":"0.000000 SPHTX","from":"user1","to":"7HLPQ1kpnAIWawkAEgcoN4I7qJY","amount":"1000.000000 SPHTX","memo":"some note"}]},"id":1}'
   - api_method: alexandria_api.transfer_to_vesting
     purpose: 
     parameter_json: '{"from":"","to":"","amount":"0.000000 SPHTX"}'
