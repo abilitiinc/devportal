@@ -178,9 +178,14 @@
     curl_responses:
     -  '{"jsonrpc":"2.0","result":{"accounts":[{"id":44,"name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5exSMJE8QyFbHjtigobia2pGZj88eRG3nj3Te7XFWVLfB6JewS",1]]},"memo_key":"SPH8eAn9t5ryjarx88uvXvFoysBYqaRLNhpTNFgqdBWjSHLoonypi","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]},{"id":45,"name":"ayp1dsJTvH13b8k_4aXTZC5rp5g","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5enokWABeJzdtyTKJ7psxv3ex85PcschmGugNX38ioUSiJy9nk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH4ycHC92BWtYWQyDKc5v2331z4HQ1VTQcVMic76ZE2CrwCG7h1X",1]]},"memo_key":"SPH7s5uMfDoKwPXiczxp23j7SaAvWBDvZNak3aNegLaB6SPEp1S3u","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]}]},"id":1}'
   - api_method: alexandria_api.get_account_balance
-    purpose: Returns account balance
+    purpose: Returns account balance in SOPHIATX_SATOSHIS<br>
+              1 SPHTX = 1000 000 SOPHIATX_SATOSHIS
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"account_balance":0}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_account_balance", "params": {"account_name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY"}, "id": 1}'
+    curl_responses:
+    - '{"jsonrpc":"2.0","result":{"account_balance":1000000000},"id":1}'
   - api_method: alexandria_api.get_account_history
     purpose: Returns account history
     parameter_json: '{"account":"","start":0,"limit":0}'
