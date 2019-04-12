@@ -160,7 +160,11 @@
     parameter_json: '{"brain_key":""}'
     expected_response_json: '{"key_pair":{"pub_key":"SPH1111111111111111111111111111111114T1Anm","wif_priv_key":""}}'
   - api_method: alexandria_api.get_account_name_from_seed
-    purpose: Returns account name saved in blockchain based on human-readable seed name. In all further transactions, real blockchain account name should be used.
+    purpose: Returns account name saved in blockchain based on human-readable seed name.
+
+              <blockquote class="warning">
+                <h5>In all further transactions that write data into blockchain, real blockchain account name must be used. !!!</h5>
+              </blockquote>
     parameter_json: '{"seed":""}'
     expected_response_json: '{"account_name":""}'
     curl_examples:
