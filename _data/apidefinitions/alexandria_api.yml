@@ -18,19 +18,23 @@
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.about", "params": {}, "id": 1}'
   - api_method: get_version
-    purpose: "Returns blockchain_version, sophiatx_revision, fc_revision and chain_id"
+    purpose: Returns the versions of blockchain, SophiaTX, and FC.
     parameter_json: "{}"
-    expected_response_json: '{"version_info":{"blockchain_version":"1.0.0","sophiatx_revision":"d3032b2840d0c5838df512532f98b28a2ce491e6","fc_revision":"b2b6ed37e8172eeddd3e167cba13a3aac83f409c","chain_id":"f8174877749eb3b8ba9202be14c2179c265e72de93f7c9dcd1d943dd03664352"}}'
+    expected_response_json: '{"version_info":{"blockchain_version":"1.0.0","sophiatx_revision":"0000000000000000000000000000000000000000","fc_revision":"","chain_id":"000000000000000000000000000000000000000000000000000000000000000000000000"}}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.get_version", "params": {}, "id": 1}'
+    curl_responses:
+    -  '{"jsonrpc":"2.0","result":{"version_info":{"blockchain_version":"1.0.0","sophiatx_revision":"d3032b2840d0c5838df512532f98b28a2ce491e6","fc_revision":"b2b6ed37e8172eeddd3e167cba13a3aac83f409c","chain_id":"f8174877749eb3b8ba9202be14c2179c265e72de93f7c9dcd1d943dd03664352"}},"id":1}'
   - api_method: get_dynamic_global_properties
-    purpose: "Returns current dynamic global properties as head_block_id, last_irreversible_block_num, etc..."
+    purpose: 'Returns the current dynamic global properties. See [Understanding Dynamic Global Properties](/tutorials/#tutorials-dynamic-global-properties)'
     parameter_json: "{}"
-    expected_response_json: '{"properties":{"head_block_number":175285,"head_block_id":"0002acb589cb78dd7df99ec280409c90d4c81c88","time":"2018-11-13T13:21:39","current_witness":"initminer","current_supply":"350076108.008910 SPHTX","total_vesting_shares":"20902.530590 VESTS","witness_required_vesting":"250000.000000 VESTS","maximum_block_size":262144,"current_aslot":3430033,"recent_slots_filled":"340282366920938463463374607431768211455","participation_count":128,"last_irreversible_block_num":175234,"average_block_size":25}}'
+    expected_response_json: '{"properties":{"head_block_number":0,"head_block_id":"0000000000000000000000000000000000000000","time":"1970-01-01T00:00:00","current_witness":"","current_supply":"0.000000 SPHTX","total_vesting_shares":"0.000000 VESTS","witness_required_vesting":"0.000000 VESTS","maximum_block_size":0,"current_aslot":0,"recent_slots_filled":"0","participation_count":0,"last_irreversible_block_num":0,"average_block_size":0}}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.get_dynamic_global_properties", "params": {}, "id": 1}'
+    curl_responses:
+    - '{"jsonrpc":"2.0","result":{"properties":{"head_block_number":58019,"head_block_id":"0000e2a396fb66a55ae156bf48ce26105b984826","time":"1970-01-01T00:00:00","current_witness":"initminer","current_supply":"350015744.660303 SPHTX","total_vesting_shares":"4169.375986 VESTS","witness_required_vesting":"250000.000000 VESTS","maximum_block_size":262144,"current_aslot":7835941,"recent_slots_filled":"340282366920938463463374607431768211455","participation_count":128,"last_irreversible_block_num":57968,"average_block_size":49}},"id":1}'
   - api_method: get_key_references
-    purpose: "Returns account names paired with provided public keys"
+    purpose: Returns all accounts that have the key associated with their owner or active authorities.
     parameter_json: '{"keys":["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk"]}'
     expected_response_json: '{"accounts":[["dsgrjxA6FHQA2CV4W-vezsaYrQQ"]]}'
     curl_examples:
@@ -50,7 +54,7 @@
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]},"signature":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}'
     expected_response_json: '{"signed_tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
   - api_method: broadcast_transaction
-    purpose: 
+    purpose: Used to broadcast a transaction and waits for it to be processed synchronously.
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
     expected_response_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[],"transaction_id":"0000000000000000000000000000000000000000","block_num":0,"transaction_num":0}}'
   - api_method: buy_application
@@ -206,7 +210,7 @@
     curl_responses:
     - '{"jsonrpc":"2.0","result":{"account_balance":1000000000},"id":1}'
   - api_method: get_account_history
-    purpose: Returns account history
+    purpose: Returns a history of all operations for a given account.
     parameter_json: '{"account":"","start":0,"limit":0}'
     expected_response_json: '{"account_history":[]}'
   - api_method: get_active_authority
@@ -214,9 +218,11 @@
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"active_authority":{"weight_threshold":0,"account_auths":[],"key_auths":[]}}'
   - api_method: get_active_witnesses
-    purpose:
+    purpose: Returns the list of active witnesses.
     parameter_json: "{}"
     expected_response_json: '{"active_witnesses":[]}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_active_witnesses", "params": {}, "id": 1}'
   - api_method: get_application_buyings
     purpose:
     parameter_json: '{"name":"","search_type":"","count":0}'
@@ -230,9 +236,13 @@
     parameter_json: '{"ids":[]}'
     expected_response_json: '{"applications":[]}'
   - api_method: get_block
-    purpose:
+    purpose: Returns the details of a block based on a block num.<br><br>
     parameter_json: '{"num":0}'
-    expected_response_json: "{}"
+    expected_response_json: '{"block":{"previous":"0000e11cfaab5a841cc6f33b6d94efd58d186800","timestamp":"1970-01-01T00:00:00","witness":"","transaction_merkle_root":"0000000000000000000000000000000000000000","extensions":[],"witness_signature":"","transactions":[],"block_id":"0000000000000000000000000000000000000000","signing_key":"SPH1111111111111111111111111111111114T1Anm","transaction_ids":[]}}'
+    curl_examples:
+    - '{"jsonrpc": "2.0", "method": "alexandria_api.get_block", "params": {"num":57629}, "id": 1}'
+    curl_responses:
+    - '{"jsonrpc":"2.0","result":{"block":{"previous":"0000000000000000000000000000000000000000","timestamp":"2019-04-15T12:37:33","witness":"","transaction_merkle_root":"0000000000000000000000000000000000000000","extensions":[],"witness_signature":"1f56ee79e72e287ed205775c9caf02c805516e28513da8963ecf9ab26d84c5e4bd400553054fb4e51d7c3e2254e4075afd0c9b740f0fcc07869b7419c6af485d86","transactions":[],"block_id":"0000e11dcd83233a6d0c8ec43ecaf1626115f86e","signing_key":"SPH6LLegbAgLAy28EHrffBVuANFWcFgmqRMW13wBmTExqFE9SCkg4","transaction_ids":[]}},"id":1}'
   - api_method: get_feed_history
     purpose:
     parameter_json: '{"symbol":""}'
@@ -243,7 +253,7 @@
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"memo_key":"SPH1111111111111111111111111111111114T1Anm"}'
   - api_method: get_ops_in_block
-    purpose:
+    purpose: Returns all operations contained in a block.
     parameter_json: '{"block_num":0,"only_virtual":false}'
     expected_response_json: '{"ops_in_block":[]}'
   - api_method: get_owner_authority
@@ -251,7 +261,7 @@
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"owner_authority":{"weight_threshold":0,"account_auths":[],"key_auths":[]}}'
   - api_method: get_owner_history
-    purpose:
+    purpose: Returns the owner history of an account.
     parameter_json: '{"account":""}'
     expected_response_json: '{"owner_history":[]}'
   - api_method: get_public_key
@@ -286,11 +296,11 @@
     curl_responses:
     -  '{"received_documents":[[1,{"id":4,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data\"}","received":"2019-04-05T08:39:42","binary":false}],[2,{"id":5,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data idx 2\"}","received":"2019-04-05T08:39:54","binary":false}],[3,{"id":6,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data idx 3\"}","received":"2019-04-05T08:40:00","binary":false}]]}'
   - api_method: get_required_signatures
-    purpose:
+    purpose: Returns list of public keys (authorities) required for signing provided transaction.
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
     expected_response_json: '{"required_signatures":[]}'
   - api_method: get_transaction
-    purpose:
+    purpose: Returns the details of a transaction based on a transaction id.
     parameter_json: '{"tx_id":"0000000000000000000000000000000000000000"}'
     expected_response_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[],"transaction_id":"0000000000000000000000000000000000000000","block_num":0,"transaction_num":0}}'
   - api_method: get_transaction_digest
@@ -310,11 +320,11 @@
     parameter_json: '{"owner_account":""}'
     expected_response_json: "{}"
   - api_method: list_witnesses
-    purpose:
+    purpose: Returns current witnesses.
     parameter_json: '{"start":"","limit":0}'
     expected_response_json: '{"witnesses":[]}'
   - api_method: list_witnesses_by_vote
-    purpose:
+    purpose: Returns current witnesses by vote.
     parameter_json: '{"name":"","limit":0}'
     expected_response_json: '{"witnesses_by_vote":[]}'
   - api_method: make_custom_binary_operation

@@ -145,6 +145,10 @@
 						
 					
 						
+						<li><a href="/tutorials/#tutorials-dynamic-global-properties">Understanding Dynamic Global Properties</a></li>
+						
+					
+						
 						<li><a href="/tutorials/#tutorials-guide-automatic-deploy">Node Deploy script</a></li>
 						
 					
@@ -919,6 +923,195 @@ private_key is private key of USERNAME</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
+
+		</section>
+	
+		<section id="tutorials-dynamic-global-properties" class="row tutorials-dynamic-global-properties">
+			<h3>
+				<a id="tutorials-dynamic-global-properties">
+					Understanding Dynamic Global Properties
+					
+				</a>
+			</h3>
+			
+				<p class="description">Maintains global state information</p>
+			
+
+			<h3 id="intro">Intro</h3>
+
+<p>Dynamic Global Properties represents a set of values that are calculated during normal chain operations and reflect the current values of global blockchain properties.</p>
+
+<p>The <a href="#example-method-call">API call</a> returns an object containing information that changes every block interval such as the head block number, the total vesting fund, etc.</p>
+
+<h3 id="sections">Sections</h3>
+
+<ul>
+  <li>Fields
+    <ul>
+      <li><a href="#head_block_number">head_block_number</a></li>
+      <li><a href="#head_block_id">head_block_id</a></li>
+      <li><a href="#time">time</a></li>
+      <li><a href="#current_witness">current_witness</a></li>
+      <li><a href="#current_supply">current_supply</a></li>
+      <li><a href="#total_vesting_shares">total_vesting_shares</a></li>
+      <li><a href="#witness_required_vesting">witness_required_vesting</a></li>
+      <li><a href="#maximum_block_size">maximum_block_size</a></li>
+      <li><a href="#current_aslot">current_aslot</a></li>
+      <li><a href="#recent_slots_filled">recent_slots_filled</a></li>
+      <li><a href="#participation_count">participation_count</a></li>
+      <li><a href="#last_irreversible_block_num">last_irreversible_block_num</a></li>
+      <li><a href="#average_block_size-removed">average_block_size</a></li>
+    </ul>
+  </li>
+  <li><a href="#not-covered">Not Covered</a></li>
+  <li><a href="#example-method-call">Example Method Call</a></li>
+  <li><a href="#example-output">Example Output</a></li>
+</ul>
+
+<h3 id="head_block_number"><code class="highlighter-rouge">head_block_number</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>Block height at the head of the blockchain.  This represents the latest block produced by witnesses.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">24155032</code></li>
+</ul>
+
+<h3 id="head_block_id"><code class="highlighter-rouge">head_block_id</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>Used to implement TaPoS (Transaction as Proof of Stake).  The first 4 bytes (8 hex digits) of the block ID represents the block number.  E.g., <code class="highlighter-rouge">01709398</code> in hex is <code class="highlighter-rouge">24155032</code> in decimal.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">0170939865fa4e3aa7fca8f8df35d23333fe0bee</code></li>
+  <li>see: <a href="https://en.wikipedia.org/wiki/RIPEMD#RIPEMD-160_hashes">RIPEMD-160 hashes</a></li>
+</ul>
+
+<h3 id="time"><code class="highlighter-rouge">time</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>Point in time (UTC) that the block was included in the chain.</p>
+
+<p>Used to synchronize events like Hard Fork activation.</p>
+
+<p>When attempting to calculate the validity of a transaction we need to lookup a past block and check its block hash and the time it occurred so we can calculate whether the current transaction is valid and at what time it should expire.</p>
+
+<p>For new transactions, expirations originate from this time.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">2018-07-14T01:19:51</code></li>
+</ul>
+
+<h3 id="current_witness"><code class="highlighter-rouge">current_witness</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>Account name of the current witness.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">blocktrades</code></li>
+</ul>
+
+<h3 id="current_supply"><code class="highlighter-rouge">current_supply</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>SPHTX currently in existence.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">271546371.129 SPHTX</code></li>
+</ul>
+
+<h3 id="total_vesting_shares"><code class="highlighter-rouge">total_vesting_shares</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>VESTS that are invested in SPHTX.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">390950506702.452773 SPHTX</code></li>
+</ul>
+
+<h3 id="witness_required_vesting"><code class="highlighter-rouge">witness_required_vesting</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>VESTS that are required to be invested in SPHTX to in order to become a witness.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">300000.000000 SPHTX</code></li>
+</ul>
+
+<h3 id="maximum_block_size"><code class="highlighter-rouge">maximum_block_size</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>Maximum block size is decided by the set of active witnesses which change every round.  Each witness posts what they think the maximum size should be as part of their witness properties, the median size is chosen to be the maximum block size for the round.</p>
+
+<p><strong>Note:</strong> the minimum value for <code class="highlighter-rouge">maximum_block_size</code> is defined by the protocol to prevent the network from getting stuck by witnesses attempting to set this too low.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">65536</code></li>
+</ul>
+
+<h3 id="current_aslot"><code class="highlighter-rouge">current_aslot</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>The current absolute slot number.  Equal to the total number of slots since genesis.  Also equal to the total number of missed slots plus <code class="highlighter-rouge">head_block_number</code>.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">24231997</code></li>
+</ul>
+
+<h3 id="recent_slots_filled"><code class="highlighter-rouge">recent_slots_filled</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>Used to compute witness participation.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">340282366920938463463374607431768211455</code></li>
+</ul>
+
+<h3 id="last_irreversible_block_num"><code class="highlighter-rouge">last_irreversible_block_num</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>The latest block number that has been confirmed by two thirds of all block producers and is thus irreversible.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">24155017</code></li>
+</ul>
+
+<h3 id="average_block_size-removed"><code class="highlighter-rouge">average_block_size</code> <span class="danger removed">Removed</span><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>Average block size is updated every block to be: <code class="highlighter-rouge">average_block_size = (99 * average_block_size + new_block_size) / 100</code>.  This property is used to update the <code class="highlighter-rouge">current_reserve_ratio</code> to maintain approximately *  50% or less utilization of network capacity.</p>
+
+<ul>
+  <li>example: <code class="highlighter-rouge">9309</code></li>
+</ul>
+
+<h3 id="not-covered"><code class="highlighter-rouge">Not Covered</code><a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>Fields not covered in this recipe are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">participation_count</code></li>
+</ul>
+
+<h3 id="example-method-call">Example Method Call<a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<p>To retrieve the current results for <a href="/apidefinitions/#alexandria_api.get_dynamic_global_properties"><code class="highlighter-rouge">alexandria_api.get_dynamic_global_properties</code></a>, we can retrieve the current state information using <code class="highlighter-rouge">curl</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"alexandria_api.get_dynamic_global_properties", "params":{}, "id":1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h3 id="example-output">Example Output<a style="float: right" href="#sections"><i class="fas fa-chevron-up fa-sm"></i></a></h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"head_block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">58019</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"head_block_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000e2a396fb66a55ae156bf48ce26105b984826"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current_witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initminer"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current_supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"350015744.660303 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4169.375986 VESTS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"witness_required_vesting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250000.000000 VESTS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">262144</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current_aslot"</span><span class="p">:</span><span class="w"> </span><span class="mi">7835941</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"recent_slots_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"340282366920938463463374607431768211455"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_irreversible_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">57968</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"average_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 		</section>
 	

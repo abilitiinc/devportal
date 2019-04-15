@@ -145,6 +145,10 @@
 						
 					
 						
+						<li><a href="/tutorials/#tutorials-dynamic-global-properties">Understanding Dynamic Global Properties</a></li>
+						
+					
+						
 						<li><a href="/tutorials/#tutorials-guide-automatic-deploy">Node Deploy script</a></li>
 						
 					
@@ -300,7 +304,7 @@
 
 <p>Best practice for application developers is to use one of the provided <a href="/sdks/">SDK’s</a> depending on what language the application is writenn in.</p>
 
-<p>If there is no such SDK, then use directly alexandria_api. In case there are some methods missing in alexandria_api, please create an issue <a href="https://github.com/SophiaTX/SophiaTX/issues">here</a>
+<p>If there is no such SDK, then use directly <a href="/apidefinitions/#apidefinitions-alexandria-api/">alexandria_api</a>. In case there are some methods missing in alexandria_api, please create an issue <a href="https://github.com/SophiaTX/SophiaTX/issues">here</a>
 or use other API’s as the last option.</p>
 
 		</section>
@@ -1139,7 +1143,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_version">alexandria_api.get_version <a href="#alexandria_api.get_version"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns blockchain_version, sophiatx_revision, fc_revision and chain_id</p>
+<p>Returns the versions of blockchain, SophiaTX, and FC.</p>
 <h5 id="alexandria_api.get_version-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_version-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
 </span></code></pre></div></div>
@@ -1147,9 +1151,9 @@ or use other API’s as the last option.</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"version_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"blockchain_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"sophiatx_revision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d3032b2840d0c5838df512532f98b28a2ce491e6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fc_revision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b2b6ed37e8172eeddd3e167cba13a3aac83f409c"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"chain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f8174877749eb3b8ba9202be14c2179c265e72de93f7c9dcd1d943dd03664352"</span><span class="w">
+    </span><span class="s2">"sophiatx_revision"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fc_revision"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"chain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000000000000000000000000000000000000000000000000000000000000000"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1157,6 +1161,22 @@ or use other API’s as the last option.</p>
 <h5 id="alexandria_api.get_version-curl-examples">Example <code>curl</code> <a href="#alexandria_api.get_version-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_version", "params": {}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api.get_version-curl-responses">Response <code>curl</code> <a href="#alexandria_api.get_version-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {
+    "version_info": {
+      "blockchain_version": "1.0.0",
+      "sophiatx_revision": "d3032b2840d0c5838df512532f98b28a2ce491e6",
+      "fc_revision": "b2b6ed37e8172eeddd3e167cba13a3aac83f409c",
+      "chain_id": "f8174877749eb3b8ba9202be14c2179c265e72de93f7c9dcd1d943dd03664352"
+    }
+  },
+  "id": 1
+}'</span>
 </code></pre></div></div>
 
 <hr />
@@ -1167,26 +1187,26 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_dynamic_global_properties">alexandria_api.get_dynamic_global_properties <a href="#alexandria_api.get_dynamic_global_properties"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns current dynamic global properties as head_block_id, last_irreversible_block_num, etc…</p>
+<p>Returns the current dynamic global properties. See <a href="/tutorials/#tutorials-dynamic-global-properties">Understanding Dynamic Global Properties</a></p>
 <h5 id="alexandria_api.get_dynamic_global_properties-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_dynamic_global_properties-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
 </span></code></pre></div></div>
 <h5 id="alexandria_api.get_dynamic_global_properties-expected_response_json">Expected Response JSON <a href="#alexandria_api.get_dynamic_global_properties-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"head_block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">175285</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"head_block_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002acb589cb78dd7df99ec280409c90d4c81c88"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-13T13:21:39"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initminer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"350076108.008910 SPHTX"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total_vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20902.530590 VESTS"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"witness_required_vesting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250000.000000 VESTS"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">262144</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_aslot"</span><span class="p">:</span><span class="w"> </span><span class="mi">3430033</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"recent_slots_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"340282366920938463463374607431768211455"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_irreversible_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">175234</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"average_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
+    </span><span class="s2">"head_block_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"head_block_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_supply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 VESTS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"witness_required_vesting"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 VESTS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_aslot"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recent_slots_filled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"participation_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_irreversible_block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"average_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1194,6 +1214,31 @@ or use other API’s as the last option.</p>
 <h5 id="alexandria_api.get_dynamic_global_properties-curl-examples">Example <code>curl</code> <a href="#alexandria_api.get_dynamic_global_properties-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_dynamic_global_properties", "params": {}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api.get_dynamic_global_properties-curl-responses">Response <code>curl</code> <a href="#alexandria_api.get_dynamic_global_properties-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {
+    "properties": {
+      "head_block_number": 58019,
+      "head_block_id": "0000e2a396fb66a55ae156bf48ce26105b984826",
+      "time": "1970-01-01T00:00:00",
+      "current_witness": "initminer",
+      "current_supply": "350015744.660303 SPHTX",
+      "total_vesting_shares": "4169.375986 VESTS",
+      "witness_required_vesting": "250000.000000 VESTS",
+      "maximum_block_size": 262144,
+      "current_aslot": 7835941,
+      "recent_slots_filled": "340282366920938463463374607431768211455",
+      "participation_count": 128,
+      "last_irreversible_block_num": 57968,
+      "average_block_size": 49
+    }
+  },
+  "id": 1
+}'</span>
 </code></pre></div></div>
 
 <hr />
@@ -1204,7 +1249,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_key_references">alexandria_api.get_key_references <a href="#alexandria_api.get_key_references"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns account names paired with provided public keys</p>
+<p>Returns all accounts that have the key associated with their owner or active authorities.</p>
 <h5 id="alexandria_api.get_key_references-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_key_references-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1319,7 +1364,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.broadcast_transaction">alexandria_api.broadcast_transaction <a href="#alexandria_api.broadcast_transaction"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Used to broadcast a transaction and waits for it to be processed synchronously.</p>
 <h5 id="alexandria_api.broadcast_transaction-parameter_json">Query Parameters JSON <a href="#alexandria_api.broadcast_transaction-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"tx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2054,7 +2099,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_account_history">alexandria_api.get_account_history <a href="#alexandria_api.get_account_history"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Returns account history</p>
+<p>Returns a history of all operations for a given account.</p>
 <h5 id="alexandria_api.get_account_history-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_account_history-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -2092,13 +2137,18 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_active_witnesses">alexandria_api.get_active_witnesses <a href="#alexandria_api.get_active_witnesses"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns the list of active witnesses.</p>
 <h5 id="alexandria_api.get_active_witnesses-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_active_witnesses-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
 </span></code></pre></div></div>
 <h5 id="alexandria_api.get_active_witnesses-expected_response_json">Expected Response JSON <a href="#alexandria_api.get_active_witnesses-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"active_witnesses"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
 </span></code></pre></div></div>
+
+<h5 id="alexandria_api.get_active_witnesses-curl-examples">Example <code>curl</code> <a href="#alexandria_api.get_active_witnesses-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_active_witnesses", "params": {}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
 
 <hr />
 
@@ -2156,13 +2206,53 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_block">alexandria_api.get_block <a href="#alexandria_api.get_block"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns the details of a block based on a block num.<br /><br /></p>
 <h5 id="alexandria_api.get_block-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_block-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 <h5 id="alexandria_api.get_block-expected_response_json">Expected Response JSON <a href="#alexandria_api.get_block-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"block"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000e11cfaab5a841cc6f33b6d94efd58d186800"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_merkle_root"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"witness_signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"block_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"signing_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<h5 id="alexandria_api.get_block-curl-examples">Example <code>curl</code> <a href="#alexandria_api.get_block-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.get_block", "params": {"num":57629}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api.get_block-curl-responses">Response <code>curl</code> <a href="#alexandria_api.get_block-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {
+    "block": {
+      "previous": "0000000000000000000000000000000000000000",
+      "timestamp": "2019-04-15T12:37:33",
+      "witness": "",
+      "transaction_merkle_root": "0000000000000000000000000000000000000000",
+      "extensions": [],
+      "witness_signature": "1f56ee79e72e287ed205775c9caf02c805516e28513da8963ecf9ab26d84c5e4bd400553054fb4e51d7c3e2254e4075afd0c9b740f0fcc07869b7419c6af485d86",
+      "transactions": [],
+      "block_id": "0000e11dcd83233a6d0c8ec43ecaf1626115f86e",
+      "signing_key": "SPH6LLegbAgLAy28EHrffBVuANFWcFgmqRMW13wBmTExqFE9SCkg4",
+      "transaction_ids": []
+    }
+  },
+  "id": 1
+}'</span>
+</code></pre></div></div>
 
 <hr />
 
@@ -2215,7 +2305,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_ops_in_block">alexandria_api.get_ops_in_block <a href="#alexandria_api.get_ops_in_block"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns all operations contained in a block.</p>
 <h5 id="alexandria_api.get_ops_in_block-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_ops_in_block-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"block_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"only_virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -2253,7 +2343,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_owner_history">alexandria_api.get_owner_history <a href="#alexandria_api.get_owner_history"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns the owner history of an account.</p>
 <h5 id="alexandria_api.get_owner_history-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_owner_history-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -2367,7 +2457,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_required_signatures">alexandria_api.get_required_signatures <a href="#alexandria_api.get_required_signatures"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns list of public keys (authorities) required for signing provided transaction.</p>
 <h5 id="alexandria_api.get_required_signatures-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_required_signatures-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"tx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2392,7 +2482,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.get_transaction">alexandria_api.get_transaction <a href="#alexandria_api.get_transaction"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns the details of a transaction based on a transaction id.</p>
 <h5 id="alexandria_api.get_transaction-parameter_json">Query Parameters JSON <a href="#alexandria_api.get_transaction-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"tx_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000"</span><span class="w">
@@ -2508,7 +2598,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.list_witnesses">alexandria_api.list_witnesses <a href="#alexandria_api.list_witnesses"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns current witnesses.</p>
 <h5 id="alexandria_api.list_witnesses-parameter_json">Query Parameters JSON <a href="#alexandria_api.list_witnesses-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -2524,7 +2614,7 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.list_witnesses_by_vote">alexandria_api.list_witnesses_by_vote <a href="#alexandria_api.list_witnesses_by_vote"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Returns current witnesses by vote.</p>
 <h5 id="alexandria_api.list_witnesses_by_vote-parameter_json">Query Parameters JSON <a href="#alexandria_api.list_witnesses_by_vote-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -3562,7 +3652,7 @@ still under development and subject to change.</strong></p>
 
 </ul>
 <h4 id="network_broadcast_api.broadcast_transaction_synchronous">network_broadcast_api.broadcast_transaction_synchronous <a href="#network_broadcast_api.broadcast_transaction_synchronous"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Used to broadcast a transaction and waits for it to be processed synchronously.</p>
 <h5 id="network_broadcast_api.broadcast_transaction_synchronous-parameter_json">Query Parameters JSON <a href="#network_broadcast_api.broadcast_transaction_synchronous-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"trx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
