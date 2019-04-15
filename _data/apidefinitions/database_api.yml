@@ -2,27 +2,28 @@
 # See: https://git.io/vx5CY
 ---
 - name: Database API
+  api_name: database_api
   description: Used to query information about accounts, transactions, and blockchain
     data. **These AppBase API methods are still under development and subject to change.**
   methods:
-  - api_method: database_api.get_active_witnesses
+  - api_method: get_active_witnesses
     purpose: Returns the list of active witnesses.
     parameter_json: "{}"
     expected_response_json: '{"witnesses":[]}'
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.get_active_witnesses", "id":1}'
-  - api_method: database_api.get_config
+  - api_method: get_config
     purpose: 'Returns information about compile-time constants. Some properties may
       not be present.  See: [Understanding Configuration Values](/tutorials-recipes/understanding-configuration-values)'
     parameter_json: "{}"
     expected_response_json: "{}"
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.get_config", "id":1}'
-  - api_method: database_api.get_current_price_feed
+  - api_method: get_current_price_feed
     purpose: Returns the current price feed.
     parameter_json: '{"symbol":"SPHTX"}'
     expected_response_json: '{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"}'
-  - api_method: database_api.get_dynamic_global_properties
+  - api_method: get_dynamic_global_properties
     purpose: 'Returns the current dynamic global properties.  See: [Understanding
       Dynamic Global Properties](/tutorials-recipes/understanding-dynamic-global-properties)'
     parameter_json: "{}"
@@ -32,20 +33,20 @@
       SPHTX","recent_slots_filled":"0","participation_count":0,"last_irreversible_block_num":0}'
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.get_dynamic_global_properties", "id":1}'
-  - api_method: database_api.get_feed_history
+  - api_method: get_feed_history
     purpose: Returns the history of price feed values.
     parameter_json: '{"symbol":"SPHTX"}'
     expected_response_json: '{"id":0,"symbol":"SPHTX","current_median_history":{"base":"0.000000
       SPHTX","quote":"0.000000 SPHTX"},"price_history":[]}'
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.get_feed_history", "id":1}'
-  - api_method: database_api.get_hardfork_properties
+  - api_method: get_hardfork_properties
     purpose: Returns the current properties about the blockchain's hardforks.
     parameter_json: "{}"
     expected_response_json: '{"id":0,"processed_hardforks":[],"last_hardfork":0,"current_hardfork_version":"0.0.0","next_hardfork":"0.0.0","next_hardfork_time":"1970-01-01T00:00:00"}'
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.get_hardfork_properties", "id":1}'
-  - api_method: database_api.get_potential_signatures
+  - api_method: get_potential_signatures
     purpose: This method will return the set of all public keys that could possibly
       sign for a given transaction.
     parameter_json: '{"trx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
@@ -53,7 +54,7 @@
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.get_potential_signatures", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]}},
       "id":1}'
-  - api_method: database_api.get_required_signatures
+  - api_method: get_required_signatures
     purpose: This API will take a partially signed transaction and a set of public
       keys that the owner has the ability to sign for and return the minimal subset
       of public keys that should add signatures to the transaction.
@@ -62,49 +63,49 @@
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.get_required_signatures", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]},"available_keys":[]},
       "id":1}'
-  - api_method: database_api.get_transaction_hex
+  - api_method: get_transaction_hex
     purpose: Returns a hexdump of the serialized binary form of a transaction.
     parameter_json: '{"trx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
     expected_response_json: '{"hex":""}'
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.get_transaction_hex", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]}},
       "id":1}'
-  - api_method: database_api.get_witness_schedule
+  - api_method: get_witness_schedule
     purpose: Returns the current witness schedule.
     parameter_json: "{}"
     expected_response_json: '{"id":0,"current_virtual_time":"0","next_shuffle_block_num":0,"current_shuffled_witnesses":[],"num_scheduled_witnesses":0,"top19_weight":0,"timeshare_weight":0,"witness_pay_normalization_factor":0,"median_props":{"account_creation_fee":"0.000000
       SPHTX","maximum_block_size":262144,"price_feeds":[]},"majority_version":"0.0.0","max_voted_witnesses":83,"max_runner_witnesses":80,"hardfork_required_witnesses":72}'
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.get_witness_schedule", "id":1}'
-  - api_method: database_api.list_account_recovery_requests
+  - api_method: list_account_recovery_requests
     purpose: Returns a list of account recovery requests.
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"requests":[]}'
-  - api_method: database_api.list_accounts
+  - api_method: list_accounts
     purpose: Returns a list of accounts.
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"accounts":[]}'
-  - api_method: database_api.list_change_recovery_account_requests
+  - api_method: list_change_recovery_account_requests
     purpose: Returns a list of recovery account change requests.
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"requests":[]}'
-  - api_method: database_api.list_escrows
+  - api_method: list_escrows
     purpose: Returns a list of escrows.
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"escrows":[]}'
-  - api_method: database_api.list_owner_histories
+  - api_method: list_owner_histories
     purpose: Returns a list of owner authority histories.
     parameter_json: '{"start":null,"limit":0}'
     expected_response_json: '{"owner_auths":[]}'
-  - api_method: database_api.list_witness_votes
+  - api_method: list_witness_votes
     purpose: Returns a list of witness votes.
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"votes":[]}'
-  - api_method: database_api.list_witnesses
+  - api_method: list_witnesses
     purpose: Returns the list of witnesses.
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"witnesses":[]}'
-  - api_method: database_api.verify_account_authority
+  - api_method: verify_account_authority
     disabled: true
     purpose: "**Not Implemented**\n"
     parameter_json: '{"account":"","signers":[]}'
@@ -114,57 +115,57 @@
       "id":1}'
     expected_curl_responses:
     - Missing Active Authority
-  - api_method: database_api.verify_authority
+  - api_method: verify_authority
     purpose: Returns true if the transaction has all of the required signatures.
     parameter_json: '{"trx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
     expected_response_json: '{"valid":false}'
     curl_examples:
     - '{"jsonrpc":"2.0", "method":"database_api.verify_authority", "params":{"trx":{"ref_block_num":1097,"ref_block_prefix":2181793527,"expiration":"2016-03-24T18:00:21","operations":[{"type":"pow_operation","value":{"worker_account":"cloop3","block_id":"00000449f7860b82b4fbe2f317c670e9f01d6d9a","nonce":3899,"work":{"worker":"STM7P5TDnA87Pj9T4mf6YHrhzjC1KbPZpNxLWCcVcHxNYXakpoT4F","input":"ae8e7c677119d22385f8c48026fee7aad7bba693bf788d7f27047f40b47738c0","signature":"1f38fe9a3f9989f84bd94aa5bbc88beaf09b67f825aa4450cf5105d111149ba6db560b582c7dbb026c7fc9c2eb5051815a72b17f6896ed59d3851d9a0f9883ca7a","work":"000e7b209d58f2e64b36e9bf12b999c6c7af168cc3fc41eb7f8a4bf796c174c3"},"props":{"account_creation_fee":{"amount":"100000","precision":3,"nai":"@@000000021"},"maximum_block_size":131072,"sbd_interest_rate":1000}}}],"extensions":[],"signatures":[]}},
       "id":1}'
-  - api_method: database_api.verify_signatures
+  - api_method: verify_signatures
     purpose: This is a general purpose API that checks signatures against accounts
       for an arbitrary sha256 hash using the existing authority structures.
     parameter_json: '{"hash":"0000000000000000000000000000000000000000000000000000000000000000","signatures":[],"required_owner":[],"required_active":[],"required_other":[]}'
     expected_response_json: '{"valid":false}'
-  - api_method: database_api.get_application_buyings
+  - api_method: get_application_buyings
     purpose: 
     parameter_json: '{"start":null,"limit":0,"search_type":""}'
     expected_response_json: '{"application_buyings":[]}'
-  - api_method: database_api.get_burned_balance
+  - api_method: get_burned_balance
     purpose: 
     parameter_json: "{}"
     expected_response_json: '"0.000000 SPHTX"'
-  - api_method: database_api.get_promotion_pool_balance
+  - api_method: get_promotion_pool_balance
     purpose: 
     parameter_json: "{}"
     expected_response_json: '"0.000000 SPHTX"'
-  - api_method: database_api.list_applications
+  - api_method: list_applications
     purpose: 
     parameter_json: '{"start":null,"limit":0,"order":"by_name"}'
     expected_response_json: '{"applications":[]}'
-  - api_method: database_api.find_account_recovery_requests
+  - api_method: find_account_recovery_requests
     purpose: Returns a list of account recovery requests.
     parameter_json: '{"accounts":[]}'
     expected_response_json: '{"requests":[]}'
-  - api_method: database_api.find_accounts
+  - api_method: find_accounts
     purpose: Search for accounts.
     parameter_json: '{"accounts":[]}'
     expected_response_json: '{"accounts":[]}'
-  - api_method: database_api.find_change_recovery_account_requests
+  - api_method: find_change_recovery_account_requests
     since: HF11
     purpose: Returns a list of requests to change the recovery account.
     parameter_json: '{"accounts":[]}'
     expected_response_json: '{"requests":[]}'
-  - api_method: database_api.find_escrows
+  - api_method: find_escrows
     since: HF14
     purpose: Returns a list of escrows.
     parameter_json: '{"from":""}'
     expected_response_json: '{"escrows":[]}'
-  - api_method: database_api.find_owner_histories
+  - api_method: find_owner_histories
     purpose: Returns owner authority history.
     parameter_json: '{"owner":""}'
     expected_response_json: '{"owner_auths":[]}'
-  - api_method: database_api.find_witnesses
+  - api_method: find_witnesses
     purpose: Search for witnesses.
     parameter_json: '{"owners":[]}'
     expected_response_json: '{"witnesses":[]}'

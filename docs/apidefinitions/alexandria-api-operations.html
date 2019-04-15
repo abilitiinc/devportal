@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:300,400" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/fav.png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/css/fontawesome-all.min.css">
+    <script src="/js/main.js"></script>
+
+    <!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Supported Operations - SophiaTX Developers</title>
+<meta property="og:title" content="Supported Operations" />
+<meta name="description" content="Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”, “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain." />
+<meta property="og:description" content="Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”, “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain." />
+<link rel="canonical" href="https://developers.sophiatx.com/apidefinitions/alexandria-api-operations" />
+<meta property="og:url" content="https://developers.sophiatx.com/apidefinitions/alexandria-api-operations" />
+<meta property="og:site_name" content="SophiaTX Developers" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "WebPage",
+"headline": "Supported Operations",
+"description": "Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”, “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain.",
+"url": "https://developers.sophiatx.com/apidefinitions/alexandria-api-operations"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+<header>
+    <h1>
+        <button type="button" class="open-nav" id="open-nav"></button>
+        <a href="/"  class="logo-link"><img src="/images/logo.svg" height="40" alt="SophiaTX Developers logo"></a>
+    </h1>
+
+    <form action="/search/" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search">
+        <input type="submit" value="Search" style="display: none;">
+    </form>
+
+    <div id="sidebar" class="sidebar">
+	
+	
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/">
+		<h6 class="ctrl-nav-section title">Introduction</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/#introduction-welcome">Welcome to SophiaTX Developer Portal</a></li>
+						
+					
+						
+						<li><a href="/#introduction-sophiatx-blockchain">SophiaTX Blockchain</a></li>
+						
+					
+						
+						<li><a href="/#introduction-chain-basics">Chain Basics</a></li>
+						
+					
+						
+						<li><a href="/#introduction-transactions">Transactions</a></li>
+						
+					
+						
+						<li><a href="/#introduction-governance">Governance</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/quickstart/">
+		<h6 class="ctrl-nav-section title">Quickstart</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/quickstart/#quickstart-technical-quickstart">Technical Quickstart</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-build-instructions">Build instructions</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-choose-sdk">Choose SDK</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-sophiatx-nodes">SophiaTX Nodes</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-testnet">SophiaTX testnet</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/tutorials/">
+		<h6 class="ctrl-nav-section title">Tutorials</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-to-become-witness">How to become witness</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-to-start-sync-node">How to start sync node</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-multiparty-encryption">Multiparty Encryption</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-subscription-api-quick-guide">Subscription API guide</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg-via-api">Hello World via API calls</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-automatic-deploy">Node Deploy script</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-custom-plugins">Custom plugins</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/sdks/">
+		<h6 class="ctrl-nav-section title">SDK'S</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
+						
+					
+						
+						<li><a href="/sdks/#sdks-javascript">Javascript SDK</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/apidefinitions/">
+		<h6 class="ctrl-nav-section title">API'S</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-introduction">Introduction</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-alexandria-api-operations">Supported Operations</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-alexandria-api">Alexandria Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-database-api">Database Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-jsonrpc">Jsonrpc</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-network-broadcast-api">Network Broadcast Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-account-history-api">Account History Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-block-api">Block Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-chain-api">Chain Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-custom-api">Custom Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-subscribe-api">Subscribe Api</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/demos/">
+		<h6 class="ctrl-nav-section title">Demo's</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
+		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/cli_wallet/#cli-wallet-introduction">Introduction</a></li>
+						
+					
+						
+						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+</div>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+</header>
+<div class="main" id="top">
+    <div class="hero">
+        <h1 class="hero__h1"></h1>
+        <!--<img class="hero__img" src="/images/hero.png">-->
+    </div>
+    <p>Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”,
+ “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain.<br /></p>
+
+<blockquote class="warning">
+    <h5>We provide helper methods that return the required format of some of the supported operations, but applications should not call these methods at all as the format does not change. Instead, SDK should take care of that.</h5>
+</blockquote>
+
+<p>List of supported operations by SophiaTX blockchain:</p>
+<ul>
+  <li><a href="/apidefinitions/#alexandria_api_operations.create_account">account_create</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.update_account">account_update</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.delete_account">account_delete</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.transfer">transfer</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.transfer_to_vesting">transfer_to_vesting</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.update_witness">witness_update</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.stop_witness">witness_stop</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.vote_for_witness">account_witness_vote</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.set_voting_proxy">account_witness_proxy</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.withdraw_vesting">withdraw_vesting</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.make_custom_json">custom_json</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.make_custom_binary">custom_binary</a></li>
+  <li>feed_publish</li>
+  <li>escrow_transfer</li>
+  <li>escrow_approve</li>
+  <li>escrow_dispute</li>
+  <li>escrow_release</li>
+  <li>request_account_recovery</li>
+  <li>recover_account</li>
+  <li>change_recovery_account</li>
+  <li>reset_account</li>
+  <li>set_reset_account</li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.create_application">application_create</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.update_application">application_update</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.delete_application">application_delete</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.buy_application">buy_application</a></li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.cancel_application_buying">cancel_application_buying</a></li>
+  <li>witness_set_properties</li>
+  <li>transfer_from_promotion_pool</li>
+  <li><a href="/apidefinitions/#alexandria_api_operations.sponsor_account_fees">sponsor_fees</a></li>
+  <li>admin_witness_update
+<br />
+<br /></li>
+</ul>
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.buy_application">alexandria_api_operations.buy_application <a href="#alexandria_api_operations.buy_application"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.buy_application-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.buy_application-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.buy_application-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.buy_application-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"buy_application"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.cancel_application_buying">alexandria_api_operations.cancel_application_buying <a href="#alexandria_api_operations.cancel_application_buying"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.cancel_application_buying-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.cancel_application_buying-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"app_owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.cancel_application_buying-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.cancel_application_buying-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"cancel_application_buying"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"app_owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.create_account">alexandria_api_operations.create_account <a href="#alexandria_api_operations.create_account"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Creates operation ‘account_create’ in required json format<br /><br /> <b>Request</b></p>
+<li>creator - existing account. It can be later used to regenerate private key of created account</li>
+<li>name_seed - seed name of the new account</li>
+<li>json_meta - any data related to the new account</li>
+<li>owner - owner public key. Paired private key has full control over this account</li>
+<li>active - active public key. Paired private key has restricted control over this account</li>
+<li>memo - memo public key. It is used for encrypting messages meant to be read only by this account. Paired private is used fot decrypting</li>
+<p><br />
+<b>Response</b></p>
+<li>op - operation "accunt_create" created in required json format</li>
+<p><br /></p>
+<h5 id="alexandria_api_operations.create_account-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.create_account-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name_seed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"json_meta"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.create_account-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.create_account-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"account_create"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name_seed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"memo_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"json_metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="alexandria_api_operations.create_account-curl-examples">Example <code>curl</code> <a href="#alexandria_api_operations.create_account-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.create_account", "params": {"creator": "user1","name_seed": "sophiatx_user","json_meta": "{\"data\":\"anything related to the sophiatx_user\"}","owner": "SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw","active": "SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP","memo": "SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api_operations.create_account-curl-responses">Response <code>curl</code> <a href="#alexandria_api_operations.create_account-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {
+    "op": [
+      "account_create",
+      {
+        "fee": "0.000000 SPHTX",
+        "creator": "user1",
+        "name_seed": "sophiatx_user",
+        "owner": {
+          "weight_threshold": 1,
+          "account_auths": [],
+          "key_auths": [
+            [
+              "SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",
+              1
+            ]
+          ]
+        },
+        "active": {
+          "weight_threshold": 1,
+          "account_auths": [],
+          "key_auths": [
+            [
+              "SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",
+              1
+            ]
+          ]
+        },
+        "memo_key": "SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy",
+        "json_metadata": "{\"data\":\"anything related to the sophiatx_user\"}"
+      }
+    ]
+  },
+  "id": 1
+}'</span>
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.create_application">alexandria_api_operations.create_application <a href="#alexandria_api_operations.create_application"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.create_application-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.create_application-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price_param"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.create_application-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.create_application-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"application_create"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_param"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.delete_account">alexandria_api_operations.delete_account <a href="#alexandria_api_operations.delete_account"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.delete_account-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.delete_account-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.delete_account-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.delete_account-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"account_delete"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w"> </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.delete_application">alexandria_api_operations.delete_application <a href="#alexandria_api_operations.delete_application"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.delete_application-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.delete_application-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"app_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.delete_application-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.delete_application-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"application_delete"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.make_custom_binary_operation">alexandria_api_operations.make_custom_binary_operation <a href="#alexandria_api_operations.make_custom_binary_operation"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Creates "custom_binary" operation in requested json format.</p>
+<blockquote class="warning"> <h5>Applications can and should create such operation themselves and skipp this call.</h5> </blockquote>
+<p><b>Request:</b><br /></p>
+<li>app_id - application-specific id</li>
+<li>from - sender account</li>
+<li>to - recipients accounts</li>
+<li>data - data in base64 format</li>
+<p><b>Result:</b><br /></p>
+<li>op -  operation "custom_binary" created in required json format. Important - "data" field inside operation is in hex format</li>
+<p><br /></p>
+<h5 id="alexandria_api_operations.make_custom_binary_operation-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.make_custom_binary_operation-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.make_custom_binary_operation-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.make_custom_binary_operation-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"custom_binary"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="alexandria_api_operations.make_custom_binary_operation-curl-examples">Example <code>curl</code> <a href="#alexandria_api_operations.make_custom_binary_operation-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.make_custom_binary_operation", "params": {"app_id": 10, "from": "user1", "to": ["user2", "user3"], "data": "SGVsbG8gU29waGlhVFg="}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api_operations.make_custom_binary_operation-curl-responses">Response <code>curl</code> <a href="#alexandria_api_operations.make_custom_binary_operation-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "op": [
+    "custom_binary",
+    {
+      "fee": "0.000000 SPHTX",
+      "sender": "user1",
+      "recipients": ["user2", "user3"],
+      "app_id": 10,
+      "data": "48656c6c6f20536f706869615458"
+    }
+  ]
+}'</span>
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.make_custom_json_operation">alexandria_api_operations.make_custom_json_operation <a href="#alexandria_api_operations.make_custom_json_operation"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Creates "custom_json" operation in requested json format.</p>
+<blockquote class="warning"> <h5>Applications can and should create such operation themselves and skipp this call.</h5> </blockquote>
+<p><b>Request:</b><br /></p>
+<li>app_id - application-specific id</li>
+<li>from - sender account</li>
+<li>to - recipients accounts</li>
+<li>data - any valid data json data</li>
+<p><b>Result:</b><br /></p>
+<li>op - operation "custom_json" created in required json format.</li>
+<p><br /></p>
+<h5 id="alexandria_api_operations.make_custom_json_operation-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.make_custom_json_operation-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="s2">"json"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.make_custom_json_operation-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.make_custom_json_operation-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="alexandria_api_operations.make_custom_json_operation-curl-examples">Example <code>curl</code> <a href="#alexandria_api_operations.make_custom_json_operation-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.make_custom_json_operation", "params": {"app_id": 10, "from": "user1", "to": ["user2", "user3"], "json": "{\"data\":\"any valid json data\"}"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api_operations.make_custom_json_operation-curl-responses">Response <code>curl</code> <a href="#alexandria_api_operations.make_custom_json_operation-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "op": [
+    "custom_json",
+    {
+      "fee": "0.000000 SPHTX",
+      "sender": "user1",
+      "recipients": ["user2", "user3"],
+      "app_id": 10,
+      "json": "{\"data\":\"any valid json data\"}"
+    }
+  ]
+}'</span>
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.set_voting_proxy">alexandria_api_operations.set_voting_proxy <a href="#alexandria_api_operations.set_voting_proxy"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.set_voting_proxy-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.set_voting_proxy-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_to_modify"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.set_voting_proxy-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.set_voting_proxy-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"account_witness_proxy"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.sponsor_account_fees">alexandria_api_operations.sponsor_account_fees <a href="#alexandria_api_operations.sponsor_account_fees"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.sponsor_account_fees-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.sponsor_account_fees-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"sponsoring_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sponsored_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_sponsoring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.sponsor_account_fees-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.sponsor_account_fees-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"sponsor_fees"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsor"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sponsored"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_sponsoring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.stop_witness">alexandria_api_operations.stop_witness <a href="#alexandria_api_operations.stop_witness"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.stop_witness-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.stop_witness-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"witness_account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.stop_witness-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.stop_witness-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"witness_stop"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w"> </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.transfer">alexandria_api_operations.transfer <a href="#alexandria_api_operations.transfer"><i class="fas fa-link fa-xs"></i></a></h4>
+<p>Creates "transfer" operation in requested json format.</p>
+<blockquote class="warning"> <h5>Applications can and should create such operation themselves and skipp this call.</h5> </blockquote>
+<p><b>Request:</b><br /></p>
+<li>from - sender account</li>
+<li>to - recipient account</li>
+<li>amount - amount of SPHTX tokens to be transfered</li>
+<li>memo - custom note</li>
+<p><b>Result:</b><br /></p>
+<li>op -  operation "transfer" created in required json format.</li>
+<p><br /></p>
+<h5 id="alexandria_api_operations.transfer-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.transfer-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.transfer-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.transfer-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"transfer"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="alexandria_api_operations.transfer-curl-examples">Example <code>curl</code> <a href="#alexandria_api_operations.transfer-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.transfer", "params": {"from": "7HLPQ1kpnAIWawkAEgcoN4I7qJY", "to": "YWV2w-Q5eB3e0gt_nKS1m85sc0U", "amount": "1000.000000 SPHTX","memo": "some note"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="alexandria_api_operations.transfer-curl-responses">Response <code>curl</code> <a href="#alexandria_api_operations.transfer-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {
+    "op": [
+      "transfer",
+      {
+        "fee": "0.000000 SPHTX",
+        "from": "user1",
+        "to": "7HLPQ1kpnAIWawkAEgcoN4I7qJY",
+        "amount": "1000.000000 SPHTX",
+        "memo": "some note"
+      }
+    ]
+  },
+  "id": 1
+}'</span>
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.transfer_to_vesting">alexandria_api_operations.transfer_to_vesting <a href="#alexandria_api_operations.transfer_to_vesting"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.transfer_to_vesting-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.transfer_to_vesting-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.transfer_to_vesting-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.transfer_to_vesting-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"transfer_to_vesting"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000SPHTX"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.update_account">alexandria_api_operations.update_account <a href="#alexandria_api_operations.update_account"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.update_account-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.update_account-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"json_meta"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.update_account-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.update_account-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"account_update"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memo_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"json_metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.update_application">alexandria_api_operations.update_application <a href="#alexandria_api_operations.update_application"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.update_application-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.update_application-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"new_author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price_param"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.update_application-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.update_application-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"application_update"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.update_witness">alexandria_api_operations.update_witness <a href="#alexandria_api_operations.update_witness"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.update_witness-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.update_witness-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"witness_account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"block_signing_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"props"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"account_creation_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">262144</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price_feeds"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.update_witness-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.update_witness-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"witness_update"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"block_signing_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"props"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"account_creation_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000SPHTX"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">262144</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_feeds"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.vote_for_witness">alexandria_api_operations.vote_for_witness <a href="#alexandria_api_operations.vote_for_witness"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.vote_for_witness-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.vote_for_witness-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"voting_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"witness_to_vote_for"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"approve"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.vote_for_witness-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.vote_for_witness-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"account_witness_vote"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"witness"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"approve"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+<h4 id="alexandria_api_operations.withdraw_vesting">alexandria_api_operations.withdraw_vesting <a href="#alexandria_api_operations.withdraw_vesting"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<h5 id="alexandria_api_operations.withdraw_vesting-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.withdraw_vesting-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h5 id="alexandria_api_operations.withdraw_vesting-expected_response_json">Expected Response JSON <a href="#alexandria_api_operations.withdraw_vesting-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"withdraw_vesting"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000SPHTX"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+
+</div>
+<div class="footer">
+    <a href="#">↑ Back to top</a>
+</div>
+<script>
+    document.getElementById("open-nav").addEventListener("click", function () {
+        document.body.classList.toggle("nav-open");
+    });
+</script>
+</body>
+</html>
+
+<script src="/js/adjust.js"></script>
