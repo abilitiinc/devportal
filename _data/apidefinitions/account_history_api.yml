@@ -2,10 +2,11 @@
 # See: https://git.io/vx5CY
 ---
 - name: Account history API
+  api_name: account_history_api
   description: Used to lookup account history information. **These AppBase API methods
     are still under development and subject to change.**
   methods:
-  - api_method: account_history_api.get_account_history
+  - api_method: get_account_history
     purpose: Returns a history of all operations for a given account.
     parameter_json: '{"account":"","start":-1,"limit":1000,"reverse_order":false}'
     expected_response_json: '{"history":[]}'
@@ -17,7 +18,7 @@
     expected_curl_responses:
     - Could not find API account_history_api
     - Could not find API account_history_api
-  - api_method: account_history_api.get_ops_in_block
+  - api_method: get_ops_in_block
     purpose: Returns all operations contained in a block.
     parameter_json: '{"block_num":0,"only_virtual":false}'
     expected_response_json: '{"ops":[]}'
@@ -29,7 +30,7 @@
     expected_curl_responses:
     - Could not find API account_history_api
     - Could not find API account_history_api
-  - api_method: account_history_api.get_transaction
+  - api_method: get_transaction
     deprecated: true
     purpose: Returns the details of a transaction based on a transaction id.
     parameter_json: '{"id":"0000000000000000000000000000000000000000"}'
