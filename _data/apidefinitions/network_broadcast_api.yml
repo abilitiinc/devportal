@@ -31,6 +31,6 @@
     - Internal Error
     - Internal Error
   - api_method: broadcast_transaction_synchronous
-    purpose: 
+    purpose: Used to broadcast a transaction and waits for it to be processed synchronously.
     parameter_json: '{"trx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]},"max_block_age":-1}'
     expected_response_json: '{"id":"0000000000000000000000000000000000000000","block_num":0,"trx_num":0,"expired":false}'

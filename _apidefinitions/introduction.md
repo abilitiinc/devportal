@@ -9,5 +9,5 @@ exclude: true
 
 Best practice for application developers is to use one of the provided [SDK's](/sdks/) depending on what language the application is writenn in. 
 
-If there is no such SDK, then use directly alexandria_api. In case there are some methods missing in alexandria_api, please create an issue [here](https://github.com/SophiaTX/SophiaTX/issues)
+If there is no such SDK, then use directly [alexandria_api](/apidefinitions/#apidefinitions-alexandria-api/). In case there are some methods missing in alexandria_api, please create an issue [here](https://github.com/SophiaTX/SophiaTX/issues)
 or use other API's as the last option.
