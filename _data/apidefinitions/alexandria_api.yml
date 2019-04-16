@@ -6,13 +6,13 @@
   description: 
   methods:
   - api_method: info
-    purpose: "Returns info about the current state of the blockchain"
+    purpose: Returns info about the current state of the blockchain
     parameter_json: "{}"
     expected_response_json: '{"info":{"head_block_number":175238,"head_block_id":"0002ac86e5ffc83ed0d1a3a8823dfd40c5a10171","time":"2018-11-13T13:19:18","current_witness":"initminer","current_supply":"350076100.030352 SPHTX","total_vesting_shares":"20895.823972 VESTS","witness_required_vesting":"250000.000000 VESTS","maximum_block_size":262144,"current_aslot":3429986,"recent_slots_filled":"340282366920938463463374607431768211455","participation_count":128,"last_irreversible_block_num":175187,"average_block_size":25,"witness_majority_version":"0.0.0","hardfork_version":"1.0.0","head_block_age":"2 seconds old","participation":"100.00000000000000000","median_sbd1_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd2_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd3_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd4_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"median_sbd5_price":{"base":"0.000000 SPHTX","quote":"0.000000 SPHTX"},"account_creation_fee":"0.000000 SPHTX"}}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.info", "params": {}, "id": 1}'
   - api_method: about
-    purpose: "Returns info such as client version, git version of graphene/fc, version of boost, openssl."
+    purpose: Returns info such as client version, git version of graphene/fc, version of boost, openssl.
     parameter_json: "{}"
     expected_response_json: '{"about":{"blockchain_version":"1.0.0","client_version":"1.0.0-260-gd3032b2","sophiatx_revision":"d3032b2840d0c5838df512532f98b28a2ce491e6","sophiatx_revision_age":"11 days ago","fc_revision":"b2b6ed37e8172eeddd3e167cba13a3aac83f409c","fc_revision_age":"14 days ago","compile_date":"compiled on Nov 12 2018 at 16:25:29","boost_version":"1.67","openssl_version":"OpenSSL 1.1.1  11 Sep 2018","build":"linux 64-bit","server_blockchain_version":"1.0.0","server_sophiatx_revision":"d3032b2840d0c5838df512532f98b28a2ce491e6","server_fc_revision":"b2b6ed37e8172eeddd3e167cba13a3aac83f409c","chain_id":"f8174877749eb3b8ba9202be14c2179c265e72de93f7c9dcd1d943dd03664352"}}'
     curl_examples:
@@ -34,42 +34,96 @@
     curl_responses:
     - '{"jsonrpc":"2.0","result":{"properties":{"head_block_number":58019,"head_block_id":"0000e2a396fb66a55ae156bf48ce26105b984826","time":"1970-01-01T00:00:00","current_witness":"initminer","current_supply":"350015744.660303 SPHTX","total_vesting_shares":"4169.375986 VESTS","witness_required_vesting":"250000.000000 VESTS","maximum_block_size":262144,"current_aslot":7835941,"recent_slots_filled":"340282366920938463463374607431768211455","participation_count":128,"last_irreversible_block_num":57968,"average_block_size":49}},"id":1}'
   - api_method: get_key_references
-    purpose: Returns all accounts that have the key associated with their owner or active authorities.
+    purpose: Returns all accounts that have the key associated with their owner or active authorities.<br><br>
+      <b>Request</b>
+
+      <li>keys - public keys</li><br>
+      <b>Response</b>
+
+      <li>accounts - accounts associated with input public keys</li><br>
     parameter_json: '{"keys":["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk"]}'
     expected_response_json: '{"accounts":[["dsgrjxA6FHQA2CV4W-vezsaYrQQ"]]}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.get_key_references", "params": {"keys":["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk"]}, "id": 1}'
   - api_method: account_exist
-    purpose: 
+    purpose: Check if account exists<br><br>
+              <b>Request</b>
+
+              <li>account_name</li><br>
+              <b>Response</b>
+
+              <li>account_exist - true if provided account exists, otherwise false</li><br>
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"account_exist":false}'
   - api_method: add_fee
-    purpose: 
+    purpose: Add custom fee to the operation<br><br>
+              <b>Request</b>
+
+              <li>op - Operation where the fee is added</li>
+              <li>fee - Fee to be added</li><br>
+              <b>Response</b>
+
+              <li>op - operation with adjusted fee</li><br>
     parameter_json: '{"op": ["transfer", {"fee": "0.000000 SPHTX", "from": "", "to": "", "amount": "0.000000
       SPHTX", "memo": ""}], "fee": "0.000000 SPHTX"}'
     expected_response_json: '{"op":["transfer",{"fee":"0.000000 SPHTX","from":"","to":"","amount":"0.000000
       SPHTX","memo":""}]}'
   - api_method: add_signature
-    purpose: 
+    purpose: Adds signature to the provided transaction<br><br>
+              <b>Request</b>
+
+              <li>tx - unsigned transaction</li>
+              <li>signature - signature that will be add to transaction</li><br>
+              <b>Response</b>
+
+              <li>signed_tx - signed transaction</li><br>
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]},"signature":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}'
     expected_response_json: '{"signed_tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
   - api_method: broadcast_transaction
-    purpose: Used to broadcast a transaction and waits for it to be processed synchronously.
+    purpose: Used to broadcast a transaction and waits for it to be processed synchronously.<br><br>
+              <b>Request</b>
+
+              <li>tx - signed transaction</li><br>
+              <b>Response</b>
+
+              <li>tx - broadcasted transaction with block information that it is included in</li><br>
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
     expected_response_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[],"transaction_id":"0000000000000000000000000000000000000000","block_num":0,"transaction_num":0}}'
   - api_method: buy_application
     operation: true
-    purpose: 
+    purpose: Returns "buy_application" operation in required format.<br><br>
+              <b>Request</b>
+
+              <li>buyer - buyer of application i.e. "account_name"</li>
+              <li>app_id - id of application that buyer will buy</li><br>
+              <b>Response</b>
+
+              <li>op - "buy_application" operation in required format</li><br>
     parameter_json: '{"buyer":"","app_id":0}'
     expected_response_json: '{"op":["buy_application",{"fee":"0.000000 SPHTX","buyer":"","app_id":0}]}'
   - api_method: calculate_fee
-    purpose: 
+    purpose: Returns required fee for the given operation.<br><br>
+              <b>Request</b>
+
+              <li>op - operation to be evaluated</li>
+              <li>symbol - symbol of the fee paying currency</li><br>
+              <b>Response</b>
+
+              <li>fee - calculated required fee</li><br>
     parameter_json: '{"op":["transfer",{"fee":"0.000000 SPHTX","from":"","to":"","amount":"0.000000
       SPHTX","memo":""}],"symbol":"SPHTX"}'
     expected_response_json: '{"fee":"0.000000 SPHTX"}'
   - api_method: cancel_application_buying
     operation: true
-    purpose: 
+    purpose: Returns "cancel_application_buying" operation in required format.<br><br>
+              <b>Request</b>
+
+              <li>app_owner - owner of bought application i.e. "account_name"</li>
+              <li>buyer - buyer of application i.e. "account_name"</li>
+              <li>app_id - id of application that buyer will buy</li><br>
+              <b>Response</b>
+
+              <li>op - "cancel_application_buying" operation in required format</li><br>
     parameter_json: '{"app_owner":"","buyer":"","app_id":0}'
     expected_response_json: '{"op":["cancel_application_buying",{"fee":"0.000000 SPHTX","app_owner":"","buyer":"","app_id":0}]}'
   - api_method: create_account
@@ -95,33 +149,90 @@
     - '{"jsonrpc":"2.0","result":{"op":["account_create",{"fee":"0.000000 SPHTX","creator":"user1","name_seed":"sophiatx_user","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",1]]},"memo_key":"SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy","json_metadata":"{\"data\":\"anything related to the sophiatx_user\"}"}]},"id":1}'
   - api_method: create_application
     operation: true
-    purpose: 
+    purpose: Returns "application_create" operation in required format. There is a fee associated with account creation
+               that is paid by the creator. The current account creation fee can be found with the
+               'info' alexandria command.<br><br>
+              <b>Request</b>
+
+              <li>author - account creating the new application i.e. "account_name"</li>
+              <li>app_name - unique name for new application</li>
+              <li>url - url of the new application</li>
+              <li>meta_data - meta data of new application</li>
+              <li>price_param - price parameter that specifies billing for the app</li><br>
+
+              <b>Response</b>
+
+              <li>op - "application_create" operation in required format</li><br>
     parameter_json: '{"author":"","app_name":"","url":"","meta_data":"","price_param":0}'
     expected_response_json: '{"op":["application_create",{"fee":"0.000000 SPHTX","author":"","name":"","url":"","metadata":"","price_param":0}]}'
   - api_method: create_simple_authority
-    purpose: 
+    purpose: Creates simple authority from provided public key.<br><br>
+      <b>Request</b>
+
+      <li>pub_key</li><br>
+
+      <b>Response</b>
+
+      <li>simple_authority</li><br>
     parameter_json: '{"pub_key":"SPH1111111111111111111111111111111114T1Anm"}'
     expected_response_json: '{"simple_authority":{"weight_threshold":0,"account_auths":[],"key_auths":[]}}'
   - api_method: create_simple_managed_authority
-    purpose: 
+    purpose: Creates simple managed authority from provided account name.<br><br>
+      <b>Request</b>
+
+      <li>managing_account - i.e. "account_name"</li><br>
+
+      <b>Response</b>
+
+      <li>simple_managed_authority</li><br>
     parameter_json: '{"managing_account":""}'
     expected_response_json: '{"simple_managed_authority":{"weight_threshold":0,"account_auths":[],"key_auths":[]}}'
   - api_method: create_simple_multisig_authority
-    purpose: 
+    purpose: Creates simple multisig authority from provided public keys.<br><br>
+      <b>Request</b>
+
+      <li>pub_keys - list of public keys</li>
+      <li>required_signatures - number of required signatures</li><br>
+
+      <b>Response</b>
+
+      <li>simple_multisig_authority</li><br>
     parameter_json: '{"pub_keys":[],"required_signatures":0}'
     expected_response_json: '{"simple_multisig_authority":{"weight_threshold":0,"account_auths":[],"key_auths":[]}}'
   - api_method: create_simple_multisig_managed_authority
-    purpose: 
+    purpose: Creates simple multisig managed authority from provided account_name.<br><br>
+      <b>Request</b>
+
+      <li>managing_accounts - vector of accounts  i.e. ["account_name"]</li>
+      <li>required_signatures - number of required signatures</li><br>
+
+      <b>Response</b>
+
+      <li>simple_multisig_managed_authority</li><br>
     parameter_json: '{"managing_accounts":[],"required_signatures":0}'
     expected_response_json: '{"simple_multisig_managed_authority":{"weight_threshold":0,"account_auths":[],"key_auths":[]}}'
   - api_method: create_simple_transaction
-    purpose: Creates transaction in requirded format from provided operation
+    purpose: Creates transaction in requirded format from provided single operation.<br><br>
+      <b>Request</b>
+
+      <li>op - operation that should be in this transaction</li><br>
+
+      <b>Response</b>
+
+      <li>simple_tx - created transaction with provided operation</li><br>
     parameter_json: '{"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]}'
     expected_response_json: '{"simple_tx":{"ref_block_num":3701,"ref_block_prefix":914684397,"expiration":"2019-04-04T13:24:15","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":[]}}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.create_simple_transaction", "params": {"op":["custom_json",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]}, "id": 1}'
   - api_method: create_transaction
-    purpose:
+    purpose: Creates transaction in requirded format from provided list of operations.<br><br>
+              <b>Request</b>
+
+              <li>op_vec - list of operations that should be in this transaction</li><br>
+
+              <b>Response</b>
+
+              <li>simple_tx - created transaction with provided operations</li><br>
     parameter_json: '{"op_vec":[]}'
     expected_response_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
   - api_method: custom_object_subscription
@@ -129,29 +240,87 @@
     parameter_json: '{"return_id":0,"app_id":0,"account_name":"","search_type":"","start":0}'
     expected_response_json: '{"subscription":0}'
   - api_method: decrypt_data
-    purpose:
+    purpose: Decrypts provided data.<br><br>
+      <b>Request</b>
+
+      <li>data - data to be decrypted</li>
+      <li>public_key - public key of sender</li>
+      <li>private_key - private key of recipient</li><br>
+
+      <b>Response</b>
+
+      <li>decrypted_data - decrypted data</li><br>
     parameter_json: '{"data":"","public_key":"SPH1111111111111111111111111111111114T1Anm","private_key":""}'
     expected_response_json: '{"decrypted_data":""}'
   - api_method: delete_account
     operation: true
-    purpose:
+    purpose: Returns "account_delete" operation in requested json format.<br><br>
+      <b>Request:</b>
+
+      <li>account_name - name of the account to be deleted</li><br>
+
+      <b>Response:</b>
+
+      <li>op -  operation "account_delete" created in required json format.</li><br>
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"op":["account_delete",{"fee":"0.000000 SPHTX","account":""}]}'
   - api_method: delete_application
     operation: true
-    purpose:
+    purpose: Returns "application_delete" operation in required format.
+               <b>Request</b>
+
+               <li>author - author of application that will be deleted i.e. "account_name"</li>
+               <li>app_name - name of app that will be deleted</li>
+
+               <b>Response</b>
+
+               <li>op - "application_delete" operation in required format</li><br>
     parameter_json: '{"author":"","app_name":""}'
     expected_response_json: '{"op":["application_delete",{"fee":"0.000000 SPHTX","author":"","name":""}]}'
   - api_method: encrypt_data
-    purpose:
+    purpose: Encrypts provided data.<br><br>
+      <b>Request</b>
+
+      <li>data - data to be encrypted</li>
+      <li>public_key - public key of sender</li>
+      <li>private_key - private key of recipient</li><br>
+
+      <b>Response</b>
+
+      <li>encrypted_data - decrypted data</li><br>
     parameter_json: '{"data":"","public_key":"SPH1111111111111111111111111111111114T1Anm","private_key":""}'
     expected_response_json: '{"encrypted_data":""}'
   - api_method: fiat_to_sphtx
-    purpose:
-    parameter_json: '{"fiat":"0.000000 SPHTX"}'
+    purpose: Converts the given amount of fiat to sphtx.<br><br>
+      <b>Request</b>
+
+      <li>fiat - amount to be converted</li><br>
+
+      <b>Response</b>
+
+      <li>sphtx - amount of SPHTX if conversion is possible,or returns back fiat if not.</li><br>
+    parameter_json: '{"fiat":"0.000000 EUR"}'
     expected_response_json: '{"sphtx":"0.000000 SPHTX"}'
+  - api_method: to_base64
+    purpose: Encodes data to base64.<br><br>
+      <b>Request</b>
+
+      <li>data - data to encoded</li><br>
+
+      <b>Response</b>
+
+      <li>base64_str - encoded data.</li><br>
+    parameter_json: '{"data":""}'
+    expected_response_json: '{"base64_str":""}'
   - api_method: from_base64
-    purpose:
+    purpose: Decodes data from base64.<br><br>
+      <b>Request</b>
+
+      <li>data - data to decoded</li><br>
+
+      <b>Response</b>
+
+      <li>str - decoded data.</li><br>
     parameter_json: '{"data":""}'
     expected_response_json: '{"str":""}'
   - api_method: generate_key_pair
@@ -160,6 +329,10 @@
               <blockquote class="warning">
                 <h5>This functionality should be done locally in SDK and not remotely !!!</h5>
               </blockquote>
+
+              <b>Response</b>
+
+              <li>key_pair - generated pair of keys.</li><br>
     parameter_json: "{}"
     expected_response_json: '{"key_pair":{"pub_key":"SPH1111111111111111111111111111111114T1Anm","wif_priv_key":""}}'
     curl_examples:
@@ -167,7 +340,19 @@
     curl_responses:
     - '{"jsonrpc":"2.0","result":{"key_pair":{"pub_key":"SPH59JiJ8xruCD1HdRAGJemfMnUwr5KUm8dJXYe6R5fFdkD3UhsU7","wif_priv_key":"5KEAAt3W2nrc61ZMkrLLbqSK9wqi8N3Afrr1sWDb7Q7xd9CPHz7"}},"id":1}'
   - api_method: generate_key_pair_from_brain_key
-    purpose:
+    purpose: Generates public/private key pair based on brain key.
+
+              <blockquote class="warning">
+                <h5>This functionality should be done locally in SDK and not remotely !!!</h5>
+              </blockquote>
+
+              <b>Request</b>
+
+              <li>brain_key - brain key for generating key pair</li><br>
+
+              <b>Response</b>
+
+              <li>key_pair - generated pair of keys.</li><br>
     parameter_json: '{"brain_key":""}'
     expected_response_json: '{"key_pair":{"pub_key":"SPH1111111111111111111111111111111114T1Anm","wif_priv_key":""}}'
   - api_method: get_account_name_from_seed
@@ -176,6 +361,14 @@
               <blockquote class="warning">
                 <h5>In all further transactions that write data into blockchain, real blockchain account name must be used. !!!</h5>
               </blockquote>
+
+              <b>Request</b>
+
+              <li>seed - seed/human-readble account name</li><br>
+
+              <b>Response</b>
+
+              <li>account_name - real account name saved in blockchain.</li><br>
     parameter_json: '{"seed":""}'
     expected_response_json: '{"account_name":""}'
     curl_examples:
@@ -183,7 +376,14 @@
     curl_responses:
     - '{"jsonrpc":"2.0","result":{"account_name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY"},"id":1}'
   - api_method: get_account
-    purpose: Returns account info specified by name. Either seed name or blockchain real account name can be used.
+    purpose: Returns account info specified by name. Either seed name or blockchain real account name can be used.<br><br>
+      <b>Request</b>
+
+      <li>account_name - name of the account to provide information about i.e. "account_name"</li><br>
+
+      <b>Response</b>
+
+      <li>account - public account info stored in the blockchain.</li><br>
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"account":[{"id":0,"name":"","owner":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"active":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"memo_key":"","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":""}]}'
     curl_examples:
@@ -193,7 +393,14 @@
     - '{"jsonrpc":"2.0","result":{"account":[{"id":50,"name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",1]]},"memo_key":"SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy","json_metadata":"{\"data\":\"anything related to the sophiatx_user\"}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":""}]},"id":1}'
     - '{"jsonrpc":"2.0","result":{"account":[{"id":50,"name":"7HLPQ1kpnAIWawkAEgcoN4I7qJY","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",1]]},"memo_key":"SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy","json_metadata":"{\"data\":\"anything related to the sophiatx_user\"}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":""}]},"id":1}'
   - api_method: get_accounts
-    purpose: Returns accounts info specified by names. Either seed names or blockchain real account names can be used.
+    purpose: Returns accounts info specified by names. Either seed names or blockchain real account names can be used.<br><br>
+      <b>Request</b>
+
+      <li>account_names - list of account names to provide information about</li><br>
+
+      <b>Response</b>
+
+      <li>accounts - public accounts info stored in the blockchain.</li><br>
     parameter_json: '{"account_names":["dsgrjxA6FHQA2CV4W-vezsaYrQQ", "ayp1dsJTvH13b8k_4aXTZC5rp5g"]}'
     expected_response_json: '{"accounts":[{"id":0,"name":"","owner":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"active":{"weight_threshold":0,"account_auths":[],"key_auths":[]},"memo_key":"","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]}]}'
     curl_examples:
@@ -201,8 +408,14 @@
     curl_responses:
     -  '{"jsonrpc":"2.0","result":{"accounts":[{"id":44,"name":"dsgrjxA6FHQA2CV4W-vezsaYrQQ","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH53jwLxn81x9TNir88SHGEtbtrrU5h3Pf4cyoehY22xw4Xg3zyk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5exSMJE8QyFbHjtigobia2pGZj88eRG3nj3Te7XFWVLfB6JewS",1]]},"memo_key":"SPH8eAn9t5ryjarx88uvXvFoysBYqaRLNhpTNFgqdBWjSHLoonypi","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]},{"id":45,"name":"ayp1dsJTvH13b8k_4aXTZC5rp5g","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5enokWABeJzdtyTKJ7psxv3ex85PcschmGugNX38ioUSiJy9nk",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH4ycHC92BWtYWQyDKc5v2331z4HQ1VTQcVMic76ZE2CrwCG7h1X",1]]},"memo_key":"SPH7s5uMfDoKwPXiczxp23j7SaAvWBDvZNak3aNegLaB6SPEp1S3u","json_metadata":"{}","voting_proxy":"","balance":"0.000000 SPHTX","vesting_shares":"0.000000 VESTS","vesting_withdraw_rate":"0.000000 VESTS","to_withdraw":0,"witness_votes":[],"sponsored_accounts":[],"sponsoring_account":"","vesting_balance":"0.000000 SPHTX","transfer_history":[],"other_history":[]}]},"id":1}'
   - api_method: get_account_balance
-    purpose: Returns account balance in SOPHIATX_SATOSHIS<br>
-              1 SPHTX = 1000 000 SOPHIATX_SATOSHIS
+    purpose: Returns account balance in SOPHIATX_SATOSHIS.<br>1 SPHTX = 1000 000 SOPHIATX_SATOSHIS<br><br>
+      <b>Request</b>
+
+      <li>account_name - account name to provide balance of</li><br>
+
+      <b>Response</b>
+
+      <li>account_balance - account balande in SOPHIATX_SATOSHIS.</li><br>
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"account_balance":0}'
     curl_examples:
@@ -210,62 +423,157 @@
     curl_responses:
     - '{"jsonrpc":"2.0","result":{"account_balance":1000000000},"id":1}'
   - api_method: get_account_history
-    purpose: Returns a history of all operations for a given account.
+    purpose: Returns a history of all operations for a given account. Account operations have sequence numbers from 0 to N where N is the most recent operation. This method
+              returns operations in the range [from-limit,from]<br><br>
+      <b>Request</b>
+
+      <li>account - account whose history will be returned</li>
+      <li>from - the absolute sequence number,-1 means most recent,limit is the number of operations before from.</li>
+      <li>limit - the maximum number of items that can be queried (0 to 1000],must be less than from</li><br>
+
+      <b>Response</b>
+
+      <li>account_history - history of all operations.</li><br>
     parameter_json: '{"account":"","start":0,"limit":0}'
     expected_response_json: '{"account_history":[]}'
   - api_method: get_active_authority
-    purpose:
+    purpose: Returns active authority for given account<br><br>
+      <b>Request</b>
+
+      <li>account_name - account name i.e. "account_name"</li><br>
+
+      <b>Response</b>
+
+      <li>active_authority</li><br>
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"active_authority":{"weight_threshold":0,"account_auths":[],"key_auths":[]}}'
   - api_method: get_active_witnesses
-    purpose: Returns the list of active witnesses.
+    purpose: Returns the list of witnesses producing blocks in the current round (51 Blocks).<br><br>
+
+      <b>Response</b>
+
+      <li>active_witnesses</li><br>
     parameter_json: "{}"
     expected_response_json: '{"active_witnesses":[]}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.get_active_witnesses", "params": {}, "id": 1}'
   - api_method: get_application_buyings
-    purpose:
+    purpose: Gets all app buyings by app_name or buyer.<br><br>
+      <b>Request</b>
+
+      <li>name - application id or buyers name i.e. "account_name"</li>
+      <li>search_type - one of "by_buyer","by_app_id"</li>
+      <li>count - number of items to retrieve</li><br>
+
+      <b>Response</b>
+
+      <li>application_buyings</li><br>
     parameter_json: '{"name":"","search_type":"","count":0}'
     expected_response_json: '{"application_buyings":[]}'
   - api_method: get_applications
-    purpose:
+    purpose: Gets all application objects.<br><br>
+      <b>Request</b>
+
+      <li>names - list of applications names</li><br>
+
+      <b>Response</b>
+
+      <li>applications</li><br>
     parameter_json: '{"names":[]}'
     expected_response_json: '{"applications":[]}'
   - api_method: get_applications_by_ids
-    purpose:
+    purpose: Gets all application objects by their id's.<br><br>
+      <b>Request</b>
+
+      <li>ids - list of applications id'ss</li><br>
+
+      <b>Response</b>
+
+      <li>applications</li><br>
     parameter_json: '{"ids":[]}'
     expected_response_json: '{"applications":[]}'
   - api_method: get_block
     purpose: Returns the details of a block based on a block num.<br><br>
+      <b>Request</b>
+
+      <li>block_num - number/height of block</li><br>
+
+      <b>Response</b>
+
+      <li>block - block info</li><br>
     parameter_json: '{"num":0}'
     expected_response_json: '{"block":{"previous":"0000e11cfaab5a841cc6f33b6d94efd58d186800","timestamp":"1970-01-01T00:00:00","witness":"","transaction_merkle_root":"0000000000000000000000000000000000000000","extensions":[],"witness_signature":"","transactions":[],"block_id":"0000000000000000000000000000000000000000","signing_key":"SPH1111111111111111111111111111111114T1Anm","transaction_ids":[]}}'
     curl_examples:
     - '{"jsonrpc": "2.0", "method": "alexandria_api.get_block", "params": {"num":57629}, "id": 1}'
     curl_responses:
     - '{"jsonrpc":"2.0","result":{"block":{"previous":"0000000000000000000000000000000000000000","timestamp":"2019-04-15T12:37:33","witness":"","transaction_merkle_root":"0000000000000000000000000000000000000000","extensions":[],"witness_signature":"1f56ee79e72e287ed205775c9caf02c805516e28513da8963ecf9ab26d84c5e4bd400553054fb4e51d7c3e2254e4075afd0c9b740f0fcc07869b7419c6af485d86","transactions":[],"block_id":"0000e11dcd83233a6d0c8ec43ecaf1626115f86e","signing_key":"SPH6LLegbAgLAy28EHrffBVuANFWcFgmqRMW13wBmTExqFE9SCkg4","transaction_ids":[]}},"id":1}'
+  - api_method: get_ops_in_block
+    purpose: Returns all operations contained in a block based on a block num.<br><br>
+      <b>Request</b>
+
+      <li>block_num - number/height of block</li>
+      <li>only_virtual - whether to only return virtual operations</li><br>
+
+      <b>Response</b>
+
+      <li>ops_in_block - operations included in block</li><br>
+    parameter_json: '{"block_num":0,"only_virtual":false}'
+    expected_response_json: '{"ops_in_block":[]}'
   - api_method: get_feed_history
-    purpose:
+    purpose: Returns the current price feed history for specified symbol.<br><br>
+      <b>Request</b>
+
+      <li>symbol - symbol, for which price feed history is returned.<br>
+      Possible values - EUR/USD/CNY/GBP</li><br>
+
+      <b>Response</b>
+
+      <li>feed_history</li><br>
     parameter_json: '{"symbol":""}'
     expected_response_json: '{"feed_history":{"id":0,"current_median_price":{"base":"0.000000
       SPHTX","quote":"0.000000 SPHTX"},"price_history":[]}}'
   - api_method: get_memo_key
-    purpose:
+    purpose: Returns public memo key for given account.<br><br>
+      <b>Request</b>
+
+      <li>account_name - account name i.e. "account_name"</li><br>
+
+      <b>Response</b>
+
+      <li>memo_key</li><br>
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"memo_key":"SPH1111111111111111111111111111111114T1Anm"}'
-  - api_method: get_ops_in_block
-    purpose: Returns all operations contained in a block.
-    parameter_json: '{"block_num":0,"only_virtual":false}'
-    expected_response_json: '{"ops_in_block":[]}'
   - api_method: get_owner_authority
-    purpose:
+    purpose: Returns public memo key for given account.<br><br>
+      <b>Request</b>
+
+      <li>account_name - account name i.e. "account_name"</li><br>
+
+      <b>Response</b>
+
+      <li>owner_authority</li><br>
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"owner_authority":{"weight_threshold":0,"account_auths":[],"key_auths":[]}}'
   - api_method: get_owner_history
-    purpose: Returns the owner history of an account.
+    purpose: Returns the owner history of an account.<br><br>
+      <b>Request</b>
+
+      <li>account_name - account name i.e. "account_name"</li><br>
+
+      <b>Response</b>
+
+      <li>owner_history</li><br>
     parameter_json: '{"account":""}'
     expected_response_json: '{"owner_history":[]}'
   - api_method: get_public_key
-    purpose:
+    purpose: Returns paired public key to provided private key.<br><br>
+      <b>Request</b>
+
+      <li>private_key</li><br>
+
+      <b>Response</b>
+
+      <li>public_key</li><br>
     parameter_json: '{"private_key":""}'
     expected_response_json: '{"public_key":"SPH1111111111111111111111111111111114T1Anm"}'
   - api_method: get_received_documents
@@ -296,7 +604,14 @@
     curl_responses:
     -  '{"received_documents":[[1,{"id":4,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data\"}","received":"2019-04-05T08:39:42","binary":false}],[2,{"id":5,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data idx 2\"}","received":"2019-04-05T08:39:54","binary":false}],[3,{"id":6,"sender":"user1","recipients":["user2"],"app_id":1,"data":"{\"data\":\"app 1 data idx 3\"}","received":"2019-04-05T08:40:00","binary":false}]]}'
   - api_method: get_required_signatures
-    purpose: Returns list of public keys (authorities) required for signing provided transaction.
+    purpose: Returns list of public keys (authorities) required for signing provided transaction.<br><br>
+      <b>Request</b>
+
+      <li>tx</li><br>
+
+      <b>Response</b>
+
+      <li>required_signatures</li><br>
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
     expected_response_json: '{"required_signatures":[]}'
   - api_method: get_transaction
@@ -330,10 +645,6 @@
   - api_method: make_custom_binary_operation
     operation: true
     purpose: Creates \"custom_binary\" operation in requested json format.
-
-              <blockquote class="warning">
-              <h5>Applications can and should create such operation themselves and skipp this call.</h5>
-              </blockquote>
 
               <b>Request:</b><br>
 
@@ -439,7 +750,21 @@
     parameter_json: '{"account_to_modify":"","proxy":""}'
     expected_response_json: '{"op":["account_witness_proxy",{"fee":"0.000000 SPHTX","account":"","proxy":""}]}'
   - api_method: sign_digest
-    purpose: 
+    purpose: Sign digest with provided private key.
+
+              <blockquote class="warning">
+                <h5>This functionality should be done locally in SDK and not remotely !!!</h5>
+              </blockquote>
+
+
+              <b>Request:</b><br>
+
+              <li>digest - digest of transaction</li>
+              <li>pk - private key for signing (in WIF format)</li><br>
+
+              <b>Result:</b><br>
+
+              <li>signed_digest - signed digest.</li><br>
     parameter_json: '{"digest":"0000000000000000000000000000000000000000000000000000000000000000","pk":""}'
     expected_response_json: '{"signed_digest":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}'
   - api_method: sponsor_account_fees
@@ -452,10 +777,6 @@
     purpose: 
     parameter_json: '{"witness_account_name":""}'
     expected_response_json: '{"op":["witness_stop",{"fee":"0.000000 SPHTX","owner":""}]}'
-  - api_method: to_base64
-    purpose: 
-    parameter_json: '{"data":""}'
-    expected_response_json: '{"base64_str":""}'
   - api_method: transfer
     operation: true
     purpose: Creates \"transfer\" operation in requested json format.
