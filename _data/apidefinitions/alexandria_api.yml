@@ -615,28 +615,74 @@
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
     expected_response_json: '{"required_signatures":[]}'
   - api_method: get_transaction
-    purpose: Returns the details of a transaction based on a transaction id.
+    purpose: Returns the details of a transaction based on a transaction id.<br><br>
+      <b>Request</b>
+
+      <li>tx_id - transaction id</li><br>
+
+      <b>Response</b>
+
+      <li>tx - transaction info</li><br>
     parameter_json: '{"tx_id":"0000000000000000000000000000000000000000"}'
     expected_response_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[],"transaction_id":"0000000000000000000000000000000000000000","block_num":0,"transaction_num":0}}'
   - api_method: get_transaction_digest
-    purpose:
+    purpose: Returns calculated digest of provided transaction.<br><br>
+      <b>Request</b>
+
+      <li>tx - transaction</li><br>
+
+      <b>Response</b>
+
+      <li>tx_digest - calculated digest</li><br>
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
     expected_response_json: '{"tx_digest":"0000000000000000000000000000000000000000000000000000000000000000"}'
   - api_method: get_transaction_id
-    purpose:
+    purpose: Returns calculated transaction id based on provided transaction in json.<br><br>
+      <b>Request</b>
+
+      <li>tx - transaction</li><br>
+
+      <b>Response</b>
+
+      <li>tx_id - calculated transaction id</li><br>
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
     expected_response_json: '{"tx_id":"0000000000000000000000000000000000000000"}'
   - api_method: get_vesting_balance
-    purpose:
+    purpose: Returns vestig balance for given account in SOPHIATX_SATOSHIS.<br><br>
+      <b>Request</b>
+
+      <li>account_name - account name i.e. "account_name"</li><br>
+
+      <b>Response</b>
+
+      <li>vesting_balance - in SOPHIATX_SATOSHIS</li><br>
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"vesting_balance":0}'
   - api_method: get_witness
-    purpose:
+    purpose: Returns information about the given witness..<br><br>
+      <b>Request</b>
+
+      <li>owner_account - name or id of the witness account owner i.e. "account_name",or the id of the witness</li><br>
+
+      <b>Response</b>
+
+      <li>witness(optional) - information about the witness stored in the block chain</li><br>
     parameter_json: '{"owner_account":""}'
     expected_response_json: "{}"
   - api_method: list_witnesses
-    purpose: Returns current witnesses.
-    parameter_json: '{"start":"","limit":0}'
+    purpose: Returns all witnesses registered in the blockchain.
+      This returns a list of all account names that own witnesses and the associated witness id,
+      sorted by name. This lists witnesses whether they are currently voted in or not.<br><br>
+      <b>Request</b>
+
+      <li>start - </li>
+      <li>limit - </li>
+      <li>order - </li><br>
+
+      <b>Response</b>
+
+      <li>witnesses - information about the witnesses stored in the blockchain</li><br>
+    parameter_json: '{"start":"","limit":0,"order":""}'
     expected_response_json: '{"witnesses":[]}'
   - api_method: list_witnesses_by_vote
     purpose: Returns current witnesses by vote.
@@ -746,11 +792,23 @@
     - '{"signed_tx":{"ref_block_num":3701,"ref_block_prefix":914684397,"expiration":"2019-04-04T13:30:15","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":["203cd5873cba28262b2972245b2524341750cc8c1b67dc8fe5307f87c9aac8f8276365ac22002f91e8468c8160fa0343f5b1a5ca53a62464a4d9560a2a9173953d"],"transaction_id":"8b9afcccdf8bed9484fadd56eaa3bd744a13f819","block_num":3782,"transaction_num":0}}'
   - api_method: set_voting_proxy
     operation: true
-    purpose: 
+    purpose: Creates \"account_witness_proxy\" operation in requested json format. Sets the voting proxy for an account. If a user does not wish to take an active part in voting,they can choose
+      to allow another account to vote their stake. Setting a vote proxy does not remove your previous votes from the blockchain,
+      they remain there but are ignored. If you later null out your vote proxy, your previous votes will take effect again.
+      This setting can be changed at any time.<br><br>
+
+      <b>Request</b>
+
+      <li>account_to_modify - the name or id of the account to update i.e. "account_name"</li>
+      <li>proxy - the name of account that should proxy to or empty string to have no proxy</li><br>
+
+      <b>Response</b>
+
+      <li>op - creates \"account_witness_proxy\" operation</li><br>
     parameter_json: '{"account_to_modify":"","proxy":""}'
     expected_response_json: '{"op":["account_witness_proxy",{"fee":"0.000000 SPHTX","account":"","proxy":""}]}'
   - api_method: sign_digest
-    purpose: Sign digest with provided private key.
+    purpose: Signs digest with provided private key.
 
               <blockquote class="warning">
                 <h5>This functionality should be done locally in SDK and not remotely !!!</h5>
@@ -769,28 +827,42 @@
     expected_response_json: '{"signed_digest":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}'
   - api_method: sponsor_account_fees
     operation: true
-    purpose: 
+    purpose: Creates \"sponsor_fees\" operation in requested json format.<br><br>
+
+      <b>Request</b>
+
+      <li>sponsoring_account - account name that will sponsor fees</li>
+      <li>sponsored_account - account that will be sponsored</li>
+      <li>is_sponsoring - true or false if you want to enable/disable this operation</li><br>
+
+      <b>Response</b>
+
+      <li>op - creates \"sponsor_fees\" operation</li><br>
     parameter_json: '{"sponsoring_account":"","sponsored_account":"","is_sponsoring":false}'
     expected_response_json: '{"op":["sponsor_fees",{"fee":"0.000000 SPHTX","sponsor":"","sponsored":"","is_sponsoring":false}]}'
   - api_method: stop_witness
     operation: true
-    purpose: 
+    purpose: Creates \"witness_stop\" operation in requested json format. Stop being a witness,effectively deleting the witness object owned by the given account.<br><br>
+
+      <b>Request</b>
+
+      <li>witness_name - name of the witness account i.e. "account_name"</li><br>
+
+      <b>Response</b>
+
+      <li>op - creates \"witness_stop\" operation</li><br>
     parameter_json: '{"witness_account_name":""}'
     expected_response_json: '{"op":["witness_stop",{"fee":"0.000000 SPHTX","owner":""}]}'
   - api_method: transfer
     operation: true
     purpose: Creates \"transfer\" operation in requested json format.
 
-      <blockquote class="warning">
-      <h5>Applications can and should create such operation themselves and skipp this call.</h5>
-      </blockquote>
-
       <b>Request:</b><br>
 
       <li>from - sender account</li>
       <li>to - recipient account</li>
       <li>amount - amount of SPHTX tokens to be transfered</li>
-      <li>memo - custom note</li>
+      <li>memo - custom note</li><br>
 
       <b>Result:</b><br>
 
@@ -803,12 +875,36 @@
     -   '{"jsonrpc":"2.0","result":{"op":["transfer",{"fee":"0.000000 SPHTX","from":"user1","to":"7HLPQ1kpnAIWawkAEgcoN4I7qJY","amount":"1000.000000 SPHTX","memo":"some note"}]},"id":1}'
   - api_method: transfer_to_vesting
     operation: true
-    purpose: 
+    purpose: Creates \"transfer_to_vesting\" operation in requested json format. Transfer SPHTX into a vesting fund represented by vesting shares (VESTS). VESTS are required to vesting
+      for a minimum of one coin year and can be withdrawn once a week over a two year withdraw period.
+      VESTS are protected against dilution up until 90% of SPHTX is vesting.<br><br>
+
+      <b>Request:</b><br>
+
+      <li>from - account the SPHTX is coming from i.e. "account_name"</li>
+      <li>to - account getting the VESTS i.e. "account_name"</li>
+      <li>amount - amount of SPHTX to vest i.e. "100.00 SPHTX"</li><br>
+
+      <b>Result:</b><br>
+
+      <li>op -  operation "transfer_to_vesting" created in required json format.</li><br>
     parameter_json: '{"from":"","to":"","amount":"0.000000 SPHTX"}'
     expected_response_json: '{"op":["transfer_to_vesting",{"fee":"0.000000 SPHTX","from":"","to":"","amount":"0.000000SPHTX"}]}'
   - api_method: update_account
     operation: true
-    purpose: 
+    purpose: Creates \"account_update\" operation in requested json format. Updates the keys of an existing account.<br><br>
+
+      <b>Request:</b><br>
+
+      <li>account_name - name of the account i.e. "account_name"</li>
+      <li>json_meta - new JSON Metadata to be associated with the account</li>
+      <li>owner - new public owner key for the account</li>
+      <li>active - new public active key for the account</li>
+      <li>memo - new public memo key for the account</li>
+
+      <b>Result:</b><br>
+
+      <li>op -  operation "account_update" created in required json format.</li><br>
     parameter_json: '{"account_name":"","json_meta":"","owner":"SPH1111111111111111111111111111111114T1Anm","active":"SPH1111111111111111111111111111111114T1Anm","memo":"SPH1111111111111111111111111111111114T1Anm"}'
     expected_response_json: '{"op":["account_update",{"fee":"0.000000 SPHTX","account":"","memo_key":"SPH1111111111111111111111111111111114T1Anm","json_metadata":""}]}'
   - api_method: update_application
