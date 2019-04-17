@@ -710,11 +710,7 @@
     - '{"op":["custom_binary",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"data":"48656c6c6f20536f706869615458"}]}'
   - api_method: make_custom_json_operation
     operation: true
-    purpose: Creates \"custom_json\" operation in requested json format.
-
-               <blockquote class="warning">
-               <h5>Applications can and should create such operation themselves and skipp this call.</h5>
-               </blockquote>
+    purpose: Creates \"custom_json\" operation in requested json format.<br><br>
 
                <b>Request:</b><br>
 
@@ -808,12 +804,7 @@
     parameter_json: '{"account_to_modify":"","proxy":""}'
     expected_response_json: '{"op":["account_witness_proxy",{"fee":"0.000000 SPHTX","account":"","proxy":""}]}'
   - api_method: sign_digest
-    purpose: Signs digest with provided private key.
-
-              <blockquote class="warning">
-                <h5>This functionality should be done locally in SDK and not remotely !!!</h5>
-              </blockquote>
-
+    purpose: Signs digest with provided private key.<br><br>
 
               <b>Request:</b><br>
 
@@ -900,7 +891,7 @@
       <li>json_meta - new JSON Metadata to be associated with the account</li>
       <li>owner - new public owner key for the account</li>
       <li>active - new public active key for the account</li>
-      <li>memo - new public memo key for the account</li>
+      <li>memo - new public memo key for the account</li><br>
 
       <b>Result:</b><br>
 
@@ -909,26 +900,81 @@
     expected_response_json: '{"op":["account_update",{"fee":"0.000000 SPHTX","account":"","memo_key":"SPH1111111111111111111111111111111114T1Anm","json_metadata":""}]}'
   - api_method: update_application
     operation: true
-    purpose: 
+    purpose: Creates \"application_update\" operation in requested json format. Updates existing application object.<br><br>
+
+      <b>Request:</b><br>
+
+      <li>author - author of application i.e. "account_name"</li>
+      <li>app_name - name of app that will be updated</li>
+      <li>new_author - new author i.e. "account_name"</li>
+      <li>url - updated url</li>
+      <li>meta_data - updated meta data</li>
+      <li>price_param - updated price param</li><br>
+
+      <b>Result:</b><br>
+
+      <li>op -  operation "application_update" created in required json format.</li><br>
     parameter_json: '{"author":"","app_name":"","new_author":"","url":"","meta_data":"","price_param":0}'
     expected_response_json: '{"op":["application_update",{"fee":"0.000000 SPHTX","author":"","name":"","url":"","metadata":""}]}'
   - api_method: update_witness
     operation: true
-    purpose: 
+    purpose: Creates \"witness_update\" operation in requested json format. Updates a witness object owned by the given account.<br><br>
+
+      <b>Request:</b><br>
+
+      <li>witness_name - the name of the witness account.</li>
+      <li>url - url containing some information about the witness. The empty string makes it remain the same.</li>
+      <li>block_signing_key - new block signing public key. The empty string disables block production.</li>
+      <li>props - chain properties the witness is voting on.</li><br>
+
+      <b>Result:</b><br>
+
+      <li>op -  operation "witness_update" created in required json format.</li><br>
     parameter_json: '{"witness_account_name":"","url":"","block_signing_key":"SPH1111111111111111111111111111111114T1Anm","props":{"account_creation_fee":"0.000000
       SPHTX","maximum_block_size":262144,"price_feeds":[]}}'
     expected_response_json: '{"op":["witness_update",{"fee":"0.000000 SPHTX","owner":"","url":"","block_signing_key":"SPH1111111111111111111111111111111114T1Anm","props":{"account_creation_fee":"0.000000SPHTX","maximum_block_size":262144,"price_feeds":[]}}]}'
   - api_method: verify_signature
-    purpose: 
+    purpose: Verifies signature of the provided digest based on provided publi key<br><br>
+
+      <b>Request:</b><br>
+
+      <li>digest - digest corresponding to signature.</li>
+      <li>pub_key - public key corresponding to private_key,that signed digest.</li>
+      <li>signature - signature to be verified.</li><br>
+
+      <b>Result:</b><br>
+
+      <li>signature_valid -  true if signature is valid, otherwise false.</li><br>
     parameter_json: '{"digest":"0000000000000000000000000000000000000000000000000000000000000000","pub_key":"SPH1111111111111111111111111111111114T1Anm","signature":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}'
     expected_response_json: '{"signature_valid":false}'
   - api_method: vote_for_witness
     operation: true
-    purpose: 
+    purpose: Creates \"account_witness_vote\" operation in requested json format. Vote for a witness to become a block producer. By default an account has not voted
+      positively or negatively for a witness. The account can either vote for with positively votes or against with negative votes. The vote will remain until updated with another
+      vote. Vote strength is determined by the accounts vesting shares.<br><br>
+
+      <b>Request:</b><br>
+
+      <li>account_to_vote_with - account voting for a witness i.e. "account_name".</li>
+      <li>witness_to_vote_for - witness that is being voted for i.e. "account_name".</li>
+      <li>approve - true if the account is voting for the account to be able to be a block produce.</li><br>
+
+      <b>Result:</b><br>
+
+      <li>op -  operation "account_witness_vote" created in required json format.</li><br>
     parameter_json: '{"voting_account":"","witness_to_vote_for":"","approve":false}'
     expected_response_json: '{"op":["account_witness_vote",{"fee":"0.000000 SPHTX","account":"","witness":"","approve":true}]}'
   - api_method: withdraw_vesting
     operation: true
-    purpose: 
+    purpose: Creates \"withdraw_vesting\" operation in requested json format. Set up a vesting withdraw request. The request is fulfilled once a week over the next two year (104 weeks).<br><br>
+
+      <b>Request:</b><br>
+
+      <li>from - account the VESTS are withdrawn from i.e. "account_name".</li>
+      <li>vesting_shares The amount of VESTS to withdraw over the next two years. Each week (amount/104) shares are withdrawn and deposited back as SPHTX. i.e. "10.000000 VESTS".</li><br>
+
+      <b>Result:</b><br>
+
+      <li>op -  operation "withdraw_vesting" created in required json format.</li><br>
     parameter_json: '{"from":"","vesting_shares":"0.000000 SPHTX"}'
     expected_response_json: '{"op":["withdraw_vesting",{"fee":"0.000000 SPHTX","account":"","vesting_shares":"0.000000SPHTX"}]}'

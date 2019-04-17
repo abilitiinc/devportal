@@ -684,9 +684,8 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api_operations.make_custom_json_operation">alexandria_api_operations.make_custom_json_operation <a href="#alexandria_api_operations.make_custom_json_operation"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Creates "custom_json" operation in requested json format.</p>
-<blockquote class="warning"> <h5>Applications can and should create such operation themselves and skipp this call.</h5> </blockquote>
-<p><b>Request:</b><br /></p>
+<p>Creates "custom_json" operation in requested json format.<br /><br />
+<b>Request:</b><br /></p>
 <li>app_id - application-specific id</li>
 <li>from - sender account</li>
 <li>to - recipients accounts</li>
@@ -934,7 +933,8 @@ or use other API’s as the last option.</p>
 <li>owner - new public owner key for the account</li>
 <li>active - new public active key for the account</li>
 <li>memo - new public memo key for the account</li>
-<p><b>Result:</b><br /></p>
+<p><br />
+<b>Result:</b><br /></p>
 <li>op -  operation "account_update" created in required json format.</li>
 <p><br /></p>
 <h5 id="alexandria_api_operations.update_account-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.update_account-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
@@ -968,7 +968,18 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api_operations.update_application">alexandria_api_operations.update_application <a href="#alexandria_api_operations.update_application"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Creates "application_update" operation in requested json format. Updates existing application object.<br /><br />
+<b>Request:</b><br /></p>
+<li>author - author of application i.e. "account_name"</li>
+<li>app_name - name of app that will be updated</li>
+<li>new_author - new author i.e. "account_name"</li>
+<li>url - updated url</li>
+<li>meta_data - updated meta data</li>
+<li>price_param - updated price param</li>
+<p><br />
+<b>Result:</b><br /></p>
+<li>op -  operation "application_update" created in required json format.</li>
+<p><br /></p>
 <h5 id="alexandria_api_operations.update_application-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.update_application-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1002,7 +1013,16 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api_operations.update_witness">alexandria_api_operations.update_witness <a href="#alexandria_api_operations.update_witness"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Creates "witness_update" operation in requested json format. Updates a witness object owned by the given account.<br /><br />
+<b>Request:</b><br /></p>
+<li>witness_name - the name of the witness account.</li>
+<li>url - url containing some information about the witness. The empty string makes it remain the same.</li>
+<li>block_signing_key - new block signing public key. The empty string disables block production.</li>
+<li>props - chain properties the witness is voting on.</li>
+<p><br />
+<b>Result:</b><br /></p>
+<li>op -  operation "witness_update" created in required json format.</li>
+<p><br /></p>
 <h5 id="alexandria_api_operations.update_witness-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.update_witness-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"witness_account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1042,7 +1062,15 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api_operations.vote_for_witness">alexandria_api_operations.vote_for_witness <a href="#alexandria_api_operations.vote_for_witness"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Creates "account_witness_vote" operation in requested json format. Vote for a witness to become a block producer. By default an account has not voted positively or negatively for a witness. The account can either vote for with positively votes or against with negative votes. The vote will remain until updated with another vote. Vote strength is determined by the accounts vesting shares.<br /><br />
+<b>Request:</b><br /></p>
+<li>account_to_vote_with - account voting for a witness i.e. "account_name".</li>
+<li>witness_to_vote_for - witness that is being voted for i.e. "account_name".</li>
+<li>approve - true if the account is voting for the account to be able to be a block produce.</li>
+<p><br />
+<b>Result:</b><br /></p>
+<li>op -  operation "account_witness_vote" created in required json format.</li>
+<p><br /></p>
 <h5 id="alexandria_api_operations.vote_for_witness-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.vote_for_witness-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"voting_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1072,7 +1100,14 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api_operations.withdraw_vesting">alexandria_api_operations.withdraw_vesting <a href="#alexandria_api_operations.withdraw_vesting"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Creates "withdraw_vesting" operation in requested json format. Set up a vesting withdraw request. The request is fulfilled once a week over the next two year (104 weeks).<br /><br />
+<b>Request:</b><br /></p>
+<li>from - account the VESTS are withdrawn from i.e. "account_name".</li>
+<li>vesting_shares The amount of VESTS to withdraw over the next two years. Each week (amount/104) shares are withdrawn and deposited back as SPHTX. i.e. "10.000000 VESTS".</li>
+<p><br />
+<b>Result:</b><br /></p>
+<li>op -  operation "withdraw_vesting" created in required json format.</li>
+<p><br /></p>
 <h5 id="alexandria_api_operations.withdraw_vesting-parameter_json">Query Parameters JSON <a href="#alexandria_api_operations.withdraw_vesting-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -3102,10 +3137,8 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.sign_digest">alexandria_api.sign_digest <a href="#alexandria_api.sign_digest"><i class="fas fa-link fa-xs"></i></a></h4>
-<p>Signs digest with provided private key.</p>
-<blockquote class="warning"> <h5>This functionality should be done locally in SDK and not remotely !!!</h5> </blockquote>
-
-<p><b>Request:</b><br /></p>
+<p>Signs digest with provided private key.<br /><br />
+<b>Request:</b><br /></p>
 <li>digest - digest of transaction</li>
 <li>pk - private key for signing (in WIF format)</li>
 <p><br />
@@ -3132,7 +3165,15 @@ or use other API’s as the last option.</p>
 
 </ul>
 <h4 id="alexandria_api.verify_signature">alexandria_api.verify_signature <a href="#alexandria_api.verify_signature"><i class="fas fa-link fa-xs"></i></a></h4>
-
+<p>Verifies signature of the provided digest based on provided publi key<br /><br />
+<b>Request:</b><br /></p>
+<li>digest - digest corresponding to signature.</li>
+<li>pub_key - public key corresponding to private_key,that signed digest.</li>
+<li>signature - signature to be verified.</li>
+<p><br />
+<b>Result:</b><br /></p>
+<li>signature_valid -  true if signature is valid, otherwise false.</li>
+<p><br /></p>
 <h5 id="alexandria_api.verify_signature-parameter_json">Query Parameters JSON <a href="#alexandria_api.verify_signature-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"digest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000000000000000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
