@@ -1,4 +1,19 @@
 {% for sections in include.api_data %}
+
+<ul>
+{% for method in sections.methods %}
+{% if method.operation %}
+
+    <li><a href="#operations.{{ method.operation | slug}}">{{method.operation}}</a></li>
+
+{% endif %}
+{% endfor %}
+</ul>
+{% endfor %}
+
+
+
+{% for sections in include.api_data %}
 {{sections.description | markdownify}}
 {% for method in sections.methods %}
 {% if method.operation %}
@@ -13,32 +28,67 @@
 <li class="warning"><strong><small>Disabled</small></strong></li>
 {% endif %}
 </ul>
-<h4 id="{{ sections.api_name }}_operations.{{ method.api_method | slug }}">{{ sections.api_name }}_operations.{{method.api_method}} <a href="#{{ sections.api_name }}_operations.{{ method.api_method | slug}}"><i class="fas fa-link fa-xs"></i></a></h4>
+
+
+<h4 id="operations.{{ method.api_method | slug }}">{{method.operation}} <a href="#operations.{{ method.operation | slug}}"><i class="fas fa-link fa-xs"></i></a></h4>
+{% unless method.manual %}
+<blockquote class="warning">
+    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
+</blockquote>
+
+<h4>{{ sections.api_name }}.{{ method.api_method }}</h4>
+
+{% endunless %}
+
 {{method.purpose}}
-<h5 id="{{ sections.api_name }}_operations.{{ method.api_method | slug }}-parameter_json">Query Parameters JSON <a href="#{{ sections.api_name }}_operations.{{ method.api_method | slug}}-parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-```json
-{{method.parameter_json | neat_json}}
-```
-<h5 id="{{ sections.api_name }}_operations.{{ method.api_method | slug }}-expected_response_json">Expected Response JSON <a href="#{{ sections.api_name }}_operations.{{ method.api_method | slug}}-expected_response_json"><i class="fas fa-link fa-sm"></i></a></h5>
+
+
+
+{% if method.manual %}
+<h5 id="{{ sections.api_name }}_operations.{{ method.api_method | slug }}-example_operation">Example Op. <a href="#operations.{{ method.api_method | slug}}-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
 ```json
 {{method.expected_response_json | neat_json}}
 ```
+
+{% else %}
+<h5 id="operations.{{ method.api_method | slug }}-helper_api_parameter_json">Query Parameters JSON <a href="#operations.{{ method.api_method | slug}}-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+```json
+{{method.parameter_json | neat_json}}
+```
+
+
+<h5 id="operations.{{ method.api_method | slug }}-example_operation">Example Op. (& Expected Response JSON) <a href="#operations.{{ method.api_method | slug}}-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+```json
+{{method.expected_response_json | neat_json}}
+```
+
+
 {% if method.curl_examples %}
-<h5 id="{{ sections.api_name }}_operations.{{ method.api_method | slug }}-curl-examples">Example <code>curl</code> <a href="#{{ sections.api_name }}_operations.{{ method.api_method | slug}}-curl-examples"><i class="fas fa-link fa-sm"></i></a></h5>
+<h5 id="operations.{{ method.api_method | slug }}-curl_examples">Real Example <code>curl</code> <a href="#operations.{{ method.api_method | slug}}-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
 {% for curl in method.curl_examples %}
 ```bash
 curl -s --data '{{curl}}' https://API_URL
 ```
 {% endfor %}
+{% else %}
+<h5 id="operations.{{ method.api_method | slug }}-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.{{ method.api_method | slug}}-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
+```bash
+curl -s --data '{"jsonrpc": "2.0", "method": "{{ sections.api_name }}.{{ method.api_method }}", "params": {{method.parameter_json}}, "id": 1}' https://API_URL
+```
 {% endif %}
 
+
+
 {% if method.curl_responses %}
-<h5 id="{{ sections.api_name }}_operations.{{ method.api_method | slug }}-curl-responses">Response <code>curl</code> <a href="#{{ sections.api_name }}_operations.{{ method.api_method | slug}}-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+<h5 id="operations.{{ method.api_method | slug }}-curl-responses">Response <code>curl</code> <a href="#operations.{{ method.api_method | slug}}-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
 {% for response in method.curl_responses %}
 ```bash
 '{{response | neat_json}}'
 ```
 {% endfor %}
+{% endif %}
+
+
 {% endif %}
 
 ---
