@@ -16,8 +16,8 @@
     <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>Supported Operations - SophiaTX Developers</title>
 <meta property="og:title" content="Supported Operations" />
-<meta name="description" content="An Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”, “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain. Each type of operation express different data structure that can be saved into blockchain. The main API call to send transaction with user defined operations is: alexandria_api.broadcast_transaction There are also simplified methods that enable this functionality as well but are more suited for testing than production development: alexandria_api.send_and_sign_operation alexandria_api.send_and_sign_transaction" />
-<meta property="og:description" content="An Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”, “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain. Each type of operation express different data structure that can be saved into blockchain. The main API call to send transaction with user defined operations is: alexandria_api.broadcast_transaction There are also simplified methods that enable this functionality as well but are more suited for testing than production development: alexandria_api.send_and_sign_operation alexandria_api.send_and_sign_transaction" />
+<meta name="description" content="An Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”, “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain. Each type of operation express different data structure that can be sent into blockchain and saved or somehow change the blockchain state. The main API call to send transaction with user defined operations is: alexandria_api.broadcast_transaction There are also simplified methods that enable this functionality as well but are more suited for testing than production development: alexandria_api.send_and_sign_operation alexandria_api.send_and_sign_transaction" />
+<meta property="og:description" content="An Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”, “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain. Each type of operation express different data structure that can be sent into blockchain and saved or somehow change the blockchain state. The main API call to send transaction with user defined operations is: alexandria_api.broadcast_transaction There are also simplified methods that enable this functionality as well but are more suited for testing than production development: alexandria_api.send_and_sign_operation alexandria_api.send_and_sign_transaction" />
 <link rel="canonical" href="https://developers.sophiatx.com/apidefinitions/operations" />
 <meta property="og:url" content="https://developers.sophiatx.com/apidefinitions/operations" />
 <meta property="og:site_name" content="SophiaTX Developers" />
@@ -25,7 +25,7 @@
 {"@context": "http://schema.org",
 "@type": "WebPage",
 "headline": "Supported Operations",
-"description": "An Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”, “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain. Each type of operation express different data structure that can be saved into blockchain. The main API call to send transaction with user defined operations is: alexandria_api.broadcast_transaction There are also simplified methods that enable this functionality as well but are more suited for testing than production development: alexandria_api.send_and_sign_operation alexandria_api.send_and_sign_transaction",
+"description": "An Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”, “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain. Each type of operation express different data structure that can be sent into blockchain and saved or somehow change the blockchain state. The main API call to send transaction with user defined operations is: alexandria_api.broadcast_transaction There are also simplified methods that enable this functionality as well but are more suited for testing than production development: alexandria_api.send_and_sign_operation alexandria_api.send_and_sign_transaction",
 "url": "https://developers.sophiatx.com/apidefinitions/operations"}</script>
 <!-- End Jekyll SEO tag -->
 
@@ -288,7 +288,7 @@
     <p>An Operation is internal type that blockchain is working with. Every transaction consists of some static fields like “ref_block_num”,
  “expiration”, “signatures”, etc… that are always present + list of “operations” that may vary and actually express what is such transaction really supposed to write into blockchain.<br /><br /></p>
 
-<p>Each type of operation express different data structure that can be saved into blockchain. The main API call to send transaction with user defined operations is: 
+<p>Each type of operation express different data structure that can be sent into blockchain and saved or somehow change the blockchain state. The main API call to send transaction with user defined operations is: 
 <a href="/apidefinitions/#alexandria_api.broadcast_transaction">alexandria_api.broadcast_transaction</a><br />
 There are also simplified methods that enable this functionality as well but are more suited for testing than production development:<br />
 <a href="/apidefinitions/#alexandria_api.send_and_sign_operation">alexandria_api.send_and_sign_operation</a><br />
@@ -301,7 +301,7 @@ There are also simplified methods that enable this functionality as well but are
 </blockquote>
 
 <blockquote class="warning">
-    <h5>We provide helper methods that return the required format of some of the supported operations, but applications should not call these methods at all as the format does not change. Instead, SDK should take care of that.</h5>
+    <h5>We provide simplified helper methods that return the required format of some of the supported operations, but applications should not call these methods at all as the format does not change. Instead, SDK should take care of that.</h5>
 </blockquote>
 
 <h4>List of supported operations:</h4>
@@ -327,7 +327,6 @@ There are also simplified methods that enable this functionality as well but are
 
 
 
-<li><a href="#operations.buy_application">buy_application</a></li>
 
 
 
@@ -335,19 +334,16 @@ There are also simplified methods that enable this functionality as well but are
 
 
 
-<li><a href="#operations.cancel_application_buying">cancel_application_buying</a></li>
 
 
 
 
 
-<li><a href="#operations.account_create">account_create</a></li>
 
 
 
 
 
-<li><a href="#operations.application_create">application_create</a></li>
 
 
 
@@ -369,13 +365,11 @@ There are also simplified methods that enable this functionality as well but are
 
 
 
-<li><a href="#operations.account_delete">account_delete</a></li>
 
 
 
 
 
-<li><a href="#operations.application_delete">application_delete</a></li>
 
 
 
@@ -418,64 +412,6 @@ There are also simplified methods that enable this functionality as well but are
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li><a href="#operations.custom_binary">custom_binary</a></li>
-
-
-
-
-
-<li><a href="#operations.custom_json">custom_json</a></li>
-
-
-
-
-
-
-
-
-
-<li><a href="#operations.account_witness_proxy">account_witness_proxy</a></li>
-
-
-
-
-
-
-
-<li><a href="#operations.sponsor_fees">sponsor_fees</a></li>
-
-
-
-
-
-<li><a href="#operations.witness_stop">witness_stop</a></li>
 
 
 
@@ -493,63 +429,31 @@ There are also simplified methods that enable this functionality as well but are
 
 
 
-<li><a href="#operations.account_update">account_update</a></li>
-
-
-
-
-
-<li><a href="#operations.application_update">application_update</a></li>
-
-
-
-
-
-<li><a href="#operations.witness_update">witness_update</a></li>
-
-
-
-
-
-
-
-<li><a href="#operations.account_witness_vote">account_witness_vote</a></li>
-
-
-
-
-
 <li><a href="#operations.withdraw_vesting">withdraw_vesting</a></li>
 
 
 
 
 
-<li><a href="#operations.feed_publish">feed_publish</a></li>
+<li><a href="#operations.transfer_from_promotion_pool">transfer_from_promotion_pool</a></li>
 
 
 
 
 
-<li><a href="#operations.escrow_transfer">escrow_transfer</a></li>
+<li><a href="#operations.account_create">account_create</a></li>
 
 
 
 
 
-<li><a href="#operations.escrow_approve">escrow_approve</a></li>
+<li><a href="#operations.account_update">account_update</a></li>
 
 
 
 
 
-<li><a href="#operations.escrow_dispute">escrow_dispute</a></li>
-
-
-
-
-
-<li><a href="#operations.escrow_release">escrow_release</a></li>
+<li><a href="#operations.account_delete">account_delete</a></li>
 
 
 
@@ -585,19 +489,115 @@ There are also simplified methods that enable this functionality as well but are
 
 
 
+<li><a href="#operations.application_create">application_create</a></li>
+
+
+
+
+
+<li><a href="#operations.application_update">application_update</a></li>
+
+
+
+
+
+<li><a href="#operations.application_delete">application_delete</a></li>
+
+
+
+
+
+<li><a href="#operations.buy_application">buy_application</a></li>
+
+
+
+
+
+<li><a href="#operations.cancel_application_buying">cancel_application_buying</a></li>
+
+
+
+
+
+<li><a href="#operations.custom_binary">custom_binary</a></li>
+
+
+
+
+
+<li><a href="#operations.custom_json">custom_json</a></li>
+
+
+
+
+
+<li><a href="#operations.sponsor_fees">sponsor_fees</a></li>
+
+
+
+
+
+<li><a href="#operations.witness_stop">witness_stop</a></li>
+
+
+
+
+
+<li><a href="#operations.witness_update">witness_update</a></li>
+
+
+
+
+
+<li><a href="#operations.account_witness_proxy">account_witness_proxy</a></li>
+
+
+
+
+
 <li><a href="#operations.witness_set_properties">witness_set_properties</a></li>
 
 
 
 
 
-<li><a href="#operations.transfer_from_promotion_pool">transfer_from_promotion_pool</a></li>
-
-
-
-
-
 <li><a href="#operations.admin_witness_update">admin_witness_update</a></li>
+
+
+
+
+
+<li><a href="#operations.account_witness_vote">account_witness_vote</a></li>
+
+
+
+
+
+<li><a href="#operations.feed_publish">feed_publish</a></li>
+
+
+
+
+
+<li><a href="#operations.escrow_transfer">escrow_transfer</a></li>
+
+
+
+
+
+<li><a href="#operations.escrow_approve">escrow_approve</a></li>
+
+
+
+
+
+<li><a href="#operations.escrow_dispute">escrow_dispute</a></li>
+
+
+
+
+
+<li><a href="#operations.escrow_release">escrow_release</a></li>
 
 
 
@@ -609,40 +609,72 @@ There are also simplified methods that enable this functionality as well but are
 
 </ul>
 
-<h4 id="operations.buy_application">buy_application <a href="#operations.buy_application"><i class="fas fa-link fa-xs"></i></a></h4>
+<h4 id="operations.transfer">transfer <a href="#operations.transfer"><i class="fas fa-link fa-xs"></i></a></h4>
 
 <blockquote class="warning">
     <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
 </blockquote>
 
-<h4>alexandria_api.buy_application</h4>
+<h4>alexandria_api.transfer</h4>
 
-<p>Returns “buy_application” operation in required format.<br /><br /> <b>Request</b></p>
-<li>buyer - buyer of application i.e. "account_name"</li>
-<li>app_id - id of application that buyer will buy</li>
-<p><br /> <b>Response</b></p>
-<li>op - "buy_application" operation in required format</li>
+<p>Transfers SOPHIATX from one account to another. API call creates "transfer" operation in requested json format.<br /><br />
+<b>Request:</b><br /></p>
+<li>from - sender account</li>
+<li>to - recipient account</li>
+<li>amount - amount of SPHTX tokens to be transfered</li>
+<li>memo - custom note</li>
+<p><br />
+<b>Result:</b><br /></p>
+<li>op -  operation "transfer" created in required json format.</li>
 <p><br /></p>
 
-<h5 id="operations.buy_application-helper_api_parameter_json">Query Parameters JSON <a href="#operations.buy_application-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
+<h5 id="operations.transfer-helper_api_parameter_json">Query Parameters JSON <a href="#operations.transfer-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="operations.buy_application-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.buy_application-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<h5 id="operations.transfer-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.transfer-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"buy_application"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transfer"</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="operations.buy_application-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.buy_application-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.buy_application", "params": {"buyer":"","app_id":0}, "id": 1}'</span> https://API_URL
+<h5 id="operations.transfer-curl_examples">Real Example <code>curl</code> <a href="#operations.transfer-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.transfer", "params": {"from": "7HLPQ1kpnAIWawkAEgcoN4I7qJY", "to": "YWV2w-Q5eB3e0gt_nKS1m85sc0U", "amount": "1000.000000 SPHTX","memo": "some note"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<h5 id="operations.transfer-curl-responses">Response <code>curl</code> <a href="#operations.transfer-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
+  "jsonrpc": "2.0",
+  "result": {
+    "op": [
+      "transfer",
+      {
+        "fee": "0.000000 SPHTX",
+        "from": "user1",
+        "to": "7HLPQ1kpnAIWawkAEgcoN4I7qJY",
+        "amount": "1000.000000 SPHTX",
+        "memo": "some note"
+      }
+    ]
+  },
+  "id": 1
+}'</span>
 </code></pre></div></div>
 
 <hr />
@@ -653,43 +685,107 @@ There are also simplified methods that enable this functionality as well but are
 
 </ul>
 
-<h4 id="operations.cancel_application_buying">cancel_application_buying <a href="#operations.cancel_application_buying"><i class="fas fa-link fa-xs"></i></a></h4>
+<h4 id="operations.transfer_to_vesting">transfer_to_vesting <a href="#operations.transfer_to_vesting"><i class="fas fa-link fa-xs"></i></a></h4>
 
 <blockquote class="warning">
     <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
 </blockquote>
 
-<h4>alexandria_api.cancel_application_buying</h4>
+<h4>alexandria_api.transfer_to_vesting</h4>
 
-<p>Returns “cancel_application_buying” operation in required format.<br /><br /> <b>Request</b></p>
-<li>app_owner - owner of bought application i.e. "account_name"</li>
-<li>buyer - buyer of application i.e. "account_name"</li>
-<li>app_id - id of application that buyer will buy</li>
-<p><br /> <b>Response</b></p>
-<li>op - "cancel_application_buying" operation in required format</li>
+<p>Transfer SPHTX into a vesting fund represented by vesting shares (VESTS). VESTS are required to vesting for a minimum of one coin year and can be withdrawn once a week over a two year withdraw period. VESTS are protected against dilution up until 90% of SPHTX is vesting.<br /> API call creates "transfer_to_vesting" operation in requested json format. <br /><br />
+<b>Request:</b><br /></p>
+<li>from - account the SPHTX is coming from i.e. "account_name"</li>
+<li>to - account getting the VESTS i.e. "account_name"</li>
+<li>amount - amount of SPHTX to vest i.e. "100.00 SPHTX"</li>
+<p><br />
+<b>Result:</b><br /></p>
+<li>op -  operation "transfer_to_vesting" created in required json format.</li>
 <p><br /></p>
 
-<h5 id="operations.cancel_application_buying-helper_api_parameter_json">Query Parameters JSON <a href="#operations.cancel_application_buying-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"app_owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
+<h5 id="operations.transfer_to_vesting-helper_api_parameter_json">Query Parameters JSON <a href="#operations.transfer_to_vesting-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="operations.cancel_application_buying-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.cancel_application_buying-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<h5 id="operations.transfer_to_vesting-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.transfer_to_vesting-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"cancel_application_buying"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transfer_to_vesting"</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"app_owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000SPHTX"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="operations.cancel_application_buying-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.cancel_application_buying-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.cancel_application_buying", "params": {"app_owner":"","buyer":"","app_id":0}, "id": 1}'</span> https://API_URL
+<h5 id="operations.transfer_to_vesting-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.transfer_to_vesting-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.transfer_to_vesting", "params": {"from":"","to":"","amount":"0.000000 SPHTX"}, "id": 1}'</span> https://API_URL
 </code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.withdraw_vesting">withdraw_vesting <a href="#operations.withdraw_vesting"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<blockquote class="warning">
+    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
+</blockquote>
+
+<h4>alexandria_api.withdraw_vesting</h4>
+
+<p>Set up a vesting withdraw request. The request is fulfilled once a week over the next two year (104 weeks).<br /> API call creates "withdraw_vesting" operation in requested json format.<br /><br />
+<b>Request:</b><br /></p>
+<li>from - account the VESTS are withdrawn from i.e. "account_name".</li>
+<li>vesting_shares The amount of VESTS to withdraw over the next two years. Each week (amount/104) shares are withdrawn and deposited back as SPHTX. i.e. "10.000000 VESTS".</li>
+<p><br />
+<b>Result:</b><br /></p>
+<li>op -  operation "withdraw_vesting" created in required json format.</li>
+<p><br /></p>
+
+<h5 id="operations.withdraw_vesting-helper_api_parameter_json">Query Parameters JSON <a href="#operations.withdraw_vesting-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.withdraw_vesting-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.withdraw_vesting-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"withdraw_vesting"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000SPHTX"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.withdraw_vesting-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.withdraw_vesting-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.withdraw_vesting", "params": {"from":"","vesting_shares":"0.000000 SPHTX"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.transfer_from_promotion_pool">transfer_from_promotion_pool <a href="#operations.transfer_from_promotion_pool"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<p>Recovers funds from the promotion pool. Only initminer can do that.<br /><br /></p>
+
+<h5 id="alexandria_api_operations.transfer_from_promotion_pool-example_operation">Example Op. <a href="#operations.transfer_from_promotion_pool-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"{</span><span class="se">\"</span><span class="s2">op</span><span class="se">\"</span><span class="s2">:[</span><span class="se">\"</span><span class="s2">transfer_from_promotion_pool</span><span class="se">\"</span><span class="s2">,{...}]}"</span><span class="w">
+</span></code></pre></div></div>
 
 <hr />
 
@@ -707,7 +803,7 @@ There are also simplified methods that enable this functionality as well but are
 
 <h4>alexandria_api.create_account</h4>
 
-<p>Creates operation ‘account_create’ in required json format<br /><br /> <b>Request</b></p>
+<p>Creates new account in blockchain.<br /> API call creates operation ‘account_create’ in required json format<br /><br /> <b>Request</b></p>
 <li>creator - existing account. It can be later used to regenerate private key of created account</li>
 <li>name_seed - seed name of the new account</li>
 <li>json_meta - any data related to the new account</li>
@@ -716,7 +812,7 @@ There are also simplified methods that enable this functionality as well but are
 <li>memo - memo public key. It is used for encrypting messages meant to be read only by this account. Paired private is used fot decrypting</li>
 <p><br />
 <b>Response</b></p>
-<li>op - operation "accunt_create" created in required json format</li>
+<li>op - operation "account_create" created in required json format</li>
 <p><br /></p>
 
 <h5 id="operations.create_account-helper_api_parameter_json">Query Parameters JSON <a href="#operations.create_account-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
@@ -808,6 +904,280 @@ There are also simplified methods that enable this functionality as well but are
 
 </ul>
 
+<h4 id="operations.account_update">account_update <a href="#operations.account_update"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<blockquote class="warning">
+    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
+</blockquote>
+
+<h4>alexandria_api.update_account</h4>
+
+<p>Updates existing account in blockchain.<br /> API call creates "account_update" operation in requested json format. Updates the keys of an existing account.<br /><br />
+<b>Request:</b><br /></p>
+<li>account_name - name of the account i.e. "account_name"</li>
+<li>json_meta - new JSON Metadata to be associated with the account</li>
+<li>owner - new public owner key for the account</li>
+<li>active - new public active key for the account</li>
+<li>memo - new public memo key for the account</li>
+<p><br />
+<b>Result:</b><br /></p>
+<li>op -  operation "account_update" created in required json format.</li>
+<p><br /></p>
+
+<h5 id="operations.update_account-helper_api_parameter_json">Query Parameters JSON <a href="#operations.update_account-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"json_meta"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.update_account-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.update_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"account_update"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"memo_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"json_metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.update_account-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.update_account-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.update_account", "params": {"account_name":"","json_meta":"","owner":"SPH1111111111111111111111111111111114T1Anm","active":"SPH1111111111111111111111111111111114T1Anm","memo":"SPH1111111111111111111111111111111114T1Anm"}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.account_delete">account_delete <a href="#operations.account_delete"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<blockquote class="warning">
+    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
+</blockquote>
+
+<h4>alexandria_api.delete_account</h4>
+
+<p>Deletes existing account in blockchain.<br /> API call creates “account_delete” operation in requested json format.<br /><br /> <b>Request:</b></p>
+<li>account_name - name of the account to be deleted</li>
+<p><br />
+<b>Response:</b></p>
+<li>op -  operation "account_delete" created in required json format.</li>
+<p><br /></p>
+
+<h5 id="operations.delete_account-helper_api_parameter_json">Query Parameters JSON <a href="#operations.delete_account-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.delete_account-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.delete_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"account_delete"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w"> </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.delete_account-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.delete_account-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.delete_account", "params": {"account_name":""}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.request_account_recovery">request_account_recovery <a href="#operations.request_account_recovery"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<p>All account recovery requests come from a listed recovery account. This is secure based on the assumption that only a trusted account should be a recovery account. It is the responsibility of the recovery account to verify the identity of the account holder of the account to recover by whichever means they have agreed upon. The blockchain assumes identity has been verified when this operation is broadcast.<br /><br />
+This operation creates an account recovery request which the account to recover has 24 hours to respond to before the request expires and is invalidated.<br /><br />
+There can only be one active recovery request per account at any one time. Pushing this operation for an account to recover when it already has an active request will either update the request to a new new owner authority and extend the request expiration to 24 hours from the current head block time or it will delete the request. To cancel a request, simply set the weight threshold of the new owner authority to 0, making it an open authority.<br /><br />
+Additionally, the new owner authority must be satisfiable. In other words, the sum of the key weights must be greater than or equal to the weight threshold.<br /><br />
+This operation only needs to be signed by the the recovery account. The account to recover confirms its identity to the blockchain in the recover account operation.<br /><br />
+Notes<br /></p>
+<li><b>recovery_account</b> - The recovery account is listed as the recovery account on the account to recover.</li>
+<li><b>account_to_recover</b> - The account to recover. This is likely due to a compromised owner authority.</li>
+<li><b>new_owner_authority</b> - The new owner authority the account to recover wishes to have. This is secret known by the account to recover and will be confirmed in a recover_account.</li>
+<p><br /></p>
+
+<h5 id="alexandria_api_operations.request_account_recovery-example_operation">Example Op. <a href="#operations.request_account_recovery-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"request_account_recovery"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"recovery_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sophiatx"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account_to_recover"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"new_owner_authority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"STM6LYxj96zdypHYqgDdD6Nyh2NxerN3P1Mp3ddNm7gci63nfrSuZ"</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.recover_account">recover_account <a href="#operations.recover_account"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<p>Recover an account to a new authority using a previous authority and verification of the recovery account as proof of identity. This operation can only succeed if there was a recovery request sent by the account’s recover account.<br /><br />
+In order to recover the account, the account holder must provide proof of past ownership and proof of identity to the recovery account. Being able to satisfy an owner authority that was used in the past 30 days is sufficient to prove past ownership. The get_owner_history function in the database API returns past owner authorities that are valid for account recovery.<br /><br />
+Proving identity is an off chain contract between the account holder and the recovery account. The recovery request contains a new authority which must be satisfied by the account holder to regain control. The actual process of verifying authority may become complicated, but that is an application level concern, not a blockchain concern.<br /><br />
+This operation requires both the past and future owner authorities in the operation because neither of them can be derived from the current chain state. The operation must be signed by keys that satisfy both the new owner authority and the recent owner authority. Failing either fails the operation entirely.<br /><br />
+If a recovery request was made inadvertantly, the account holder should contact the recovery account to have the request deleted.<br /><br />
+The two setp combination of the account recovery request and recover is safe because the recovery account never has access to secrets of the account to recover. They simply act as an on chain endorsement of off chain identity. In other systems, a fork would be required to enforce such off chain state. Additionally, an account cannot be permanently recovered to the wrong account. While any owner authority from the past 30 days can be used, including a compromised authority, the account can be continually recovered until the recovery account is confident a combination of uncompromised authorities were used to recover the account. The actual process of verifying authority may become complicated, but that is an application level concern, not the blockchain’s concern.<br /><br /></p>
+
+<h5 id="alexandria_api_operations.recover_account-example_operation">Example Op. <a href="#operations.recover_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"recover_account"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"account_to_recover"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"new_owner_authority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"STM7j3nhkhHTpXqLEvdx2yEGhQeeorTcxSV6WDL2DZGxwUxYGrHvh"</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"recent_owner_authority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"STM78Xth94gNxp8nmByFV2vNAhg9bsSdviJ6fQXUTFikySLK3uTxC"</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.change_recovery_account">change_recovery_account <a href="#operations.change_recovery_account"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<p>Each account lists another account as their recovery account. The recovery account has the ability to create account_recovery_requests for the account to recover. An account can change their recovery account at any time with a 30 day delay. This delay is to prevent an attacker from changing the recovery account to a malicious account during an attack. These 30 days match the 30 days that an owner authority is valid for recovery purposes.<br /><br />
+On account creation the recovery account is set either to the creator of the account (The account that pays the creation fee and is a signer on the transaction) or to the empty string if the account was mined. An account with no recovery has the top voted witness as a recovery account, at the time the recover request is created. Note - This does mean the effective recovery account of an account with no listed recovery account can change at any time as witness vote weights. The top voted witness is explicitly the most trusted witness according to stake.<br /><br /></p>
+
+<h5 id="alexandria_api_operations.change_recovery_account-example_operation">Example Op. <a href="#operations.change_recovery_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"change_recovery_account"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"account_to_recover"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"new_recovery_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.reset_account">reset_account <a href="#operations.reset_account"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<p>This operation allows recovery_accoutn to change account_to_reset’s owner authority to new_owner_authority after 60 days of inactivity.<br /><br /></p>
+
+<h5 id="alexandria_api_operations.reset_account-example_operation">Example Op. <a href="#operations.reset_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"reset_account"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"reset_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account_to_reset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"new_owner_authority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"weight_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"key_auths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"STM7j3nhkhHTpXqLEvdx2yEGhQeeorTcxSV6WDL2DZGxwUxYGrHvh"</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.set_reset_account">set_reset_account <a href="#operations.set_reset_account"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<p>This operation allows ‘account’ owner to control which account has the power to execute the ‘reset_account_operation’ after 60 days.<br /><br /></p>
+
+<h5 id="alexandria_api_operations.set_reset_account-example_operation">Example Op. <a href="#operations.set_reset_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"set_reset_account"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current_reset_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reset_account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sophiatx"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
 <h4 id="operations.application_create">application_create <a href="#operations.application_create"><i class="fas fa-link fa-xs"></i></a></h4>
 
 <blockquote class="warning">
@@ -816,7 +1186,7 @@ There are also simplified methods that enable this functionality as well but are
 
 <h4>alexandria_api.create_application</h4>
 
-<p>Returns “application_create” operation in required format. There is a fee associated with account creation that is paid by the creator. The current account creation fee can be found with the ‘info’ alexandria command.<br /><br /> <b>Request</b></p>
+<p>Creates custom application in blockchain<br />. API call returns “application_create” operation in required format. There is a fee associated with account creation that is paid by the creator. The current account creation fee can be found with the ‘info’ alexandria command.<br /><br /> <b>Request</b></p>
 <li>author - account creating the new application i.e. "account_name"</li>
 <li>app_name - unique name for new application</li>
 <li>url - url of the new application</li>
@@ -865,36 +1235,55 @@ There are also simplified methods that enable this functionality as well but are
 
 </ul>
 
-<h4 id="operations.account_delete">account_delete <a href="#operations.account_delete"><i class="fas fa-link fa-xs"></i></a></h4>
+<h4 id="operations.application_update">application_update <a href="#operations.application_update"><i class="fas fa-link fa-xs"></i></a></h4>
 
 <blockquote class="warning">
     <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
 </blockquote>
 
-<h4>alexandria_api.delete_account</h4>
+<h4>alexandria_api.update_application</h4>
 
-<p>Returns “account_delete” operation in requested json format.<br /><br /> <b>Request:</b></p>
-<li>account_name - name of the account to be deleted</li>
+<p>Updates custom application in blockchain<br />. API call returns  "application_update" operation in requested json format. Updates existing application object.<br /><br />
+<b>Request:</b><br /></p>
+<li>author - author of application i.e. "account_name"</li>
+<li>app_name - name of app that will be updated</li>
+<li>new_author - new author i.e. "account_name"</li>
+<li>url - updated url</li>
+<li>meta_data - updated meta data</li>
+<li>price_param - updated price param</li>
 <p><br />
-<b>Response:</b></p>
-<li>op -  operation "account_delete" created in required json format.</li>
+<b>Result:</b><br /></p>
+<li>op -  operation "application_update" created in required json format.</li>
 <p><br /></p>
 
-<h5 id="operations.delete_account-helper_api_parameter_json">Query Parameters JSON <a href="#operations.delete_account-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+<h5 id="operations.update_application-helper_api_parameter_json">Query Parameters JSON <a href="#operations.update_application-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"new_author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price_param"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="operations.delete_account-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.delete_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<h5 id="operations.update_application-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.update_application-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"account_delete"</span><span class="p">,</span><span class="w">
-    </span><span class="p">{</span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w"> </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+    </span><span class="s2">"application_update"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="operations.delete_account-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.delete_account-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.delete_account", "params": {"account_name":""}, "id": 1}'</span> https://API_URL
+<h5 id="operations.update_application-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.update_application-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.update_application", "params": {"author":"","app_name":"","new_author":"","url":"","meta_data":"","price_param":0}, "id": 1}'</span> https://API_URL
 </code></pre></div></div>
 
 <hr />
@@ -913,7 +1302,7 @@ There are also simplified methods that enable this functionality as well but are
 
 <h4>alexandria_api.delete_application</h4>
 
-<p>Returns “application_delete” operation in required format. <b>Request</b></p>
+<p>Deletes custom application in blockchain<br />. API call returns  “application_delete” operation in required format. <b>Request</b></p>
 <li>author - author of application that will be deleted i.e. "account_name"</li>
 <li>app_name - name of app that will be deleted</li>
 <p><b>Response</b></p>
@@ -949,6 +1338,96 @@ There are also simplified methods that enable this functionality as well but are
 
 </ul>
 
+<h4 id="operations.buy_application">buy_application <a href="#operations.buy_application"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<blockquote class="warning">
+    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
+</blockquote>
+
+<h4>alexandria_api.buy_application</h4>
+
+<p>Buys custom application in blockchain<br />. API call returns  “buy_application” operation in required format.<br /><br /> <b>Request</b></p>
+<li>buyer - buyer of application i.e. "account_name"</li>
+<li>app_id - id of application that buyer will buy</li>
+<p><br /> <b>Response</b></p>
+<li>op - "buy_application" operation in required format</li>
+<p><br /></p>
+
+<h5 id="operations.buy_application-helper_api_parameter_json">Query Parameters JSON <a href="#operations.buy_application-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.buy_application-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.buy_application-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"buy_application"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.buy_application-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.buy_application-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.buy_application", "params": {"buyer":"","app_id":0}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.cancel_application_buying">cancel_application_buying <a href="#operations.cancel_application_buying"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<blockquote class="warning">
+    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
+</blockquote>
+
+<h4>alexandria_api.cancel_application_buying</h4>
+
+<p>Cancel custom application buying in blockchain<br />. API call returns  “cancel_application_buying” operation in required format.<br /><br /> <b>Request</b></p>
+<li>app_owner - owner of bought application i.e. "account_name"</li>
+<li>buyer - buyer of application i.e. "account_name"</li>
+<li>app_id - id of application that buyer will buy</li>
+<p><br /> <b>Response</b></p>
+<li>op - "cancel_application_buying" operation in required format</li>
+<p><br /></p>
+
+<h5 id="operations.cancel_application_buying-helper_api_parameter_json">Query Parameters JSON <a href="#operations.cancel_application_buying-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"app_owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.cancel_application_buying-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.cancel_application_buying-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"cancel_application_buying"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"app_owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.cancel_application_buying-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.cancel_application_buying-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.cancel_application_buying", "params": {"app_owner":"","buyer":"","app_id":0}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
 <h4 id="operations.custom_binary">custom_binary <a href="#operations.custom_binary"><i class="fas fa-link fa-xs"></i></a></h4>
 
 <blockquote class="warning">
@@ -957,7 +1436,7 @@ There are also simplified methods that enable this functionality as well but are
 
 <h4>alexandria_api.make_custom_binary_operation</h4>
 
-<p>Creates "custom_binary" operation in requested json format.
+<p>Saves custom binary data in blockchain<br />. API call returns  "custom_binary" operation in requested json format.
 <b>Request:</b><br /></p>
 <li>app_id - application-specific id</li>
 <li>from - sender account</li>
@@ -1023,7 +1502,7 @@ There are also simplified methods that enable this functionality as well but are
 
 <h4>alexandria_api.make_custom_json_operation</h4>
 
-<p>Creates "custom_json" operation in requested json format.<br /><br />
+<p>Saves custom json data in blockchain<br />. API call returns "custom_json" operation in requested json format.<br /><br />
 <b>Request:</b><br /></p>
 <li>app_id - application-specific id</li>
 <li>from - sender account</li>
@@ -1070,52 +1549,6 @@ There are also simplified methods that enable this functionality as well but are
 
 </ul>
 
-<h4 id="operations.account_witness_proxy">account_witness_proxy <a href="#operations.account_witness_proxy"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<blockquote class="warning">
-    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
-</blockquote>
-
-<h4>alexandria_api.set_voting_proxy</h4>
-
-<p>Creates "account_witness_proxy" operation in requested json format. Sets the voting proxy for an account. If a user does not wish to take an active part in voting,they can choose to allow another account to vote their stake. Setting a vote proxy does not remove your previous votes from the blockchain, they remain there but are ignored. If you later null out your vote proxy, your previous votes will take effect again. This setting can be changed at any time.<br /><br />
-<b>Request</b></p>
-<li>account_to_modify - the name or id of the account to update i.e. "account_name"</li>
-<li>proxy - the name of account that should proxy to or empty string to have no proxy</li>
-<p><br />
-<b>Response</b></p>
-<li>op - creates \"account_witness_proxy\" operation</li>
-<p><br /></p>
-
-<h5 id="operations.set_voting_proxy-helper_api_parameter_json">Query Parameters JSON <a href="#operations.set_voting_proxy-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_to_modify"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.set_voting_proxy-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.set_voting_proxy-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"account_witness_proxy"</span><span class="p">,</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.set_voting_proxy-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.set_voting_proxy-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.set_voting_proxy", "params": {"account_to_modify":"","proxy":""}, "id": 1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
 <h4 id="operations.sponsor_fees">sponsor_fees <a href="#operations.sponsor_fees"><i class="fas fa-link fa-xs"></i></a></h4>
 
 <blockquote class="warning">
@@ -1124,7 +1557,7 @@ There are also simplified methods that enable this functionality as well but are
 
 <h4>alexandria_api.sponsor_account_fees</h4>
 
-<p>Creates "sponsor_fees" operation in requested json format.<br /><br />
+<p>Sets up sponsoring account for another account fees<br />. API call returns "sponsor_fees" operation in requested json format.<br /><br />
 <b>Request</b></p>
 <li>sponsoring_account - account name that will sponsor fees</li>
 <li>sponsored_account - account that will be sponsored</li>
@@ -1176,7 +1609,7 @@ There are also simplified methods that enable this functionality as well but are
 
 <h4>alexandria_api.stop_witness</h4>
 
-<p>Creates "witness_stop" operation in requested json format. Stop being a witness,effectively deleting the witness object owned by the given account.<br /><br />
+<p>Stops witness.<br />. API call returns "witness_stop" operation in requested json format. Stop being a witness,effectively deleting the witness object owned by the given account.<br /><br />
 <b>Request</b></p>
 <li>witness_name - name of the witness account i.e. "account_name"</li>
 <p><br />
@@ -1209,245 +1642,6 @@ There are also simplified methods that enable this functionality as well but are
 
 </ul>
 
-<h4 id="operations.transfer">transfer <a href="#operations.transfer"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<blockquote class="warning">
-    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
-</blockquote>
-
-<h4>alexandria_api.transfer</h4>
-
-<p>Creates "transfer" operation in requested json format.
-<b>Request:</b><br /></p>
-<li>from - sender account</li>
-<li>to - recipient account</li>
-<li>amount - amount of SPHTX tokens to be transfered</li>
-<li>memo - custom note</li>
-<p><br />
-<b>Result:</b><br /></p>
-<li>op -  operation "transfer" created in required json format.</li>
-<p><br /></p>
-
-<h5 id="operations.transfer-helper_api_parameter_json">Query Parameters JSON <a href="#operations.transfer-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.transfer-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.transfer-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"transfer"</span><span class="p">,</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.transfer-curl_examples">Real Example <code>curl</code> <a href="#operations.transfer-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.transfer", "params": {"from": "7HLPQ1kpnAIWawkAEgcoN4I7qJY", "to": "YWV2w-Q5eB3e0gt_nKS1m85sc0U", "amount": "1000.000000 SPHTX","memo": "some note"}, "id": 1}'</span> https://API_URL
-</code></pre></div></div>
-
-<h5 id="operations.transfer-curl-responses">Response <code>curl</code> <a href="#operations.transfer-curl-responses"><i class="fas fa-link fa-sm"></i></a></h5>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'{
-  "jsonrpc": "2.0",
-  "result": {
-    "op": [
-      "transfer",
-      {
-        "fee": "0.000000 SPHTX",
-        "from": "user1",
-        "to": "7HLPQ1kpnAIWawkAEgcoN4I7qJY",
-        "amount": "1000.000000 SPHTX",
-        "memo": "some note"
-      }
-    ]
-  },
-  "id": 1
-}'</span>
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.transfer_to_vesting">transfer_to_vesting <a href="#operations.transfer_to_vesting"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<blockquote class="warning">
-    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
-</blockquote>
-
-<h4>alexandria_api.transfer_to_vesting</h4>
-
-<p>Creates "transfer_to_vesting" operation in requested json format. Transfer SPHTX into a vesting fund represented by vesting shares (VESTS). VESTS are required to vesting for a minimum of one coin year and can be withdrawn once a week over a two year withdraw period. VESTS are protected against dilution up until 90% of SPHTX is vesting.<br /><br />
-<b>Request:</b><br /></p>
-<li>from - account the SPHTX is coming from i.e. "account_name"</li>
-<li>to - account getting the VESTS i.e. "account_name"</li>
-<li>amount - amount of SPHTX to vest i.e. "100.00 SPHTX"</li>
-<p><br />
-<b>Result:</b><br /></p>
-<li>op -  operation "transfer_to_vesting" created in required json format.</li>
-<p><br /></p>
-
-<h5 id="operations.transfer_to_vesting-helper_api_parameter_json">Query Parameters JSON <a href="#operations.transfer_to_vesting-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.transfer_to_vesting-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.transfer_to_vesting-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"transfer_to_vesting"</span><span class="p">,</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000SPHTX"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.transfer_to_vesting-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.transfer_to_vesting-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.transfer_to_vesting", "params": {"from":"","to":"","amount":"0.000000 SPHTX"}, "id": 1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.account_update">account_update <a href="#operations.account_update"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<blockquote class="warning">
-    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
-</blockquote>
-
-<h4>alexandria_api.update_account</h4>
-
-<p>Creates "account_update" operation in requested json format. Updates the keys of an existing account.<br /><br />
-<b>Request:</b><br /></p>
-<li>account_name - name of the account i.e. "account_name"</li>
-<li>json_meta - new JSON Metadata to be associated with the account</li>
-<li>owner - new public owner key for the account</li>
-<li>active - new public active key for the account</li>
-<li>memo - new public memo key for the account</li>
-<p><br />
-<b>Result:</b><br /></p>
-<li>op -  operation "account_update" created in required json format.</li>
-<p><br /></p>
-
-<h5 id="operations.update_account-helper_api_parameter_json">Query Parameters JSON <a href="#operations.update_account-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"json_meta"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.update_account-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.update_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"account_update"</span><span class="p">,</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"memo_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPH1111111111111111111111111111111114T1Anm"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"json_metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.update_account-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.update_account-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.update_account", "params": {"account_name":"","json_meta":"","owner":"SPH1111111111111111111111111111111114T1Anm","active":"SPH1111111111111111111111111111111114T1Anm","memo":"SPH1111111111111111111111111111111114T1Anm"}, "id": 1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.application_update">application_update <a href="#operations.application_update"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<blockquote class="warning">
-    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
-</blockquote>
-
-<h4>alexandria_api.update_application</h4>
-
-<p>Creates "application_update" operation in requested json format. Updates existing application object.<br /><br />
-<b>Request:</b><br /></p>
-<li>author - author of application i.e. "account_name"</li>
-<li>app_name - name of app that will be updated</li>
-<li>new_author - new author i.e. "account_name"</li>
-<li>url - updated url</li>
-<li>meta_data - updated meta data</li>
-<li>price_param - updated price param</li>
-<p><br />
-<b>Result:</b><br /></p>
-<li>op -  operation "application_update" created in required json format.</li>
-<p><br /></p>
-
-<h5 id="operations.update_application-helper_api_parameter_json">Query Parameters JSON <a href="#operations.update_application-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"app_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"new_author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"price_param"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.update_application-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.update_application-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"application_update"</span><span class="p">,</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.update_application-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.update_application-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.update_application", "params": {"author":"","app_name":"","new_author":"","url":"","meta_data":"","price_param":0}, "id": 1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
 <h4 id="operations.witness_update">witness_update <a href="#operations.witness_update"><i class="fas fa-link fa-xs"></i></a></h4>
 
 <blockquote class="warning">
@@ -1456,7 +1650,7 @@ There are also simplified methods that enable this functionality as well but are
 
 <h4>alexandria_api.update_witness</h4>
 
-<p>Creates "witness_update" operation in requested json format. Updates a witness object owned by the given account.<br /><br />
+<p>Updates witness.<br />. API call returns "witness_update" operation in requested json format. Updates a witness object owned by the given account.<br /><br />
 <b>Request:</b><br /></p>
 <li>witness_name - the name of the witness account.</li>
 <li>url - url containing some information about the witness. The empty string makes it remain the same.</li>
@@ -1502,6 +1696,105 @@ There are also simplified methods that enable this functionality as well but are
 <h5 id="operations.update_witness-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.update_witness-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.update_witness", "params": {"witness_account_name":"","url":"","block_signing_key":"SPH1111111111111111111111111111111114T1Anm","props":{"account_creation_fee":"0.000000 SPHTX","maximum_block_size":262144,"price_feeds":[]}}, "id": 1}'</span> https://API_URL
 </code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.account_witness_proxy">account_witness_proxy <a href="#operations.account_witness_proxy"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<blockquote class="warning">
+    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
+</blockquote>
+
+<h4>alexandria_api.set_voting_proxy</h4>
+
+<p>Sets the voting proxy for an account. If a user does not wish to take an active part in voting,they can choose to allow another account to vote their stake. Setting a vote proxy does not remove your previous votes from the blockchain, they remain there but are ignored. If you later null out your vote proxy, your previous votes will take effect again. This setting can be changed at any time.<br /> API call returns  "account_witness_proxy" operation in requested json format. <br /><br />
+<b>Request</b></p>
+<li>account_to_modify - the name or id of the account to update i.e. "account_name"</li>
+<li>proxy - the name of account that should proxy to or empty string to have no proxy</li>
+<p><br />
+<b>Response</b></p>
+<li>op - creates \"account_witness_proxy\" operation</li>
+<p><br /></p>
+
+<h5 id="operations.set_voting_proxy-helper_api_parameter_json">Query Parameters JSON <a href="#operations.set_voting_proxy-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"account_to_modify"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.set_voting_proxy-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.set_voting_proxy-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"account_witness_proxy"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="operations.set_voting_proxy-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.set_voting_proxy-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.set_voting_proxy", "params": {"account_to_modify":"","proxy":""}, "id": 1}'</span> https://API_URL
+</code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.witness_set_properties">witness_set_properties <a href="#operations.witness_set_properties"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<p>Replaces the witness_update which was not easily extendable. While it is recommended to use witness_set_properties, witness_update will continue to work<br /><br /></p>
+
+<h5 id="alexandria_api_operations.witness_set_properties-example_operation">Example Op. <a href="#operations.witness_set_properties-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"witness_set_properties"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"props"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"account_creation_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000 SPHTX"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account_subsidy_budget"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account_subsidy_decay"</span><span class="p">:</span><span class="w"> </span><span class="mi">330782</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maximum_block_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">65536</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sbd_interest_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000 SPHTX"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sbd_exchange_rate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000 SBD"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000 SPHTX"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68747470733A2F2F737465656D69742E636F6D"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"new_signing_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25688bbe7b1204f26e40be054c8b2ff1997eec6d4e7be6a105aab8a0e6f11c616d7cb6066"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<ul style="float: right; list-style: none;">
+
+
+
+</ul>
+
+<h4 id="operations.admin_witness_update">admin_witness_update <a href="#operations.admin_witness_update"><i class="fas fa-link fa-xs"></i></a></h4>
+
+<p>Add description.<br /> This opertion can be used only in private nets.<br /><br /></p>
+
+<h5 id="alexandria_api_operations.admin_witness_update-example_operation">Example Op. <a href="#operations.admin_witness_update-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
+</span></code></pre></div></div>
 
 <hr />
 
@@ -1563,52 +1856,6 @@ There are also simplified methods that enable this functionality as well but are
 
 </ul>
 
-<h4 id="operations.withdraw_vesting">withdraw_vesting <a href="#operations.withdraw_vesting"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<blockquote class="warning">
-    <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>
-</blockquote>
-
-<h4>alexandria_api.withdraw_vesting</h4>
-
-<p>Creates "withdraw_vesting" operation in requested json format. Set up a vesting withdraw request. The request is fulfilled once a week over the next two year (104 weeks).<br /><br />
-<b>Request:</b><br /></p>
-<li>from - account the VESTS are withdrawn from i.e. "account_name".</li>
-<li>vesting_shares The amount of VESTS to withdraw over the next two years. Each week (amount/104) shares are withdrawn and deposited back as SPHTX. i.e. "10.000000 VESTS".</li>
-<p><br />
-<b>Result:</b><br /></p>
-<li>op -  operation "withdraw_vesting" created in required json format.</li>
-<p><br /></p>
-
-<h5 id="operations.withdraw_vesting-helper_api_parameter_json">Query Parameters JSON <a href="#operations.withdraw_vesting-helper_api_parameter_json"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.withdraw_vesting-example_operation">Example Op. (&amp; Expected Response JSON) <a href="#operations.withdraw_vesting-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"withdraw_vesting"</span><span class="p">,</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000 SPHTX"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vesting_shares"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000SPHTX"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h5 id="operations.withdraw_vesting-curl_examples">Default (Incomplete params values) Example <code>curl</code> <a href="#operations.withdraw_vesting-curl_examples"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> <span class="nt">--data</span> <span class="s1">'{"jsonrpc": "2.0", "method": "alexandria_api.withdraw_vesting", "params": {"from":"","vesting_shares":"0.000000 SPHTX"}, "id": 1}'</span> https://API_URL
-</code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
 <h4 id="operations.feed_publish">feed_publish <a href="#operations.feed_publish"><i class="fas fa-link fa-xs"></i></a></h4>
 
 <p>Feeds can only be published by the top N witnesses which are included in every round and are used to define the exchange rate between sophiatx and the fiat currencies.<br /><br /> Represents quotation of the relative value of asset against another asset. Similar to "currency pair" used to determine value of currencies.<br /><br />
@@ -1640,10 +1887,29 @@ can determine value of SPHTX against USD.<br /></p>
 
 <h4 id="operations.escrow_transfer">escrow_transfer <a href="#operations.escrow_transfer"><i class="fas fa-link fa-xs"></i></a></h4>
 
-<p>Add description<br /><br /></p>
+<p>The purpose of this operation is to enable someone to send money contingently to another individual. The funds leave the from account and go into a temporary balance where they are held until from releases it to to or to refunds it to from.<br /><br />
+In the event of a dispute the agent can divide the funds between the to/from account. Disputes can be raised any time before or on the dispute deadline time, after the escrow has been approved by all parties.<br /><br />
+This operation only creates a proposed escrow transfer. Both the agent and to must agree to the terms of the arrangement by approving the escrow.<br /><br />
+The escrow agent is paid the fee on approval of all parties. It is up to the escrow agent to determine the fee.<br /><br />
+Escrow transactions are uniquely identified by ‘from’ and ‘escrow_id’, the ‘escrow_id’ is defined by the sender.<br /><br /></p>
 
 <h5 id="alexandria_api_operations.escrow_transfer-example_operation">Example Op. <a href="#operations.escrow_transfer-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"escrow_transfer"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sophiatx_amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.000000"</span><span class="p">,</span><span class="w"> </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPHTX"</span><span class="p">},</span><span class="w">
+      </span><span class="s2">"escrow_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23456789</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"charlie"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"escrow_fee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">},</span><span class="w">
+      </span><span class="s2">"json_meta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ratification_deadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-26T11:22:39"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"escrow_expiration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28T11:22:39"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <hr />
@@ -1656,10 +1922,22 @@ can determine value of SPHTX against USD.<br /></p>
 
 <h4 id="operations.escrow_approve">escrow_approve <a href="#operations.escrow_approve"><i class="fas fa-link fa-xs"></i></a></h4>
 
-<p>Add description<br /><br /></p>
+<p>The agent and to accounts must approve an escrow transaction for it to be valid on the blockchain. Once a part approves the escrow, they cannot revoke their approval. Subsequent escrow approve operations, regardless of the approval, will be rejected.<br /><br /></p>
 
 <h5 id="alexandria_api_operations.escrow_approve-example_operation">Example Op. <a href="#operations.escrow_approve-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"escrow_approve"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"charlie"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"who"</span><span class="p">:</span><span class="w"> </span><span class="s2">"charlie"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"escrow_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">59102208</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"approve"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <hr />
@@ -1672,10 +1950,21 @@ can determine value of SPHTX against USD.<br /></p>
 
 <h4 id="operations.escrow_dispute">escrow_dispute <a href="#operations.escrow_dispute"><i class="fas fa-link fa-xs"></i></a></h4>
 
-<p>Add description<br /><br /></p>
+<p>If either the sender or receiver of an escrow payment has an issue, they can raise it for dispute. Once a payment is in dispute, the agent has authority over who gets what.<br /><br /></p>
 
 <h5 id="alexandria_api_operations.escrow_dispute-example_operation">Example Op. <a href="#operations.escrow_dispute-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"escrow_dispute"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"charlie"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"who"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"escrow_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">72526562</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <hr />
@@ -1688,138 +1977,37 @@ can determine value of SPHTX against USD.<br /></p>
 
 <h4 id="operations.escrow_release">escrow_release <a href="#operations.escrow_release"><i class="fas fa-link fa-xs"></i></a></h4>
 
-<p>Add description<br /><br /></p>
+<p>This operation can be used by anyone associated with the escrow transfer to release funds if they have permission.<br /><br />
+The permission scheme is as follows<br /></p>
+<li>If there is no dispute and escrow has not expired, either party can release funds to the other.</li>
+<li>If escrow expires and there is no dispute, either party can release funds to either party.</li>
+<li>If there is a dispute regardless of expiration, the agent can release funds to either party following whichever agreement was in place between the parties.</li>
+<p><br /></p>
 
 <h5 id="alexandria_api_operations.escrow_release-example_operation">Example Op. <a href="#operations.escrow_release-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.request_account_recovery">request_account_recovery <a href="#operations.request_account_recovery"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<p>Add description<br /><br /></p>
-
-<h5 id="alexandria_api_operations.request_account_recovery-example_operation">Example Op. <a href="#operations.request_account_recovery-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.recover_account">recover_account <a href="#operations.recover_account"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<p>Add description<br /><br /></p>
-
-<h5 id="alexandria_api_operations.recover_account-example_operation">Example Op. <a href="#operations.recover_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.change_recovery_account">change_recovery_account <a href="#operations.change_recovery_account"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<p>Add description<br /><br /></p>
-
-<h5 id="alexandria_api_operations.change_recovery_account-example_operation">Example Op. <a href="#operations.change_recovery_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.reset_account">reset_account <a href="#operations.reset_account"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<p>Add description<br /><br /></p>
-
-<h5 id="alexandria_api_operations.reset_account-example_operation">Example Op. <a href="#operations.reset_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.set_reset_account">set_reset_account <a href="#operations.set_reset_account"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<p>Add description<br /><br /></p>
-
-<h5 id="alexandria_api_operations.set_reset_account-example_operation">Example Op. <a href="#operations.set_reset_account-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.witness_set_properties">witness_set_properties <a href="#operations.witness_set_properties"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<p>Add description<br /><br /></p>
-
-<h5 id="alexandria_api_operations.witness_set_properties-example_operation">Example Op. <a href="#operations.witness_set_properties-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.transfer_from_promotion_pool">transfer_from_promotion_pool <a href="#operations.transfer_from_promotion_pool"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<p>Add description<br /><br /></p>
-
-<h5 id="alexandria_api_operations.transfer_from_promotion_pool-example_operation">Example Op. <a href="#operations.transfer_from_promotion_pool-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<ul style="float: right; list-style: none;">
-
-
-
-</ul>
-
-<h4 id="operations.admin_witness_update">admin_witness_update <a href="#operations.admin_witness_update"><i class="fas fa-link fa-xs"></i></a></h4>
-
-<p>Add description<br /><br /></p>
-
-<h5 id="alexandria_api_operations.admin_witness_update-example_operation">Example Op. <a href="#operations.admin_witness_update-example_operation"><i class="fas fa-link fa-sm"></i></a></h5>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"add name"</span><span class="p">,</span><span class="w"> </span><span class="p">{}]}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"escrow_release"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"charlie"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"who"</span><span class="p">:</span><span class="w"> </span><span class="s2">"charlie"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"escrow_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">72526562</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sbd_amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nai"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@@000000013"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"steem_amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nai"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@@000000021"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <hr />
