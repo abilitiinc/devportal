@@ -22,9 +22,6 @@
 <loc>https://developers.sophiatx.com/apidefinitions/account-history-api</loc>
 </url>
 <url>
-<loc>https://developers.sophiatx.com/apidefinitions/alexandria-api-operations</loc>
-</url>
-<url>
 <loc>https://developers.sophiatx.com/apidefinitions/alexandria-api</loc>
 </url>
 <url>
@@ -47,6 +44,9 @@
 </url>
 <url>
 <loc>https://developers.sophiatx.com/apidefinitions/network-broadcast-api</loc>
+</url>
+<url>
+<loc>https://developers.sophiatx.com/apidefinitions/operations</loc>
 </url>
 <url>
 <loc>https://developers.sophiatx.com/apidefinitions/subscribe-api</loc>

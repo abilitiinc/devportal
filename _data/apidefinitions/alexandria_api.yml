@@ -80,7 +80,21 @@
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]},"signature":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}'
     expected_response_json: '{"signed_tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
   - api_method: broadcast_transaction
-    purpose: Used to broadcast a transaction and waits for it to be processed synchronously.<br><br>
+    purpose: Broadcasts a transaction into the network and waits for it to be processed synchronously.<br><br>
+              There are 4 previous steps that needs to be done before broadcast is called.<br>
+              <b>All of them can and should be done locally, not on the blockchain side !!!</b> For inspiration, see<br>
+
+              <li><a href="#alexandria_api.create_simple_transaction">alexandria_api.create_simple_transaction</a></li>
+              <li><a href="#alexandria_api.get_transaction_digest">alexandria_api.get_transaction_digest</a></li>
+              <li><a href="#alexandria_api.sign_digest">alexandria_api.sign_digest</a></li>
+              <li><a href="#alexandria_api.add_siganture">alexandria_api.add_siganture</a></li>
+
+              or
+
+              <li><a href="#alexandria_api.send_and_sign_operation">alexandria_api.send_and_sign_operation</a></li>
+
+              that combines all the previous calls into one.<br><br>
+
               <b>Request</b>
 
               <li>tx - signed transaction</li><br>
@@ -90,7 +104,7 @@
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
     expected_response_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[],"transaction_id":"0000000000000000000000000000000000000000","block_num":0,"transaction_num":0}}'
   - api_method: buy_application
-    operation: true
+    operation: buy_application
     purpose: Returns "buy_application" operation in required format.<br><br>
               <b>Request</b>
 
@@ -114,7 +128,7 @@
       SPHTX","memo":""}],"symbol":"SPHTX"}'
     expected_response_json: '{"fee":"0.000000 SPHTX"}'
   - api_method: cancel_application_buying
-    operation: true
+    operation: cancel_application_buying
     purpose: Returns "cancel_application_buying" operation in required format.<br><br>
               <b>Request</b>
 
@@ -127,7 +141,7 @@
     parameter_json: '{"app_owner":"","buyer":"","app_id":0}'
     expected_response_json: '{"op":["cancel_application_buying",{"fee":"0.000000 SPHTX","app_owner":"","buyer":"","app_id":0}]}'
   - api_method: create_account
-    operation: true
+    operation: account_create
     purpose: Creates operation 'account_create' in required json format<br><br>
               <b>Request</b>
 
@@ -148,7 +162,7 @@
     curl_responses:
     - '{"jsonrpc":"2.0","result":{"op":["account_create",{"fee":"0.000000 SPHTX","creator":"user1","name_seed":"sophiatx_user","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH7qASF1CfENDRWdKC5gQCktydRQM2aY3i1d9wFdu1fjpURgTxiw",1]]},"active":{"weight_threshold":1,"account_auths":[],"key_auths":[["SPH5ekkeER1xi3EDoxoggo2ruMgPazKsGa8Pj44qrD326oDk5rgKP",1]]},"memo_key":"SPH4vtSio7iGMggFboydFjgRZknPEH1BExcN3r4rjb9iznJQr7Mqy","json_metadata":"{\"data\":\"anything related to the sophiatx_user\"}"}]},"id":1}'
   - api_method: create_application
-    operation: true
+    operation: application_create
     purpose: Returns "application_create" operation in required format. There is a fee associated with account creation
                that is paid by the creator. The current account creation fee can be found with the
                'info' alexandria command.<br><br>
@@ -253,7 +267,7 @@
     parameter_json: '{"data":"","public_key":"SPH1111111111111111111111111111111114T1Anm","private_key":""}'
     expected_response_json: '{"decrypted_data":""}'
   - api_method: delete_account
-    operation: true
+    operation: account_delete
     purpose: Returns "account_delete" operation in requested json format.<br><br>
       <b>Request:</b>
 
@@ -265,7 +279,7 @@
     parameter_json: '{"account_name":""}'
     expected_response_json: '{"op":["account_delete",{"fee":"0.000000 SPHTX","account":""}]}'
   - api_method: delete_application
-    operation: true
+    operation: application_delete
     purpose: Returns "application_delete" operation in required format.
                <b>Request</b>
 
@@ -689,7 +703,7 @@
     parameter_json: '{"name":"","limit":0}'
     expected_response_json: '{"witnesses_by_vote":[]}'
   - api_method: make_custom_binary_operation
-    operation: true
+    operation: custom_binary
     purpose: Creates \"custom_binary\" operation in requested json format.
 
               <b>Request:</b><br>
@@ -709,7 +723,7 @@
     curl_responses:
     - '{"op":["custom_binary",{"fee":"0.000000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"data":"48656c6c6f20536f706869615458"}]}'
   - api_method: make_custom_json_operation
-    operation: true
+    operation: custom_json
     purpose: Creates \"custom_json\" operation in requested json format.<br><br>
 
                <b>Request:</b><br>
@@ -787,7 +801,7 @@
     curl_responses:
     - '{"signed_tx":{"ref_block_num":3701,"ref_block_prefix":914684397,"expiration":"2019-04-04T13:30:15","operations":[["custom_json",{"fee":"0.010000 SPHTX","sender":"user1","recipients":["user2","user3"],"app_id":10,"json":"{\"data\":\"any valid json data\"}"}]],"extensions":[],"signatures":["203cd5873cba28262b2972245b2524341750cc8c1b67dc8fe5307f87c9aac8f8276365ac22002f91e8468c8160fa0343f5b1a5ca53a62464a4d9560a2a9173953d"],"transaction_id":"8b9afcccdf8bed9484fadd56eaa3bd744a13f819","block_num":3782,"transaction_num":0}}'
   - api_method: set_voting_proxy
-    operation: true
+    operation: account_witness_proxy
     purpose: Creates \"account_witness_proxy\" operation in requested json format. Sets the voting proxy for an account. If a user does not wish to take an active part in voting,they can choose
       to allow another account to vote their stake. Setting a vote proxy does not remove your previous votes from the blockchain,
       they remain there but are ignored. If you later null out your vote proxy, your previous votes will take effect again.
@@ -817,7 +831,7 @@
     parameter_json: '{"digest":"0000000000000000000000000000000000000000000000000000000000000000","pk":""}'
     expected_response_json: '{"signed_digest":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}'
   - api_method: sponsor_account_fees
-    operation: true
+    operation: sponsor_fees
     purpose: Creates \"sponsor_fees\" operation in requested json format.<br><br>
 
       <b>Request</b>
@@ -832,7 +846,7 @@
     parameter_json: '{"sponsoring_account":"","sponsored_account":"","is_sponsoring":false}'
     expected_response_json: '{"op":["sponsor_fees",{"fee":"0.000000 SPHTX","sponsor":"","sponsored":"","is_sponsoring":false}]}'
   - api_method: stop_witness
-    operation: true
+    operation: witness_stop
     purpose: Creates \"witness_stop\" operation in requested json format. Stop being a witness,effectively deleting the witness object owned by the given account.<br><br>
 
       <b>Request</b>
@@ -845,7 +859,7 @@
     parameter_json: '{"witness_account_name":""}'
     expected_response_json: '{"op":["witness_stop",{"fee":"0.000000 SPHTX","owner":""}]}'
   - api_method: transfer
-    operation: true
+    operation: transfer
     purpose: Creates \"transfer\" operation in requested json format.
 
       <b>Request:</b><br>
@@ -865,7 +879,7 @@
     curl_responses:
     -   '{"jsonrpc":"2.0","result":{"op":["transfer",{"fee":"0.000000 SPHTX","from":"user1","to":"7HLPQ1kpnAIWawkAEgcoN4I7qJY","amount":"1000.000000 SPHTX","memo":"some note"}]},"id":1}'
   - api_method: transfer_to_vesting
-    operation: true
+    operation: transfer_to_vesting
     purpose: Creates \"transfer_to_vesting\" operation in requested json format. Transfer SPHTX into a vesting fund represented by vesting shares (VESTS). VESTS are required to vesting
       for a minimum of one coin year and can be withdrawn once a week over a two year withdraw period.
       VESTS are protected against dilution up until 90% of SPHTX is vesting.<br><br>
@@ -882,7 +896,7 @@
     parameter_json: '{"from":"","to":"","amount":"0.000000 SPHTX"}'
     expected_response_json: '{"op":["transfer_to_vesting",{"fee":"0.000000 SPHTX","from":"","to":"","amount":"0.000000SPHTX"}]}'
   - api_method: update_account
-    operation: true
+    operation: account_update
     purpose: Creates \"account_update\" operation in requested json format. Updates the keys of an existing account.<br><br>
 
       <b>Request:</b><br>
@@ -899,7 +913,7 @@
     parameter_json: '{"account_name":"","json_meta":"","owner":"SPH1111111111111111111111111111111114T1Anm","active":"SPH1111111111111111111111111111111114T1Anm","memo":"SPH1111111111111111111111111111111114T1Anm"}'
     expected_response_json: '{"op":["account_update",{"fee":"0.000000 SPHTX","account":"","memo_key":"SPH1111111111111111111111111111111114T1Anm","json_metadata":""}]}'
   - api_method: update_application
-    operation: true
+    operation: application_update
     purpose: Creates \"application_update\" operation in requested json format. Updates existing application object.<br><br>
 
       <b>Request:</b><br>
@@ -917,7 +931,7 @@
     parameter_json: '{"author":"","app_name":"","new_author":"","url":"","meta_data":"","price_param":0}'
     expected_response_json: '{"op":["application_update",{"fee":"0.000000 SPHTX","author":"","name":"","url":"","metadata":""}]}'
   - api_method: update_witness
-    operation: true
+    operation: witness_update
     purpose: Creates \"witness_update\" operation in requested json format. Updates a witness object owned by the given account.<br><br>
 
       <b>Request:</b><br>
@@ -948,7 +962,7 @@
     parameter_json: '{"digest":"0000000000000000000000000000000000000000000000000000000000000000","pub_key":"SPH1111111111111111111111111111111114T1Anm","signature":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}'
     expected_response_json: '{"signature_valid":false}'
   - api_method: vote_for_witness
-    operation: true
+    operation: account_witness_vote
     purpose: Creates \"account_witness_vote\" operation in requested json format. Vote for a witness to become a block producer. By default an account has not voted
       positively or negatively for a witness. The account can either vote for with positively votes or against with negative votes. The vote will remain until updated with another
       vote. Vote strength is determined by the accounts vesting shares.<br><br>
@@ -965,7 +979,7 @@
     parameter_json: '{"voting_account":"","witness_to_vote_for":"","approve":false}'
     expected_response_json: '{"op":["account_witness_vote",{"fee":"0.000000 SPHTX","account":"","witness":"","approve":true}]}'
   - api_method: withdraw_vesting
-    operation: true
+    operation: withdraw_vesting
     purpose: Creates \"withdraw_vesting\" operation in requested json format. Set up a vesting withdraw request. The request is fulfilled once a week over the next two year (104 weeks).<br><br>
 
       <b>Request:</b><br>
@@ -978,3 +992,94 @@
       <li>op -  operation "withdraw_vesting" created in required json format.</li><br>
     parameter_json: '{"from":"","vesting_shares":"0.000000 SPHTX"}'
     expected_response_json: '{"op":["withdraw_vesting",{"fee":"0.000000 SPHTX","account":"","vesting_shares":"0.000000SPHTX"}]}'
+
+
+
+
+  - api_method: feed_publish
+    operation: feed_publish
+    manual: true
+    purpose: 'Feeds can only be published by the top N witnesses which are included in every round and are
+      used to define the exchange rate between sophiatx and the fiat currencies.<br><br>
+      Represents quotation of the relative value of asset against another asset.
+      Similar to \"currency pair\" used to determine value of currencies.<br><br>
+
+      For example: <br>
+      1 SPHTX / 1.25 USD where:<br>
+      1 SPHTX is an asset specified as a base<br>
+      1.25 USD us an asset specified as a quote<br><br>
+
+      can determine value of SPHTX against USD.<br>'
+    expected_response_json: '{"op":["feed_publish",{"publisher": "user1","exchange_rate": {"base": {"amount": 1,"symbol": "SPHTX"},"quote": {"amount": 1.25,"symbol": "USD"}}}]}'
+
+  - api_method: escrow_transfer
+    operation: escrow_transfer
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: escrow_approve
+    operation: escrow_approve
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: escrow_dispute
+    operation: escrow_dispute
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: escrow_release
+    operation: escrow_release
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: request_account_recovery
+    operation: request_account_recovery
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: recover_account
+    operation: recover_account
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: change_recovery_account
+    operation: change_recovery_account
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: reset_account
+    operation: reset_account
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: set_reset_account
+    operation: set_reset_account
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: witness_set_properties
+    operation: witness_set_properties
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: transfer_from_promotion_pool
+    operation: transfer_from_promotion_pool
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: admin_witness_update
+    operation: admin_witness_update
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
