@@ -1,10 +1,11 @@
 {% for sections in include.api_data %}
 
+<h4>List of supported operations:</h4>
 <ul>
 {% for method in sections.methods %}
 {% if method.operation %}
 
-    <li><a href="#operations.{{ method.operation | slug}}">{{method.operation}}</a></li>
+<li><a href="#operations.{{ method.operation | slug}}">{{method.operation}}</a></li>
 
 {% endif %}
 {% endfor %}
@@ -30,7 +31,7 @@
 </ul>
 
 
-<h4 id="operations.{{ method.api_method | slug }}">{{method.operation}} <a href="#operations.{{ method.operation | slug}}"><i class="fas fa-link fa-xs"></i></a></h4>
+<h4 id="operations.{{ method.operation | slug }}">{{method.operation}} <a href="#operations.{{ method.operation | slug}}"><i class="fas fa-link fa-xs"></i></a></h4>
 {% unless method.manual %}
 <blockquote class="warning">
     <h5>Helper API simplified call to create this operation in required format exists! See below!</h5>

@@ -15,13 +15,13 @@ you can either submit a pull request or file an issue.
 
 #### Site Resources
 
-The [QUICKSTAST](/quickstart/) section has some general information on working with nodes, existing testnets and building source code.
+The [QUICKSTART](/quickstart/) section has some general information on working with nodes, existing testnets and building source code.
 
 There is also a [TUTORIALS](/tutorials/) section that provide a lot of useful information on different topics like creating custom plugins on top of core functionality of SophiaTX blockchain, etc... 
 
 Our [SDK's](/sdks/) section will take you through the basics of interacting with SophiaTX apis in Javascript and C#.
 
-More detailed API specs are available in the [APPBASE API](/apidefinitions/) section. Those apis are under development, so please read 
+More detailed API specs are available in the [API's](/apidefinitions/) section. Those apis are under development, so please read 
 notes at the top of each section.
 
 [CLI_WALLET](/cli_wallet/) section provides information about tool for interfacing with sophiatxd.

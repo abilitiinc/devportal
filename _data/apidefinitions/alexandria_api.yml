@@ -80,7 +80,21 @@
     parameter_json: '{"tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]},"signature":"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}'
     expected_response_json: '{"signed_tx":{"ref_block_num":0,"ref_block_prefix":0,"expiration":"1970-01-01T00:00:00","operations":[],"extensions":[],"signatures":[]}}'
   - api_method: broadcast_transaction
-    purpose: Used to broadcast a transaction and waits for it to be processed synchronously.<br><br>
+    purpose: Broadcasts a transaction into the network and waits for it to be processed synchronously.<br><br>
+              There are 4 previous steps that needs to be done before broadcast is called.<br>
+              <b>All of them can and should be done locally, not on the blockchain side !!!</b> For inspiration, see<br>
+
+              <li><a href="#alexandria_api.create_simple_transaction">alexandria_api.create_simple_transaction</a></li>
+              <li><a href="#alexandria_api.get_transaction_digest">alexandria_api.get_transaction_digest</a></li>
+              <li><a href="#alexandria_api.sign_digest">alexandria_api.sign_digest</a></li>
+              <li><a href="#alexandria_api.add_siganture">alexandria_api.add_siganture</a></li>
+
+              or
+
+              <li><a href="#alexandria_api.send_and_sign_operation">alexandria_api.send_and_sign_operation</a></li>
+
+              that combines all the previous calls into one.<br><br>
+
               <b>Request</b>
 
               <li>tx - signed transaction</li><br>
@@ -998,6 +1012,74 @@
       can determine value of SPHTX against USD.<br>'
     expected_response_json: '{"op":["feed_publish",{"publisher": "user1","exchange_rate": {"base": {"amount": 1,"symbol": "SPHTX"},"quote": {"amount": 1.25,"symbol": "USD"}}}]}'
 
+  - api_method: escrow_transfer
+    operation: escrow_transfer
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
 
+  - api_method: escrow_approve
+    operation: escrow_approve
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
 
+  - api_method: escrow_dispute
+    operation: escrow_dispute
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
 
+  - api_method: escrow_release
+    operation: escrow_release
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: request_account_recovery
+    operation: request_account_recovery
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: recover_account
+    operation: recover_account
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: change_recovery_account
+    operation: change_recovery_account
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: reset_account
+    operation: reset_account
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: set_reset_account
+    operation: set_reset_account
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: witness_set_properties
+    operation: witness_set_properties
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: transfer_from_promotion_pool
+    operation: transfer_from_promotion_pool
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
+
+  - api_method: admin_witness_update
+    operation: admin_witness_update
+    manual: true
+    purpose: Add description<br><br>
+    expected_response_json: '{"op":["add name",{}]}'
