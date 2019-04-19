@@ -706,7 +706,7 @@
 
   - api_method: transfer
     operation: transfer
-    purpose: Creates \"transfer\" operation in requested json format.
+    purpose: Transfers SOPHIATX from one account to another. API call creates \"transfer\" operation in requested json format.<br><br>
 
       <b>Request:</b><br>
 
@@ -727,9 +727,10 @@
 
   - api_method: transfer_to_vesting
     operation: transfer_to_vesting
-    purpose: Creates \"transfer_to_vesting\" operation in requested json format. Transfer SPHTX into a vesting fund represented by vesting shares (VESTS). VESTS are required to vesting
+    purpose: Transfer SPHTX into a vesting fund represented by vesting shares (VESTS). VESTS are required to vesting
       for a minimum of one coin year and can be withdrawn once a week over a two year withdraw period.
-      VESTS are protected against dilution up until 90% of SPHTX is vesting.<br><br>
+      VESTS are protected against dilution up until 90% of SPHTX is vesting.<br>
+      API call creates \"transfer_to_vesting\" operation in requested json format. <br><br>
 
       <b>Request:</b><br>
 
@@ -745,7 +746,8 @@
 
   - api_method: withdraw_vesting
     operation: withdraw_vesting
-    purpose: Creates \"withdraw_vesting\" operation in requested json format. Set up a vesting withdraw request. The request is fulfilled once a week over the next two year (104 weeks).<br><br>
+    purpose: Set up a vesting withdraw request. The request is fulfilled once a week over the next two year (104 weeks).<br>
+      API call creates \"withdraw_vesting\" operation in requested json format.<br><br>
 
       <b>Request:</b><br>
 
@@ -767,7 +769,8 @@
 
   - api_method: create_account
     operation: account_create
-    purpose: Creates operation 'account_create' in required json format<br><br>
+    purpose: Creates new account in blockchain.<br>
+      API call creates operation 'account_create' in required json format<br><br>
       <b>Request</b>
 
       <li>creator - existing account. It can be later used to regenerate private key of created account</li>
@@ -789,7 +792,8 @@
 
   - api_method: update_account
     operation: account_update
-    purpose: Creates \"account_update\" operation in requested json format. Updates the keys of an existing account.<br><br>
+    purpose: Updates existing account in blockchain.<br>
+      API call creates \"account_update\" operation in requested json format. Updates the keys of an existing account.<br><br>
 
       <b>Request:</b><br>
 
@@ -807,7 +811,8 @@
 
   - api_method: delete_account
     operation: account_delete
-    purpose: Returns "account_delete" operation in requested json format.<br><br>
+    purpose: Deletes existing account in blockchain.<br>
+      API call creates "account_delete" operation in requested json format.<br><br>
       <b>Request:</b>
 
       <li>account_name - name of the account to be deleted</li><br>
@@ -1004,7 +1009,8 @@
 
   - api_method: create_application
     operation: application_create
-    purpose: Returns "application_create" operation in required format. There is a fee associated with account creation
+    purpose: Creates custom application in blockchain<br>.
+      API call returns "application_create" operation in required format. There is a fee associated with account creation
       that is paid by the creator. The current account creation fee can be found with the
       'info' alexandria command.<br><br>
       <b>Request</b>
@@ -1023,7 +1029,8 @@
 
   - api_method: update_application
     operation: application_update
-    purpose: Creates \"application_update\" operation in requested json format. Updates existing application object.<br><br>
+    purpose: Updates custom application in blockchain<br>.
+      API call returns  \"application_update\" operation in requested json format. Updates existing application object.<br><br>
 
       <b>Request:</b><br>
 
@@ -1042,7 +1049,8 @@
 
   - api_method: delete_application
     operation: application_delete
-    purpose: Returns "application_delete" operation in required format.
+    purpose: Deletes custom application in blockchain<br>.
+      API call returns  "application_delete" operation in required format.
       <b>Request</b>
 
       <li>author - author of application that will be deleted i.e. "account_name"</li>
@@ -1056,7 +1064,8 @@
 
   - api_method: buy_application
     operation: buy_application
-    purpose: Returns "buy_application" operation in required format.<br><br>
+    purpose: Buys custom application in blockchain<br>.
+      API call returns  "buy_application" operation in required format.<br><br>
       <b>Request</b>
 
       <li>buyer - buyer of application i.e. "account_name"</li>
@@ -1069,7 +1078,8 @@
 
   - api_method: cancel_application_buying
     operation: cancel_application_buying
-    purpose: Returns "cancel_application_buying" operation in required format.<br><br>
+    purpose: Cancel custom application buying in blockchain<br>.
+      API call returns  "cancel_application_buying" operation in required format.<br><br>
       <b>Request</b>
 
       <li>app_owner - owner of bought application i.e. "account_name"</li>
@@ -1084,7 +1094,8 @@
 
   - api_method: make_custom_binary_operation
     operation: custom_binary
-    purpose: Creates \"custom_binary\" operation in requested json format.
+    purpose: Saves custom binary data in blockchain<br>.
+      API call returns  \"custom_binary\" operation in requested json format.
 
       <b>Request:</b><br>
 
@@ -1105,7 +1116,8 @@
 
   - api_method: make_custom_json_operation
     operation: custom_json
-    purpose: Creates \"custom_json\" operation in requested json format.<br><br>
+    purpose: Saves custom json data in blockchain<br>.
+      API call returns \"custom_json\" operation in requested json format.<br><br>
 
       <b>Request:</b><br>
 
@@ -1126,7 +1138,8 @@
 
   - api_method: sponsor_account_fees
     operation: sponsor_fees
-    purpose: Creates \"sponsor_fees\" operation in requested json format.<br><br>
+    purpose: Sets up sponsoring account for another account fees<br>.
+      API call returns \"sponsor_fees\" operation in requested json format.<br><br>
 
       <b>Request</b>
 
@@ -1142,7 +1155,8 @@
 
   - api_method: stop_witness
     operation: witness_stop
-    purpose: Creates \"witness_stop\" operation in requested json format. Stop being a witness,effectively deleting the witness object owned by the given account.<br><br>
+    purpose: Stops witness.<br>.
+      API call returns \"witness_stop\" operation in requested json format. Stop being a witness,effectively deleting the witness object owned by the given account.<br><br>
 
       <b>Request</b>
 
@@ -1156,7 +1170,8 @@
 
   - api_method: update_witness
     operation: witness_update
-    purpose: Creates \"witness_update\" operation in requested json format. Updates a witness object owned by the given account.<br><br>
+    purpose: Updates witness.<br>.
+      API call returns \"witness_update\" operation in requested json format. Updates a witness object owned by the given account.<br><br>
 
       <b>Request:</b><br>
 
@@ -1174,10 +1189,11 @@
 
   - api_method: set_voting_proxy
     operation: account_witness_proxy
-    purpose: Creates \"account_witness_proxy\" operation in requested json format. Sets the voting proxy for an account. If a user does not wish to take an active part in voting,they can choose
+    purpose: Sets the voting proxy for an account. If a user does not wish to take an active part in voting,they can choose
       to allow another account to vote their stake. Setting a vote proxy does not remove your previous votes from the blockchain,
       they remain there but are ignored. If you later null out your vote proxy, your previous votes will take effect again.
-      This setting can be changed at any time.<br><br>
+      This setting can be changed at any time.<br>
+      API call returns  \"account_witness_proxy\" operation in requested json format. <br><br>
 
       <b>Request</b>
 
