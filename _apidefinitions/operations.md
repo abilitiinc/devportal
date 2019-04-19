@@ -21,7 +21,7 @@ All other [alexandria_api method's](/apidefinitions/#alexandria_api/) (except of
 </blockquote> 
 
 <blockquote class="warning">
-    <h5>We provide helper methods that return the required format of some of the supported operations, but applications should not call these methods at all as the format does not change. Instead, SDK should take care of that.</h5>
+    <h5>We provide simplified helper methods that return the required format of some of the supported operations, but applications should not call these methods at all as the format does not change. Instead, SDK should take care of that.</h5>
 </blockquote> 
 
 {% include api-template-operations.html api_data=site.data.apidefinitions.alexandria_api %}
