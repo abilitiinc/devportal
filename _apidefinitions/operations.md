@@ -13,7 +13,7 @@ There are also simplified methods that enable this functionality as well but are
 [alexandria_api.send_and_sign_operation](/apidefinitions/#alexandria_api.send_and_sign_operation)<br>
 [alexandria_api.send_and_sign_transaction](/apidefinitions/#alexandria_api.send_and_sign_transaction)<br><br>
 
-All other [alexandria_api method's](/apidefinitions/#alexandria_api/) (except of a few helper method to create transaction, etc...) are <b>ONLY FOR READING DATA</b> from blockchain !!!
+All other [alexandria_api method's](/apidefinitions/#apidefinitions-alexandria-api) (except of a few helper method to create transaction, etc...) are <b>ONLY FOR READING DATA</b> from blockchain !!!
 
 
 <blockquote class="success">

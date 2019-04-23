@@ -31,7 +31,12 @@ If you would like to build from source, we do have [build instructions](/quickst
 
 #### Config File
 
-Run `sophiatxd` once to generate a data directory and config file. The default location is `witness_node_data_dir`. Kill `sophiatxd`. It won't do anything without seed nodes. If you want to modify the config to your liking, we have two example configs. ( [full node](https://github.com/SophiaTX/SophiaTX/blob/develop/contrib/fullnode_config.ini), [witness node](https://github.com/SophiaTX/SophiaTX/blob/develop/contrib/witness_config.ini) ) All options will be present in the default config file and there may be more options needing to be changed from the those configs (some of the options actually used in images are configured via command line).
+Run `sophiatxd` once to generate a data directory and config file. The default location is `witness_node_data_dir`. Kill `sophiatxd`. 
+It won't do anything without seed nodes. If you want to modify the config to your liking, we have two example configs. 
+( [full node](https://github.com/SophiaTX/SophiaTX/blob/develop/contrib/fullnode_config.ini), 
+[witness node](https://github.com/SophiaTX/SophiaTX/blob/develop/contrib/witness_config.ini) ) 
+All options will be present in the default config file and there may be more options needing to be changed from 
+those configs (some of the options actually used in images are configured via command line).
 
 #### Seed Nodes
 
