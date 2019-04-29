@@ -35,7 +35,8 @@ Full Nodes have enabled API's plugins so all [Alexandria API calls](/apidefiniti
 
 #### Public Seed Nodes
 
-Seed Nodes are only for syncing the state of blockchain. No API's are enabled (only p2p port 60000 is opened). Users can setup these as "p2p-seed-node" in config.
+Seed Nodes are only for syncing the state of blockchain. No API's are enabled (only p2p port 60000 is opened). 
+Users can setup these as "p2p-seed-node" in config.
 
 | URL                             | Owner          |
 | ------------------------------- | -------------- |
@@ -52,17 +53,38 @@ There are no public witness nodes.
 
 ### Syncing blockchain (public network)
 
-Normally syncing blockchain starts from very first, `0` genesis block. It might take long time to catch up with live network. Because it connectes to various p2p nodes in the SophiaTX network and requests blocks from 0 to head block. It stores blocks in block log file and builds up the current state in the shared memory file. But there is a way to bootstrap syncing by using trusted `block_log` file. The block log is an external append only log of the blocks. It contains blocks that are only added to the log after they are irreversible because the log is append only.
+Normally syncing blockchain starts from very first, `0` genesis block. It might take long time to catch up with live network. 
+Because it connectes to various p2p nodes in the SophiaTX network and requests blocks from 0 to head block. 
+It stores blocks in block log file and builds up the current state in the shared memory file. 
+But there is a way to bootstrap syncing by using trusted `block_log` file. 
+The block log is an external append only log of the blocks. 
+It contains blocks that are only added to the log after they are irreversible because the log is append only.
 
-Trusted block log file helps to download blocks faster. SophiaTX, provides public block log file which can be downloaded from [here](https://...). As of April 2019, size of both `block_log` and `block_log.index` files is ~20 GB.
+Trusted block log file helps to download blocks faster. SophiaTX, provides public downloadable 
+[block_log](https://mega.nz/#!bJwCnQgQ!XincxIHD5XRl3vKqQT3xe4mgkqkeQ_8tKzD34tmXDek) and 
+[block_log.index](https://mega.nz/#!Sc5gXShT!_6W8Ptu4HrU3TMUE5067RKP0qkNQADnJCy7d4Y-YyLw) files. 
+As of April 2019, size of both files is ~1 GB.  
 
-Block log should be place in `blockchain` directory below `data_dir` and node should be started with `--replay-blockchain` to ensure block log is valid and continue to sync from the point of snapshot. Replay uses the downloaded block log file to build up the shared memory file up to the highest block stored in that snapshot and then continues with sync up to the head block.
+To download these files, megatools can be used on linux:
+```
+sudo apt-get install megatools
+megadl '<url>'
+
+Note: as url use block_log & block_log.index links above
+```
+
+
+Block log should be place in `blockchain` directory below `data_dir` and node should be started with `--replay-blockchain` 
+to ensure block log is valid and continue to sync from the point of snapshot. 
+Replay uses the downloaded block log file to build up the shared memory file up to the highest block stored in that snapshot and then 
+continues with sync up to the head block.
 
 Replay helps to sync blockchain in much faster rate, but as blockchain grows in size replay might also take some time to verify blocks. 
 
 ##### Few other tricks that might help: 
 
-For Linux users, virtual memory writes dirty pages of the shared file out to disk more often than is optimal which results in sophiatxd being slowed down by redundant IO operations. These settings are recommended to optimize reindex time.
+For Linux users, virtual memory writes dirty pages of the shared file out to disk more often than is optimal which results in sophiatxd 
+being slowed down by redundant IO operations. These settings are recommended to optimize reindex time.
 
 ```
 echo    75 | sudo tee /proc/sys/vm/dirty_background_ratio
