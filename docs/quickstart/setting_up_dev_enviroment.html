@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:300,400" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/fav.png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/css/fontawesome-all.min.css">
+    <script src="/js/main.js"></script>
+
+    <!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Dev enviroment instructions - SophiaTX Developers</title>
+<meta property="og:title" content="Dev enviroment instructions" />
+<meta name="description" content="Setting up dev env on Ubuntu 18.04.1 For Ubuntu 18.04.1 users, after installing the right packages with apt AbilitiX will build out of the box without further effort: # Required packages sudo apt install -y \ autoconf \ automake \ cmake \ gcc \ g++ \ git \ libbz2-dev \ libssl-dev \ libtool \ make \ pkg-config \ python3 \ python3-jinja2 \ zlib1g-dev \ libsqlite3-dev # Boost packages (also required) sudo apt-get install -y \ libboost-chrono-dev \ libboost-context-dev \ libboost-coroutine-dev \ libboost-date-time-dev \ libboost-filesystem-dev \ libboost-iostreams-dev \ libboost-locale-dev \ libboost-program-options-dev \ libboost-serialization-dev \ libboost-signals-dev \ libboost-system-dev \ libboost-test-dev \ libboost-thread-dev" />
+<meta property="og:description" content="Setting up dev env on Ubuntu 18.04.1 For Ubuntu 18.04.1 users, after installing the right packages with apt AbilitiX will build out of the box without further effort: # Required packages sudo apt install -y \ autoconf \ automake \ cmake \ gcc \ g++ \ git \ libbz2-dev \ libssl-dev \ libtool \ make \ pkg-config \ python3 \ python3-jinja2 \ zlib1g-dev \ libsqlite3-dev # Boost packages (also required) sudo apt-get install -y \ libboost-chrono-dev \ libboost-context-dev \ libboost-coroutine-dev \ libboost-date-time-dev \ libboost-filesystem-dev \ libboost-iostreams-dev \ libboost-locale-dev \ libboost-program-options-dev \ libboost-serialization-dev \ libboost-signals-dev \ libboost-system-dev \ libboost-test-dev \ libboost-thread-dev" />
+<link rel="canonical" href="https://developers.sophiatx.com/quickstart/setting_up_dev_enviroment" />
+<meta property="og:url" content="https://developers.sophiatx.com/quickstart/setting_up_dev_enviroment" />
+<meta property="og:site_name" content="SophiaTX Developers" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "WebPage",
+"headline": "Dev enviroment instructions",
+"description": "Setting up dev env on Ubuntu 18.04.1 For Ubuntu 18.04.1 users, after installing the right packages with apt AbilitiX will build out of the box without further effort: # Required packages sudo apt install -y \\ autoconf \\ automake \\ cmake \\ gcc \\ g++ \\ git \\ libbz2-dev \\ libssl-dev \\ libtool \\ make \\ pkg-config \\ python3 \\ python3-jinja2 \\ zlib1g-dev \\ libsqlite3-dev # Boost packages (also required) sudo apt-get install -y \\ libboost-chrono-dev \\ libboost-context-dev \\ libboost-coroutine-dev \\ libboost-date-time-dev \\ libboost-filesystem-dev \\ libboost-iostreams-dev \\ libboost-locale-dev \\ libboost-program-options-dev \\ libboost-serialization-dev \\ libboost-signals-dev \\ libboost-system-dev \\ libboost-test-dev \\ libboost-thread-dev",
+"url": "https://developers.sophiatx.com/quickstart/setting_up_dev_enviroment"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+<header>
+    <h1>
+        <button type="button" class="open-nav" id="open-nav"></button>
+        <a href="/"  class="logo-link"><img src="/images/logo.svg" height="40" alt="SophiaTX Developers logo"></a>
+    </h1>
+
+    <form action="/search/" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search">
+        <input type="submit" value="Search" style="display: none;">
+    </form>
+
+    <div id="sidebar" class="sidebar">
+	
+	
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/">
+		<h6 class="ctrl-nav-section title">Introduction</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/#introduction-welcome">Welcome to SophiaTX Developer Portal</a></li>
+						
+					
+						
+						<li><a href="/#introduction-sophiatx-blockchain">SophiaTX Blockchain</a></li>
+						
+					
+						
+						<li><a href="/#introduction-chain-basics">Chain Basics</a></li>
+						
+					
+						
+						<li><a href="/#introduction-transactions">Transactions</a></li>
+						
+					
+						
+						<li><a href="/#introduction-governance">Governance</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/quickstart/">
+		<h6 class="ctrl-nav-section title">Quickstart</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/quickstart/#quickstart-setting-up-dev-enviroment">Dev enviroment instructions</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-technical-quickstart">Technical Quickstart</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-build-instructions">Build instructions</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-choose-sdk">Choose SDK</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-sophiatx-nodes">SophiaTX Nodes</a></li>
+						
+					
+						
+						<li><a href="/quickstart/#quickstart-testnet">SophiaTX testnet</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/tutorials/">
+		<h6 class="ctrl-nav-section title">Tutorials</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-to-become-witness">How to become witness</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-to-start-sync-node">How to start sync node</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-multiparty-encryption">Multiparty Encryption</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-subscription-api-quick-guide">Subscription API guide</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg-via-api">Hello World via API calls</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-using-sophiatx-to-send-hello-world-msg">Hello World on SophiaTX</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-dynamic-global-properties">Understanding Dynamic Global Properties</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-automatic-deploy">Node Deploy script</a></li>
+						
+					
+						
+						<li><a href="/tutorials/#tutorials-guide-custom-plugins">Custom plugins</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/sdks/">
+		<h6 class="ctrl-nav-section title">SDK'S</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/sdks/#sdks-dotnet">C# SDK</a></li>
+						
+					
+						
+						<li><a href="/sdks/#sdks-javascript">Javascript SDK</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/apidefinitions/">
+		<h6 class="ctrl-nav-section title">API'S</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-introduction">Introduction</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-operations">Supported Operations</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-alexandria-api">Alexandria Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-database-api">Database Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-jsonrpc">Jsonrpc</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-network-broadcast-api">Network Broadcast Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-account-history-api">Account History Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-block-api">Block Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-chain-api">Chain Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-custom-api">Custom Api</a></li>
+						
+					
+						
+						<li><a href="/apidefinitions/#apidefinitions-subscribe-api">Subscribe Api</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/demos/">
+		<h6 class="ctrl-nav-section title">Demo's</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+		
+    <section class="pnl-main-nav-section main-nav-section" url="/cli_wallet/">
+		<h6 class="ctrl-nav-section title">Cli Wallet</h6>
+		<ul class="cont-nav-section content">
+			
+				
+					
+					
+						
+						<li><a href="/cli_wallet/#cli-wallet-introduction">Introduction</a></li>
+						
+					
+						
+						<li><a href="/cli_wallet/#cli-wallet-rpc-calls">RPC calls</a></li>
+						
+					
+				
+			
+		</ul>
+	</section>
+	
+</div>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+</header>
+<div class="main" id="top">
+    <div class="hero">
+        <h1 class="hero__h1"></h1>
+        <!--<img class="hero__img" src="/images/hero.png">-->
+    </div>
+    <h2 id="setting-up-dev-env-on-ubuntu-18041">Setting up dev env on Ubuntu 18.04.1</h2>
+<p>For Ubuntu 18.04.1 users, after installing the right packages with <code class="highlighter-rouge">apt</code> AbilitiX
+will build out of the box without further effort:
+    # Required packages
+    sudo apt install -y \
+        autoconf \
+        automake \
+        cmake \
+        gcc \
+        g++ \
+        git \
+        libbz2-dev \
+        libssl-dev \
+        libtool \
+        make \
+        pkg-config \
+        python3 \
+        python3-jinja2 \
+        zlib1g-dev \
+        libsqlite3-dev</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Boost packages (also required)
+sudo apt-get install -y \
+    libboost-chrono-dev \
+    libboost-context-dev \
+    libboost-coroutine-dev \
+    libboost-date-time-dev \
+    libboost-filesystem-dev \
+    libboost-iostreams-dev \
+    libboost-locale-dev \
+    libboost-program-options-dev \
+    libboost-serialization-dev \
+    libboost-signals-dev \
+    libboost-system-dev \
+    libboost-test-dev \
+    libboost-thread-dev
+
+# Optional packages (not required, but will make a nicer experience)
+sudo apt install -y \
+    doxygen \
+    libncurses5-dev \
+    libreadline-dev \
+    perl
+    
+git clone https://github.com/abilitiinc/AbilitiX
+cd AbilitiX
+git checkout master
+git submodule update --init --recursive
+</code></pre></div></div>
+
+<p>Now download CLion or other IDE for C/C++ development</p>
+
+<p>https://download.jetbrains.com/cpp/CLion-2019.1.4.tar.gz</p>
+
+
+</div>
+<div class="footer">
+    <a href="#">↑ Back to top</a>
+</div>
+<script>
+    document.getElementById("open-nav").addEventListener("click", function () {
+        document.body.classList.toggle("nav-open");
+    });
+</script>
+</body>
+</html>
+
+<script src="/js/adjust.js"></script>
