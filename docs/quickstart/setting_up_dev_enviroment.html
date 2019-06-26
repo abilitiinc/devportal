@@ -14,18 +14,18 @@
     <script src="/js/main.js"></script>
 
     <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>Dev enviroment instructions - SophiaTX Developers</title>
-<meta property="og:title" content="Dev enviroment instructions" />
-<meta name="description" content="Setting up dev env on Ubuntu 18.04.1 For Ubuntu 18.04.1 users, after installing the right packages with apt AbilitiX will build out of the box without further effort: # Required packages sudo apt install -y \ autoconf \ automake \ cmake \ gcc \ g++ \ git \ libbz2-dev \ libssl-dev \ libtool \ make \ pkg-config \ python3 \ python3-jinja2 \ zlib1g-dev \ libsqlite3-dev # Boost packages (also required) sudo apt-get install -y \ libboost-chrono-dev \ libboost-context-dev \ libboost-coroutine-dev \ libboost-date-time-dev \ libboost-filesystem-dev \ libboost-iostreams-dev \ libboost-locale-dev \ libboost-program-options-dev \ libboost-serialization-dev \ libboost-signals-dev \ libboost-system-dev \ libboost-test-dev \ libboost-thread-dev" />
-<meta property="og:description" content="Setting up dev env on Ubuntu 18.04.1 For Ubuntu 18.04.1 users, after installing the right packages with apt AbilitiX will build out of the box without further effort: # Required packages sudo apt install -y \ autoconf \ automake \ cmake \ gcc \ g++ \ git \ libbz2-dev \ libssl-dev \ libtool \ make \ pkg-config \ python3 \ python3-jinja2 \ zlib1g-dev \ libsqlite3-dev # Boost packages (also required) sudo apt-get install -y \ libboost-chrono-dev \ libboost-context-dev \ libboost-coroutine-dev \ libboost-date-time-dev \ libboost-filesystem-dev \ libboost-iostreams-dev \ libboost-locale-dev \ libboost-program-options-dev \ libboost-serialization-dev \ libboost-signals-dev \ libboost-system-dev \ libboost-test-dev \ libboost-thread-dev" />
+<title>Setting up dev environment - SophiaTX Developers</title>
+<meta property="og:title" content="Setting up dev environment" />
+<meta name="description" content="Setting up dev environment on Ubuntu 18.04.1 For Ubuntu 18.04.1 users, after installing the right packages with apt AbilitiX will build out of the box without further effort:" />
+<meta property="og:description" content="Setting up dev environment on Ubuntu 18.04.1 For Ubuntu 18.04.1 users, after installing the right packages with apt AbilitiX will build out of the box without further effort:" />
 <link rel="canonical" href="https://developers.sophiatx.com/quickstart/setting_up_dev_enviroment" />
 <meta property="og:url" content="https://developers.sophiatx.com/quickstart/setting_up_dev_enviroment" />
 <meta property="og:site_name" content="SophiaTX Developers" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "WebPage",
-"headline": "Dev enviroment instructions",
-"description": "Setting up dev env on Ubuntu 18.04.1 For Ubuntu 18.04.1 users, after installing the right packages with apt AbilitiX will build out of the box without further effort: # Required packages sudo apt install -y \\ autoconf \\ automake \\ cmake \\ gcc \\ g++ \\ git \\ libbz2-dev \\ libssl-dev \\ libtool \\ make \\ pkg-config \\ python3 \\ python3-jinja2 \\ zlib1g-dev \\ libsqlite3-dev # Boost packages (also required) sudo apt-get install -y \\ libboost-chrono-dev \\ libboost-context-dev \\ libboost-coroutine-dev \\ libboost-date-time-dev \\ libboost-filesystem-dev \\ libboost-iostreams-dev \\ libboost-locale-dev \\ libboost-program-options-dev \\ libboost-serialization-dev \\ libboost-signals-dev \\ libboost-system-dev \\ libboost-test-dev \\ libboost-thread-dev",
+"headline": "Setting up dev environment",
+"description": "Setting up dev environment on Ubuntu 18.04.1 For Ubuntu 18.04.1 users, after installing the right packages with apt AbilitiX will build out of the box without further effort:",
 "url": "https://developers.sophiatx.com/quickstart/setting_up_dev_enviroment"}</script>
 <!-- End Jekyll SEO tag -->
 
@@ -88,7 +88,7 @@
 					
 					
 						
-						<li><a href="/quickstart/#quickstart-setting-up-dev-enviroment">Dev enviroment instructions</a></li>
+						<li><a href="/quickstart/#quickstart-setting-up-dev-enviroment">Setting up dev environment</a></li>
 						
 					
 						
@@ -289,28 +289,29 @@
         <h1 class="hero__h1"></h1>
         <!--<img class="hero__img" src="/images/hero.png">-->
     </div>
-    <h2 id="setting-up-dev-env-on-ubuntu-18041">Setting up dev env on Ubuntu 18.04.1</h2>
+    <h2 id="setting-up-dev-environment-on-ubuntu-18041">Setting up dev environment on Ubuntu 18.04.1</h2>
 <p>For Ubuntu 18.04.1 users, after installing the right packages with <code class="highlighter-rouge">apt</code> AbilitiX
-will build out of the box without further effort:
-    # Required packages
-    sudo apt install -y \
-        autoconf \
-        automake \
-        cmake \
-        gcc \
-        g++ \
-        git \
-        libbz2-dev \
-        libssl-dev \
-        libtool \
-        make \
-        pkg-config \
-        python3 \
-        python3-jinja2 \
-        zlib1g-dev \
-        libsqlite3-dev</p>
+will build out of the box without further effort:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Boost packages (also required)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Required packages
+sudo apt install -y \
+    autoconf \
+    automake \
+    cmake \
+    gcc \
+    g++ \
+    git \
+    libbz2-dev \
+    libssl-dev \
+    libtool \
+    make \
+    pkg-config \
+    python3 \
+    python3-jinja2 \
+    zlib1g-dev \
+    libsqlite3-dev
+    
+# Boost packages (also required)
 sudo apt-get install -y \
     libboost-chrono-dev \
     libboost-context-dev \
@@ -339,9 +340,16 @@ git checkout master
 git submodule update --init --recursive
 </code></pre></div></div>
 
-<p>Now download CLion or other IDE for C/C++ development</p>
+<p>##IDE
+Now download CLion or other IDE for C/C++ development</p>
 
 <p>https://download.jetbrains.com/cpp/CLion-2019.1.4.tar.gz</p>
+
+<p>*Open new project
+*Select right folder
+*Wait till cmake finish configuration
+*Then select right target to build
+*Run build</p>
 
 
 </div>

@@ -1,11 +1,12 @@
 ---
-title: Dev enviroment instructions
+title: Setting up dev environment
 position: 1
 exclude: true
 ---
-## Setting up dev env on Ubuntu 18.04.1 
+## Setting up dev environment on Ubuntu 18.04.1 
 For Ubuntu 18.04.1 users, after installing the right packages with `apt` AbilitiX
 will build out of the box without further effort:
+
     # Required packages
     sudo apt install -y \
         autoconf \
@@ -52,10 +53,16 @@ will build out of the box without further effort:
     git checkout master
     git submodule update --init --recursive
     
+##IDE
 Now download CLion or other IDE for C/C++ development
 
 https://download.jetbrains.com/cpp/CLion-2019.1.4.tar.gz
 
+*Open new project
+*Select right folder
+*Wait till cmake finish configuration
+*Then select right target to build
+*Run build 
 
 
    
