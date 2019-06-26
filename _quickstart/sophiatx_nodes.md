@@ -1,6 +1,6 @@
 ---
 title: SophiaTX Nodes
-position: 4
+position: 5
 exclude: true
 ---
 
