@@ -53,16 +53,26 @@ will build out of the box without further effort:
     git checkout master
     git submodule update --init --recursive
     
-##IDE
-Now download CLion or other IDE for C/C++ development
 
-https://download.jetbrains.com/cpp/CLion-2019.1.4.tar.gz
+## IDE
+* Now download CLion or other IDE for C/C++ development here: https://download.jetbrains.com/cpp/CLion-2019.1.4.tar.gz
+* Open new project
 
-*Open new project
-*Select right folder
-*Wait till cmake finish configuration
-*Then select right target to build
-*Run build 
+![open1](images/open1.png)
+* Select right folder
+
+![Open2](images/open2.png)
+
+* Wait till cmake finish configuration
+* Then select right target to build
+
+![Target](images/target.png)
+* Run build
+
+![Build](images/build.png)
+* Wait until build is finished
+
+![Building](images/building.png)  
 
 
    
