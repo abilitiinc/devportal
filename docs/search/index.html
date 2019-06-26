@@ -88,6 +88,10 @@
 					
 					
 						
+						<li><a href="/quickstart/#quickstart-setting-up-dev-enviroment">Dev enviroment instructions</a></li>
+						
+					
+						
 						<li><a href="/quickstart/#quickstart-technical-quickstart">Technical Quickstart</a></li>
 						
 					
@@ -728,6 +732,23 @@
 		  				"type": "",
 							"url": "/quickstart/choose_sdk",
 							"content": "Getting started to develop robust and feature rich SophiaTX applications couldn’t be easier. Accessing sophiaTX data is easy from various options depending on your infrastructure and objectives.\n\nBuilding a picture discovery app is a breeze with the JavaScript and C# available. More SDK’s might be developed in the future."
+						}
+						
+					
+				
+			
+				
+					
+						,
+						
+						"quickstart-setting-up-dev-enviroment": {
+							"id": "quickstart-setting-up-dev-enviroment",
+							"title": "Dev enviroment instructions",
+							"category": "quickstart",
+							"description": "",
+		  				"type": "",
+							"url": "/quickstart/setting_up_dev_enviroment",
+							"content": "Setting up dev env on Ubuntu 18.04.1\nFor Ubuntu 18.04.1 users, after installing the right packages with apt AbilitiX\nwill build out of the box without further effort:\n    # Required packages\n    sudo apt install -y \\\n        autoconf \\\n        automake \\\n        cmake \\\n        gcc \\\n        g++ \\\n        git \\\n        libbz2-dev \\\n        libssl-dev \\\n        libtool \\\n        make \\\n        pkg-config \\\n        python3 \\\n        python3-jinja2 \\\n        zlib1g-dev \\\n        libsqlite3-dev\n\n# Boost packages (also required)\nsudo apt-get install -y \\\n    libboost-chrono-dev \\\n    libboost-context-dev \\\n    libboost-coroutine-dev \\\n    libboost-date-time-dev \\\n    libboost-filesystem-dev \\\n    libboost-iostreams-dev \\\n    libboost-locale-dev \\\n    libboost-program-options-dev \\\n    libboost-serialization-dev \\\n    libboost-signals-dev \\\n    libboost-system-dev \\\n    libboost-test-dev \\\n    libboost-thread-dev\n\n# Optional packages (not required, but will make a nicer experience)\nsudo apt install -y \\\n    doxygen \\\n    libncurses5-dev \\\n    libreadline-dev \\\n    perl\n    \ngit clone https://github.com/abilitiinc/AbilitiX\ncd AbilitiX\ngit checkout master\ngit submodule update --init --recursive\n\n\nNow download CLion or other IDE for C/C++ development\n\nhttps://download.jetbrains.com/cpp/CLion-2019.1.4.tar.gz"
 						}
 						
 					
