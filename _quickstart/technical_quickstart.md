@@ -1,6 +1,6 @@
 ---
 title: Technical Quickstart
-position: 1
+position: 2
 exclude: true
 ---
 
